@@ -34,7 +34,7 @@ const scaleAnimation ={
     window.addEventListener("mousemove",(e)=> {
       const {clientX, clientY}= e;
       const l =e.pageY;
-      console.log(l);
+      
       moveContainerX(clientX);
       moveContainerY(l );
       

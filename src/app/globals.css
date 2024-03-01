@@ -11,3 +11,11 @@ html::-webkit-scrollbar-thumb{
 html::-webkit-scrollbar{
     background-color: black;
 }
+
+@layer components {
+
+#react{
+    @apply  top-1/2 left-1/2 absolute;
+}
+
+}

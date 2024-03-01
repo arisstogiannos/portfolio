@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { navLinks } from "@/app/data";
 import Light from "./Light";
 
+
 function Navbar() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [clickedLink, setClickedLink] = useState(null);
@@ -24,7 +25,7 @@ function Navbar() {
               }}
               onClick={() => {
                 setClickedLink(i);
-                window.scrollTo(0,1080*i)
+                window.scrollTo({top:1000*i,left:0,behavior:"smooth"})
               }}
               className="flex justify-center items-center relative  "
             >
@@ -35,7 +36,7 @@ function Navbar() {
               >
                 {link.title}
               </Link>
-              <Light flag={selectedLink == i ? true : false} />
+              <Light flag={(selectedLink == i ? true : false) } />
             </li>
           );
         })}

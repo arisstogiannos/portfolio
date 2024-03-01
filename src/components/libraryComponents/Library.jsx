@@ -35,7 +35,7 @@ function Library(){
       <section className="flex items-center justify-center h-[100vh] bg-[#070914] ">
         <div className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
-            projects.map( (project, index) =>{
+             projects.map( (project, index) =>{
               return <Project key={index} index={index} title ={project.title} setModal={setModal} />
             })
           }

@@ -24,7 +24,7 @@ function ServiceHovered({ services, selectedService }) {
         <div className=" flex items-center min-w-[360px] justify-between row-start-2 row-end-3">
             <h3 className="w-20 ml-6 text-mblack ">{title}</h3>
             <svg
-            className={`mr-6 ${selectedService == i ? "transform -rotate-45 transition duration-200 delay-300" : ""}  duration-1000`}
+            className={`mr-6 ${selectedService == i ? " animate-mBounce " : ""}  duration-1000`}
             xmlns="http://www.w3.org/2000/svg"
             width="41"
             height="41"
@@ -53,5 +53,5 @@ function ServiceHovered({ services, selectedService }) {
   </div>)
 }
   
-
+// transform -rotate-45 transition duration-200 delay-300
 export default ServiceHovered;
