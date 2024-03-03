@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react'
+
 import localfont from 'next/font/local'
-import { useScroll } from 'framer-motion'
+
 
 const hanson=localfont({src:'../../../fonts/Hanson-Bold.ttf'})
 const satoshiBold = localfont({src:'../../../fonts/OTF/Satoshi-Bold.otf'})

@@ -41,7 +41,7 @@ function Library(){
           }
         </div>
         <Modal modal={modal} projects={projects}/>
-        <h1 className="absolute 2xl::top-[2000px] top-[1600px] text-[500px] text-[#008080] " style={{filter:'blur(50px)'}}>WORK</h1>
+        <h1 className="absolute 2xl:top-[2000px] top-[1600px] text-[500px] text-[#008080] " style={{filter:'blur(50px)'}}>WORK</h1>
       </section>
     )
   }

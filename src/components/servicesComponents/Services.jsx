@@ -58,7 +58,7 @@ function Services() {
              <Service services={servicelist} setSelectedService={setSelectedService}/>
              <ServiceHovered services={servicelist} selectedService={selectedService}/>
             
-            <div className="w-[360px] h-[700px] border-solid border-white  flex items-center border-[1px] border-l-0 border-r-0 justify-center z-50">
+            <div className="w-[360px] h-[700px] border-solid border-white  flex items-center border-[1px] border-l-0 border-r-0 justify-center z-10">
               <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div>
               <CircleText/>

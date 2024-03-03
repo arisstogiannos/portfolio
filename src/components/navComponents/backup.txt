@@ -1,0 +1,45 @@
+<nav
+      ref={nav}
+      className={`flex ${flag ? "justify-end items-start" : "justify-between items-center"}  w-[1440px] h-28 mx-auto bg-transparent sticky top-0 z-50 text-white   text-xl font-medium `}
+    >
+      <h1 className={`${flag ? "hidden" : ""} cursor-pointer`}>Aris Stogiannos</h1>
+      <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} flag={flag} />
+      <motion.div variants={variants} animate={isOpen&&flag ? 'open': 'closed'} initial='closed' className={`${isOpen&&flag?' bg-red-800  rounded-[25px] z-[900] flex flex-col justify-center items-center gap-14 mt-9 ':''}`}>
+        {/* <div className={`${flag? '':'hidden' }`}> */}
+         
+        {/* </div> */}
+      
+      <ul className={` flex     ${flag&&isOpen ? " flex-col   z-[1000]  gap-20 justify-center items-center " : ""} ${flag&&!isOpen?"flex-col   z-[1000]  gap-20 justify-center items-center hidden":""} `}>
+        {navLinks.map((link, i) => {
+          return (
+            <li
+              onMouseEnter={() => {
+                setSelectedLink(i);
+              }}
+              onMouseLeave={() => {
+                setSelectedLink(clickedLink);
+              }}
+              onClick={() => {
+                setClickedLink(i);
+                window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
+              }}
+              className="flex justify-center items-center relative  "
+            >
+              <Link
+                className={`absolute -translate-x-1/2  left-1/2   cursor-pointer ${
+                  selectedLink == i ? "opacity-100" : "opacity-50"
+                } transition duration-300 z-50  drop-shadow `}
+                key={i}
+                href={""}
+              >
+                {link.title}
+              </Link>
+              <div className={`${flag?'hidden':''}`}>
+              <Light flag={selectedLink == i ? true : false} />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      </motion.div>
+    </nav>
