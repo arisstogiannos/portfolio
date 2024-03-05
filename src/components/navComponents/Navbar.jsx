@@ -1,17 +1,14 @@
 "use client";
-import Link from "next/link";
 import React, { useRef, useState } from "react";
 import localfont from "next/font/local";
 import { useScroll, motion, AnimatePresence } from "framer-motion";
-import { navLinks } from "@/app/data";
-import Light from "./Light";
 import MenuButton from "./MenuButton";
 import Dropdown from "./Dropdown";
+import NavLinks from "./NavLinks";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState(null);
-  const [clickedLink, setClickedLink] = useState(null);
   const [flag, setFlag] = useState(false);
   const nav = useRef(null);
   const { scrollY } = useScroll({
@@ -32,12 +29,14 @@ function Navbar() {
       <h1 className={`${flag ? "hidden" : ""} cursor-pointer`}>
         Aris Stogiannos
       </h1>
+      {!flag&&<NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} />}
       <AnimatePresence>
         {flag&&<MenuButton isOpen={isOpen} setIsOpen={setIsOpen} flag={flag} />}
       </AnimatePresence>
       <AnimatePresence>
         {flag && <Dropdown isOpen={isOpen} selectedLink={selectedLink} />}
       </AnimatePresence>
+
     </nav>
   );
 }

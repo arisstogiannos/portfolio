@@ -2,7 +2,7 @@ import React from 'react'
 
 function Light({flag}) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="173" height="126" viewBox="0 0 173 126" fill="none" className={`${flag ? 'opacity-100' : 'opacity-0'} transition duration-300`}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="126" viewBox="0 0 173 126" fill="none" className={`${flag ? 'opacity-100' : 'opacity-0'} transition duration-300`}>
   <g filter="url(#filter0_f_1_671)">
     <path d="M146.459 100L110.099 -19L67.5547 -19L26.0001 100L146.459 100Z" fill="url(#paint0_linear_1_671)"/>
     <path d="M146.459 100L110.099 -19L67.5547 -19L26.0001 100L146.459 100Z" stroke="black" stroke-width="0.208406"/>

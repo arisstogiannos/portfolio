@@ -8,7 +8,7 @@ const worksans = Work_Sans({
 })
 
 function ServiceHovered({ services, selectedService }) {
-  return (<div className="absolute flex "> 
+  return (<div className="absolute flex h-full"> 
     {services.map((s, i) => {
     const { title, desc } = s;
 
@@ -19,9 +19,9 @@ function ServiceHovered({ services, selectedService }) {
         style={{
           clipPath: selectedService == i ? "inset(0 0 0)" : "inset(0 100% 0)",
         }}
-        className={`${selectedService == i ? "z-50" : "z-0"}  pointer-events-none w-[360px] h-[700px] border-solid border-white bg-white grid  grid-rows-3 grid-cols-1  border-[1px] border-l-0  transition-all duration-500`}
+        className={`${selectedService == i ? "z-50" : "z-0"}  pointer-events-none w-[360px] h-full border-solid border-white bg-white grid  grid-rows-3 grid-cols-1  border-[1px] border-l-0  transition-all duration-500 relative`}
       >
-        <div className=" flex items-center min-w-[360px] justify-between row-start-2 row-end-3">
+        <div className="h-full flex items-center min-w-[360px] justify-between row-start-2 row-end-3 ">
             <h3 className="w-20 ml-6 text-mblack ">{title}</h3>
             <svg
             className={`mr-6 ${selectedService == i ? " animate-mBounce " : ""}  duration-1000`}
@@ -45,7 +45,7 @@ function ServiceHovered({ services, selectedService }) {
             />
             </svg>
         </div>
-            <motion.p style={worksans.style} animate={{top: selectedService==i ? '620px' :'800px'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  relative top-[620px] mx-4">{desc}</motion.p>
+            <motion.p style={worksans.style} animate={{top: selectedService==i ? '90%' :'110%'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  absolute w-full top-[90%] mx-4">{desc}</motion.p>
             
       </div>
     );

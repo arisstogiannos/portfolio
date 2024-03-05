@@ -30,7 +30,7 @@ module.exports = {
       animation: {
         'spin-slow':'spin 29s linear infinite',
         'mBounce':'myBounce 1s infinite 0.3s',
-        'mBounce-long':'myBounceLong 5s infinite ',
+        'mBounce-long':'myBounceLong 2s infinite ',
       },
       keyframes:{
         myBounce:{
@@ -47,20 +47,21 @@ module.exports = {
       },
         myBounceLong:{
          ' 0%, 100%' :{
-           transform: 'none',
-          // 'animation-timing-function': 'cubic-bezier(0,0.25,0.50,0.75,1)'
+           transform: 'translateY(-40%) translateX(-50%)',
+           'animation-timing-function': 'cubic-bezier(0,0,0.2,1)'
           
           },
           ' 50%' : {
-            transform: 'translateY(-15%)',
-           // 'animation-timing-function' : 'cubic-bezier(0,0.25,0.50,0.75,1)',
+            transform: 'translateY(-60%) translateX(-50%)',
+            'animation-timing-function' : 'cubic-bezier(0.8,0,1,1)'
               
           }
       },
       },
       colors:{
         'mwhite':'#D4F1F4',
-        'mblack':'#070914'
+        'mblack':'#070914',
+        'mblue' : '#008080',
       },
       
     },

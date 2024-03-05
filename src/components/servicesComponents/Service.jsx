@@ -1,18 +1,41 @@
 import React from "react";
+import { motion } from "framer-motion";
 
-function Service({ services, setSelectedService }) {
+function Service({ isInView,services, setSelectedService }) {
+  
+  const enterViewVariants ={
+    initial:{
+      x:-1300,
+
+    },
+    enter:(i)=>({
+      x:0,
+      transition:{
+        duration:0.8, 
+        ease:[.215, .61, .315,1],
+        delay:0.2+i*0.2
+
+
+      }
+    }),
+  }
+
   return services.map((s, i) => {
     const { title, desc } = s;
 
     return (
-      <div
+      <motion.div
+      custom={2-i}
+      variants={enterViewVariants}
+      initial='initial'
+    animate={`${isInView&&'enter'}`}
         onMouseOver={() => {
           setSelectedService(i);
         }}
         onMouseLeave={() => {
           setSelectedService(null);
         }}
-        className=" w-[360px] h-[700px] border-solid border-white cursor-pointer flex items-center border-[1px] border-l-0 justify-between z-30"
+        className=" w-[360px] h-full  border-solid border-white cursor-pointer flex items-center border-[1px] border-l-0 justify-between z-30"
       >
         <h3 className="w-10 ml-6  ">{title}</h3>
         <svg
@@ -36,7 +59,7 @@ function Service({ services, setSelectedService }) {
             fill="white"
           />
         </svg>
-      </div>
+      </motion.div>
     );
   });
 }

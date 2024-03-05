@@ -4,14 +4,18 @@ import {motion} from 'framer-motion';
 export default function MenuButton({ isOpen, setIsOpen , flag }) {
   const variants = {
     initial:{
-      x:2000
+      y:-200
     },
     enter:{
-      x:0,
-      transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
+      y:0,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8
+      }
     },
     exit:{
-      x:2000,
+      y:-200,
       transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] }
     }
   }
@@ -20,9 +24,9 @@ export default function MenuButton({ isOpen, setIsOpen , flag }) {
     variants={variants}
     initial='initial'
     animate='enter'
-    exit='exit'
+    
       onClick={()=>(setIsOpen(!isOpen))}
-      className={` cursor-pointer z-[1200] text-base  w-24 h-9 bg-slate-400  rounded-full absolute  overflow-hidden mt-9  `}
+      className={` cursor-pointer z-[2000] text-base  w-24 h-9 bg-slate-400  rounded-full absolute  overflow-hidden mt-9  `}
     >
       <motion.div
       className="relative w-full h-full"

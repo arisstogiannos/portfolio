@@ -1,19 +1,20 @@
 import React from 'react'
+import { navLinks } from "@/app/data";
+import { useState } from 'react';
+import Link from "next/link";
+import Light from "./Light";
 
-export default function NavLinks() {
+
+
+export default function NavLinks({selectedLink, setSelectedLink}) {
+
+  
+  const [clickedLink, setClickedLink] = useState(null);
+
   return (
-    <nav
-      ref={nav}
-      className={`flex ${flag ? "justify-end items-start" : "justify-between items-center"}  w-[1440px] h-28 mx-auto bg-transparent sticky top-0 z-50 text-white   text-xl font-medium `}
-    >
-      <h1 className={`${flag ? "hidden" : ""} cursor-pointer`}>Aris Stogiannos</h1>
-      <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} flag={flag} />
-      <motion.div variants={variants} animate={isOpen&&flag ? 'open': 'closed'} initial='closed' className={`${isOpen&&flag?' bg-red-800  rounded-[25px] z-[900] flex flex-col justify-center items-center gap-14 mt-9 ':''}`}>
-        {/* <div className={`${flag? '':'hidden' }`}> */}
-         
-        {/* </div> */}
+   
       
-      <ul className={` flex     ${flag&&isOpen ? " flex-col   z-[1000]  gap-20 justify-center items-center " : ""} ${flag&&!isOpen?"flex-col   z-[1000]  gap-20 justify-center items-center hidden":""} `}>
+      <ul className={` flex   gap-0 `}>
         {navLinks.map((link, i) => {
           return (
             <li
@@ -31,21 +32,22 @@ export default function NavLinks() {
             >
               <Link
                 className={`absolute -translate-x-1/2  left-1/2   cursor-pointer ${
-                  selectedLink == i ? "opacity-100" : "opacity-50"
+                  selectedLink == i ? "opacity-100 scale-105 -translate-y-1" : "opacity-50"
                 } transition duration-300 z-50  drop-shadow `}
                 key={i}
                 href={""}
               >
                 {link.title}
               </Link>
-              <div className={`${flag?'hidden':''}`}>
+              
               <Light flag={selectedLink == i ? true : false} />
-              </div>
+              
             </li>
           );
         })}
+        <Link id='btn' href={'/'} className='w-32
+         h-10 my-auto border-mblue text-mblue border-solid border-2 rounded-lg flex justify-center items-center mr-10 fill-transparent'>Hire me</Link>
       </ul>
-      </motion.div>
-    </nav>
+     
   )
 }

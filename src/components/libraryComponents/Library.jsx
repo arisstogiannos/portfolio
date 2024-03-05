@@ -32,7 +32,7 @@ function Library(){
     const [modal, setModal] = useState({active:false, index:0})
   
     return (
-      <section className="flex items-center justify-center h-[100vh] bg-[#070914] ">
+      <section className="flex items-center justify-center h-[100vh] bg-[#070914]  mt-40">
         <div className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
              projects.map( (project, index) =>{
@@ -41,7 +41,7 @@ function Library(){
           }
         </div>
         <Modal modal={modal} projects={projects}/>
-        <h1 className="absolute 2xl:top-[2000px] top-[1600px] text-[500px] text-[#008080] " style={{filter:'blur(50px)'}}>WORK</h1>
+        <h1 className="absolute top-[2160px] md:top-[1760px] text-[500px] text-[#008080] " style={{filter:'blur(50px)'}}>WORK</h1>
       </section>
     )
   }

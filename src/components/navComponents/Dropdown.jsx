@@ -8,6 +8,7 @@ function Dropdown({ isOpen }) {
   const [clickedLink, setClickedLink] = useState(null);
   const variants = {
     open: {
+      opacity:1,
       width: 300,
       height: 400,
       top: -20,
@@ -15,19 +16,31 @@ function Dropdown({ isOpen }) {
       transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
     },
     closed: {
+     opacity:1,
       width: 96,
       height: 36,
       top: 0,
       right: 0,
-      transition: { duration: 0.75, delay: 0.3, ease: [0.76, 0, 0.24, 1] },
+      transition: {
+        opacity:{ duration: 0.3, delay: 0.5, ease: [0.76, 0, 0.24, 1]},
+        duration: 0.75, delay: 0.3, ease: [0.76, 0, 0.24, 1] },
     },
+    initial:{
+      opacity:0,
+      width: 96,
+      height: 36,
+      right: 0,
+     
+    }
   };
   const perspective = {
     initial: {
       opacity: 0,
       rotateX:90,
       translateY:80,
-      translateX:-20
+      translateX:-20,
+      transition: { duration: 0.75,  ease: [0.76, 0, 0.24, 1] },
+
     },
     enter: (i) => ({
       opacity: 1,
@@ -46,22 +59,50 @@ function Dropdown({ isOpen }) {
     },
   };
 
+  const hoverVariants ={
+    enter:{
+      translateX:-10,
+      transition: { 
+        duration:0.65,
+        ease:[.215, .61, .315,1]
+    }
+    },
+    exit:{
+      translateX:0,
+      transition: { 
+        duration:0.65,
+        ease:[.215, .61, .315,1]
+    }
+    }
+  }
+
   return (
     <motion.div
       variants={variants}
       animate={isOpen ? "open" : "closed"}
-      initial="closed"
-      className={` bg-[#008080]  rounded-[25px] z-[900] absolute   mt-9 `}
+      initial="initial"
+      className={` bg-mwhite  rounded-[25px]  absolute   mt-9 `}
     >
       <AnimatePresence>
         {isOpen && (
-          <div className="h-full pl-[40px] pt-[100px] pb-[50px] pr-[40px] box-border ">
-            <ul className={`flex flex-col   z-[1000]  gap-5   `}>
+          <div className="h-full  pt-[100px] pb-[50px] pr-[40px] box-border relative">
+            <ul className={`flex flex-col    z-[1000]  relative   `}>
               {navLinks.map((link, i) => {
                 return (
-                  <div key={i} style={{perspective:'120px',perspectiveOrigin:'bottom'}} >
+                  <motion.div variants={hoverVariants} animate='enter' exit='exit' initial='exit' key={i} style={{perspective:'120px',perspectiveOrigin:'bottom'}} className="" >
                     <motion.li
-                    
+                     onMouseEnter={() => {
+                      setSelectedLink(i);
+                    }}
+                    onMouseLeave={() => {
+                      setSelectedLink(clickedLink);
+                    }}
+                    onClick={() => {
+                      setClickedLink(i);
+                      window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
+                    }}
+                    className={`absolute `}
+                    style={{top:i*50}}
                       custom={i}
                       variants={perspective}
                       initial="initial"
@@ -69,14 +110,14 @@ function Dropdown({ isOpen }) {
                       exit="exit"
                     >
                       <Link
-                        className={`cursor-pointer text-3xl font-medium z-50 text-mblack `}
+                        className={`cursor-pointer text-3xl font-medium z-50 text-mblack transition absolute  duration-500 px-14 ease-in-out ${selectedLink==i?' -translate-x-1  scale-105  text-mwhite ':'translate-x-1'}`}
                         key={i}
                         href={""}
                       >
                         {link.title}
                       </Link>
                     </motion.li>
-                  </div>
+                  </motion.div>
                 );
               })}
             </ul>
