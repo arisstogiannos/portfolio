@@ -1,10 +1,15 @@
 "use client"
 
-import { useState } from "react";
+import { useState,useRef } from "react";
 import  Project  from "./Project";
 import Modal from "./Modal";
+import { Montserrat, Work_Sans } from "next/font/google";
+import localfont from "next/font/local";
+import { inView, motion, useInView } from "framer-motion";
 
-function Library(){
+const medium = localfont({ src: "../../../fonts/medium.otf" });
+
+function Library({setCursorScale}){
 
     const projects= [
       {
@@ -30,18 +35,21 @@ function Library(){
     ]
   
     const [modal, setModal] = useState({active:false, index:0})
+    const ref = useRef(null)
+const isInView= useInView(ref,{once:true,amount:0.4})
   
     return (
-      <section className="flex items-center justify-center h-[100vh] bg-[#070914]  mt-40">
-        <div className=" flex justify-center items-center flex-col  w-[1440px] z-10">
+      <section  ref={ref} className="flex items-center justify-center h-[100vh] bg-transparent  mt-40">
+        <div onMouseEnter={()=>setCursorScale(true)} onMouseLeave={()=>setCursorScale(false)} className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
              projects.map( (project, index) =>{
-              return <Project key={index} index={index} title ={project.title} setModal={setModal} />
+              return <Project key={index} index={index} title ={project.title} setModal={setModal} isInView={isInView} />
             })
           }
         </div>
         <Modal modal={modal} projects={projects}/>
-        <h1 className="absolute top-[2160px] md:top-[1760px] text-[500px] text-[#008080] " style={{filter:'blur(50px)'}}>WORK</h1>
+        <h3 style={medium.style} className="absolute left-1/2 -translate-x-1/2 2xl:top-[2320px] md:top-[1760px] text-[350px] text-mblack/60   " >WORK</h3>
+      
       </section>
     )
   }

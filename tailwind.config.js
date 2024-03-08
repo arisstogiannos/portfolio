@@ -31,6 +31,7 @@ module.exports = {
         'spin-slow':'spin 29s linear infinite',
         'mBounce':'myBounce 1s infinite 0.3s',
         'mBounce-long':'myBounceLong 2s infinite ',
+        'background':'background 9s linear infinite'
       },
       keyframes:{
         myBounce:{
@@ -57,6 +58,41 @@ module.exports = {
               
           }
       },
+      background:{
+        '0%':{
+          left:550,
+          top:550,
+          
+           'animation-timing-function': 'cubic-bezier(0,0.2,0.4,0.6,0.8,1)'
+        },
+        '25%':{
+          left:300,
+          top:200,
+          
+          
+           'animation-timing-function': 'cubic-bezier(0,0.2,0.4,0.6,0.8,1)'
+        },
+        '50%':{
+          left:500,
+          top:290,
+          
+           'animation-timing-function': 'cubic-bezier(0,0.2,0.4,0.6,0.8,1)'
+        },
+        '75%':{
+          left:800,
+          top:690,
+          
+           'animation-timing-function': 'cubic-bezier(0,0.2,0.4,0.6,0.8,1)'
+        },
+        '100%':{
+          left:1000,
+          top:490,
+          
+           'animation-timing-function': 'cubic-bezier(0,0.2,0.4,0.6,0.8,1)'
+        },
+        
+        
+      }
       },
       colors:{
         'mwhite':'#D4F1F4',

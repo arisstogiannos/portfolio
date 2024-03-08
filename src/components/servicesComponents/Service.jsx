@@ -5,7 +5,7 @@ function Service({ isInView,services, setSelectedService }) {
   
   const enterViewVariants ={
     initial:{
-      x:-1300,
+      x:-1400,
 
     },
     enter:(i)=>({
@@ -35,7 +35,7 @@ function Service({ isInView,services, setSelectedService }) {
         onMouseLeave={() => {
           setSelectedService(null);
         }}
-        className=" w-[360px] h-full  border-solid border-white cursor-pointer flex items-center border-[1px] border-l-0 justify-between z-30"
+        className=" w-[360px] h-full   cursor-pointer flex items-center  border-[1px] border-t-0 border-b-0 border-l-0 justify-between z-30"
       >
         <h3 className="w-10 ml-6  ">{title}</h3>
         <svg

@@ -1,20 +1,31 @@
 import localfont from "next/font/local";
+import { Montserrat, Work_Sans } from "next/font/google";
 
 const hanson = localfont({ src: "../../../fonts/Hanson-Bold.ttf" });
 const satoshiBold = localfont({ src: "../../../fonts/OTF/Satoshi-Bold.otf" });
+const medium = localfont({src: "../../../fonts/medium.otf"})
+
+const worksans = Work_Sans({
+  subsets:['latin'],
+  weight:["300","400","500",'600']
+})
+const montserat = Montserrat({
+  subsets:['latin'],
+  weight:["300","400","500",'600']
+})
 
 function Hero() {
   return (
-    <section className={` h-screen w-[1440px] mx-auto flex   `}>
+    <section id='hero' className={` h-screen w-[1440px] mx-auto flex   `}>
       <div className="absolute left-[270px] top-[150px] -z-40 hidden">{brush()}</div>
       <h1
-        style={hanson.style}
-        className=" 2xl:text-[80px] 3xl:text-[100px]  2xl:w-[1200px] 3xl:w-[1500px] mt-16 bg-gradient-to-br bg-clip-text from-mwhite from-20% to-70% to-mblue text-transparent"
+        style={medium.style}
+        className=" 2xl:text-[50px] font-semibold 2xl:w-[1000px] 3xl:w-[1900px] mt-16 bg-gradient-to-br bg-clip-text from-mwhite from-20% to-70% to-mblue text-transparent"
       >
-        Let’s Design & Build Your Website Together
+        Lets Design <span style={hanson.style}>&</span> <br /> Develop Your Website 
       </h1>
 
-      <div onClick={()=>{scrollTo({top:800,left:0,behavior:"smooth"})}} className="ml-auto mt-auto mb-40 mr-9  relative cursor-pointer ">
+      <div onClick={()=>{scrollTo({top:1000,left:0,behavior:"smooth"})}} className="ml-auto mt-auto mb-40 mr-9  relative cursor-pointer ">
         <div className="absolute top-1/2 left-1/2   animate-mBounce-long">
           {arrow()}
         </div>
