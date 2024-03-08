@@ -13,6 +13,7 @@ import { Work_Sans ,Zen_Dots} from "next/font/google";
 
 import { useEffect, useRef, useState } from "react";
 import HeroN from "@/components/heroComponents/HeroN";
+import HeroL from "@/components/heroComponents/HeroL";
 
 
 const worksans = Work_Sans({
@@ -38,7 +39,8 @@ export default function Home() {
   return (
    <main  style={worksans.style} className="flex flex-col ">
     <Navbar />
-      <HeroN setCursorScale={setCursorScale}/>
+    <HeroL setCursorScale={setCursorScale} cursorScale={cursorScale} />
+      {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services setServicesInView={setServicesInView}/>
       <Library setCursorScale={setCursorScale}/>
       <TechStack/>

@@ -30,14 +30,14 @@ function Project({ index, title, setModal, isInView }) {
       >
         <motion.h2
           custom={index}
-          animate={[isInView && { x: 0 },isHovered&&{x:-16}]}
+          animate={[isInView && { x: 0 }]}
           initial={{ x: -1000 }}
           transition={{
             duration: 0.8,
             ease: [0.215, 0.61, 0.315, 1],
             delay:  index * 0.2,
           }}
-          className="font-normal text-[50px] m-0 group-hover:opacity-40 group-hover:-translate-x-4 transition duration-200 ease-linear text-white"
+          className="font-normal text-[50px] m-0 group-hover:opacity-40  transition transform group-hover:scale-50 duration-200 ease-linear text-white"
         >
           {title}
         </motion.h2>
