@@ -45,7 +45,7 @@ function ServiceHovered({ services, selectedService }) {
             />
             </svg>
         </div>
-            <motion.p style={worksans.style} animate={{top: selectedService==i ? '90%' :'110%'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  absolute w-full top-[90%] mx-4">{desc}</motion.p>
+            <motion.p style={worksans.style} animate={{top: selectedService==i ? '90%' :'110%'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  absolute w-[95%] top-[90%] mx-4">{desc}</motion.p>
             
       </div>
     );

@@ -12,45 +12,57 @@ const zen = Zen_Dots({
   subsets: ["latin"],
 });
 
-function Project({ index, title, setModal, isInView }) {
+function Project({ i, title, setModal,modal, isInView }) {
   const [isHovered,setIsHovered] = useState(false)
+const {active,index} = modal
+  console.log(active)
+  
   return (
     <>
       <div
-        key={index}
+        key={i}
         onMouseEnter={() => {
-          setModal({ active: true, index: index });
+          setModal({ active: true, index: i });
           setIsHovered(true)
         }}
         onMouseLeave={() => {
-          setModal({ active: false, index: index });
+          setModal({ active: false, index: i });
           setIsHovered(false)
         }}
         className="transition duration-1000 flex w-full pt-[40px] pl-[100px] pb-[40px] pr-[100px]  items-center justify-between  cursor-pointer group"
       >
         <motion.h2
-          custom={index}
-          animate={[isInView && { x: 0 }]}
-          initial={{ x: -1000 }}
-          transition={{
+        
+          custom={i}
+          animate={[isInView && { x: 0 },isHovered&&{x:-20 }]}
+          initial={[!isInView?{x: -1000  }:{x:0}]}
+          
+          transition={index==-1?{
             duration: 0.8,
             ease: [0.215, 0.61, 0.315, 1],
-            delay:  index * 0.2,
-          }}
-          className="font-normal text-[50px] m-0 group-hover:opacity-40  transition transform group-hover:scale-50 duration-200 ease-linear text-white"
+            delay:  i * 0.2, 
+          }:{duration: 0.01,
+            ease: 'easeIn',
+           
+            }}
+          className="font-normal  text-[50px] m-0 group-hover:opacity-40  transition transform  duration-200 ease-linear text-white"
         >
           {title}
         </motion.h2>
         <motion.p
-          custom={index}
-          animate={isInView && { x: 0 }}
-          initial={{ x: 1000 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.315, 1],
-            delay:  index * 0.2,
-          }}
-          className="font-light group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear  text-white"
+           custom={i}
+           animate={[isInView && { x: 0 },isHovered&&{x:20 }]}
+           initial={[!isInView?{x: 1000  }:{x:0}]}
+           
+           transition={index==-1?{
+             duration: 0.8,
+             ease: [0.215, 0.61, 0.315, 1],
+             delay:  i * 0.2, 
+           }:{duration: 0.01,
+             ease: 'easeIn',
+            
+             }}
+          className="font-light group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear self-end  text-white"
         >
           Design&Development
         </motion.p>

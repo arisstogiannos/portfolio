@@ -34,7 +34,7 @@ function Library({setCursorScale,setLibraryInView}){
       },
     ]
   
-    const [modal, setModal] = useState({active:false, index:0})
+    const [modal, setModal] = useState({active:false, index:-1})
     const ref = useRef(null)
 const isInView= useInView(ref,{once:true,amount:0.4})
   
@@ -43,7 +43,7 @@ const isInView= useInView(ref,{once:true,amount:0.4})
         <div onMouseEnter={()=>setCursorScale(true)} onMouseLeave={()=>setCursorScale(false)} className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
              projects.map( (project, index) =>{
-              return <Project key={index} index={index} title ={project.title} setModal={setModal} isInView={isInView} />
+              return <Project key={index} i={index}  title ={project.title} setModal={setModal} modal={modal} isInView={isInView} />
             })
           }
         </div>
