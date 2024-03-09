@@ -33,6 +33,7 @@ module.exports = {
         'mBounce-long':'myBounceLong 2s infinite ',
         'background':'background 9s linear infinite'
       },
+      
       keyframes:{
         myBounce:{
          ' 0%, 100%' :{
@@ -94,6 +95,7 @@ module.exports = {
         
       }
       },
+     
       colors:{
         'mwhite':'#D4F1F4',
         'mblack':'#070914',
@@ -102,6 +104,9 @@ module.exports = {
       
     },
     
+  },
+  screens:{
+    '3xl':'1700px'
   },
   plugins: [rotateX],
 };

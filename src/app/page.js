@@ -9,14 +9,19 @@ import ServicesN from "@/components/servicesv2Components/ServicesN";
 import { useScroll } from 'framer-motion'
 
 import Image from "next/image";
-import { Work_Sans ,Zen_Dots} from "next/font/google";
+import { Montserrat, Work_Sans ,Zen_Dots} from "next/font/google";
 
 import { useEffect, useRef, useState } from "react";
 import HeroN from "@/components/heroComponents/HeroN";
 import HeroL from "@/components/heroComponents/HeroL";
+import AboutContact from "@/components/aboutComponents/AboutContact";
 
 
 const worksans = Work_Sans({
+  subsets:['latin'],
+  weight:["300","400","500",'600']
+})
+const montserat = Montserrat({
   subsets:['latin'],
   weight:["300","400","500",'600']
 })
@@ -35,16 +40,25 @@ export default function Home() {
 
   const [cursorScale, setCursorScale] = useState(false);
   const [servicesInView, setServicesInView] = useState(false);
+  const [libraryInView, setLibraryInView] = useState(false);
+
+  const updateState = bool =>{
+    setCursorScale(bool)
+  }
+  const updateServicesInVies = bool =>{
+    setServicesInView(bool)
+  }
   
   return (
-   <main  style={worksans.style} className="flex flex-col ">
+   <main  style={montserat.style} className="flex flex-col ">
     <Navbar />
-    <HeroL setCursorScale={setCursorScale} cursorScale={cursorScale} />
+    <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
-      <Services setServicesInView={setServicesInView}/>
-      <Library setCursorScale={setCursorScale}/>
+      <Services />
+      <Library setCursorScale={setCursorScale} />
       <TechStack/>
-      <Cursor cursorScale={cursorScale} servicesInView={servicesInView}/>
+      {/* <AboutContact/> */}
+      <Cursor cursorScale={cursorScale} />
     
       
    </main>

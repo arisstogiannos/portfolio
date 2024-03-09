@@ -9,13 +9,16 @@ function MovingText({text}) {
 
     let xPercent =0;
     let direction = -1;
+    
     const firstText = useRef(null);
     const secondText = useRef(null);
     const thirdText = useRef(null);
-  
+
+    
 
     useEffect(()=>{
       requestAnimationFrame(animation);
+      
     },[])
   
     const animation = () => {

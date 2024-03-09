@@ -12,6 +12,28 @@ html::-webkit-scrollbar{
     background-color: black;
 }
 
+#mytext1 .char{
+    transform: translateY(140px);
+    transition: transform .5s;
+    transition: opacity .4s;
+    opacity: 0;
+}
+#mytext2 .char{
+    transform: translateY(140px);
+    transition: transform .5s;
+    
+    transition: opacity .4s .4s;
+    opacity: 0;
+}
+#mytext1{
+    clip-path: polygon(0 0,100% 0, 100% 100%,0% 100%)
+
+}
+#mytext2{
+    clip-path: polygon(0 0,100% 0, 100% 100%,0% 100%)
+
+}
+
 @layer components {
 
 #react{

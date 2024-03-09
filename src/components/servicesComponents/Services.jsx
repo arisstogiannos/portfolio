@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { Work_Sans ,Zen_Dots} from "next/font/google";
 import localfont from 'next/font/local'
 import gsap from "gsap";
-import { motion,useInView } from "framer-motion";
+import { inView, motion,useInView } from "framer-motion";
 import MovingText from "../globalComponents/MovingText.jsx";
 
 const hanson=localfont({src:'../../../fonts/Hanson-Bold.ttf'})
@@ -21,17 +21,14 @@ const worksans = Work_Sans({
   })
   
 
-function Services({setServicesInView}) {
+function Services() {
     const [selectedService, setSelectedService] = useState(null);
 
     const section =useRef(null)
     const isInView = useInView(section,{once:true,amount:0.4})  
 
 
-    useEffect(()=>{
-      setServicesInView(isInView)
-
-    },[isInView])
+   
     
   
     return (
@@ -45,14 +42,14 @@ function Services({setServicesInView}) {
         }}
         initial={{ scaleX: 0,translateY:2 }}
          className="w-full h-1  origin-left"/>
-          <div className="flex text-[20px] md:h-[600px] 2xl:h-[700px] relative tracking-wide">
+          <div className="flex text-[20px] 2xl:h-[600px] 3xl:h-[700px] relative tracking-wide">
              <Service isInView={isInView} services={servicelist} setSelectedService={setSelectedService}/>
              <ServiceHovered services={servicelist} selectedService={selectedService}/>
 
             
             <div className="w-[360px] h-full   flex items-center   justify-center z-10">
-              <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
-              <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div>
+              {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
+              <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
               <CircleText/>
               {selectedService==0&&<video src="/servicesImages/Frame-1.mp4" width={'100%'} height={'100%'} className="z-[60]" autoPlay loop></video>}
             </div>

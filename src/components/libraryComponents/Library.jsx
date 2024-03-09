@@ -9,7 +9,7 @@ import { inView, motion, useInView } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function Library({setCursorScale}){
+function Library({setCursorScale,setLibraryInView}){
 
     const projects= [
       {
@@ -48,7 +48,7 @@ const isInView= useInView(ref,{once:true,amount:0.4})
           }
         </div>
         <Modal modal={modal} projects={projects}/>
-        <h3 style={medium.style} className="absolute left-1/2 -translate-x-1/2 2xl:top-[2320px] md:top-[1760px] text-[350px] text-mblack/60   " >WORK</h3>
+        <h3 style={medium.style} className="absolute left-1/2 -translate-x-1/2 3xl:top-[2320px] 2xl:top-[1900px] text-[350px] text-mblack/60   " >WORK</h3>
       
       </section>
     )

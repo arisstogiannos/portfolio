@@ -6,24 +6,22 @@ const hanson = localfont({ src: "../../../fonts/Hanson-Bold.ttf" });
 
 function TechStack() {
   const container = useRef(null);
-  
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
-  
 
-  const scale2 = useTransform(scrollYProgress, [0,0.9, 1], [1, 2, 4]);
-  const scale1 = useTransform(scrollYProgress, [0,0.9, 1], [1,3, 50]);
-  const scale3 = useTransform(scrollYProgress, [0,0.4, 1], [1,1.5, 3]);
-  const scale4 = useTransform(scrollYProgress, [0,0.4, 1], [1,2, 4]);
-  const scale5 = useTransform(scrollYProgress, [0,0.4, 1], [1,2.5, 5]);
-  const scale6 = useTransform(scrollYProgress, [0,0.4, 1], [1,3, 6]);
-  const scale7 = useTransform(scrollYProgress, [0,0.4, 1], [1, 4, 7]);
+  const scale2 = useTransform(scrollYProgress, [0, 0.9, 1], [1, 2, 4]);
+  const scale1 = useTransform(scrollYProgress, [0, 0.9, 1], [1, 3, 50]);
+  const scale3 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.5, 3]);
+  const scale4 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2, 4]);
+  const scale5 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.5, 5]);
+  const scale6 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3, 6]);
+  const scale7 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3.5, 7]);
   const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
-  const [flag,setFlag] = useState(0);
+  const [flag, setFlag] = useState(0);
 
   // useEffect(()=>{
   //   if(scrollYProgress.get()>0.8){
@@ -33,25 +31,25 @@ function TechStack() {
   //       behavior: "smooth",
   //     })
   //   }
-    
+
   //   console.log(flag)
   // },[flag])
 
   // useEffect(()=>{
   //   document.onscrollend =(e)=>{
-      
+
   //     setFlag((prev)=>prev+1)
   //   }
-    
+
   // },[])
-  
+
   const svgs = [
     {
       key: "nextjs",
       scale: scale4,
-      width:'130px',
-      top:-200,
-      left:410,
+      width: "130px",
+      top: -200,
+      left: 410,
       code: (
         <svg
           width="100%"
@@ -70,9 +68,9 @@ function TechStack() {
     {
       key: "react",
       scale: scale6,
-      width:'200px',
-      top:250,
-      left:400,
+      width: "200px",
+      top: 250,
+      left: 400,
       code: (
         <svg
           width="100%"
@@ -109,9 +107,9 @@ function TechStack() {
     {
       key: "tailwind",
       scale: scale4,
-      width:'150px',
-      top:220,
-      left:400,
+      width: "150px",
+      top: 220,
+      left: 400,
       code: (
         <svg
           width="100%"
@@ -130,9 +128,9 @@ function TechStack() {
     {
       key: "html",
       scale: scale5,
-      width: '70px',
-      top:-200,
-      left:0,
+      width: "70px",
+      top: -200,
+      left: 0,
       code: (
         <svg
           width="100%"
@@ -151,9 +149,9 @@ function TechStack() {
     {
       key: "css",
       scale: scale6,
-      width:'100px',
-      top:250,
-      left:100,
+      width: "100px",
+      top: 250,
+      left: 100,
       code: (
         <svg
           width="100%"
@@ -172,9 +170,9 @@ function TechStack() {
     {
       key: "nodejs",
       scale: scale3,
-      width:'190px',
-      top:260,
-      left:-350,
+      width: "190px",
+      top: 260,
+      left: -350,
       code: (
         <svg
           width="100%"
@@ -192,62 +190,142 @@ function TechStack() {
         </svg>
       ),
     },
+    {
+      key: "figma",
+      scale: scale5,
+      width: "190px",
+      top: 60,
+      left: 350,
+      code: (
+        <svg
+          width="80px"
+          height="80px"
+          viewBox="0 0 35 51"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.4985 2.56592H9.99854C5.85641 2.56592 2.49854 5.92379 2.49854 10.0659C2.49854 14.208 5.85641 17.5659 9.99854 17.5659M17.4985 2.56592V17.5659M17.4985 2.56592H24.9985C29.1408 2.56592 32.4985 5.92379 32.4985 10.0659C32.4985 14.208 29.1408 17.5659 24.9985 17.5659M9.99854 17.5659H17.4985M9.99854 17.5659C5.85641 17.5659 2.49854 20.9237 2.49854 25.0659C2.49854 29.2082 5.85641 32.5659 9.99854 32.5659M17.4985 17.5659H24.9985M17.4985 17.5659V32.5659M24.9985 17.5659C29.1408 17.5659 32.4985 20.9237 32.4985 25.0659C32.4985 29.2082 29.1408 32.5659 24.9985 32.5659C20.8563 32.5659 17.4985 29.2082 17.4985 25.0659C17.4985 20.9237 20.8563 17.5659 24.9985 17.5659ZM17.4985 32.5659H9.99854M17.4985 32.5659V40.0659C17.4985 44.2082 14.1408 47.5659 9.99854 47.5659C5.85641 47.5659 2.49854 44.2082 2.49854 40.0659C2.49854 35.9237 5.85641 32.5659 9.99854 32.5659"
+            stroke="#008080"
+            stroke-width="5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      ),
+    },
+    {
+      key: "framer",
+      scale: scale2,
+      width: "100px",
+      top: -200,
+      left: -400,
+      code: (
+        <svg
+          height="100"
+          viewBox="3.7 3.7 43.6 43.6"
+          width="100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m47.3 3.7v21.8l-10.9 10.9-10.9 10.9-10.9-10.9 10.9-10.9v.1-.1z"
+            fill="#008080"
+          />
+          <path d="m47.3 25.5v21.8l-10.9-10.9z" fill="#008080" />
+          <path
+            d="m25.5 25.5-10.9 10.9-10.9 10.9v-43.6l10.9 10.9z"
+            fill="#008080"
+          />
+        </svg>
+      ),
+    },
   ];
 
   return (
     <div ref={container} className="h-[200vh] w-screen relative  ">
       <div className="sticky top-0 h-screen  overflow-hidden">
-      
         {svgs.map((item, index) => {
-         
           return (
             <motion.div
               style={{ scale: item.scale }}
               className="w-full h-full absolute top-0 flex items-center justify-center"
             >
-              <div key={index} id={item.key} style={{top:item.top, left: item.left, width:item.width}} className={` relative`}>
-                
-                  {item.code}
-                
+              <div
+                key={index}
+                id={item.key}
+                style={{ top: item.top, left: item.left, width: item.width }}
+                className={` relative`}
+              >
+                {item.code}
               </div>
             </motion.div>
           );
         })}
-          <svg className="-z-50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" width="1488" height="800" viewBox="0 0 1488 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_f_21_16)">
-<path d="M300 746.421H1187.29V300H300V746.421Z" fill="url(#paint0_linear_21_16)"/>
-</g>
-<defs>
-<filter id="filter0_f_21_16" x="0.09729" y="0.09729" width="1487.09" height="1046.23" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-<feGaussianBlur stdDeviation="149.951" result="effect1_foregroundBlur_21_16"/>
-</filter>
-<linearGradient id="paint0_linear_21_16" x1="299.908" y1="486.315" x2="1187.62" y2="483.315" gradientUnits="userSpaceOnUse">
-<stop stop-color="#75B0B0" stop-opacity="0"/>
-<stop offset="0.495" stop-color="#008080" stop-opacity="0.7"/>
-<stop offset="1" stop-color="#75B0B0" stop-opacity="0"/>
-</linearGradient>
-</defs>
-</svg>
-         <motion.div
+        <svg
+          className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          width="1488"
+          height="800"
+          viewBox="0 0 1488 1040"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_f_21_16)">
+            <path
+              d="M300 746.421H1187.29V300H300V746.421Z"
+              fill="url(#paint0_linear_21_16)"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_21_16"
+              x="0.09729"
+              y="0.09729"
+              width="1487.09"
+              height="1046.23"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="149.951"
+                result="effect1_foregroundBlur_21_16"
+              />
+            </filter>
+            <linearGradient
+              id="paint0_linear_21_16"
+              x1="299.908"
+              y1="486.315"
+              x2="1187.62"
+              y2="483.315"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#75B0B0" stop-opacity="0" />
+              <stop offset="0.495" stop-color="#008080" stop-opacity="0.7" />
+              <stop offset="1" stop-color="#75B0B0" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <motion.div
           style={{ scale: scale1 }}
           className="w-full h-full absolute top-0 flex items-center justify-center"
         >
           <div className=" w-[550px] relative">
-
             <h2
-            id="txt"
+              id="txt"
               style={hanson.style}
-              className="text-8xl  text-center  text-[#070914] uppercase z-50"
+              className="text-8xl  text-center  text-mblack uppercase z-50"
             >
               Tech Stack
             </h2>
           </div>
         </motion.div>
-        <div>
-       
-        </div>
+        <div></div>
       </div>
     </div>
   );

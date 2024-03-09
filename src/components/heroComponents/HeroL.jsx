@@ -4,6 +4,10 @@ import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
 import Cursor from "../globalComponents/Cursor";
 import { useState } from "react";
+import SplitType from "split-type";
+import gsap from "gsap";
+import {motion} from 'framer-motion'
+
 
 const hanson = localfont({ src: "../../../fonts/Hanson-Bold.ttf" });
 const satoshiBold = localfont({ src: "../../../fonts/OTF/Satoshi-Bold.otf" });
@@ -22,34 +26,51 @@ const montserat = Montserrat({
   weight: ["300", "400", "500", "600"],
 });
 
-function HeroL({setCursorScale, cursorScale}) {
-  const [isHovered,setIsHovered] =useState(false)
-    useEffect(()=>{
-        
-        setIsHovered(cursorScale)
-    },[cursorScale])
+function HeroL() {
+
+ useEffect(()=>{
+   const mytext1 = new SplitType('#mytext1')
+   const mytext2 = new SplitType('#mytext2')
+ 
+ 
+     gsap.to('.char',{
+       y:0,
+       opacity:1,
+       stagger:0.05,
+       delay:0.1,
+       duration:0.1,
+       ease:'power4'
+     })
+
+ },[])
+  
+
+
+ 
+    
 
   return (
     <>
       <section
         style={montserat.style}
-        className="w-[1440px] flex flex-col mx-auto  gap-5 flex-initial relative cursor-default"
+        className="w-[1440px] flex flex-col mx-auto  gap-0 flex-initial relative cursor-default"
       >
         <div
-          onMouseEnter={() => {
-            setCursorScale(true);
-            
-          }}
-          onMouseLeave={() => {
-            setCursorScale(false);
-          }}
-          className="w-full h-[180px] flex mt-10 justify-between text-white font-semibold text-6xl relative mb-20  "
+         
+          className="w-full h-[224px] flex mt-10 justify-between text-white font-semibold text-6xl relative 3xl:mb-20  "
         >
-          <h1 className=" mb-auto">
+          <h1 id="mytext1" className=" mb-auto leading-tight">
             Let's Start <br /> Working
           </h1>
-          <hr className="absolute top-1/2 left-[55%] -translate-x-1/2 h-1 w-[70%]" />
-          <h1 className=" mt-auto text-end">
+          <motion.hr animate={{ scaleX: 1, translateX:'-50%' }}
+        transition={{
+          duration: 0.8,
+          ease: [0.215, 0.61, 0.315, 1],
+          delay: 0.8,
+        }}
+        initial={{ scaleX: 0, translateX:'-50%' }} 
+        className="absolute top-1/2 left-[55%] -translate-x-1/2 h-1 w-[70%] origin-left " />
+          <h1 id="mytext2" className=" mt-auto text-end leading-tight">
             On <br /> Your Website
           </h1>
         </div>
@@ -70,17 +91,11 @@ function HeroL({setCursorScale, cursorScale}) {
        
         <div
           style={medium.style}
-          onMouseEnter={() => {
-            setCursorScale(true);
-            
-          }}
-          onMouseLeave={() => {
-            setCursorScale(false);
-          }}
+          
           className=" h-[250px]  uppercase  font-bold  flex items-center text-mblack text-[150px] rounded-xl  overflow-hidden relative mb-32"
         >
           <div className="bg-mwhite/30 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></div>
-          <MovingText text={"i design. i develop. you grow"} isHovered={isHovered} />
+          <MovingText text={"i design. i develop. you grow"}  />
         </div>
       </section>
       {/* <Cursor cursorScale={cursorScale} /> */}
