@@ -1,15 +1,12 @@
 'use client'
 import CircleText from "@/components/servicesComponents/CircleText";
-import Image from "next/image";
 import {servicelist} from '../../../src/app/data.js';
 import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { Work_Sans ,Zen_Dots} from "next/font/google";
 import localfont from 'next/font/local'
-import gsap from "gsap";
-import { inView, motion,useInView } from "framer-motion";
-import MovingText from "../globalComponents/MovingText.jsx";
+import {  motion,useInView } from "framer-motion";
 
 const hanson=localfont({src:'../../../fonts/Hanson-Bold.ttf'})
 const medium=localfont({src:'../../../fonts/medium.otf'})
@@ -42,7 +39,7 @@ function Services() {
         }}
         initial={{ scaleX: 0,translateY:2 }}
          className="w-full h-1  origin-left"/>
-          <div className="flex text-[20px] 2xl:h-[600px] 3xl:h-[700px] relative tracking-wide">
+          <div className="flex text-[20px] h-[600px] 3xl:h-[700px] relative tracking-wide">
              <Service isInView={isInView} services={servicelist} setSelectedService={setSelectedService}/>
              <ServiceHovered services={servicelist} selectedService={selectedService}/>
 

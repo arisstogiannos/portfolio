@@ -1,6 +1,5 @@
 "use client";
 import React, { useRef, useState } from "react";
-import localfont from "next/font/local";
 import { useScroll, motion, AnimatePresence } from "framer-motion";
 import MenuButton from "./MenuButton";
 import Dropdown from "./Dropdown";

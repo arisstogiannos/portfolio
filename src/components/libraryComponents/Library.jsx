@@ -3,9 +3,8 @@
 import { useState,useRef } from "react";
 import  Project  from "./Project";
 import Modal from "./Modal";
-import { Montserrat, Work_Sans } from "next/font/google";
 import localfont from "next/font/local";
-import { inView, motion, useInView } from "framer-motion";
+import {  useInView } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -39,7 +38,7 @@ function Library({setCursorScale,setLibraryInView}){
 const isInView= useInView(ref,{once:true,amount:0.4})
   
     return (
-      <section  ref={ref} id="library" className="flex items-center justify-center h-[100vh] bg-transparent  mt-40">
+      <section  ref={ref} id="projects" className="flex items-center justify-center h-[100vh] bg-transparent  mt-40">
         <div onMouseEnter={()=>setCursorScale(true)} onMouseLeave={()=>setCursorScale(false)} className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
              projects.map( (project, index) =>{

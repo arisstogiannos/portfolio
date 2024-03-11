@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Work_Sans, Zen_Dots } from "next/font/google";
-import { animate, easeIn, inView, motion, useInView } from "framer-motion";
+import {  motion } from "framer-motion";
 
 const Worksans = Work_Sans({
   weight: ["100", "200", "300", "400", "500", "600"],

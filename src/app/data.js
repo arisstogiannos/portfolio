@@ -14,10 +14,10 @@ export const servicelist = [
 ];
 
 export const navLinks = [
-  { title: "Home" },
-  { title: "Services" },
-  { title: "Projects" },
-  { title: "Contact" },
+  { title: "Home",href:'#home' },
+  { title: "Services",href:'#services' },
+  { title: "Projects",href:'#projects' },
+  { title: "Contact",href:'#contact' },
 ];
 
  

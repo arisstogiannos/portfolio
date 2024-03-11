@@ -1,26 +1,16 @@
 import React, { useEffect } from "react";
-import { Montserrat, Work_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
-import Cursor from "../globalComponents/Cursor";
-import { useState } from "react";
 import SplitType from "split-type";
 import gsap from "gsap";
 import {motion} from 'framer-motion'
 
 
-const hanson = localfont({ src: "../../../fonts/Hanson-Bold.ttf" });
-const satoshiBold = localfont({ src: "../../../fonts/OTF/Satoshi-Bold.otf" });
-const medium = localfont({ src: "../../../fonts/medium.otf" });
-const ttnorms = localfont({ src: "../../../fonts/TT Norms Pro Regular.otf" });
-const rethink = localfont({
-  src: "../../../fonts/RethinkSans-Variablefont_wght.ttf",
-});
 
-const worksans = Work_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
+const medium = localfont({ src: "../../../fonts/medium.otf" });
+
+
 const montserat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],

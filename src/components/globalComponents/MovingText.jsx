@@ -1,9 +1,8 @@
 import React from 'react'
-import { useEffect, useRef, useState } from "react";
-import { Work_Sans ,Zen_Dots} from "next/font/google";
-import localfont from 'next/font/local'
+import { useEffect, useRef } from "react";
+
 import gsap from "gsap";
-import { motion,useInView } from "framer-motion";
+
 
 function MovingText({text}) {
 

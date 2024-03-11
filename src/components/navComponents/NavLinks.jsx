@@ -3,11 +3,12 @@ import { navLinks } from "@/app/data";
 import { useState } from 'react';
 import Link from "next/link";
 import Light from "./Light";
-
+import LocomotiveScroll from 'locomotive-scroll';
 
 
 export default function NavLinks({selectedLink, setSelectedLink}) {
 
+  const loco = new LocomotiveScroll()
   
   const [clickedLink, setClickedLink] = useState(null);
 
@@ -26,7 +27,8 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
               }}
               onClick={() => {
                 setClickedLink(i);
-                window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
+                // window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
+                loco.scrollTo(link.href,{duration:2})
               }}
               className="flex justify-center items-center relative translate-x-8 "
             >
@@ -35,7 +37,7 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
                   selectedLink == i ? "opacity-100 scale-105 -translate-y-1" : "opacity-50"
                 } transition duration-300 z-50  drop-shadow `}
                 key={i}
-                href={''}
+                href={link.href}
               >
                 {link.title}
               </Link>
@@ -51,3 +53,4 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
      
   )
 }
+

@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image';
-import {easeIn, motion} from 'framer-motion'
+import { motion} from 'framer-motion'
 import gsap from 'gsap'
 
 

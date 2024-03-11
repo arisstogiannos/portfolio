@@ -48,26 +48,53 @@ export default function Cursor({ cursorScale }) {
         moveCursorX(clientX);
         moveCursorY(pageY);
       }
-      // console.log(clientY)
+
+      // if (pageY>1850&&pageY<2450) {
+      //   moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
+      //   moveCursorY(clientY < 400 || window.scrollY<1700 ? pageY + 150 : pageY - 150);
+      // } else if (pageY > 900 && pageY < 1600) {
+      //   // setServicesInView(true);
+      //   // setTechStackInView(false);
+
+      //   // moveCursorX(1300);
+      //   // moveCursorY(1310);
+      
+      // } else if (pageY >= 2450&& pageY<3500) {
+      //   // setTechStackInView(true);
+      //   // moveCursorX(750);
+      //   // moveCursorY(2850);
+      //   console.log(pageY);
+      // } else {
+      //   setTechStackInView(false);
+
+      //   setServicesInView(false);
+      //   moveCursorX(clientX);
+      //   moveCursorY(pageY);
+      // }
     });
 
     window.addEventListener("scroll",(e)=>{
-      console.log(window.scrollY)
-      if(window.scrollY>2100&&window.scrollY<2500){
+      // console.log(window.scrollY)
+      if(window.scrollY>610&&window.scrollY<1300){
+        setServicesInView(true);
+        setTechStackInView(false);
+
+        moveCursorX(1300);
+        moveCursorY(1310);
+      }else if(window.scrollY>2100&&window.scrollY<2500){
         setTechStackInView(true);
         moveCursorX(750);
         moveCursorY(2850);
       }else if(window.scrollY>2500&& window.scrollY<3200){
         setTechStackInView(true);
 
-        console.log(scrollY)
         moveCursorX(750);
         moveCursorY(window.scrollY+400);
       }else if(window.scrollY>3200){
         setTechStackInView(false)
       }
     })
-  }, [servicesInView]);
+  }, []);
   return (
     <div
       ref={cursor}
