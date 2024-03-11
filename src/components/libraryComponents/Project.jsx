@@ -15,7 +15,6 @@ const zen = Zen_Dots({
 function Project({ i, title, setModal,modal, isInView }) {
   const [isHovered,setIsHovered] = useState(false)
 const {active,index} = modal
-  console.log(active)
   
   return (
     <>

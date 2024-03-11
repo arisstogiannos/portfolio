@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import HeroN from "@/components/heroComponents/HeroN";
 import HeroL from "@/components/heroComponents/HeroL";
 import AboutContact from "@/components/aboutComponents/AboutContact";
+import CursorDesktop from "@/components/globalComponents/CursorDesktop";
 
 
 const worksans = Work_Sans({
@@ -41,14 +42,14 @@ export default function Home() {
   const [cursorScale, setCursorScale] = useState(false);
   const [servicesInView, setServicesInView] = useState(false);
   const [libraryInView, setLibraryInView] = useState(false);
-
+  const [techStackVisible,setTechStackVisible] = useState(true);
   const updateState = bool =>{
     setCursorScale(bool)
   }
   const updateServicesInVies = bool =>{
     setServicesInView(bool)
   }
-  
+
   return (
    <main  style={montserat.style} className="flex flex-col ">
     <Navbar />
@@ -57,8 +58,8 @@ export default function Home() {
       <Services />
       <Library setCursorScale={setCursorScale} />
       <TechStack/>
-      {/* <AboutContact/> */}
-      <Cursor cursorScale={cursorScale} />
+      <AboutContact/>
+      {screen.width<1700?<Cursor cursorScale={cursorScale} />:<CursorDesktop cursorScale={cursorScale}/>}
     
       
    </main>

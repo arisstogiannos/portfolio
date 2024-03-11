@@ -22,7 +22,7 @@ function TechStack() {
   const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 60]);
 
   const [flag, setFlag] = useState(0);
-
+  
   // useEffect(()=>{
   //   if(scrollYProgress.get()>0.8){
   //     window.scrollTo({
@@ -243,7 +243,7 @@ function TechStack() {
 
   return (
     <div ref={container} className="h-[200vh] w-screen relative  ">
-      <div className="sticky top-0 h-screen  overflow-hidden">
+      <div className={`sticky top-0 h-screen  overflow-hidden ${scrollYProgress>=0.5?'hidden':''}`}>
         {svgs.map((item, index) => {
           return (
             <motion.div
@@ -261,7 +261,7 @@ function TechStack() {
             </motion.div>
           );
         })}
-        <svg
+        {/* <svg
           className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           width="1488"
           height="800"
@@ -310,7 +310,7 @@ function TechStack() {
               <stop offset="1" stop-color="#75B0B0" stop-opacity="0" />
             </linearGradient>
           </defs>
-        </svg>
+        </svg> */}
         <motion.div
           style={{ scale: scale1 }}
           className="w-full h-full absolute top-0 flex items-center justify-center"
@@ -319,7 +319,7 @@ function TechStack() {
             <h2
               id="txt"
               style={hanson.style}
-              className="text-8xl  text-center  text-mblack uppercase z-50"
+              className="text-8xl  text-center  text-mblack uppercase pointer-events-none z-50"
             >
               Tech Stack
             </h2>

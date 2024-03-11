@@ -45,10 +45,6 @@ function HeroL() {
  },[])
   
 
-
- 
-    
-
   return (
     <>
       <section
@@ -57,7 +53,7 @@ function HeroL() {
       >
         <div
          
-          className="w-full h-[224px] flex mt-10 justify-between text-white font-semibold text-6xl relative 3xl:mb-20  "
+          className="w-full h-[224px] flex mt-10 justify-between text-white font-semibold text-6xl relative 3xl:mb-20 "
         >
           <h1 id="mytext1" className=" mb-auto leading-tight">
             Let's Start <br /> Working

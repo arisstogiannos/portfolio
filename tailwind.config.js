@@ -104,9 +104,9 @@ module.exports = {
       
     },
     
-  },
-  screens:{
-    '3xl':'1700px'
+    screens:{
+      '3xl':'1700px'
+    },
   },
   plugins: [rotateX],
 };

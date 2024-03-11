@@ -39,7 +39,7 @@ function Library({setCursorScale,setLibraryInView}){
 const isInView= useInView(ref,{once:true,amount:0.4})
   
     return (
-      <section  ref={ref} className="flex items-center justify-center h-[100vh] bg-transparent  mt-40">
+      <section  ref={ref} id="library" className="flex items-center justify-center h-[100vh] bg-transparent  mt-40">
         <div onMouseEnter={()=>setCursorScale(true)} onMouseLeave={()=>setCursorScale(false)} className=" flex justify-center items-center flex-col  w-[1440px] z-10">
           {
              projects.map( (project, index) =>{
