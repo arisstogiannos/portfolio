@@ -25,6 +25,7 @@ function Service({ isInView,services, setSelectedService }) {
 
     return (
       <motion.div
+      key={i}
       custom={2-i}
       variants={enterViewVariants}
       initial='initial'

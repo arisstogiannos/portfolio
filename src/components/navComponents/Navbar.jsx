@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useScroll, motion, AnimatePresence } from "framer-motion";
 import MenuButton from "./MenuButton";
 import Dropdown from "./Dropdown";
@@ -20,9 +20,12 @@ function Navbar() {
     target: nav,
     offset: ["start start", "end end"],
   });
-  window.onscroll = function () {
-    scrollY.get() < 150 ? setFlag(false) : setFlag(true);
-  };
+  useEffect(()=>{
+
+    window.onscroll = function () {
+      scrollY.get() < 150 ? setFlag(false) : setFlag(true);
+    };
+  })
 
   
 

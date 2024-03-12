@@ -4,18 +4,14 @@ import {servicelist} from '../../../src/app/data.js';
 import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
 import {  useRef, useState } from "react";
-import { Work_Sans ,Zen_Dots} from "next/font/google";
 import localfont from 'next/font/local'
 import {  motion,useInView } from "framer-motion";
 
-const hanson=localfont({src:'../../../fonts/Hanson-Bold.ttf'})
+
 const medium=localfont({src:'../../../fonts/medium.otf'})
 
 
-const worksans = Work_Sans({
-    subsets:['latin'],
-    weight:["300","400","500",'600']
-  })
+
   
 
 function Services() {
@@ -61,10 +57,10 @@ function Services() {
         className="w-full h-1 translate-y-0 origin-right"/>
           
         </div>
-        <h1 className="absolute hidden top-[1500px] md:top-[1060px] text-[250px] text-[#008080] filter blur-[20px] font-semibold" style={hanson.style}>SERVICES</h1>
+        {/* <h1 className="absolute hidden top-[1500px] md:top-[1060px] text-[250px] text-[#008080] filter blur-[20px] font-semibold" style={hanson.style}>SERVICES</h1>
         <div className="absolute md:top-[700px] 2xl:top-[1000px]  " >
             
-          </div>
+          </div> */}
       </section>
     );
   }

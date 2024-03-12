@@ -1,18 +1,5 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { Work_Sans ,Zen_Dots} from "next/font/google";
-import localfont from 'next/font/local'
-import Background from "@/components/globalComponents/Background";
 
-const satoshiRegular = localfont({src:'../../fonts/OTF/Satoshi-Regular.otf'})
-const satoshiMedium = localfont({src:'../../fonts/OTF/Satoshi-Medium.otf'})
-
-const worksans = Work_Sans({
-    subsets:['latin'],
-    weight:["300","400","500",'600']
-  })
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Aris Stogiannos",
@@ -22,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html  lang="en">
-      <body style={worksans.style} className='overflow-x-hidden bg-mblack '><Background/>{children}</body>
+      <body  className='overflow-x-hidden bg-mblack '>{children}</body>
     </html>
   );
 }

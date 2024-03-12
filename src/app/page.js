@@ -18,30 +18,43 @@ const montserat = Montserrat({
 })
 
 export default function Home() {
+  const [cursorScale, setCursorScale] = useState(false);
+  const [screenWidth,setScreenwidth]= useState(0)
 
   useEffect(()=>{
     (
       async() => {
         const LocomotiveScroll = (await  import('locomotive-scroll')).default;
         const locomotiveScroll = new LocomotiveScroll();
-        
       }
     )()
   },[])
+  useEffect(()=>{
+    
+        
+    setScreenwidth(window.innerWidth)
+    window.onresize= function(){
+      setScreenwidth(window.innerWidth)
+        }
+        console.log(screenWidth<1500)
+      
+    
+  })
+  
 
-  const [cursorScale, setCursorScale] = useState(false);
   
 
   return (
    <main  style={montserat.style} className="flex flex-col ">
-    <Navbar />
+    <Navbar/>
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services />
       <Library setCursorScale={setCursorScale} />
       <TechStack/>
       <AboutContact/>
-      {screen.width<1700?<Cursor cursorScale={cursorScale} />:<CursorDesktop cursorScale={cursorScale}/>}
+      {screenWidth>0&&screenWidth<1500&&<Cursor cursorScale={cursorScale} />}
+      {screenWidth>=1500&&<CursorDesktop cursorScale={cursorScale}/>}
     
       
    </main>

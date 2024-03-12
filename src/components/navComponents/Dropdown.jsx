@@ -1,16 +1,31 @@
+'use client'
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { navLinks } from "@/app/data";
 import Link from "next/link";
 
+
 function Dropdown({ isOpen }) {
+  const [loco, setLoco] = useState(null);
+  useEffect(()=>{
+    (
+      async() => {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default;
+        const locomotiveScroll = new LocomotiveScroll();
+        setLoco(locomotiveScroll)
+      }
+    )()
+  },[])
   const [selectedLink, setSelectedLink] = useState(null);
   const [clickedLink, setClickedLink] = useState(null);
+  
+  
+
   const variants = {
     open: {
       opacity:1,
       width: 300,
-      height: 400,
+      height: 350,
       top: -20,
       right: -20,
       transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
@@ -99,7 +114,7 @@ function Dropdown({ isOpen }) {
                     }}
                     onClick={() => {
                       setClickedLink(i);
-                      window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
+                      loco.scrollTo(link.href,{duration:2})
                     }}
                     className={`absolute `}
                     style={{top:i*50}}
@@ -112,7 +127,7 @@ function Dropdown({ isOpen }) {
                       <Link
                         className={`cursor-pointer text-3xl font-medium z-50 text-mblack transition absolute  duration-500 px-14 ease-in-out ${selectedLink==i?' -translate-x-1  scale-105  text-mwhite ':'translate-x-1'}`}
                         key={i}
-                        href={""}
+                        href={link.href}
                       >
                         {link.title}
                       </Link>

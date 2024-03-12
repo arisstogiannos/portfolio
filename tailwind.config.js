@@ -102,11 +102,11 @@ module.exports = {
         'mblue' : '#008080',
       },
       
+      screens:{
+        '3xl':'1700px'
+      },
     },
     
-    screens:{
-      '3xl':'1700px'
-    },
   },
   plugins: [rotateX],
 };

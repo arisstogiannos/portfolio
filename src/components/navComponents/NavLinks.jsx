@@ -1,16 +1,27 @@
 import React from 'react'
 import { navLinks } from "@/app/data";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Link from "next/link";
 import Light from "./Light";
-import LocomotiveScroll from 'locomotive-scroll';
+
+
 
 
 export default function NavLinks({selectedLink, setSelectedLink}) {
+  const [loco, setLoco] = useState(null);
+  useEffect(()=>{
+    (
+      async() => {
+        const LocomotiveScroll = (await import('locomotive-scroll')).default;
+        const locomotiveScroll = new LocomotiveScroll();
+        setLoco(locomotiveScroll)
+      }
+    )()
+  },[])
 
-  const loco = new LocomotiveScroll()
   
-  const [clickedLink, setClickedLink] = useState(null);
+  
+  const [clickedLink, setClickedLink] = useState(0);
 
   return (
    
@@ -19,6 +30,7 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
         {navLinks.map((link, i) => {
           return (
             <li
+            key={i}
               onMouseEnter={() => {
                 setSelectedLink(i);
               }}
@@ -27,7 +39,6 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
               }}
               onClick={() => {
                 setClickedLink(i);
-                // window.scrollTo({ top: 1000 * i, left: 0, behavior: "smooth" });
                 loco.scrollTo(link.href,{duration:2})
               }}
               className="flex justify-center items-center relative translate-x-8 "
@@ -47,8 +58,8 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
             </li>
           );
         })}
-        <Link id='btn' href={'#hero'} className='w-32 
-         h-10 my-auto border-mblue text-mblue border-solid border-2 rounded-lg flex justify-center items-center mr-10 fill-transparent hidden'>Hire me</Link>
+        {/* <Link id='btn' href={'#hero'} className='w-32 
+         h-10 my-auto border-mblue text-mblue border-solid border-2 rounded-lg flex justify-center items-center mr-10 fill-transparent hidden'>Hire me</Link> */}
       </ul>
      
   )

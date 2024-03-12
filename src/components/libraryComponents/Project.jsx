@@ -61,7 +61,7 @@ const {active,index} = modal
              ease: 'easeIn',
             
              }}
-          className="font-light group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear self-end  text-white"
+          className="font-light group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear   text-white"
         >
           Design&Development
         </motion.p>

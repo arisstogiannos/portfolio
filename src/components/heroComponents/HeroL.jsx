@@ -39,7 +39,7 @@ function HeroL() {
     <>
       <section
         style={montserat.style}
-        className="w-[1440px] flex flex-col mx-auto  gap-0 flex-initial relative cursor-default"
+        className="2xl:w-[1440px] flex flex-col mx-auto   relative cursor-default"
       >
         <div
          
@@ -84,7 +84,6 @@ function HeroL() {
           <MovingText text={"i design. i develop. you grow"}  />
         </div>
       </section>
-      {/* <Cursor cursorScale={cursorScale} /> */}
     </>
   );
 }
@@ -98,8 +97,8 @@ const arrow = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M21.5625 34.1949L12.0563 43.7012C11.4729 44.2845 10.5271 44.2845 9.94378 43.7012L0.437564 34.1949C-0.145785 33.6116 -0.145785 32.6658 0.437564 32.0825C1.02091 31.4991 1.96671 31.4991 2.55006 32.0825L9.50627 39.0387L9.50627 0.819702L12.4938 0.819702L12.4938 39.0387L19.45 32.0825C20.0333 31.4991 20.9791 31.4991 21.5625 32.0825C22.1458 32.6658 22.1458 33.6116 21.5625 34.1949Z"
         fill="white"
       />

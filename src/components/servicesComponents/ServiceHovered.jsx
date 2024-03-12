@@ -1,11 +1,12 @@
 import React from "react";
 import {motion} from 'framer-motion'
-import { Work_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 
-const worksans = Work_Sans({
-  subsets:['latin'],
-  weight:["300","400","500",'600']
-})
+const montserat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
 
 function ServiceHovered({ services, selectedService }) {
   return (<div className="absolute flex h-full"> 
@@ -16,6 +17,7 @@ function ServiceHovered({ services, selectedService }) {
 
     return (
       <div
+      key={i}
         style={{
           clipPath: selectedService == i ? "inset(0 0 0)" : "inset(0 100% 0)",
         }}
@@ -45,7 +47,7 @@ function ServiceHovered({ services, selectedService }) {
             />
             </svg>
         </div>
-            <motion.p style={worksans.style} animate={{top: selectedService==i ? '90%' :'110%'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  absolute w-[95%] top-[90%] mx-4">{desc}</motion.p>
+            <motion.p style={montserat.style} animate={{top: selectedService==i ? '90%' :'110%'}} transition={{duration:0.5}}  className="text-base  font-medium  text-black  absolute w-[95%] top-[90%] mx-4">{desc}</motion.p>
             
       </div>
     );
