@@ -5,17 +5,8 @@ import { navLinks } from "@/app/data";
 import Link from "next/link";
 
 
-function Dropdown({ isOpen }) {
-  const [loco, setLoco] = useState(null);
-  useEffect(()=>{
-    (
-      async() => {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default;
-        const locomotiveScroll = new LocomotiveScroll();
-        setLoco(locomotiveScroll)
-      }
-    )()
-  },[])
+function Dropdown({ isOpen ,loco}) {
+  
   const [selectedLink, setSelectedLink] = useState(null);
   const [clickedLink, setClickedLink] = useState(null);
   
@@ -32,19 +23,21 @@ function Dropdown({ isOpen }) {
     },
     closed: {
      opacity:1,
-      width: 96,
-      height: 36,
+      
       top: 0,
       right: 0,
+      width: '100%',
+      height: '100%',
       transition: {
         opacity:{ duration: 0.3, delay: 0.5, ease: [0.76, 0, 0.24, 1]},
         duration: 0.75, delay: 0.3, ease: [0.76, 0, 0.24, 1] },
     },
     initial:{
       opacity:0,
-      width: 96,
-      height: 36,
+      
+      top:0,
       right: 0,
+      
      
     }
   };
@@ -79,7 +72,8 @@ function Dropdown({ isOpen }) {
       translateX:-10,
       transition: { 
         duration:0.65,
-        ease:[.215, .61, .315,1]
+        ease:[.215, .61, .315,1],
+        
     }
     },
     exit:{
@@ -96,7 +90,7 @@ function Dropdown({ isOpen }) {
       variants={variants}
       animate={isOpen ? "open" : "closed"}
       initial="initial"
-      className={` bg-mwhite  rounded-[25px]  absolute   mt-9 `}
+      className={` bg-mwhite  rounded-[25px]  absolute  w-16 h-6 md:h-[36px] md:w-[96px]  `}
     >
       <AnimatePresence>
         {isOpen && (

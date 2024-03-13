@@ -103,6 +103,7 @@ module.exports = {
       },
       
       screens:{
+        'xsm' : '400px',
         '3xl':'1700px'
       },
     },

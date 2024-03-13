@@ -43,7 +43,7 @@ function HeroL() {
       >
         <div
          
-          className="w-full md:h-[147px]  xl:h-[180px] 2xl:h-[284px] flex mt-10 justify-between text-white font-semibold md:text-4xl  xl:text-5xl 2xl:text-7xl relative 3xl:mb-10  "
+          className="w-full h-[120px] md:h-[147px]  xl:h-[180px] 2xl:h-[234px] 3xl:h-[284px] flex mt-10 justify-between text-white font-semibold text-3xl  md:text-4xl  xl:text-5xl 2xl:text-6xl 3xl:text-7xl  relative 3xl:mb-10  "
         >
         {/* <div
          
@@ -59,12 +59,12 @@ function HeroL() {
           delay: 0.8,
         }}
         initial={{ scaleX: 0, translateX:'-50%' }} 
-        className="absolute top-1/2 md:left-[56%] lg:left-[57%] -translate-x-1/2 h-1 md:w-[60%] lg:w-[60%] origin-left " />
+        className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[57%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[60%] origin-left " />
           <h1 id="mytext2" className=" mt-auto text-end leading-tight">
             On <br /> Your Website
           </h1>
         </div>
-        <div className="md:scale-75 lg:scale-[0.85] top-[70px] -left-14  relative w-56 h-56 bg-mblack rounded-full z-50">
+        <div className="scale-50 md:scale-75 lg:scale-[0.85] top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-56 h-56 bg-mblack rounded-full z-50">
           <div
             onClick={() => {
               scrollTo({ top: 1000, left: 0, behavior: "smooth" });
@@ -82,7 +82,7 @@ function HeroL() {
         <div
           style={medium.style}
           
-          className="md:h-[150px] lg:h-[200px] xl:h-[250px]  uppercase  font-bold  flex items-center text-mblack md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
+          className="h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]  uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
         >
           <div className="bg-mwhite/30 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></div>
           <MovingText text={"i design. i develop. you grow"}  />

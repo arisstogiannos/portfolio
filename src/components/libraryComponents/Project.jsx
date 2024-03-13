@@ -10,7 +10,8 @@ const {active,index} = modal
   
   return (
     <>
-      <div
+
+      <motion.div
         key={i}
         onMouseEnter={() => {
           setModal({ active: true, index: i });
@@ -20,7 +21,7 @@ const {active,index} = modal
           setModal({ active: false, index: i });
           setIsHovered(false)
         }}
-        className="transition  duration-1000 flex flex-col-reverse lg:flex-row w-full pt-[40px] pl-[50px] pb-[15px] lg:pt-[70px] lg:pl-[100px] lg:pb-[70px] pr-[100px] gap-5 lg:gap-0  lg:items-center lg:justify-between items-start justify-around cursor-pointer group"
+        className="transition  duration-1000 flex flex-col-reverse lg:flex-row w-full pt-[30px] sm:pt-[40px]  pl-[20px] sm:pl-[30px] pb-[15px] lg:pt-[70px] xl:pt-[60px] lg:pl-[50px] xl:pl-[100px] lg:pb-[70px] xl:pb-[50px] lg:pr-[50px] xl:pr-[100px] gap-3 sm:gap-5 lg:gap-0  lg:items-center lg:justify-between items-start justify-around cursor-pointer group"
       >
         <motion.h2
         
@@ -36,7 +37,7 @@ const {active,index} = modal
             ease: 'easeIn',
            
             }}
-          className="uppercase font-medium  text-[50px] lg:text-3xl m-0 group-hover:opacity-40  transition transform  duration-200 ease-linear text-white"
+          className="uppercase font-medium text-xl sm:text-4xl   lg:text-3xl 2xl:text-4xl m-0 group-hover:opacity-40  transition transform  duration-200 ease-linear text-white"
         >
           {title}
         </motion.h2>
@@ -53,11 +54,11 @@ const {active,index} = modal
              ease: 'easeIn',
             
              }}
-          className="font-light group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear   text-white"
+          className="font-light text-xs sm:text-base group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear   text-white"
         >
           Design&Development
         </motion.p>
-      </div>
+      </motion.div>
       
       <motion.hr
         animate={isInView && { scaleX: 1 }}

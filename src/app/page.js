@@ -31,12 +31,12 @@ export default function Home() {
   },[])
   useEffect(()=>{
     
-        
     setScreenwidth(window.innerWidth)
+    console.log(screenWidth)
     window.onresize= function(){
       setScreenwidth(window.innerWidth)
         }
-        console.log(screenWidth<1500)
+        
       
     
   })
@@ -53,8 +53,8 @@ export default function Home() {
       <Library setCursorScale={setCursorScale} />
       <TechStack/>
       <AboutContact/>
-      {screenWidth>1000&&screenWidth<1500&&<Cursor cursorScale={cursorScale} />}
-      {screenWidth>=1500&&<CursorDesktop cursorScale={cursorScale}/>}
+      {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} />}
+      {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>}
     
       
    </main>

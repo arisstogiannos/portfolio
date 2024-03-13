@@ -11,7 +11,8 @@ export default function MenuButton({ isOpen, setIsOpen , flag }) {
       transition: {
         type: "spring",
         bounce: 0.4,
-        duration: 0.8
+        duration: 0.8,
+        delay:0.7
       }
     },
     exit:{
@@ -21,12 +22,14 @@ export default function MenuButton({ isOpen, setIsOpen , flag }) {
   }
   return (
     <motion.div
+    
     variants={variants}
     initial='initial'
     animate='enter'
+    exit='exit'
     
       onClick={()=>(setIsOpen(!isOpen))}
-      className={` cursor-pointer z-[2000] text-base  w-24 h-9 bg-slate-400  rounded-full absolute  overflow-hidden mt-9 max-lg:top-0 max-lg:right-0 `}
+      className={` cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
     >
       <motion.div
       className="relative w-full h-full"

@@ -3,21 +3,13 @@ import { navLinks } from "@/app/data";
 import { useState,useEffect } from 'react';
 import Link from "next/link";
 import Light from "./Light";
+import {motion} from 'framer-motion'
 
 
 
 
-export default function NavLinks({selectedLink, setSelectedLink}) {
-  const [loco, setLoco] = useState(null);
-  useEffect(()=>{
-    (
-      async() => {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default;
-        const locomotiveScroll = new LocomotiveScroll();
-        setLoco(locomotiveScroll)
-      }
-    )()
-  },[])
+export default function NavLinks({selectedLink, setSelectedLink,loco}) {
+  
 
   
   
@@ -26,7 +18,13 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
   return (
    
       
-      <ul className={` flex   gap-0 `}>
+      <motion.ul
+      
+      initial={{y:-100}}
+      animate={{y:0}}
+      exit={{y:-100}}
+      transition={{duration:0.1, ease:[0.76,0,0.24,1],}}
+      className={` flex   gap-0 `}>
         {navLinks.map((link, i) => {
           return (
             <li
@@ -60,7 +58,7 @@ export default function NavLinks({selectedLink, setSelectedLink}) {
         })}
         {/* <Link id='btn' href={'#hero'} className='w-32 
          h-10 my-auto border-mblue text-mblue border-solid border-2 rounded-lg flex justify-center items-center mr-10 fill-transparent hidden'>Hire me</Link> */}
-      </ul>
+      </motion.ul>
      
   )
 }

@@ -36,12 +36,10 @@ html::-webkit-scrollbar{
 
 @layer components {
 
-#react{
-    @apply  top-1/2 left-1/2 absolute;
-}
+
 
 .myContainer{
-    @apply md:w-[90%] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] mx-auto  ;
+    @apply  xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] mx-auto  ;
 }
 
 

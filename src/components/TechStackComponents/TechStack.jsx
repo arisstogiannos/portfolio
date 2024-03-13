@@ -51,8 +51,8 @@ function TechStack() {
       key: "react",
       scale: scale6,
       width: "200px",
-      top: 250,
-      left: 400,
+      top: -100,
+      left: -210,
       code: (
         <svg
           width="100%"
@@ -224,8 +224,8 @@ function TechStack() {
   ];
 
   return (
-    <div ref={container} className="h-[200vh] w-screen relative  ">
-      <div className={`sticky top-0 h-screen  overflow-hidden ${scrollYProgress>=0.5?'hidden':''}`}>
+    <div ref={container} className="h-[200vh] myContainer relative  ">
+      <div className={`sticky top-0 h-screen   ${scrollYProgress>=0.5?'hidden':''}`}>
         {svgs.map((item, index) => {
           return (
             <motion.div
