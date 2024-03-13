@@ -49,17 +49,17 @@ const scaleAnimation ={
 
   return (
     <>
-    <motion.div ref={container} variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} className='pointer-events-none h-[300px] w-[350px] flex items-center justify-center fixed overflow-hidden z-40'>
-      <div style={{top: index * -100 +"%", transition:"top 0.5s cubic-bezier(0.76, 0, 0.24, 1)"}} className='h-full w-full fixed'>
+    <motion.div ref={container} variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} className='rounded-lg pointer-events-none h-[300px] w-[400px] invisible lg:visible flex items-center justify-center fixed overflow-hidden z-40'>
+      <div style={{top: index * -100 +"%", transition:"top 0.5s cubic-bezier(0.76, 0, 0.24, 1)"}} className='h-full w-full fixed rounded-lg'>
         {
           projects.map( (project,index) => {
             const {src, color} = project;
           
-            return <div key={`modal_${index}`}  style={{backgroundColor:color, position:'relative',display:"flex", height:"100%", alignItems:"center", justifyContent:'center'}}>
+            return <div key={`modal_${index}`}   style={{backgroundColor:color, position:'relative',display:"flex", height:"100%", alignItems:"center", justifyContent:'center'}}>
               <Image
               loading='lazy'
               src={`/libraryImages/${src}`}
-              width={300}
+              width={350}
               height={0}
               alt='image'
               className='h-auto'
@@ -69,8 +69,8 @@ const scaleAnimation ={
         }
       </div>
     </motion.div>
-    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursor} className='w-20 h-20 fixed bg-[#008080] pointer-events-none rounded-full z-50 ' ></motion.div>
-    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursorLabel} className='w-20 h-20 fixed bg-transparent pointer-events-none rounded-full z-50 flex justify-center items-center text-white'>View</motion.div>
+    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursor} className='invisible lg:visible w-20 h-20 fixed bg-[#008080] pointer-events-none rounded-full z-50 ' ></motion.div>
+    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursorLabel} className='invisible lg:visible w-20 h-20 fixed bg-transparent pointer-events-none rounded-full z-50 flex justify-center items-center text-white'>View</motion.div>
     </>
   )
 }

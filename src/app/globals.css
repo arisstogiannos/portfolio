@@ -14,15 +14,15 @@ html::-webkit-scrollbar{
 
 #mytext1 .char{
     transform: translateY(140px);
-    transition: transform .5s;
-    transition: opacity .4s;
+    transition: transform .5s ease-in-out;
+    transition: opacity .4s ease-in-out;
     opacity: 0;
 }
 #mytext2 .char{
     transform: translateY(140px);
-    transition: transform .5s;
+    transition: transform .5s ease-in-out;
     
-    transition: opacity .4s .4s;
+    transition: opacity .4s .4s ease-in-out;
     opacity: 0;
 }
 #mytext1{
@@ -38,6 +38,10 @@ html::-webkit-scrollbar{
 
 #react{
     @apply  top-1/2 left-1/2 absolute;
+}
+
+.myContainer{
+    @apply md:w-[90%] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] mx-auto  ;
 }
 
 

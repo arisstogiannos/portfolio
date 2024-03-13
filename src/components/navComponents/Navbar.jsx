@@ -21,11 +21,12 @@ function Navbar() {
     offset: ["start start", "end end"],
   });
   useEffect(()=>{
-
+    scrollY.get() < 150 && window.innerWidth>1023 ? setFlag(false) : setFlag(true);
     window.onscroll = function () {
-      scrollY.get() < 150 ? setFlag(false) : setFlag(true);
+      scrollY.get() < 150 && window.innerWidth>1023 ? setFlag(false) : setFlag(true);
+      
     };
-  })
+  },[])
 
   
 
@@ -33,11 +34,9 @@ function Navbar() {
     <nav
     style={montserat.style}
       ref={nav}
-      className={`flex ${
-        flag ? "justify-end items-start" : "justify-between items-center"
-      }  w-[1440px] h-28 mx-auto bg-transparent sticky top-0 z-50 text-white   text-xl font-medium `}
+      className={`flex justify-end items-start myContainer h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium `}
     >
-      <h1 className={`${flag ? "hidden" : ""} cursor-pointer text-2xl `}>
+      <h1 className={` cursor-pointer text-2xl absolute top-1/2 -translate-y-1/2 left-0 max-lg:block ${flag ? "hidden" : ""}`}>
         Orbital Designs
       </h1>
       {!flag&&<NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} />}

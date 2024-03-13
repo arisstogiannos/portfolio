@@ -72,8 +72,8 @@ export default function CursorDesktop({ cursorScale }) {
   return (
     <div
       ref={cursor}
-      className={` work w-32 h-32 absolute bg-[#008080] pointer-events-none rounded-full  -translate-x-1/2 -translate-y-1/2 -z-[1000] filter  transition-transform duration-300 ease-in-out ${
-        cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
+      className={` work w-32 h-32 absolute bg-[#008080] pointer-events-none   -translate-x-1/2 -translate-y-1/2 -z-[1000] filter  transition-transform duration-300 ease-in-out ${
+        cursorScale ? "scale-[3.5] blur-xl rounded-3xl " : "scale-[0.1] rounded-full"
       } ${servicesInView ? "scale-[0.9] blur-2xl " : "scale-[0.1]"} ${
         techStackInView ? "scale-[4] blur-2xl " : "scale-[0.1]"
       }`}

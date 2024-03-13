@@ -45,7 +45,7 @@ export default function Home() {
   
 
   return (
-   <main  style={montserat.style} className="flex flex-col ">
+   <main  style={montserat.style} className=" flex flex-col ">
     <Navbar/>
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
@@ -53,7 +53,7 @@ export default function Home() {
       <Library setCursorScale={setCursorScale} />
       <TechStack/>
       <AboutContact/>
-      {screenWidth>0&&screenWidth<1500&&<Cursor cursorScale={cursorScale} />}
+      {screenWidth>1000&&screenWidth<1500&&<Cursor cursorScale={cursorScale} />}
       {screenWidth>=1500&&<CursorDesktop cursorScale={cursorScale}/>}
     
       

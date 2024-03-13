@@ -26,7 +26,7 @@ export default function MenuButton({ isOpen, setIsOpen , flag }) {
     animate='enter'
     
       onClick={()=>(setIsOpen(!isOpen))}
-      className={` cursor-pointer z-[2000] text-base  w-24 h-9 bg-slate-400  rounded-full absolute  overflow-hidden mt-9  `}
+      className={` cursor-pointer z-[2000] text-base  w-24 h-9 bg-slate-400  rounded-full absolute  overflow-hidden mt-9 max-lg:top-0 max-lg:right-0 `}
     >
       <motion.div
       className="relative w-full h-full"

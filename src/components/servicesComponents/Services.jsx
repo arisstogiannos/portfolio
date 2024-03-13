@@ -6,10 +6,13 @@ import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
 import {  useRef, useState } from "react";
 import localfont from 'next/font/local'
 import {  motion,useInView } from "framer-motion";
-
+import { Montserrat } from "next/font/google";
 
 const medium=localfont({src:'../../../fonts/medium.otf'})
-
+const montserat = Montserrat({
+  subsets:['latin'],
+  weight:['400','500','600','700']
+})
 
 
   
@@ -25,8 +28,8 @@ function Services() {
     
   
     return (
-      <section ref={section} id="services" style={medium.style} className="flex items-center h-screen overflow-hidden bg-transparent ">
-        <div className="w-[1440px] mx-auto flex flex-col items-start justify-start  text-white  ">
+      <section ref={section} id="services" style={medium.style} className=" myContainer flex items-center h-screen overflow-hidden bg-transparent mb-20">
+        <div className="w-full flex flex-col items-start justify-start  text-white ">
           <motion.hr animate={isInView && { scaleX: 1 ,translateY:3}}
         transition={{
           duration: 0.8,
@@ -45,6 +48,7 @@ function Services() {
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
               <CircleText/>
               {selectedService==0&&<video src="/servicesImages/Frame-1.mp4" width={'100%'} height={'100%'} className="z-[60]" autoPlay loop></video>}
+              {selectedService==0&&<p style={montserat.style} className="absolute z-[70] right-0 bottom-0 text-lg w-36 h-16 flex items-center justify-center bg-mblack">Made by me</p>}
             </div>
           </div>
           <motion.hr animate={isInView && { scaleX: 1 }}
