@@ -60,15 +60,17 @@ function Services() {
                     ? "inset(0 0 0 0 )"
                     : "inset(0 50% 0 50% )",
               }}
-              className="h-full w-full absolute bg-white transition-all duration-[0.35s] ease-[cubic-bezier(0.5, 1, 0.89, 1)]"
+              className="h-full w-full absolute  transition-all duration-[0.35s] ease-[cubic-bezier(0.5, 1, 0.89, 1)] "
             >
-              <video
+               <video
+                
                 src="/servicesImages/Frame-1.mp4"
-                width={"100%"}
-                height={"100%"}
-                className="bg-clip-content"
+                width={"700px"}
+                height={"360px"}
+                className="bg-clip-content "
                 autoPlay
                 loop
+                muted
               ></video>
             </div>
 

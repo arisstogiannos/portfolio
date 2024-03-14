@@ -24,7 +24,7 @@ export default function NavLinks({selectedLink, setSelectedLink,loco}) {
       animate={{y:0}}
       exit={{y:-100}}
       transition={{duration:0.1, ease:[0.76,0,0.24,1],}}
-      className={` flex   gap-0 `}>
+      className={` flex   gap-0  `}>
         {navLinks.map((link, i) => {
           return (
             <li

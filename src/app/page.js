@@ -21,11 +21,13 @@ export default function Home() {
   const [cursorScale, setCursorScale] = useState(false);
   const [screenWidth,setScreenwidth]= useState(0)
 
+  const [loco, setLoco] = useState(null);
   useEffect(()=>{
     (
       async() => {
-        const LocomotiveScroll = (await  import('locomotive-scroll')).default;
+        const LocomotiveScroll = (await import('locomotive-scroll')).default;
         const locomotiveScroll = new LocomotiveScroll();
+        setLoco(locomotiveScroll)
       }
     )()
   },[])
@@ -46,15 +48,16 @@ export default function Home() {
 
   return (
    <main  style={montserat.style} className=" flex flex-col ">
-    <Navbar/>
+    <Navbar loco={loco}/>
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services />
       <Library setCursorScale={setCursorScale} />
-      <TechStack/>
+      <TechStack loco={loco}/>
       <AboutContact/>
       {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} />}
       {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>}
+      <div className="h-[200vh]"></div>
     
       
    </main>

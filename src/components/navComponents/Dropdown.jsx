@@ -26,8 +26,8 @@ function Dropdown({ isOpen ,loco}) {
       
       top: 0,
       right: 0,
-      width: '100%',
-      height: '100%',
+      width: '96px',
+      height: '36px',
       transition: {
         opacity:{ duration: 0.3, delay: 0.5, ease: [0.76, 0, 0.24, 1]},
         duration: 0.75, delay: 0.3, ease: [0.76, 0, 0.24, 1] },
@@ -90,7 +90,7 @@ function Dropdown({ isOpen ,loco}) {
       variants={variants}
       animate={isOpen ? "open" : "closed"}
       initial="initial"
-      className={` bg-mwhite  rounded-[25px]  absolute  w-16 h-6 md:h-[36px] md:w-[96px]  `}
+      className={` bg-mwhite  rounded-[25px]  absolute    `}
     >
       <AnimatePresence>
         {isOpen && (
@@ -109,6 +109,7 @@ function Dropdown({ isOpen ,loco}) {
                     onClick={() => {
                       setClickedLink(i);
                       loco.scrollTo(link.href,{duration:2})
+                      
                     }}
                     className={`absolute `}
                     style={{top:i*50}}

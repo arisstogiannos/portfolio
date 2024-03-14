@@ -1,10 +1,10 @@
-import React, {  useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 import localfont from "next/font/local";
 import { useScroll, useTransform, motion } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function TechStack() {
+function TechStack({loco}) {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -19,11 +19,34 @@ function TechStack() {
   const scale5 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.5, 5]);
   const scale6 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3, 6]);
   const scale7 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3.5, 7]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
+
  
-
-
   
  
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
+  
+    const scrollHandle = () => {
+      const currentScrollY = window.scrollY;
+  
+      if (currentScrollY > prevScrollY && opacity.get() === 0) {
+        loco.scrollTo('#contact', { duration: 0.4 });
+      }else if(currentScrollY < prevScrollY && opacity.get() === 0){
+        loco.scrollTo('#techStack', { duration: 2 });
+      }
+  
+      prevScrollY = currentScrollY;
+    };
+  
+    window.addEventListener('scroll', scrollHandle);
+  
+    return () => {
+      window.removeEventListener('scroll', scrollHandle);
+    };
+  }, [loco, opacity]);
+  
+
 
   const svgs = [
     {
@@ -50,6 +73,7 @@ function TechStack() {
     {
       key: "react",
       scale: scale6,
+      opacity:opacity,
       width: "200px",
       top: -100,
       left: -210,
@@ -131,6 +155,7 @@ function TechStack() {
     {
       key: "css",
       scale: scale6,
+      opacity:opacity,
       width: "100px",
       top: 250,
       left: 100,
@@ -152,6 +177,7 @@ function TechStack() {
     {
       key: "nodejs",
       scale: scale3,
+      opacity:opacity,
       width: "190px",
       top: 260,
       left: -350,
@@ -224,13 +250,13 @@ function TechStack() {
   ];
 
   return (
-    <div ref={container} className="h-[200vh] myContainer relative  ">
-      <div className={`sticky top-0 h-screen   ${scrollYProgress>=0.5?'hidden':''}`}>
+    <div ref={container} id='techStack' className={`h-[200vh] myContainer relative  ${scrollYProgress.get()>=0.5?'overflow-hidden':''} `}>
+      <div className={`sticky top-0 h-screen   `}>
         {svgs.map((item, index) => {
           return (
             <motion.div
             key={index}
-              style={{ scale: item.scale }}
+              style={{ scale: item.scale ,opacity:item.opacity}}
               className="w-full h-full absolute top-0 flex items-center justify-center"
             >
               <div
@@ -246,7 +272,7 @@ function TechStack() {
         })}
         
         <motion.div
-          style={{ scale: scale1 }}
+          style={{ scale: scale1 ,opacity:opacity}}
           className="w-full h-full absolute top-0 flex items-center justify-center"
         >
           <div className=" w-[550px] relative">

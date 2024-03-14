@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from 'framer-motion';
 
-export default function MenuButton({ isOpen, setIsOpen , flag }) {
+export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
   const variants = {
     initial:{
       y:-200
@@ -12,7 +12,7 @@ export default function MenuButton({ isOpen, setIsOpen , flag }) {
         type: "spring",
         bounce: 0.4,
         duration: 0.8,
-        delay:0.7
+        
       }
     },
     exit:{
