@@ -69,7 +69,7 @@ const scaleAnimation ={
         }
       </div>
     </motion.div>
-    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursor} className='invisible lg:visible w-20 h-20 fixed bg-[#008080] pointer-events-none rounded-full z-50 ' ></motion.div>
+    <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursor} className='invisible lg:visible w-20 h-20 fixed bg-mblue pointer-events-none rounded-full z-50 ' ></motion.div>
     <motion.div variants={scaleAnimation} initial={"initial"} animate={active? "open" : "closed"} ref={cursorLabel} className='invisible lg:visible w-20 h-20 fixed bg-transparent pointer-events-none rounded-full z-50 flex justify-center items-center text-white'>View</motion.div>
     </>
   )

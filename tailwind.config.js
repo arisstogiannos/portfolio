@@ -96,12 +96,23 @@ module.exports = {
       }
       },
      
+      // colors:{
+      //   'mwhite':'#D4F1F4',
+      //   'mblack':'#070914',
+      //   'mblue' : '#008080',
+      // },
       colors:{
-        'mwhite':'#D4F1F4',
-        'mblack':'#070914',
-        'mblue' : '#008080',
+        'mwhite':'#FFFFFF',
+        'mblack':'#000000',
+        'mblue' : '#00EAFF',
       },
-      
+      // colors:{
+      //   'white':'#000000',
+      //   'black':'#FFFFFF',
+      //   'mwhite':'#000000',
+      //   'mblack':'#FFFFFF',
+      //   'mblue' : '#008080',
+      // },
       screens:{
         'xsm' : '400px',
         '3xl':'1700px'

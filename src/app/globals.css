@@ -13,24 +13,24 @@ html::-webkit-scrollbar{
 }
 
 #mytext1 .char{
-    transform: translateY(140px);
-    transition: transform .5s ease-in-out;
-    transition: opacity .4s ease-in-out;
-    opacity: 0;
+    transform: translateY(190px);
+    
+    
 }
 #mytext2 .char{
-    transform: translateY(140px);
-    transition: transform .5s ease-in-out;
+    transform: translateY(190px);
     
-    transition: opacity .4s .4s ease-in-out;
-    opacity: 0;
+    
+    
+    transition: transform 0s 0.01s ;
+    
 }
 #mytext1{
-    clip-path: polygon(0 0,100% 0, 100% 100%,0% 100%)
+    clip-path: inset(0 0 0 0 round 0%);
 
 }
 #mytext2{
-    clip-path: polygon(0 0,100% 0, 100% 100%,0% 100%)
+    clip-path: inset(0 0 0 0 round 0%);
 
 }
 

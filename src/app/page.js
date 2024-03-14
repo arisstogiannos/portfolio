@@ -5,10 +5,11 @@ import Navbar from "@/components/navComponents/Navbar";
 import Cursor from "@/components/globalComponents/Cursor"
 import Services from "@/components/servicesComponents/Services";
 import { Montserrat} from "next/font/google";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import HeroL from "@/components/heroComponents/HeroL";
-import AboutContact from "@/components/aboutComponents/AboutContact";
+import AboutContact from "@/components/contactComponents/Contact";
 import CursorDesktop from "@/components/globalComponents/CursorDesktop";
+import About from "@/components/aboutComponents/About";
 
 
 
@@ -22,7 +23,7 @@ export default function Home() {
   const [screenWidth,setScreenwidth]= useState(0)
 
   const [loco, setLoco] = useState(null);
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     (
       async() => {
         const LocomotiveScroll = (await import('locomotive-scroll')).default;
@@ -52,6 +53,7 @@ export default function Home() {
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services />
+      {/* <About/> */}
       <Library setCursorScale={setCursorScale} />
       <TechStack loco={loco}/>
       <AboutContact/>
