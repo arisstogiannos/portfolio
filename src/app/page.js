@@ -57,7 +57,6 @@ export default function Home() {
       <AboutContact/>
       {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} />}
       {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>}
-      <div className="h-[200vh]"></div>
     
       
    </main>

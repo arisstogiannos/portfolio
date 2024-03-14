@@ -1,7 +1,8 @@
-import React, {  useEffect, useRef } from "react";
+import React, {  useEffect, useLayoutEffect, useRef } from "react";
 import localfont from "next/font/local";
 import { useScroll, useTransform, motion } from "framer-motion";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function TechStack({loco}) {
@@ -19,20 +20,21 @@ function TechStack({loco}) {
   const scale5 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.5, 5]);
   const scale6 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3, 6]);
   const scale7 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3.5, 7]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 0.9, 0]);
 
  
   
  
-  useEffect(() => {
+  useLayoutEffect(() => {
+
     let prevScrollY = window.scrollY;
-  
     const scrollHandle = () => {
       const currentScrollY = window.scrollY;
-  
+      console.log(currentScrollY < prevScrollY && opacity.get() >0 && opacity.get() < 0.9)
       if (currentScrollY > prevScrollY && opacity.get() === 0) {
-        loco.scrollTo('#contact', { duration: 0.4 });
-      }else if(currentScrollY < prevScrollY && opacity.get() === 0){
+        loco.scrollTo('#contact', { duration: 4 });
+        // opacity.set(0.0001)
+      }else if(currentScrollY < prevScrollY && opacity.get() >0 && opacity.get() < 0.9 ){
         loco.scrollTo('#techStack', { duration: 2 });
       }
   

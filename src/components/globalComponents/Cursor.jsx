@@ -95,6 +95,9 @@ export default function Cursor({ cursorScale }) {
       }
     })
   }, []);
+
+  
+
   return (
     <div
       ref={cursor}
