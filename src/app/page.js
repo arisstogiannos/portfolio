@@ -4,7 +4,7 @@ import Library from "@/components/libraryComponents/Library";
 import Navbar from "@/components/navComponents/Navbar";
 import Cursor from "@/components/globalComponents/Cursor"
 import Services from "@/components/servicesComponents/Services";
-import { Montserrat} from "next/font/google";
+import { Montserrat,Instrument_Sans} from "next/font/google";
 import { useLayoutEffect, useEffect, useState } from "react";
 import HeroL from "@/components/heroComponents/HeroL";
 import AboutContact from "@/components/contactComponents/Contact";
@@ -16,6 +16,10 @@ import About from "@/components/aboutComponents/About";
 const montserat = Montserrat({
   subsets:['latin'],
   weight:["300","400","500",'600']
+})
+const instrumentSans = Instrument_Sans({
+  subsets:['latin'],
+  weight:["700","400","500",'600']
 })
 
 export default function Home() {
@@ -38,7 +42,6 @@ export default function Home() {
   useEffect(()=>{
     
     setScreenwidth(window.innerWidth)
-    console.log(screenWidth)
     window.onresize= function(){
       setScreenwidth(window.innerWidth)
         }

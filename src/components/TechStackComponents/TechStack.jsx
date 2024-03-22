@@ -29,7 +29,6 @@ function TechStack({loco}) {
     let prevScrollY = window.scrollY;
     const scrollHandle = () => {
       const currentScrollY = window.scrollY;
-      console.log(currentScrollY < prevScrollY && opacity.get() >0 && opacity.get() < 0.9)
       if (currentScrollY > prevScrollY && opacity.get() === 0) {
         loco.scrollTo('#contact', { duration: 2 });
         // opacity.set(0.0001)

@@ -3,6 +3,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import MovingBg from "../globalComponents/MovingBg";
 
 function AboutContact() {
+
+  const balls = [
+    { top: 0, left: '100%', scale: 1 },
+    { top: '80%', left: '75%', scale: 1.8 },
+    { top: '60%', left: '33%', scale: 1.8 },
+    { top: '20%', left: '29%', scale: 2 },
+    { top: '30%', left: '80%', scale: 1.6 },
+    { top: '90%', left: '10%', scale: 1.3 },
+   
+    { top: '15%', left: 0, scale: 1.3 },
+ 
+  ];
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -24,9 +36,9 @@ function AboutContact() {
         <h3 className="text-8xl text-mwhite leading-tight ">
           Designing Your Web Vision, Together.
         </h3>
-        <div className="w-2/3 h-[550px]   rounded-3xl relative">
-          <MovingBg/>
-          <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md">
+        <div className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden">
+          <MovingBg balls={balls}/>
+          <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md ">
             <p></p>
           </div>
         </div>

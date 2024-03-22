@@ -2,7 +2,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useScroll, motion, AnimatePresence } from "framer-motion";
 import MenuButton from "./MenuButton";
-import Dropdown from "./Dropdown";
+import DropDownFull from "./DropDownFull";
 import NavLinks from "./NavLinks";
 import { Montserrat } from "next/font/google";
 
@@ -47,17 +47,16 @@ function Navbar({loco}) {
       <h1 className={`hidden cursor-pointer text-lg md:text-2xl absolute mt-9 md:mt-0 md:top-1/2 md:-translate-y-1/2 left-0 max-lg:block ${false ? "hidden" : ""}`}>
         Orbital Designs
       </h1>
-      <div className="relative ">
+      
         {/* <AnimatePresence>
       {navlinksVisible&& <NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} loco={loco}/>}
       </AnimatePresence> */}
       <AnimatePresence>
-         <Dropdown isOpen={isOpen} selectedLink={selectedLink} loco={loco} />
+         <DropDownFull isOpen={isOpen} selectedLink={selectedLink} loco={loco} />
       </AnimatePresence>
       <AnimatePresence>
         <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} dropDownVisible={dropDownVisible} />
       </AnimatePresence>
-      </div>
     </nav>
   );
 }

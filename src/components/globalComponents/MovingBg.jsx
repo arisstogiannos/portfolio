@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 
-function MovingBg() {
+function MovingBg({balls}) {
     const ref = useRef(null);
     const ref2 = useRef(null);
     const [r,setR] = useState({})
@@ -39,16 +39,7 @@ function MovingBg() {
       setR(rect)
     },[])
     const { left, right, top, bottom } = r
-    console.log(bottom-top)
-    const balls = [
-      { top: 0, left: 620, scale: 1 },
-      { top: 10, left: 450, scale: 1.4 },
-      { top: 90, left: 200, scale: 0.8 },
-      { top: 30, left: 150, scale: 1 },
-      { top: 50, left: 300, scale: 1.6 },
-      { top: 20, left: 0, scale: 1.3 },
-   
-    ];
+    
   
     return (
       <><div

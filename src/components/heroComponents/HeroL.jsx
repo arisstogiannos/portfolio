@@ -57,7 +57,7 @@ function HeroL() {
             On <br /> Your Website
           </h1>
         </div>
-        <div className="scale-50 md:scale-75 lg:scale-[0.85] top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-50">
+        <div className="scale-50 md:scale-75 lg:scale-[0.85] top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
           <div
             onClick={() => {
               scrollTo({ top: 1000, left: 0, behavior: "smooth" });
