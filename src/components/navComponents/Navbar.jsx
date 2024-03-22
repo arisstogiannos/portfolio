@@ -44,7 +44,7 @@ function Navbar({loco}) {
       ref={nav}
       className={` myContainer h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}
     >
-      <h1 className={` cursor-pointer text-lg md:text-2xl absolute mt-9 md:mt-0 md:top-1/2 md:-translate-y-1/2 left-0 max-lg:block ${false ? "hidden" : ""}`}>
+      <h1 className={`hidden cursor-pointer text-lg md:text-2xl absolute mt-9 md:mt-0 md:top-1/2 md:-translate-y-1/2 left-0 max-lg:block ${false ? "hidden" : ""}`}>
         Orbital Designs
       </h1>
       <div className="relative ">

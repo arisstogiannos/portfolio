@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {  motion } from "framer-motion";
 import localfont from "next/font/local";
+import Link from "next/link";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -10,7 +11,7 @@ const {active,index} = modal
   
   return (
     <>
-
+  <Link href='/project1' className="w-full">
       <motion.div
         key={i}
         onMouseEnter={() => {
@@ -59,7 +60,7 @@ const {active,index} = modal
           Design&Development
         </motion.p>
       </motion.div>
-      
+      </Link>
       <motion.hr
         animate={isInView && { scaleX: 1 }}
         transition={{

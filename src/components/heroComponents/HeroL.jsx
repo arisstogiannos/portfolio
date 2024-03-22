@@ -23,7 +23,7 @@ function HeroL() {
       y: 0,
       opacity: 1,
       stagger: 0.015,
-      delay: 0.3,
+    
       duration: 0.6,
       ease: "circ.inOut",
     });
@@ -48,10 +48,10 @@ function HeroL() {
             transition={{
               duration: 0.8,
               ease: [0, 0.55, 0.45, 1],
-              delay: 0.8,
+              delay: 0.6,
             }}
             initial={{ scaleX: 0, translateX: "-50%" }}
-            className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[57%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[60%] origin-left "
+            className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[55%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[65%] origin-left "
           />
           <h1 id="mytext2" className=" mt-auto text-end leading-tight">
             On <br /> Your Website

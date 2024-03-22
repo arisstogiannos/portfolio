@@ -20,6 +20,9 @@ const montserat = Montserrat({
 
 export default function Home() {
   const [cursorScale, setCursorScale] = useState(false);
+  // const [cursorInServices, setCursorInServices] = useState({x:-1,y:-1});
+  // const [cursorInLibrary, setCursorInLibrary] = useState(-1);
+  // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
   const [screenWidth,setScreenwidth]= useState(0)
 
   const [loco, setLoco] = useState(null);
@@ -53,13 +56,13 @@ export default function Home() {
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services />
-      {/* <About/> */}
+      <About/>
       <Library setCursorScale={setCursorScale} />
       <TechStack loco={loco}/>
-      <AboutContact/>
-      {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} />}
+    <AboutContact/> 
+       {/* {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} cursorInServices={cursorInServices} />}
       {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>}
-    
+     */}
       
    </main>
   );

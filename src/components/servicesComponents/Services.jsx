@@ -3,7 +3,7 @@ import CircleText from "@/components/servicesComponents/CircleText";
 import { servicelist } from "../../../src/app/data.js";
 import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
 import { motion, useInView } from "framer-motion";
 import { Montserrat } from "next/font/google";
@@ -14,11 +14,12 @@ const montserat = Montserrat({
   weight: ["400", "500", "600", "700"],
 });
 
-function Services() {
+function Services({setCursorInServices}) {
   const [selectedService, setSelectedService] = useState(null);
-
   const section = useRef(null);
   const isInView = useInView(section, { once: true, amount: 0.4 });
+  
+ 
 
   return (
     <section
@@ -49,7 +50,7 @@ function Services() {
             selectedService={selectedService}
           />
 
-          <div className="w-1/4 h-full   flex items-center   justify-center z-10 relative ">
+          <div  className="w-1/4 h-full   flex items-center   justify-center z-10 relative ">
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText />

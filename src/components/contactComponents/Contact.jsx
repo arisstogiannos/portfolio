@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import MovingBg from "../globalComponents/MovingBg";
 
 function AboutContact() {
   const container = useRef(null);
@@ -8,7 +9,7 @@ function AboutContact() {
     target: container,
     offset: ["start end", "end end"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0.6, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
 
   return (
     <section
@@ -20,11 +21,11 @@ function AboutContact() {
         style={{ scale: scale }}
         className=" flex gap-0 items-center"
       >
-        <h3 className="text-8xl text-mwhite ">
+        <h3 className="text-8xl text-mwhite leading-tight ">
           Designing Your Web Vision, Together.
         </h3>
         <div className="w-2/3 h-[550px]   rounded-3xl relative">
-          {background()}
+          <MovingBg/>
           <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md">
             <p></p>
           </div>
