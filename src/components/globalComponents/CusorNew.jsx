@@ -4,8 +4,8 @@ import gsap from "gsap";
 export default function CursorNew({ cursorScale }) {
   const [servicesInView, setServicesInView] = useState(false);
   const [techStackInView, setTechStackInView] = useState(false);
-  const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const [cursorIsHovering, setCursorIsHovering] = useState(false);
+  const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const cursor = useRef(null);
 
   useEffect(() => {
@@ -14,10 +14,13 @@ export default function CursorNew({ cursorScale }) {
     const handleEnter = (event) => {
       // Your event handling logic goes here
       setCursorIsHovering(true);
+      console.log("just")
     };
     const handleLeave = (event) => {
       // Your event handling logic goes here
       setCursorIsHovering(false);
+      console.log("justLeft")
+
     };
 
     // Loop through each element with the class name "scaleCursor" and add a click event listener
@@ -49,15 +52,20 @@ export default function CursorNew({ cursorScale }) {
       const { clientX, clientY } = e;
 
       if (techStackInView) {
-        moveCursorX(window.innerWidth/2)
-        moveCursorY(window.innerHeight/2)
-       
+        moveCursorX(window.innerWidth / 2);
+        moveCursorY(window.innerHeight / 2);
       } else if (servicesInView) {
-        moveCursorX(1300, lastCursorPos.x);
-        moveCursorY(1310, lastCursorPos.pageY);
-        setLastCursorPos({ x: clientX, y: clientY });
+        moveCursorX(1300);
+        moveCursorY(550);
+        // setLastCursorPos({ x: clientX, y: clientY });
+      } else if (cursorScale) {
+        moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
+        moveCursorY(
+          clientY < 400 || window.scrollY < 1700 ? clientY + 150 : clientY - 150
+        );
+        // setLastCursorPos({ x: clientX, y: clientY });
       } else {
-        setLastCursorPos({ x: clientX, y: clientY });
+        // setLastCursorPos({ x: clientX, y: clientY });
         moveCursorX(clientX);
         moveCursorY(clientY);
       }
@@ -67,19 +75,19 @@ export default function CursorNew({ cursorScale }) {
       entries.forEach((entry) => {
         if (entry.target.id === "services") {
           setServicesInView(entry.isIntersecting);
-          moveCursorX(1300, lastCursorPos.x);
-          moveCursorY(550, lastCursorPos.y);
+          moveCursorX(1300);
+          moveCursorY(550);
         } else if (entry.target.id === "techStack") {
           setTechStackInView(entry.isIntersecting);
         }
 
-        if (!servicesInView) {
-          moveCursorX(lastCursorPos.x);
-          moveCursorY(lastCursorPos.y);
-        }
-        if(techStackInView){
-          moveCursorX(window.innerWidth/2)
-          moveCursorY(window.innerHeight/2)
+        // if (!servicesInView) {
+        //   moveCursorX(lastCursorPos.x);
+        //   moveCursorY(lastCursorPos.y);
+        // }
+        if (techStackInView) {
+          moveCursorX(window.innerWidth / 2);
+          moveCursorY(window.innerHeight / 2);
         }
       });
     };
@@ -96,12 +104,12 @@ export default function CursorNew({ cursorScale }) {
     observer.observe(document.getElementById("techStack"));
 
     return () => observer.disconnect();
-  }, [servicesInView, techStackInView]);
+  }, [servicesInView, techStackInView, cursorScale]);
 
   return (
     <div
       ref={cursor}
-      className={`work w-32  h-32 fixed bg-[#008080] pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter mix-blend-exclusion transition-transform duration-300 ease-in-out ${
+      className={`work w-32  h-32 fixed bg-[#008080] pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
         cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
       } ${
         servicesInView
@@ -109,7 +117,7 @@ export default function CursorNew({ cursorScale }) {
           : "scale-[0.1] "
       } ${
         cursorIsHovering
-          ? "scale-[0.9]  mix-blend-exclusion z-[1000] "
+          ? "scale-[0.9]  mix-blend-exclusion  z-[1000] "
           : "scale-[0.1] "
       } ${techStackInView ? "scale-[3.5] blur-2xl " : "scale-[0.1]"}`}
     ></div>

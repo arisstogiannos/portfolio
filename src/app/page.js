@@ -29,7 +29,7 @@ export default function Home() {
   // const [cursorInServices, setCursorInServices] = useState({x:-1,y:-1});
   // const [cursorInLibrary, setCursorInLibrary] = useState(-1);
   // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
-  const [screenWidth,setScreenwidth]= useState(0)
+  // const [screenWidth,setScreenwidth]= useState(0)
   const [load,setLoad] = useState(true)
   const [loco, setLoco] = useState(null);
   useLayoutEffect(()=>{
@@ -41,22 +41,23 @@ export default function Home() {
       }
     )()
   },[])
-  useEffect(()=>{
+  // useEffect(()=>{
     
-    setScreenwidth(window.innerWidth)
-    window.onresize= function(){
-      setScreenwidth(window.innerWidth)
-        }
+  //   setScreenwidth(window.innerWidth)
+  //   window.onresize= function(){
+  //     setScreenwidth(window.innerWidth)
+  //       }
         
       
     
-  })
+  // })
   
 
   
 
   return (
-    load? <Loading setLoading={setLoad} />: <main  style={montserat.style} className=" flex flex-col ">
+    // load? <Loading setLoading={setLoad} />:
+     <main  style={montserat.style} className=" flex flex-col ">
     <Navbar loco={loco}/>
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}

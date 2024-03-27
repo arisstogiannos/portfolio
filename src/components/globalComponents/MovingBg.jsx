@@ -9,28 +9,26 @@ function MovingBg({ balls }) {
   let yPercent = 0;
   let direction = -1;
 
-  const firstText = useRef(null);
-  const secondText = useRef(null);
 
-  // useEffect(()=>{
-  //   requestAnimationFrame(animation);
+  useEffect(()=>{
+    requestAnimationFrame(animation);
 
-  // },[])
+  },[])
 
-  // const animation = () => {
-  //   if(yPercent<=-100){
-  //     yPercent=0;
-  //   }
-  //   if(yPercent>0){
-  //     yPercent= -100;
+  const animation = () => {
+    if(yPercent<=-100){
+      yPercent=0;
+    }
+    if(yPercent>0){
+      yPercent= -100;
 
-  //   }
-  //     gsap.set(ref.current, {yPercent:yPercent})
-  //     gsap.set(ref2.current, {yPercent:yPercent})
+    }
+      gsap.set(ref.current, {yPercent:yPercent})
+      gsap.set(ref2.current, {yPercent:yPercent})
 
-  //    yPercent +=0.20*direction;
-  //    requestAnimationFrame(animation);
-  // }
+     yPercent +=0.20*direction;
+     requestAnimationFrame(animation);
+  }
   // useEffect(()=>{
 
   //   const rect = ref.current.getBoundingClientRect();
@@ -53,7 +51,7 @@ function MovingBg({ balls }) {
         className="w-full h-full  absolute top-full left-0  rounded-3xl"
       >
         {balls.map((b, i) => (
-          <Ball key={i} {...b} ballRef={ref} />
+          <Ball key={i} {...b} ballRef={ref2} />
         ))}
       </div>
     </>
@@ -139,6 +137,7 @@ function Ball({ top, left, scale, ballRef }) {
   return (
     <div
       ref={ballR}
+      style={{left:x, top:y, scale:scalee}}
       className="w-20 h-20 -translate-y-full absolute bg-mblue rounded-full filter "
     ></div>
   );

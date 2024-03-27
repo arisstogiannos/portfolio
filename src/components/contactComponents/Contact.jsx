@@ -1,7 +1,10 @@
-import React, { useLayoutEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { animate, motion, useInView, useScroll, useTransform } from "framer-motion";
 import MovingBg from "../globalComponents/MovingBg";
 import gsap from "gsap";
+import SplitType from "split-type";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 function AboutContact() {
 
@@ -32,9 +35,31 @@ function AboutContact() {
   //     }
   //   })
   //   tl
-  //   .from(form.current,{clipPath:'inset(10%)'})
+  //   .from(form.current,{clipPath:'inset(40%)'})
   //   .to(form.current,{clipPath:'inset(100%)'})
   // })
+  const isInView = useInView(container, { once: true,amount:0.5 })
+  
+  useEffect(()=>{
+   const mytext = new SplitType("#textContact");
+  gsap.registerPlugin(ScrollTrigger)
+  gsap.from("#textContact .char", {
+    y: 130,
+    opacity: 1,
+    stagger: 0.02,
+  
+    duration: 0.8,
+    ease: "circ.inOut",
+    scrollTrigger:{
+      trigger:'#contact',
+      start:'30% 80%',
+      
+    }
+  });
+ },[])
+
+  
+  
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -45,26 +70,29 @@ function AboutContact() {
   return (
     <section
       id="contact"
+      
       className={`h-screen   bg-transparent myContainer flex items-center `}
     >
       <motion.div
         ref={container}
         // Fixing the clipPath usage
-        className=" flex gap-0 items-center"
+        className="  flex gap-0 items-center"
       >
-        <h3 className="scaleCursor -z-[1000] text-8xl text-mwhite leading-tight ">
+        <h3 id="textContact" className="scaleCursor w-[1500px] text-8xl text-mwhite leading-tight ">
           Designing Your Web Vision, Together.
         </h3>
-        <div ref={form}  className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden">
+        <motion.div initial={{clipPath:'inset(0 50% 0 50%)'}} animate={isInView&&{clipPath:'inset(0 0 0 0)',transition:{duration:0.8}}}  ref={form}  className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden">
           <MovingBg balls={balls}/>
           <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md ">
             <p></p>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
 }
+
+
 
 function background() {
   const balls = [

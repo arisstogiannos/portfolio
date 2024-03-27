@@ -41,7 +41,7 @@ function Library({ setCursorScale, setLibraryInView }) {
   const scrollProgress = useTransform(scrollYProgress, [0, 1], [-1, 4]);
 
   const [modal, setModal] = useState({ active: false, index: -1 });
-  const isInView = useInView(refi, { once: true, amount: 0.4 });
+  const isInView = useInView(refi, { once: true, amount: 0.5 });
 
   return (
     <section
@@ -52,6 +52,7 @@ function Library({ setCursorScale, setLibraryInView }) {
       <div
         onMouseEnter={() => setCursorScale(true)}
         onMouseLeave={() => setCursorScale(false)}
+        id="libraryContainer"
         className=" flex justify-center items-center flex-col  absolute top-1/2 -translate-y-1/2 w-full   "
       >
         {projects.map((project, index) => {

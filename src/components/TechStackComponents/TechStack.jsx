@@ -1,6 +1,6 @@
-import React, {   useEffect, useRef } from "react";
+import React, {   useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useMotionValueEvent, useMotionTemplate } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -13,17 +13,16 @@ function TechStack({loco}) {
 
   });
 
-  const scale1 = useTransform(scrollYProgress, [0,0.6, 0.7], [1, 6, 50]);
+  const scale1 = useTransform(scrollYProgress, [0,0.6, 0.7], [1, 4, 50]);
   const scale2 = useTransform(scrollYProgress, [0, 0.7], [1,  4]);
   const scale3 = useTransform(scrollYProgress, [0, 0.7], [1,  3]);
   const scale4 = useTransform(scrollYProgress, [0, 0.7], [1,  4]);
   const scale5 = useTransform(scrollYProgress, [0, 0.7], [1,  5]);
   const scale6 = useTransform(scrollYProgress, [0, 0.7], [1,  6]);
-  const scale7 = useTransform(scrollYProgress, [0, 0.7], [1,  7]);
+  const scale10 = useTransform(scrollYProgress, [0, 0.7], [1,  10]);
   const scaletext = useTransform(scrollYProgress, [0.7,1], [0,1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 0.9, 0]);
-
   
+
  
   // useLayoutEffect(() => {
 
@@ -104,8 +103,7 @@ function TechStack({loco}) {
     },
     {
       key: "react",
-      scale: scale6,
-      opacity:opacity,
+      scale: scale10,
       width: "200px",
       top: -100,
       left: -210,
@@ -187,7 +185,6 @@ function TechStack({loco}) {
     {
       key: "css",
       scale: scale6,
-      opacity:opacity,
       width: "100px",
       top: 250,
       left: 100,
@@ -209,7 +206,6 @@ function TechStack({loco}) {
     {
       key: "nodejs",
       scale: scale3,
-      opacity:opacity,
       width: "190px",
       top: 260,
       left: -350,
@@ -282,14 +278,14 @@ function TechStack({loco}) {
   ];
 
   return (
-    <div ref={container}  className={`h-[400vh] myContainer relative  `}>
-      <div id='techStack' className={`sticky top-0 h-screen overflow-clip `}>
+    <div ref={container}  className={`h-[300vh]  relative  `}>
+      <div id='techStack' className={`sticky top-0 h-screen overflow-hidden `}>
         {svgs.map((item, index) => {
           return (
             <motion.div
             key={index}
-              style={{ scale: item.scale ,opacity:item.opacity}}
-              className="w-full h-full absolute top-0 flex items-center justify-center"
+              style={{ scale: item.scale }}
+              className="w-full h-full  absolute top-0 flex items-center justify-center"
             >
               <div
                 key={index}
@@ -304,8 +300,8 @@ function TechStack({loco}) {
         })}
         
         <motion.div
-          style={{ scale: scale1 ,opacity:opacity}}
-          className="w-full h-full absolute top-0 flex items-center justify-center"
+          style={{ scale: scale1}}
+          className={`w-full h-full absolute top-0 flex  items-center justify-center `}
         >
           <div className=" w-[550px] relative">
             <h2
@@ -317,7 +313,7 @@ function TechStack({loco}) {
             </h2>
           </div>
         </motion.div>
-        <motion.div  className="text-9xl text-mwhite top-0 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext}}><p data-scroll data-scroll-speed="2" >Seen enough?</p></motion.div>
+        <motion.div  className="text-9xl text-mwhite top-0 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext,opacity:scaletext }}><p  >Seen enough?</p></motion.div>
       </div>
     </div>
   );

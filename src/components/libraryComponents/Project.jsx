@@ -1,75 +1,75 @@
-import React, { useState } from "react";
-import {  motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { animate, inView, motion } from "framer-motion";
 import localfont from "next/font/local";
 import Link from "next/link";
+import gsap from "gsap";
+import SplitType from "split-type";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function Project({ i, title, setModal,modal, isInView }) {
-  const [isHovered,setIsHovered] = useState(false)
-const {active,index} = modal
-  
+function Project({ i, title, setModal, modal, isInView }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const { active, index } = modal;
+
+  // useEffect(()=>{
+  //   const mytext = new SplitType(".project");
+  //  gsap.registerPlugin(ScrollTrigger)
+  //  gsap.from(".project .char", {
+  //    y: 130,
+  //    opacity: 1,
+  //    stagger: 0.02,
+   
+  //    duration: 0.8,
+  //    ease: "circ.inOut",
+  //    scrollTrigger:{
+  //      trigger:'.project',
+  //      start:'30% 80%',
+       
+  //    }
+  //  });
+  // },[])
+
   return (
     <>
-  <Link href='/project1' className="w-full">
-      <motion.div
-        key={i}
-        onMouseEnter={() => {
-          setModal({ active: true, index: i });
-          setIsHovered(true)
-        }}
-        onMouseLeave={() => {
-          setModal({ active: false, index: i });
-          setIsHovered(false)
-        }}
-        className="transition  duration-1000 flex flex-col-reverse lg:flex-row w-full pt-[30px] sm:pt-[40px]  pl-[20px] sm:pl-[30px] pb-[15px] lg:pt-[70px] xl:pt-[60px] lg:pl-[50px] xl:pl-[100px] lg:pb-[70px] xl:pb-[50px] lg:pr-[50px] xl:pr-[100px] gap-3 sm:gap-5 lg:gap-0  lg:items-center lg:justify-between items-start justify-around cursor-pointer group"
-      >
-        <motion.h2
-        
-          custom={i}
-          animate={[isInView && { x: 0 },isHovered&&{x:-20 }]}
-          initial={[!isInView?{x: -1000  }:{x:0}]}
-          style={medium.style}
-          transition={index==-1?{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.315, 1],
-            delay:  i * 0.2, 
-          }:{duration: 0.01,
-            ease: 'easeIn',
-           
-            }}
-          className="uppercase font-medium text-xl sm:text-4xl   lg:text-3xl 2xl:text-4xl m-0 group-hover:opacity-40  transition transform  duration-200 ease-linear text-white"
+      <Link href="/project1" className="w-full">
+        <motion.div
+          key={i}
+          onMouseEnter={() => {
+            setModal({ active: true, index: i });
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setModal({ active: false, index: i });
+            setIsHovered(false);
+          }}
+          className="project transition  duration-1000 flex flex-col-reverse lg:flex-row w-full pt-[30px] sm:pt-[40px]  pl-[20px] sm:pl-[30px] pb-[15px] lg:pt-[70px] xl:pt-[80px] lg:pl-[50px]  lg:pb-[70px] xl:pb-[80px] lg:pr-[50px]  gap-3 sm:gap-5 lg:gap-0  lg:items-center lg:justify-between items-start justify-around cursor-pointer group"
         >
-          {title}
-        </motion.h2>
-        <motion.p
-           custom={i}
-           animate={[isInView && { x: 0 },isHovered&&{x:20 }]}
-           initial={[!isInView?{x: 1000  }:{x:0}]}
-           
-           transition={index==-1?{
-             duration: 0.8,
-             ease: [0.215, 0.61, 0.315, 1],
-             delay:  i * 0.2, 
-           }:{duration: 0.01,
-             ease: 'easeIn',
-            
-             }}
-          className="font-light text-xs sm:text-base group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear   text-white"
-        >
-          Design&Development
-        </motion.p>
-      </motion.div>
+          <motion.h2
+            custom={i}
+            style={medium.style}
+            className="projectTitle uppercase font-medium text-xl sm:text-4xl   lg:text-3xl 2xl:text-4xl m-0 group-hover:-translate-x-4 group-hover:opacity-40  transition transform  duration-200 ease-linear text-white"
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            custom={i}
+            className="projectText font-light text-xs sm:text-base group-hover:opacity-40 group-hover:translate-x-4 transition duration-200 ease-linear   text-white"
+          >
+            Design&Development
+          </motion.p>
+        </motion.div>
       </Link>
       <motion.hr
         animate={isInView && { scaleX: 1 }}
         transition={{
           duration: 0.8,
-          ease: [0.215, 0.61, 0.315, 1],
-          delay:  index * 0.2,
+          ease: "circInOut",
+          delay: index * 0.2,
         }}
-        initial={{ scaleX: 0,translateY:2}}
-        className="w-full h-1 "
+        initial={{ scaleX: 0, translateY: 2 }}
+        className="w-full h-1 origin-left"
       />
     </>
   );

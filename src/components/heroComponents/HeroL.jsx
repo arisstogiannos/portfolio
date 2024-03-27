@@ -6,6 +6,7 @@ import SplitType from "split-type";
 import gsap from "gsap";
 import { motion } from "framer-motion";
 
+
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 const montserat = Montserrat({
@@ -19,8 +20,8 @@ function HeroL() {
     const mytext1 = new SplitType("#mytext1");
     const mytext2 = new SplitType("#mytext2");
 
-    gsap.to(".char", {
-      y: 0,
+    gsap.from(".char", {
+      y: 130,
       opacity: 1,
       stagger: 0.02,
     
@@ -46,18 +47,18 @@ function HeroL() {
           <motion.hr
             animate={{ scaleX: 1, translateX: "-50%" }}
             transition={{
-              duration: 0.8,
+              duration: 0.6,
               ease: [0, 0.55, 0.45, 1],
-              delay: 0.8,
+              delay: 0.4,
             }}
             initial={{ scaleX: 0, translateX: "-50%" }}
-            className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[55%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[65%] origin-left "
+            className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[55%] 2xl:left-[57%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[65%] origin-left "
           />
           <h1 id="mytext2" className="scaleCursor mt-auto text-end leading-tight">
             On <br /> Your Website
           </h1>
         </div>
-        <div className="scale-50 md:scale-75 lg:scale-[0.85] top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
+        <motion.div initial={{clipPath:'inset(100% 0 0 0)'}} animate={{clipPath:'inset(0 0 0 0)',transition:{duration:1,delay:0.2}}} className="origin-right scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-95 top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
           <div
             onClick={() => {
               scrollTo({ top: 1000, left: 0, behavior: "smooth" });
@@ -69,14 +70,14 @@ function HeroL() {
             </div>
             <div className=" animate-spin-slow"> {scrollButton()}</div>
           </div>
-        </div>
+        </motion.div>
 
         <div
           
           style={medium.style}
           className="h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
         >
-          <div className="bg-mblue/30 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></div>
+          <motion.div initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/30 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
           <MovingText text={"i design. i develop. you grow"} />
         </div>
       </section>
