@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MovingBg from "../globalComponents/MovingBg";
+import gsap from "gsap";
 
 function AboutContact() {
 
@@ -16,12 +17,30 @@ function AboutContact() {
  
   ];
   const container = useRef(null);
+  const form = useRef(null);
+
+  // useLayoutEffect(()=>{
+  //   gsap.registerPlugin(ScrollTrigger)
+
+  //   const tl = gsap.timeline({
+  //     scrollTrigger:{
+  //       trigger:container,
+  //       start:'top',
+  //       end:'+=500px',
+  //       scrub:true,
+  //       markers:true
+  //     }
+  //   })
+  //   tl
+  //   .from(form.current,{clipPath:'inset(10%)'})
+  //   .to(form.current,{clipPath:'inset(100%)'})
+  // })
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end end"],
   });
-  const scale = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
+  const scale = useTransform(scrollYProgress, [0,  1], [0, 50]);
 
   return (
     <section
@@ -30,13 +49,13 @@ function AboutContact() {
     >
       <motion.div
         ref={container}
-        style={{ scale: scale }}
+        // Fixing the clipPath usage
         className=" flex gap-0 items-center"
       >
-        <h3 className="text-8xl text-mwhite leading-tight ">
+        <h3 className="scaleCursor -z-[1000] text-8xl text-mwhite leading-tight ">
           Designing Your Web Vision, Together.
         </h3>
-        <div className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden">
+        <div ref={form}  className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden">
           <MovingBg balls={balls}/>
           <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md ">
             <p></p>

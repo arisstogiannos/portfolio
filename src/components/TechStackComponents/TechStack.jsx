@@ -1,4 +1,4 @@
-import React, {   useLayoutEffect, useRef } from "react";
+import React, {   useEffect, useRef } from "react";
 import localfont from "next/font/local";
 import { useScroll, useTransform, motion } from "framer-motion";
 
@@ -10,43 +10,75 @@ function TechStack({loco}) {
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
+
   });
 
-  const scale2 = useTransform(scrollYProgress, [0, 0.9, 1], [1, 2, 4]);
-  const scale1 = useTransform(scrollYProgress, [0, 0.9, 1], [1, 3, 50]);
-  const scale3 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.5, 3]);
-  const scale4 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2, 4]);
-  const scale5 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 2.5, 5]);
-  const scale6 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3, 6]);
-  const scale7 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 3.5, 7]);
+  const scale1 = useTransform(scrollYProgress, [0,0.6, 0.7], [1, 6, 50]);
+  const scale2 = useTransform(scrollYProgress, [0, 0.7], [1,  4]);
+  const scale3 = useTransform(scrollYProgress, [0, 0.7], [1,  3]);
+  const scale4 = useTransform(scrollYProgress, [0, 0.7], [1,  4]);
+  const scale5 = useTransform(scrollYProgress, [0, 0.7], [1,  5]);
+  const scale6 = useTransform(scrollYProgress, [0, 0.7], [1,  6]);
+  const scale7 = useTransform(scrollYProgress, [0, 0.7], [1,  7]);
+  const scaletext = useTransform(scrollYProgress, [0.7,1], [0,1]);
   const opacity = useTransform(scrollYProgress, [0, 0.9, 1], [1, 0.9, 0]);
 
- 
   
  
-  useLayoutEffect(() => {
+  // useLayoutEffect(() => {
 
-    let prevScrollY = window.scrollY;
-    const scrollHandle = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > prevScrollY && opacity.get() === 0) {
-        loco.scrollTo('#contact', { duration: 2 });
-        // opacity.set(0.0001)
-      }else if(currentScrollY < prevScrollY && opacity.get() >0 && opacity.get() < 0.9 ){
-        loco.scrollTo('#techStack', { duration: 2 });
-      }
+  //   let prevScrollY = window.scrollY;
+  //   const scrollHandle = () => {
+  //     const currentScrollY = window.scrollY;
+  //     if (currentScrollY > prevScrollY && opacity.get() === 0) {
+  //       loco.scrollTo('#contact', { duration: 2 });
+  //       // opacity.set(0.0001)
+  //     }else if(currentScrollY < prevScrollY && opacity.get() >0 && opacity.get() < 0.9 ){
+  //       loco.scrollTo('#techStack', { duration: 2 });
+  //     }
   
-      prevScrollY = currentScrollY;
-    };
+  //     prevScrollY = currentScrollY;
+  //   };
   
-    window.addEventListener('scroll', scrollHandle);
+  //   window.addEventListener('scroll', scrollHandle);
   
-    return () => {
-      window.removeEventListener('scroll', scrollHandle);
-    };
-  }, [loco, opacity]);
+  //   return () => {
+  //     window.removeEventListener('scroll', scrollHandle);
+  //   };
+  // }, [loco, opacity]);
   
+  // useEffect(() => {
+    
+  //   const handleIntersection = (entries) => {
+  //     entries.forEach((entry) => {
+  //       if (entry.target.id === "contact") {
+  //         entry.isIntersecting&& loco.scrollTo('#contact', { duration: 2 });
 
+  //       entry.isIntersecting&& console.log('contact')
+
+  //       } else if (entry.target.id === "techStack") {
+  //         entry.isIntersecting&& loco.scrollTo('#techStack', { duration: 2 });
+  //         entry.isIntersecting&& console.log('tech')
+
+  //       }
+
+       
+  //     });
+  //   };
+
+  //   const options = {
+  //     root: null,
+  //     rootMargin: "0px",
+  //     threshold: 0.1, // Adjust as needed
+  //   };
+
+  //   const observer = new IntersectionObserver(handleIntersection, options);
+
+  //   observer.observe(document.getElementById("services"));
+  //   observer.observe(document.getElementById("techStack"));
+
+  //   return () => observer.disconnect();
+  // }, []);
 
   const svgs = [
     {
@@ -250,8 +282,8 @@ function TechStack({loco}) {
   ];
 
   return (
-    <div ref={container} id='techStack' className={`h-[200vh] myContainer relative  ${scrollYProgress.get()>=0.5?'overflow-hidden':''} `}>
-      <div className={`sticky top-0 h-screen   `}>
+    <div ref={container}  className={`h-[400vh] myContainer relative  `}>
+      <div id='techStack' className={`sticky top-0 h-screen overflow-clip `}>
         {svgs.map((item, index) => {
           return (
             <motion.div
@@ -263,7 +295,7 @@ function TechStack({loco}) {
                 key={index}
                 id={item.key}
                 style={{ top: item.top, left: item.left, width: item.width }}
-                className={` relative`}
+                className={` relative `}
               >
                 {item.code}
               </div>
@@ -279,13 +311,13 @@ function TechStack({loco}) {
             <h2
               id="txt"
               style={medium.style}
-              className="text-8xl  text-center  text-mblack uppercase pointer-events-none z-50"
+              className={`text-8xl  text-center  text-mblack uppercase pointer-events-none z-50 `}
             >
               Tech Stack
             </h2>
           </div>
         </motion.div>
-        <div></div>
+        <motion.div  className="text-9xl text-mwhite top-0 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext}}><p data-scroll data-scroll-speed="2" >Seen enough?</p></motion.div>
       </div>
     </div>
   );

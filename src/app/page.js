@@ -10,6 +10,8 @@ import HeroL from "@/components/heroComponents/HeroL";
 import AboutContact from "@/components/contactComponents/Contact";
 import CursorDesktop from "@/components/globalComponents/CursorDesktop";
 import About from "@/components/aboutComponents/About";
+import CursorNew from "@/components/globalComponents/CusorNew";
+import Loading from "@/components/globalComponents/Loading";
 
 
 
@@ -28,7 +30,7 @@ export default function Home() {
   // const [cursorInLibrary, setCursorInLibrary] = useState(-1);
   // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
   const [screenWidth,setScreenwidth]= useState(0)
-
+  const [load,setLoad] = useState(true)
   const [loco, setLoco] = useState(null);
   useLayoutEffect(()=>{
     (
@@ -54,7 +56,7 @@ export default function Home() {
   
 
   return (
-   <main  style={montserat.style} className=" flex flex-col ">
+    load? <Loading setLoading={setLoad} />: <main  style={montserat.style} className=" flex flex-col ">
     <Navbar loco={loco}/>
     <HeroL  />
       {/* <HeroN setCursorScale={setCursorScale}/> */}
@@ -63,10 +65,12 @@ export default function Home() {
       <Library setCursorScale={setCursorScale} />
       <TechStack loco={loco}/>
     <AboutContact/> 
-       {/* {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale} cursorInServices={cursorInServices} />}
-      {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>}
-     */}
+       {/* {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale}  />}
+      {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>} */}
+      <CursorNew cursorScale={cursorScale} />
+    
       
    </main>
+
   );
 }

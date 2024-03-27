@@ -11,7 +11,8 @@ export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
       transition: {
         type: "spring",
         bounce: 0.4,
-        duration: 0.8,
+        duration: 1,
+        delay:0.3
         
       }
     },
@@ -29,7 +30,7 @@ export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
     exit='exit'
     
       onClick={()=>(setIsOpen(!isOpen))}
-      className={` cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
+      className={`pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
     >
       <motion.div
       className="relative w-full h-full"

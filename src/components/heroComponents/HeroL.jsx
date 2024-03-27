@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
@@ -15,16 +15,16 @@ const montserat = Montserrat({
 
 function HeroL() {
   
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mytext1 = new SplitType("#mytext1");
     const mytext2 = new SplitType("#mytext2");
 
     gsap.to(".char", {
       y: 0,
       opacity: 1,
-      stagger: 0.015,
+      stagger: 0.02,
     
-      duration: 0.6,
+      duration: 0.8,
       ease: "circ.inOut",
     });
   }, []);
@@ -40,7 +40,7 @@ function HeroL() {
          
           className="w-full md:h-[147px]  xl:h-[180px] 2xl:h-[224px] flex mt-10 justify-between text-white font-semibold md:text-4xl  xl:text-5xl 2xl:text-6xl relative 3xl:mb-20 "
         > */}
-          <h1 id="mytext1" className=" mb-auto leading-tight">
+          <h1 id="mytext1" className="scaleCursor mb-auto leading-tight">
             Let's Start <br /> Working
           </h1>
           <motion.hr
@@ -48,12 +48,12 @@ function HeroL() {
             transition={{
               duration: 0.8,
               ease: [0, 0.55, 0.45, 1],
-              delay: 0.6,
+              delay: 0.8,
             }}
             initial={{ scaleX: 0, translateX: "-50%" }}
             className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[55%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[65%] origin-left "
           />
-          <h1 id="mytext2" className=" mt-auto text-end leading-tight">
+          <h1 id="mytext2" className="scaleCursor mt-auto text-end leading-tight">
             On <br /> Your Website
           </h1>
         </div>
