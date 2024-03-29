@@ -4,6 +4,8 @@ import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
 import SplitType from "split-type";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { motion } from "framer-motion";
 
 
@@ -15,6 +17,38 @@ const montserat = Montserrat({
 });
 
 function HeroL() {
+  useEffect(()=>{
+    const mytext = new SplitType(".projectTitle");
+    const mytext2 = new SplitType(".projectText");
+   gsap.registerPlugin(ScrollTrigger)
+   gsap.from(".projectTitle .char", {
+     y: 130,
+     opacity: 1,
+     stagger: 0.02,
+   
+     duration: 0.8,
+     ease: "circ.inOut",
+     scrollTrigger:{
+       trigger:'.project',
+       start:'30% 80%',
+       
+     }
+    });
+   
+   gsap.from(".projectText .char", {
+     y: 130,
+     opacity: 1,
+     stagger: 0.01,
+   
+     duration: 0.8,
+     ease: "circ.inOut",
+     scrollTrigger:{
+       trigger:'.project',
+       start:'30% 80%',
+       
+     }
+   });
+  },[])
   
   useLayoutEffect(() => {
     const mytext1 = new SplitType("#mytext1");
@@ -23,7 +57,7 @@ function HeroL() {
     gsap.from(".char", {
       y: 130,
       opacity: 1,
-      stagger: 0.02,
+      stagger: 0.015,
     
       duration: 0.8,
       ease: "circ.inOut",

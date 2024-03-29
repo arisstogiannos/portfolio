@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { animate, inView, motion } from "framer-motion";
 import localfont from "next/font/local";
 import Link from "next/link";
@@ -13,23 +13,7 @@ function Project({ i, title, setModal, modal, isInView }) {
   const [isHovered, setIsHovered] = useState(false);
   const { active, index } = modal;
 
-  // useEffect(()=>{
-  //   const mytext = new SplitType(".project");
-  //  gsap.registerPlugin(ScrollTrigger)
-  //  gsap.from(".project .char", {
-  //    y: 130,
-  //    opacity: 1,
-  //    stagger: 0.02,
-   
-  //    duration: 0.8,
-  //    ease: "circ.inOut",
-  //    scrollTrigger:{
-  //      trigger:'.project',
-  //      start:'30% 80%',
-       
-  //    }
-  //  });
-  // },[])
+ 
 
   return (
     <>
@@ -62,14 +46,8 @@ function Project({ i, title, setModal, modal, isInView }) {
         </motion.div>
       </Link>
       <motion.hr
-        animate={isInView && { scaleX: 1 }}
-        transition={{
-          duration: 0.8,
-          ease: "circInOut",
-          delay: index * 0.2,
-        }}
-        initial={{ scaleX: 0, translateY: 2 }}
-        className="w-full h-1 origin-left"
+        
+        className="projectHr scale-x-100 translate-y-2 w-full h-1 origin-left"
       />
     </>
   );

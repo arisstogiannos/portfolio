@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Project from "./Project";
 import Modal from "./Modal";
 import localfont from "next/font/local";
-import { useInView, useScroll, useTransform } from "framer-motion";
+import { useInView, useScroll, useTransform,motion } from "framer-motion";
 import ProjectMobile from "./ProjectMobile";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
@@ -47,7 +47,7 @@ function Library({ setCursorScale, setLibraryInView }) {
     <section
       ref={refi}
       id="projects"
-      className="myContainer h-[100vh] bg-transparent my-32   relative   "
+      className="myContainer h-[100vh] bg-transparent my-44   relative   "
     >
       <div
         onMouseEnter={() => setCursorScale(true)}
@@ -84,12 +84,14 @@ function Library({ setCursorScale, setLibraryInView }) {
         })}
       </div>
       <Modal modal={modal} projects={projects} />
-      <h3
+      {/* <motion.div className="w-40 h-96 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 absolute bg-mwhite  "></motion.div> */}
+      <motion.h3
+      initial={{clipPath:'inset(5% 0 0)'}}
         style={medium.style}
-        className="max-md:hidden absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2  text-[350px] text-mblack/60  -z-20 "
+        className="max-md:hidden  text-[350px] text-mblack/60 -z-20  absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 "
       >
         WORK
-      </h3>
+      </motion.h3>
     </section>
   );
 }

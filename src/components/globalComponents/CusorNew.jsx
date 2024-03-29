@@ -8,18 +8,19 @@ export default function CursorNew({ cursorScale }) {
   const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const cursor = useRef(null);
 
+ 
+
+
   useEffect(() => {
     const array = document.getElementsByClassName("scaleCursor");
 
     const handleEnter = (event) => {
       // Your event handling logic goes here
       setCursorIsHovering(true);
-      console.log("just")
     };
     const handleLeave = (event) => {
       // Your event handling logic goes here
       setCursorIsHovering(false);
-      console.log("justLeft")
 
     };
 
@@ -57,15 +58,15 @@ export default function CursorNew({ cursorScale }) {
       } else if (servicesInView) {
         moveCursorX(1300);
         moveCursorY(550);
-        // setLastCursorPos({ x: clientX, y: clientY });
+        setLastCursorPos({ x: clientX, y: clientY });
       } else if (cursorScale) {
         moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
         moveCursorY(
           clientY < 400 || window.scrollY < 1700 ? clientY + 150 : clientY - 150
         );
-        // setLastCursorPos({ x: clientX, y: clientY });
+        setLastCursorPos({ x: clientX, y: clientY });
       } else {
-        // setLastCursorPos({ x: clientX, y: clientY });
+        setLastCursorPos({ x: clientX, y: clientY });
         moveCursorX(clientX);
         moveCursorY(clientY);
       }
@@ -76,15 +77,15 @@ export default function CursorNew({ cursorScale }) {
         if (entry.target.id === "services") {
           setServicesInView(entry.isIntersecting);
           moveCursorX(1300);
-          moveCursorY(550);
+          moveCursorY(650 );
         } else if (entry.target.id === "techStack") {
           setTechStackInView(entry.isIntersecting);
         }
 
-        // if (!servicesInView) {
-        //   moveCursorX(lastCursorPos.x);
-        //   moveCursorY(lastCursorPos.y);
-        // }
+        if (!servicesInView) {
+          moveCursorX(lastCursorPos.x);
+          moveCursorY(lastCursorPos.y);
+        }
         if (techStackInView) {
           moveCursorX(window.innerWidth / 2);
           moveCursorY(window.innerHeight / 2);

@@ -16,7 +16,7 @@ function About() {
         Building Unique <br /> digital experiences
       </h3>
       
-      <div className=" flex w-full gap-20 h-1/2 2xl:h-[45%] items-end justify-start">
+      <div className=" flex w-full gap-20 h-1/2 3xl:h-[45%] items-end justify-start">
         <div className=" w-[800px] h-[155px] rounded-3xl mr-20 relative overflow-hidden">
           <MovingBg balls={balls}/>
           <div className="w-full h-full bg-mwhite/30 rounded-3xl filter backdrop-blur"></div>

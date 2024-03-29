@@ -5,7 +5,7 @@ import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
 import { useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 import { Montserrat } from "next/font/google";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
@@ -17,8 +17,14 @@ const montserat = Montserrat({
 function Services({setCursorInServices}) {
   const [selectedService, setSelectedService] = useState(null);
   const section = useRef(null);
-  const isInView = useInView(section, { once: true, amount: 0.4 });
-  
+  const isInView = useInView(section, { once: true, amount: 0.7 });
+
+   const { scrollYProgress } = useScroll({
+    target: section,
+    offset: ["center end", "end end"],
+
+  });
+  //useMotionValueEvent(scrollYProgress,'change',(latest)=>(setServicesScrollProgress(latest)))
  
 
   return (
