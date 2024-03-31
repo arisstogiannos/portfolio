@@ -1,6 +1,8 @@
 import React, {   useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
-import { useScroll, useTransform, motion, useMotionValueEvent, useMotionTemplate } from "framer-motion";
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { useScroll, useTransform, motion, useMotionValueEvent, useMotionTemplate, useInView } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -22,8 +24,8 @@ function TechStack({loco}) {
   const scale10 = useTransform(scrollYProgress, [0, 0.7], [1,  10]);
   const scaletext = useTransform(scrollYProgress, [0.7,1], [0,1]);
   
-
- 
+  
+  
   // useLayoutEffect(() => {
 
   //   let prevScrollY = window.scrollY;
@@ -278,14 +280,15 @@ function TechStack({loco}) {
   ];
 
   return (
-    <div ref={container}  className={`h-[300vh]  relative my-40  `}>
+    <div ref={container}  className={` h-[300vh]  relative my-40  `}>
       <div id='techStack' className={`sticky top-0 h-screen overflow-hidden `}>
         {svgs.map((item, index) => {
           return (
             <motion.div
             key={index}
-              style={{ scale: item.scale }}
-              className="w-full h-full  absolute top-0 flex items-center justify-center"
+            
+              style={{ scale: item.scale}}
+              className="   w-full h-full  absolute top-0 flex items-center justify-center"
             >
               <div
                 key={index}
@@ -301,7 +304,7 @@ function TechStack({loco}) {
         
         <motion.div
           style={{ scale: scale1}}
-          className={`w-full h-full absolute top-0 flex  items-center justify-center `}
+          className={`scl w-full h-full absolute top-0 flex  items-center justify-center `}
         >
           <div className=" w-[550px] relative">
             <h2

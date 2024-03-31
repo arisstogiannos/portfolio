@@ -32,7 +32,7 @@ function Services({setCursorInServices}) {
       ref={section}
       id="services"
       style={medium.style}
-      className=" myContainer flex items-center h-screen overflow-hidden bg-transparent mb-20"
+      className=" myContainer flex items-center h-[200vh] lg:h-screen overflow-hidden bg-transparent mb-20"
     >
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
@@ -43,20 +43,21 @@ function Services({setCursorInServices}) {
             delay: 0.2,
           }}
           initial={{ scaleX: 0, translateY: 2 }}
-          className="w-full h-1  origin-left"
+          className="w-full h-1  origin-left max-lg:hidden"
         />
-        <div className="flex xl:text-[16px] 2xl:text-[20px] h-[600px] 3xl:h-[700px] relative tracking-wide w-full">
+        <div className="max-md:flex-col lg:flex text-lg lg:text-[16px] 2xl:text-[20px] md:h-[200px] lg:h-[600px] 3xl:h-[700px] relative tracking-wide w-full">
           <Service
             isInView={isInView}
             services={servicelist}
             setSelectedService={setSelectedService}
+            selectedService={selectedService}
           />
           <ServiceHovered
             services={servicelist}
             selectedService={selectedService}
           />
 
-          <div  className="w-1/4 h-full   flex items-center   justify-center z-10 relative ">
+          <div  className="w-1/4 h-full  hidden lg:flex items-center   justify-center z-10 relative ">
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText />
@@ -99,7 +100,7 @@ function Services({setCursorInServices}) {
             delay: 0.2,
           }}
           initial={{ scaleX: 0 }}
-          className="w-full h-1 translate-y-0 origin-right"
+          className="max-lg:hidden w-full h-1 translate-y-0 origin-right"
         />
       </div>
       {/* <h1 className="absolute hidden top-[1500px] md:top-[1060px] text-[250px] text-[#008080] filter blur-[20px] font-semibold" style={hanson.style}>SERVICES</h1>

@@ -9,7 +9,7 @@ const montserat = Montserrat({
 
 
 function ServiceHovered({ services, selectedService }) {
-  return (<div className="absolute flex h-full w-full"> 
+  return (<div className="absolute md:hidden lg:flex h-full w-full"> 
     {services.map((s, i) => {
     const { title, desc } = s;
 

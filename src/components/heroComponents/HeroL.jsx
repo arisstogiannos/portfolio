@@ -35,6 +35,7 @@ function HeroL() {
      }
     });
    
+  
    gsap.from(".projectText .char", {
      y: 130,
      opacity: 1,

@@ -78,7 +78,7 @@ function AboutContact() {
       >
         <h3
           id="textContact"
-          className="scaleCursor w-[1300px] text-8xl text-mwhite leading-tight "
+          className="scaleCursor w-[1300px]  text-8xl text-mwhite leading-tight "
         >
           Designing Your Web Vision, Together.
         </h3>

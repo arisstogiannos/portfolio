@@ -46,8 +46,8 @@ function Project({ i, title, setModal, modal, isInView }) {
         </motion.div>
       </Link>
       <motion.hr
-        
-        className="projectHr scale-x-100 translate-y-2 w-full h-1 origin-left"
+        style={{scaleX:1}}
+        className="projectHr  translate-y-2 w-full h-1 origin-left"
       />
     </>
   );
