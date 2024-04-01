@@ -2,17 +2,15 @@
 import TechStack from "@/components/TechStackComponents/TechStack";
 import Library from "@/components/libraryComponents/Library";
 import Navbar from "@/components/navComponents/Navbar";
-import Cursor from "@/components/globalComponents/Cursor"
 import Services from "@/components/servicesComponents/Services";
-import { Montserrat,Instrument_Sans} from "next/font/google";
-import { useLayoutEffect, useEffect, useState, useRef } from "react";
+import { Montserrat} from "next/font/google";
+import { useLayoutEffect, useState } from "react";
 import HeroL from "@/components/heroComponents/HeroL";
 import AboutContact from "@/components/contactComponents/Contact";
-import CursorDesktop from "@/components/globalComponents/CursorDesktop";
 import About from "@/components/aboutComponents/About";
 import CursorNew from "@/components/globalComponents/CusorNew";
 import Loading from "@/components/globalComponents/Loading";
-import { AnimatePresence } from "framer-motion";
+
 
 
 
@@ -20,10 +18,6 @@ import { AnimatePresence } from "framer-motion";
 const montserat = Montserrat({
   subsets:['latin'],
   weight:["300","400","500",'600']
-})
-const instrumentSans = Instrument_Sans({
-  subsets:['latin'],
-  weight:["700","400","500",'600']
 })
 
 export default function Home() {
@@ -46,33 +40,19 @@ export default function Home() {
       }
     )()
   },[])
-  // useEffect(()=>{
-    
-  //   setScreenwidth(window.innerWidth)
-  //   window.onresize= function(){
-  //     setScreenwidth(window.innerWidth)
-  //       }
-        
-      
-    
-  // })
-  
 
   
 
   return (
-    // {/* load? <Loading setLoading={setLoad} />: */}
+    load? <Loading setLoading={setLoad} />: 
      <main   style={montserat.style} className=" flex flex-col ">
     <Navbar loco={loco}/>
     <HeroL  />
-      {/* <HeroN setCursorScale={setCursorScale}/> */}
       <Services />
       <About/>
       <Library setCursorScale={setCursorScale} />
       <TechStack loco={loco}/>
     <AboutContact/> 
-       {/* {screenWidth>1000&&screenWidth<1600&&<Cursor cursorScale={cursorScale}  />}
-      {screenWidth>=1600&&<CursorDesktop cursorScale={cursorScale}/>} */}
       <CursorNew cursorScale={cursorScale}  />
     
       

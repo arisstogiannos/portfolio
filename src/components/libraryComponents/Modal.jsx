@@ -60,9 +60,10 @@ const scaleAnimation ={
               loading='lazy'
               src={`/libraryImages/${src}`}
               width={350}
-              height={0}
+              height={230.22}
               alt='image'
               className='h-auto'
+              style={{height:'auto'}}
               />
             </div>
           })

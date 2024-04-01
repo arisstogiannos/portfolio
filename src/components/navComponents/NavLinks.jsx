@@ -1,8 +1,7 @@
 import React from 'react'
 import { navLinks } from "@/app/data";
-import { useState,useEffect } from 'react';
+import { useState, } from 'react';
 import Link from "next/link";
-import Light from "./Light";
 import {motion} from 'framer-motion'
 
 
