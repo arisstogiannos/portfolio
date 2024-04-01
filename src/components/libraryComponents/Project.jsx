@@ -12,6 +12,40 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 function Project({ i, title, setModal, modal, isInView }) {
   const [isHovered, setIsHovered] = useState(false);
   const { active, index } = modal;
+  useEffect(()=>{
+    const mytext = new SplitType(".projectTitle");
+    const mytext2 = new SplitType(".projectText");
+   gsap.registerPlugin(ScrollTrigger)
+   gsap.from(".projectTitle .char", {
+     y: 130,
+     opacity: 1,
+     stagger: 0.02,
+
+     duration: 0.8,
+     ease: "circ.inOut",
+     scrollTrigger:{
+       trigger:'.project',
+       start:'30% 80%',
+
+     }
+    });
+
+
+
+   gsap.from(".projectText .char", {
+     y: 130,
+     opacity: 1,
+     stagger: 0.01,
+
+     duration: 0.8,
+     ease: "circ.inOut",
+     scrollTrigger:{
+       trigger:'.project',
+       start:'30% 80%',
+
+     }
+   });
+  },[])
 
  
 
