@@ -27,10 +27,7 @@ function Service({ isInView, services, setSelectedService, selectedService }) {
     return (
       <motion.div
         key={i}
-        custom={2 - i}
-        variants={enterViewVariants}
-        initial="initial"
-        animate={`${isInView && "enter"}`}
+       
         onMouseOver={() => {
           setSelectedService(i);
         }}
