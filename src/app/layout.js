@@ -11,6 +11,7 @@ export default function RootLayout({ children }) {
     <html  lang="en">
       <body  className='overflow-x-hidden bg-mblack '>
         {children}
+      <SpeedInsights/>
         </body>
     </html>
   );
