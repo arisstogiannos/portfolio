@@ -104,7 +104,7 @@ module.exports = {
       colors:{
         'mwhite':'#FFFFFF',
         'mblack':'#000000',
-        'mblue' : '#00EAFF',
+        'mblue' : '#00A8B7',
       },
       // colors:{
       //   'white':'#000000',

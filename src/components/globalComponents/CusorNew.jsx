@@ -49,7 +49,7 @@ export default function CursorNew({ cursorScale }) {
       ease: "power3 ",
     });
 
-    window.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e)=>{
       const { clientX, clientY } = e;
 
       if (techStackInView) {
@@ -57,7 +57,7 @@ export default function CursorNew({ cursorScale }) {
         moveCursorY(window.innerHeight / 2);
       } else if (servicesInView) {
         moveCursorX(1300);
-        moveCursorY(550);
+        moveCursorY(650);
         setLastCursorPos({ x: clientX, y: clientY });
       } else if (cursorScale) {
         moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
@@ -70,7 +70,9 @@ export default function CursorNew({ cursorScale }) {
         moveCursorX(clientX);
         moveCursorY(clientY);
       }
-    });
+    }
+
+    window.addEventListener("mousemove", handleMouseMove);
 
     const handleIntersection = (entries) => {
       entries.forEach((entry) => {
@@ -97,6 +99,7 @@ export default function CursorNew({ cursorScale }) {
       root: null,
       rootMargin: "0px",
       threshold: 0.5, // Adjust as needed
+
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -104,14 +107,14 @@ export default function CursorNew({ cursorScale }) {
     observer.observe(document.getElementById("services"));
     observer.observe(document.getElementById("techStack"));
 
-    return () => observer.disconnect();
+    return () => {observer.disconnect();window.removeEventListener('mousemove',handleMouseMove)}
   }, [servicesInView, techStackInView, cursorScale]);
 
   return (
     <div
       ref={cursor}
-      className={`work w-32  h-32 fixed bg-[#008080] pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
-        cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
+      className={`work w-32  h-32 fixed bg-mblue/90 pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
+        cursorScale ? "scale-[3.5] blur-2xl " : "scale-[0.1]"
       } ${
         servicesInView
           ? "scale-[0.9] blur-2xl 3xl:translate-x-32 3xl:translate-y-32 "
