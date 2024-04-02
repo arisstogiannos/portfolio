@@ -44,7 +44,11 @@ export default function Home() {
   
 
   return (
+<<<<<<< HEAD
    load? <Loading setLoading={setLoad} />: 
+=======
+    // load? <Loading setLoading={setLoad} />: 
+>>>>>>> 00ee8340d55ec96bc39d85027152719b9019fde3
      <main   style={montserat.style} className=" flex flex-col ">
     <Navbar loco={loco}/>
     <HeroL  />

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, {  useLayoutEffect } from "react";
 import { Montserrat } from "next/font/google";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
@@ -81,7 +81,7 @@ function HeroL() {
           style={medium.style}
           className="h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
         >
-          <motion.div initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/30 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
+          <motion.div initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/60 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
           <MovingText text={"i design. i develop. you grow"} />
         </div>
       </section>
