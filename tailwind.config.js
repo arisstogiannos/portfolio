@@ -28,7 +28,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'spin-slow':'spin 29s linear infinite',
+        'spin-slow':'spin 25s linear infinite',
         'mBounce':'myBounce 1s infinite 0.3s',
         'mBounce-long':'myBounceLong 2s infinite ',
         'background':'background 9s linear infinite'

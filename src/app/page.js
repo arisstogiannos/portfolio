@@ -10,6 +10,7 @@ import AboutContact from "@/components/contactComponents/Contact";
 import About from "@/components/aboutComponents/About";
 import CursorNew from "@/components/globalComponents/CusorNew";
 import Loading from "@/components/globalComponents/Loading";
+import ContactFooter from "@/components/contactComponents/ContactFooter";
 
 
 
@@ -52,7 +53,7 @@ export default function Home() {
       <About/>
       <Library setCursorScale={setCursorScale} />
       <TechStack loco={loco}/>
-    <AboutContact/> 
+    <ContactFooter/>
       <CursorNew cursorScale={cursorScale}  />
     
       

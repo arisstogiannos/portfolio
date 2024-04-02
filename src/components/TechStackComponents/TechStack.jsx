@@ -10,7 +10,7 @@ function TechStack({loco}) {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end 20vh"],
 
   });
 
@@ -326,10 +326,10 @@ function TechStack({loco}) {
             </h2>
           </div>
         </motion.div>
-        <motion.div  className="text-9xl text-mwhite top-1/2 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext,opacity:scaletext }}><p  >Seen enough?</p></motion.div>
+      {/* <motion.div  className="text-9xl text-mwhite top-1/2 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext,opacity:scaletext }}><p  >Seen enough?</p></motion.div> */}
       </div>
     </div>
-      <motion.div style={{height:height}} className="relative mt-0  ">
+      <motion.div style={{height:height}} className="relative mt-0 ">
         <div className="shadow-[0_68px_58px_rgba(0,0,0,0.7)] absolute h-[750%] w-[120%] -left-[10%] bg-mblack rounded-b-[50%] "></div>
       </motion.div>
       </>

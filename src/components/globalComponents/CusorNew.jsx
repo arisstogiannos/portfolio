@@ -135,7 +135,7 @@ export default function CursorNew({ cursorScale }) {
     <div
       ref={cursor}
       className={`work w-32  h-32 fixed bg-mblue/90 pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
-        cursorScale ? "scale-[3.5] blur-2xl " : "scale-[0.1]"
+        cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
       } ${
         servicesInView
           ? "scale-[0.9] blur-2xl 3xl:translate-x-32 3xl:translate-y-32 "

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import {
-  animate,
   motion,
   useInView,
-  useScroll,
-  useTransform,
+  
 } from "framer-motion";
 import MovingBg from "../globalComponents/MovingBg";
 import gsap from "gsap";
@@ -60,11 +58,7 @@ function AboutContact() {
     });
   }, []);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end end"],
-  });
-  const scale = useTransform(scrollYProgress, [0, 1], [0, 50]);
+ 
 
   return (
     <section
