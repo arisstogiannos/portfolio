@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+'use client'
+import React, {  useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 function MovingBg({ balls }) {
@@ -10,7 +10,7 @@ function MovingBg({ balls }) {
   let direction = -1;
 
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     requestAnimationFrame(animation);
 
   },[])

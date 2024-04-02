@@ -73,7 +73,7 @@ function Services({setCursorInServices}) {
             >
                <video
                 
-                src="/servicesImages/Frame-1.mp4"
+                src="/servicesImages/devanim.mp4"
                 width={"700px"}
                 height={"360px"}
                 className="bg-clip-content "
@@ -86,7 +86,7 @@ function Services({setCursorInServices}) {
             {selectedService == 0 && (
               <p
                 style={montserat.style}
-                className="absolute z-[70] right-0 bottom-0 text-lg w-36 h-16 flex items-center justify-center bg-mblack"
+                className="absolute z-[70] right-0 bottom-0 text-lg w-36 h-14 flex items-center justify-center bg-mblack"
               >
                 Made by me
               </p>
