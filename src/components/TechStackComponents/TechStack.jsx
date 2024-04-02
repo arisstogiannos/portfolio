@@ -10,7 +10,7 @@ function TechStack({loco}) {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end 20vh"],
+    offset: ["start start", "end 30vh"],
 
   });
 
