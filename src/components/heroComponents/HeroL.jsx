@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, {  useLayoutEffect } from "react";
 import { Montserrat } from "next/font/google";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
