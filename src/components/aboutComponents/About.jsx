@@ -1,4 +1,3 @@
-'use server'
 import MovingBg from "../globalComponents/MovingBg";
 
 

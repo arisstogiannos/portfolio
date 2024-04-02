@@ -1,7 +1,6 @@
-import React, {   useEffect, useRef, useState } from "react";
+import React, {    useRef } from "react";
 import localfont from "next/font/local";
-import gsap from "gsap";
-import {ScrollTrigger} from "gsap/ScrollTrigger";
+
 import { useScroll, useTransform, motion, useMotionValueEvent, useMotionTemplate, useInView } from "framer-motion";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
