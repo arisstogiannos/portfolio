@@ -28,9 +28,9 @@ export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
     initial='initial'
     animate='enter'
     exit='exit'
-    
+  
       onClick={()=>(setIsOpen(!isOpen))}
-      className={`pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
+      className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
     >
       <motion.div
       className="relative w-full h-full"
@@ -50,7 +50,7 @@ export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
 
 function PerspectiveText({text}){
     return(
-    <div style={{transformStyle:"preserve-3d"}} className="w-full h-full flex justify-center items-center group-hover:rotate-x-90  duration-700 ease-in-out">
+    <div style={{transformStyle:"preserve-3d"}} className="w-full h-full flex justify-center items-center group-hover:rotate-x-90   duration-700 ease-in-out">
         <p className="cursor-pointer   duration-700 ease-in-out group-hover:-translate-y-full transition-all group-hover:opacity-0">{text}</p>
         <p className="cursor-pointer absolute   origin-bottom opacity-0 transition-all duration-700 ease-in-out -rotate-x-90 group-hover:opacity-100 translate-y-2">{text}</p>
     </div>

@@ -1,6 +1,6 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import {  motion } from "framer-motion";
+import React, { useState } from "react";
 import { navLinks } from "@/app/data";
 import Link from "next/link";
 
@@ -48,14 +48,14 @@ function Dropdown({ isOpen, setIsOpen, loco }) {
   };
   const sidebar = {
     open: {
-      clipPath: `circle(2000px at 90% 60px)`,
+      clipPath: `circle(2000px at 85% 60px)`,
       transition: {
         duration: 0.8,
         ease: [0.32, 0, 0.67, 0],
       },
     },
     closed: {
-      clipPath: "circle(10px at 90% 60px)",
+      clipPath: "circle(10px at 85% 60px)",
       transition: {
         delay: 0.5,
         ease: [0.33, 1, 0.68, 1],

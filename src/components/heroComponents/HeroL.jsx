@@ -4,7 +4,6 @@ import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
 import SplitType from "split-type";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { motion } from "framer-motion";
 
