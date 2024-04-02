@@ -11,7 +11,7 @@ function TechStack({loco}) {
 
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
 
   });
 
@@ -23,7 +23,7 @@ function TechStack({loco}) {
   const scale6 = useTransform(scrollYProgress, [0, 0.7], [1,  6]);
   const scale10 = useTransform(scrollYProgress, [0, 0.7], [1,  10]);
   const scaletext = useTransform(scrollYProgress, [0.7,1], [0,1]);
-  
+  const height = useTransform(scrollYProgress,[0.8,1],[50,0])
   
   
   // useLayoutEffect(() => {
@@ -180,7 +180,6 @@ function TechStack({loco}) {
           viewBox="0 0 104 104"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          fillOpacity={0.7}
         >
           <path
             d="M22.0736 0.101562H26.752V4.72388H31.0316V0.101562H35.7104V14.0987H31.032V9.41139H26.7524V14.0987H22.074V0.101562H22.0736ZM41.8624 4.74338H37.7441V0.101562H50.6616V4.74338H46.5412V14.0987H41.8628V4.74338H41.8624ZM52.7115 0.101562H57.5906L60.591 5.01983L63.5889 0.101562H68.4686V14.0987H63.8093V7.16117L60.5908 12.1377H60.5105L57.2898 7.16117V14.0987H52.7115V0.101562ZM70.7974 0.101562H75.477V9.47233H82.0564V14.0987H70.7974V0.101562ZM15.2319 20.5004L21.9241 95.5618L51.9549 103.898L82.069 95.5498L88.7683 20.5002L15.2319 20.5004ZM74.8089 38.3132L74.3899 42.9804L74.2058 45.0499H74.1756H52.0002H51.9681H38.977L39.8184 54.4763H51.9681H52.0002H70.8868H73.3677L73.1431 56.9487L70.9798 81.1856L70.8413 82.7399L52.0002 87.9621V87.9637L51.958 87.9757L33.1 82.7403L31.81 68.2857H36.0695H41.0516L41.707 75.6279L51.9596 78.3969L51.9681 78.3943V78.3934L62.2363 75.6228L63.3041 63.6829H52.0002H51.9681H31.3989L29.1362 38.3132L28.9159 35.8438H51.9681H52.0002H75.0293L74.8089 38.3132Z"
@@ -291,6 +290,7 @@ function TechStack({loco}) {
   ];
 
   return (
+    <>
     <div ref={container}  className={` h-[300vh]  relative my-40  `}>
       <div id='techStack' className={`sticky top-0 h-screen overflow-hidden `}>
         {svgs.map((item, index) => {
@@ -327,9 +327,13 @@ function TechStack({loco}) {
             </h2>
           </div>
         </motion.div>
-        <motion.div  className="text-9xl text-mwhite top-0 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext,opacity:scaletext }}><p  >Seen enough?</p></motion.div>
+        <motion.div  className="text-9xl text-mwhite top-1/2 left-0 h-full w-full flex justify-center items-center capitalize " style={{scale:scaletext,opacity:scaletext }}><p  >Seen enough?</p></motion.div>
       </div>
     </div>
+      <motion.div style={{height:height}} className="relative mt-0  ">
+        <div className="shadow-[0_68px_58px_rgba(0,0,0,0.7)] absolute h-[750%] w-[120%] -left-[10%] bg-mblack rounded-b-[50%] "></div>
+      </motion.div>
+      </>
   );
 }
 

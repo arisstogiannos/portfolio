@@ -18,12 +18,13 @@ function Services({setCursorInServices}) {
   const [selectedService, setSelectedService] = useState(null);
   const section = useRef(null);
   const isInView = useInView(section, { once: true, amount: 0.7 });
+  
 
-   const { scrollYProgress } = useScroll({
-    target: section,
-    offset: ["center end", "end end"],
+  //  const { scrollYProgress } = useScroll({
+  //   target: section,
+  //   offset: ["center end", "end end"],
 
-  });
+  // });
   //useMotionValueEvent(scrollYProgress,'change',(latest)=>(setServicesScrollProgress(latest)))
  
 
@@ -32,7 +33,7 @@ function Services({setCursorInServices}) {
       ref={section}
       id="services"
       style={medium.style}
-      className=" myContainer flex items-center h-[200vh] lg:h-screen overflow-hidden bg-transparent mb-20"
+      className=" myContainer flex items-center h-[200vh] lg:h-screen overflow-hidden bg-transparent my-52"
     >
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
@@ -57,7 +58,7 @@ function Services({setCursorInServices}) {
             selectedService={selectedService}
           />
 
-          <div  className="w-1/4 h-full  hidden lg:flex items-center   justify-center z-10 relative ">
+          <div id="videoPlayer"  className="w-1/4 h-full  hidden lg:flex items-center   justify-center z-10 relative ">
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText />

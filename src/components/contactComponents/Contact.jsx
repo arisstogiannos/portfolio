@@ -69,16 +69,16 @@ function AboutContact() {
   return (
     <section
       id="contact"
-      className={`h-screen   bg-transparent myContainer flex items-center `}
+      className={`h-[80vh]   bg-mwhite  flex items-center -z-[1200]  `}
     >
       <motion.div
         ref={container}
         // Fixing the clipPath usage
-        className="  flex items-center justify-between w-full"
+        className=" myContainer flex items-center justify-between "
       >
         <h3
           id="textContact"
-          className="scaleCursor w-[1300px]  text-8xl text-mwhite leading-tight "
+          className="scaleCursor w-[1300px]  text-8xl text-mblack leading-tight z-10"
         >
           Designing Your Web Vision, Together.
         </h3>
@@ -91,10 +91,10 @@ function AboutContact() {
             }
           }
           ref={form}
-          className="w-2/3 h-[550px]   rounded-3xl relative overflow-hidden ml-auto"
+          className="w-2/3 h-[80vh]   rounded-3xl relative overflow-hidden ml-auto -z-10"
         >
           <MovingBg balls={balls} />
-          <div className="w-full h-[550px] bg-white/70  rounded-3xl filter backdrop-blur-md ">
+          <div className="w-full h-[0px] bg-white/70  rounded-3xl filter backdrop-blur-md ">
             <p></p>
           </div>
         </motion.div>

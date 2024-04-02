@@ -47,7 +47,7 @@ function Library({ setCursorScale }) {
     <section
       ref={refi}
       id="projects"
-      className="myContainer h-[100vh] bg-transparent my-44   relative   "
+      className="myContainer h-[100vh] bg-transparent my-72   relative   "
     >
       <div
         onMouseEnter={() => setCursorScale(true)}

@@ -4,7 +4,6 @@ import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
 import SplitType from "split-type";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { motion } from "framer-motion";
 
@@ -68,7 +67,7 @@ function HeroL() {
             onClick={() => {
               scrollTo({ top: 1000, left: 0, behavior: "smooth" });
             }}
-            className=" top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute cursor-pointer  "
+            className="scaleCursor top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute cursor-pointer  "
           >
             <div className="absolute top-1/2 left-1/2   animate-mBounce-long ">
               {arrow()}
@@ -80,7 +79,7 @@ function HeroL() {
         <div
           
           style={medium.style}
-          className="h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
+          className="  h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
         >
           <motion.div initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/60 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
           <MovingText text={"i design. i develop. you grow"} />

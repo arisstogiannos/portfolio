@@ -7,9 +7,11 @@ export default function CursorNew({ cursorScale }) {
   const [cursorIsHovering, setCursorIsHovering] = useState(false);
   const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const cursor = useRef(null);
+  const servicesInViewRef = useRef(false); // useRef to hold the latest value
 
- 
-
+  useEffect(() => {
+    servicesInViewRef.current = servicesInView; // Update the ref whenever state changes
+  }, [servicesInView]);
 
   useEffect(() => {
     const array = document.getElementsByClassName("scaleCursor");
@@ -21,7 +23,6 @@ export default function CursorNew({ cursorScale }) {
     const handleLeave = (event) => {
       // Your event handling logic goes here
       setCursorIsHovering(false);
-
     };
 
     // Loop through each element with the class name "scaleCursor" and add a click event listener
@@ -49,15 +50,13 @@ export default function CursorNew({ cursorScale }) {
       ease: "power3 ",
     });
 
-    const handleMouseMove = (e)=>{
+    const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
 
       if (techStackInView) {
         moveCursorX(window.innerWidth / 2);
         moveCursorY(window.innerHeight / 2);
       } else if (servicesInView) {
-        moveCursorX(1300);
-        moveCursorY(650);
         setLastCursorPos({ x: clientX, y: clientY });
       } else if (cursorScale) {
         moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
@@ -70,7 +69,7 @@ export default function CursorNew({ cursorScale }) {
         moveCursorX(clientX);
         moveCursorY(clientY);
       }
-    }
+    };
 
     window.addEventListener("mousemove", handleMouseMove);
 
@@ -78,8 +77,25 @@ export default function CursorNew({ cursorScale }) {
       entries.forEach((entry) => {
         if (entry.target.id === "services") {
           setServicesInView(entry.isIntersecting);
-          moveCursorX(1300);
-          moveCursorY(650 );
+          console.log(servicesInView);
+
+          const handleScroll = (e) => {
+            const rect = videoPlayer.getBoundingClientRect();
+            if (servicesInViewRef.current) {
+              moveCursorX(rect.left + (rect.right - rect.left) / 2);
+              moveCursorY(rect.top + (rect.bottom - rect.top) / 2);
+            } else {
+            }
+          };
+          if (servicesInViewRef.current) {
+            window.addEventListener("scroll", handleScroll);
+          }else{
+            window.removeEventListener("scroll", handleScroll);
+          }
+          // Cleanup function to remove event listener when "services" is not intersecting
+          return () => {
+            window.removeEventListener("scroll", handleScroll);
+          };
         } else if (entry.target.id === "techStack") {
           setTechStackInView(entry.isIntersecting);
         }
@@ -91,6 +107,9 @@ export default function CursorNew({ cursorScale }) {
         if (techStackInView) {
           moveCursorX(window.innerWidth / 2);
           moveCursorY(window.innerHeight / 2);
+        }else{
+          moveCursorX(lastCursorPos.x);
+          moveCursorY(lastCursorPos.y);
         }
       });
     };
@@ -99,7 +118,6 @@ export default function CursorNew({ cursorScale }) {
       root: null,
       rootMargin: "0px",
       threshold: 0.5, // Adjust as needed
-
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
@@ -107,7 +125,10 @@ export default function CursorNew({ cursorScale }) {
     observer.observe(document.getElementById("services"));
     observer.observe(document.getElementById("techStack"));
 
-    return () => {observer.disconnect();window.removeEventListener('mousemove',handleMouseMove)}
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, [servicesInView, techStackInView, cursorScale]);
 
   return (
