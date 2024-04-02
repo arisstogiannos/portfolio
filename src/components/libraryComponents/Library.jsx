@@ -9,7 +9,7 @@ import ProjectMobile from "./ProjectMobile";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function Library({ setCursorScale, setLibraryInView }) {
+function Library({ setCursorScale }) {
   const projects = [
     {
       title: "Project 1",
