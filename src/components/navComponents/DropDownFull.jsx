@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { navLinks } from "@/app/data";
 import Link from "next/link";
 
-function Dropdown({ isOpen, setIsOpen, loco }) {
+function Dropdown({ isOpen, setIsOpen, loco ,setLock}) {
   const [selectedLink, setSelectedLink] = useState(null);
   const [clickedLink, setClickedLink] = useState(null);
 
@@ -74,6 +74,7 @@ function Dropdown({ isOpen, setIsOpen, loco }) {
           animate={isOpen ? "open" : "closed"}
           initial="closed"
           exit="closed"
+          onAnimationComplete={def=>(def=='closed'&&setLock(false))}
           className={` bg-mblue/50 h-screen w-screen backdrop-blur-3xl      z-[100] `}
         >
           <div className="myContainer  lg:pt-[100px]  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[120px]  2xl:pr-[0px] 2xl:pl-[0px] box-border relative">
@@ -88,13 +89,14 @@ function Dropdown({ isOpen, setIsOpen, loco }) {
                       setSelectedLink(clickedLink);
                     }}
                     onClick={() => {
+                      setLock(true)
                       setClickedLink(i);
                       setIsOpen(false);
                       loco.scrollTo(link.href, { duration: 2 });
                     }}
                     className={`cursor-pointer pointer-events-auto lg:text-5xl 3xl:text-7xl font-medium z-50 text-mblack transition pt-12   duration-300  ease-in-out ${
                       selectedLink == i
-                        ? " translate-x-10  scale-105  text-mwhite "
+                        ? " translate-x-10    text-mwhite "
                         : "translate-x-1"
                     }`}
                     key={i}
