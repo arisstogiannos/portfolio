@@ -290,7 +290,7 @@ function TechStack({loco}) {
 
   return (
     <>
-    <div ref={container}  className={` h-[300vh]  relative my-40  `}>
+    <div ref={container}  className={` h-[200vh]  relative my-40  `}>
       <div id='techStack' className={`sticky top-0 h-screen overflow-hidden `}>
         {svgs.map((item, index) => {
           return (

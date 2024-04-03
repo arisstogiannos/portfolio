@@ -28,7 +28,7 @@ function About() {
   ];
   return (
     <section id='about' className="about h-screen myContainer flex flex-col justify-center items-start my-20 ">
-      <h3 className="  scaleCursor cursor-default text-mwhite text-9xl font-normal capitalize leading-tight">
+      <h3 className="  scaleCursor cursor-default text-mwhite lg:text-9xl font-normal capitalize leading-tight">
         Building Unique <br /> digital experiences
       </h3>
 
@@ -38,7 +38,7 @@ function About() {
           <div className="w-full h-full bg-mwhite/30 rounded-3xl filter backdrop-blur"></div>
         </div>
         <hr className="scaleCursor border-solid border-l-2 h-80  mt-20 border-mwhite  self-center" />
-        <p className="scaleCursor capitalize text-mwhite text-5xl min-w-[500px] max-w-[510px] leading-[1.1] font-normal">
+        <p className="scaleCursor capitalize text-mwhite lg:text-5xl min-w-[500px] max-w-[510px] leading-[1.1] font-normal">
           modern aesthetics with cutting-edge technology.
         </p>
       </div>
