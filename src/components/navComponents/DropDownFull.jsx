@@ -76,7 +76,7 @@ function Dropdown({ isOpen, setIsOpen, loco }) {
           exit="closed"
           className={` bg-mblue/50 h-screen w-screen backdrop-blur-3xl      z-[100] `}
         >
-          <div className="myContainer  lg:pt-[100px]  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[120px]  2xl:pr-[0px] 2xl:pl-[0px] box-border relative">
+          <div className="myContainer  lg:pt-[100px]  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[0px] 2xl:pl-[0px] box-border relative">
             <ul className={`flex flex-col    z-[1000]  relative   `}>
               {navLinks.map((link, i) => {
                 return (
