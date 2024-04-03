@@ -6,20 +6,20 @@ const montserat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-function Service({ isInView, services, setSelectedService, selectedService }) {
-  const enterViewVariants = {
-    initial: {
-      x: -1400,
-    },
-    enter: (i) => ({
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.215, 0.61, 0.315, 1],
-        delay: 0.2 + i * 0.2,
-      },
-    }),
-  };
+function Service({ services, setSelectedService, selectedService }) {
+  // const enterViewVariants = {
+  //   initial: {
+  //     x: -1400,
+  //   },
+  //   enter: (i) => ({
+  //     x: 0,
+  //     transition: {
+  //       duration: 0.8,
+  //       ease: [0.215, 0.61, 0.315, 1],
+  //       delay: 0.2 + i * 0.2,
+  //     },
+  //   }),
+  // };
 
   return services.map((s, i) => {
     const { title, desc } = s;

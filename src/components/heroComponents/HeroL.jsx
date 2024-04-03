@@ -15,7 +15,7 @@ const montserat = Montserrat({
   weight: ["300", "400", "500", "600"],
 });
 
-function HeroL() {
+function HeroL({loco}) {
  
    
   
@@ -39,6 +39,7 @@ function HeroL() {
       <section
         style={montserat.style}
         className="myContainer flex flex-col    relative cursor-default"
+        id="home"
       >
         <div className="w-full h-[120px] md:h-[147px]  xl:h-[180px] 2xl:h-[234px] 3xl:h-[284px] flex mt-10 justify-between text-white font-medium text-3xl  md:text-4xl  xl:text-5xl 2xl:text-6xl 3xl:text-7xl  relative 3xl:mb-10  pb-2">
           {/* <div
@@ -65,7 +66,7 @@ function HeroL() {
         <motion.div initial={{clipPath:'inset(100% 0 0 0)'}} animate={{clipPath:'inset(0 0 0 0)',transition:{duration:1,delay:0.2}}} className="origin-right scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-95 top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
           <div
             onClick={() => {
-              scrollTo({ top: 1000, left: 0, behavior: "smooth" });
+              loco.scrollTo('#services', { duration: 2 });
             }}
             className="scaleCursor top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute cursor-pointer  "
           >

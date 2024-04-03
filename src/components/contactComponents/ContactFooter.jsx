@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import { delay, motion, useInView } from "framer-motion";
-import MovingBg from "../globalComponents/MovingBg";
-import gsap from "gsap";
-import SplitType from "split-type";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React  from "react";
+import {  motion} from "framer-motion";
+// import MovingBg from "../globalComponents/MovingBg";
+// import gsap from "gsap";
+// import SplitType from "split-type";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function ContactFooter() {
   return (
     <section
       id="contact"
-      className={`h-[60vh]   bg-mwhite  flex items-center   `}
+      className={`h-[60vh]   bg-mblue/80  flex items-center   `}
     >
       <motion.div
         // Fixing the clipPath usage

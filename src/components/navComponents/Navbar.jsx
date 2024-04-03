@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import {  AnimatePresence } from "framer-motion";
+import {  AnimatePresence,motion } from "framer-motion";
 import MenuButton from "./MenuButton";
 import DropDownFull from "./DropDownFull";
-
+import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,9 +16,23 @@ const montserat = Montserrat({
 function Navbar({loco}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState(0);
+  const [navVisible,setNavVisible] = useState(-1)
 
   const nav = useRef(null);
   
+  // useEffect(()=>{
+  //   gsap.registerPlugin(ScrollTrigger);
+    
+  //   gsap.to(nav, {
+  //     scrollTrigger: {
+  //       trigger: document.documentElement,
+  //       start:"200px",
+        
+  //       onUpdate: (e) => (setNavVisible(e.direction)),
+  //     },
+      
+  //   });
+  // },[])
   
   
   // useLayoutEffect(()=>{
@@ -40,7 +54,13 @@ function Navbar({loco}) {
   
 
   return (
-    <nav 
+    <motion.nav 
+    initial={{y:-100,opacity:0}}
+    animate={{y:0,opacity:1}}
+    transition={{type: "spring",
+    bounce: 0.4,
+    duration: 1,
+    delay:0.3}}
     style={montserat.style}
       ref={nav}
       className={` myContainer pointer-events-none h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}
@@ -48,37 +68,46 @@ function Navbar({loco}) {
       {/* <h1 id="logo" className={` cursor-pointer text-lg md:text-2xl mr-auto max-lg:block ${false ? "hidden" : ""}`}>
         Aris Stogiannos
       </h1> */}
-      <div className="mr-auto "><svg width="56" height="54" viewBox="0 0 56 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="27.9109" cy="26.4356" r="24.3661" stroke="white"/>
-<path d="M28.4185 10.1159C28.4185 10.1159 19.9923 0.18417 14.5452 2.59847C10.8861 4.22028 10.3622 9.41745 10.3622 9.41745" stroke="white" stroke-width="0.5"/>
-<circle cx="28.4184" cy="10.1159" r="1.01494" fill="#00A8B7"/>
-<path d="M28.4184 10.1159C28.4184 10.1159 36.5015 0.207524 41.9487 2.62183C45.6078 4.24364 46.1317 9.4408 46.1317 9.4408" stroke="white" stroke-width="0.5"/>
-<circle cx="1.5" cy="1.5" r="1.5" transform="matrix(-1 0 0 1 30 9)" fill="#00A8B7"/>
-<path d="M36.7917 29.1461C36.7917 29.1461 48.3449 21.2151 53.792 23.6294C57.4511 25.2512 52.5234 28.3276 52.5234 28.3276" stroke="white" stroke-width="0.5"/>
-<circle cx="1.5" cy="1.5" r="1.5" transform="matrix(-1 0 0 1 38 28)" fill="#00A8B7"/>
-<path d="M19.5377 29.6536C19.5377 29.6536 7.65513 38.0304 2.208 35.6161C-1.4511 33.9943 3.47664 30.918 3.47664 30.918" stroke="white" stroke-width="0.5"/>
-<circle cx="1.5" cy="1.5" r="1.5" transform="matrix(1 0 0 -1 18 31)" fill="#00A8B7"/>
-<path d="M15.478 38.7881C15.478 38.7881 36.1656 52.5924 41.6128 50.1781C45.2719 48.5563 45.7958 43.3591 45.7958 43.3591" stroke="white" stroke-width="0.5"/>
-<circle cx="15.5" cy="38.5" r="1.5" transform="rotate(180 15.5 38.5)" fill="#00A8B7"/>
-<path d="M40.68 38.7777C40.68 38.7777 19.9923 52.582 14.5452 50.1677C10.8861 48.5458 10.3622 43.3487 10.3622 43.3487" stroke="white" stroke-width="0.5"/>
-<circle cx="1.5" cy="1.5" r="1.5" transform="matrix(1 0 0 -1 40 40)" fill="#00A8B7"/>
+      <Link href='#home' onClick={() => {
+                      
+                      loco.scrollTo(0, { duration: 2 });
+                    }} className="mr-auto  pointer-events-auto "><svg width="62" height="59" viewBox="0 0 62 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30.9038" cy="29.4023" r="25.9554" stroke="white" stroke-width="1.8"/>
+<path d="M31.4518 11.777C31.4518 11.777 22.3516 1.05076 16.4688 3.6582C12.5169 5.40976 11.9511 11.0227 11.9511 11.0227" stroke="white" stroke-width="0.9"/>
+<circle cx="31.4519" cy="11.777" r="1.09614" fill="#00A8B7"/>
+<path d="M31.45 11.0479C31.45 11.0479 40.1817 1.07598 46.0646 3.68342C50.0165 5.43498 50.3501 11.5307 50.3501 11.5307" stroke="white" stroke-width="0.9"/>
+<circle cx="2.25" cy="2.25" r="2.25" transform="matrix(-1 0 0 1 33.7 9.28073)" fill="#00A8B7"/>
+<path d="M40.4951 32.3296C40.4951 32.3296 52.9725 23.7642 58.8554 26.3716C62.8073 28.1232 57.4853 31.4456 57.4853 31.4456" stroke="white" stroke-width="0.9"/>
+<circle cx="2.25" cy="2.25" r="2.25" transform="matrix(-1 0 0 1 42.7 29.9807)" fill="#00A8B7"/>
+<path d="M21.8607 32.8777C21.8607 32.8777 9.02748 41.9247 3.14459 39.3173C-0.807247 37.5657 4.51472 34.2433 4.51472 34.2433" stroke="white" stroke-width="0.9"/>
+<circle cx="2.25" cy="2.25" r="2.25" transform="matrix(1 0 0 -1 19.3 35.3807)" fill="#00A8B7"/>
+<path d="M17.4758 42.7429C17.4758 42.7429 39.8185 57.6516 45.7014 55.0441C49.6533 53.2926 50.2191 47.6796 50.2191 47.6796" stroke="white" stroke-width="0.9"/>
+<circle cx="17.9497" cy="43.0307" r="2.25" transform="rotate(180 17.9497 43.0307)" fill="#00A8B7"/>
+<path d="M44.6943 42.7317C44.6943 42.7317 22.3516 57.6403 16.4687 55.0329C12.5169 53.2813 11.9511 47.6684 11.9511 47.6684" stroke="white" stroke-width="0.9"/>
+<circle cx="2.25" cy="2.25" r="2.25" transform="matrix(1 0 0 -1 42.7 45.2807)" fill="#00A8B7"/>
 </svg>
 
 
 
-</div>
+
+
+
+
+</Link>
       
         {/* <AnimatePresence>
       {navlinksVisible&& <NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} loco={loco}/>}
       </AnimatePresence> */}
       <AnimatePresence>
-        {isOpen&&<DropDownFull isOpen={isOpen} setIsOpen={setIsOpen} selectedLink={selectedLink} loco={loco} />}
-        </AnimatePresence>
+
+        <DropDownFull isOpen={isOpen} setIsOpen={setIsOpen} selectedLink={selectedLink} loco={loco} />
+      </AnimatePresence>
+        
         
       <AnimatePresence>
         <MenuButton isOpen={isOpen} setIsOpen={setIsOpen}  />
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
 

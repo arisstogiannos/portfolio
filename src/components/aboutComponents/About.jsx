@@ -28,7 +28,7 @@ function About() {
   ];
   return (
     <section id='about' className="about h-screen myContainer flex flex-col justify-center items-start my-20 ">
-      <h3 className="  scaleCursor cursor-default text-mwhite lg:text-9xl font-normal capitalize leading-tight">
+      <h3 className="  scaleCursor cursor-default text-mwhite lg:text-9xl font-normal capitalize lg:leading-tight">
         Building Unique <br /> digital experiences
       </h3>
 

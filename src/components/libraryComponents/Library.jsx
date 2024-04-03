@@ -14,7 +14,7 @@ function Library({ setCursorScale }) {
     {
       title: "Project 1",
       src: "c2montreal.png",
-      color: "#008080",
+      color: "#00A8B7",
     },
     {
       title: "Project 2",

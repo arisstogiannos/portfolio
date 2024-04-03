@@ -24,10 +24,10 @@ export default function MenuButton({ isOpen, setIsOpen  }) {
   return (
     <motion.div
     
-    variants={variants}
-    initial='initial'
-    animate='enter'
-    exit='exit'
+    // variants={variants}
+    // initial='initial'
+    // animate='enter'
+    // exit='exit'
   
       onClick={()=>(setIsOpen(!isOpen))}
       className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}

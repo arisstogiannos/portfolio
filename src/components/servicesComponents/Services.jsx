@@ -17,7 +17,6 @@ const montserat = Montserrat({
 function Services({setCursorInServices}) {
   const [selectedService, setSelectedService] = useState(null);
   const section = useRef(null);
-  const isInView = useInView(section, { once: true, amount: 0.7 });
   
 
   //  const { scrollYProgress } = useScroll({
@@ -37,7 +36,7 @@ function Services({setCursorInServices}) {
     >
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
-          animate={isInView && { scaleX: 1, translateY: 3 }}
+          whileInView={{ scaleX: 1, translateY: 3 }}
           transition={{
             duration: 0.8,
             ease: [0.215, 0.61, 0.315, 1],
@@ -48,7 +47,7 @@ function Services({setCursorInServices}) {
         />
         <div className="max-md:flex-col lg:flex text-lg lg:text-[16px] 2xl:text-[20px] md:h-[200px] lg:h-[600px] 3xl:h-[700px] relative tracking-wide w-full">
           <Service
-            isInView={isInView}
+            
             services={servicelist}
             setSelectedService={setSelectedService}
             selectedService={selectedService}
@@ -62,25 +61,47 @@ function Services({setCursorInServices}) {
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText />
+            
             <div
               style={{
                 clipPath:
-                  selectedService || selectedService === 0
+                  selectedService ||selectedService==0
                     ? "inset(0 0 0 0 )"
                     : "inset(0 50% 0 50% )",
               }}
               className="h-full w-full absolute  transition-all duration-[0.35s] ease-[cubic-bezier(0.5, 1, 0.89, 1)] "
             >
-               <video
+              {selectedService==null&& <div className="w-full h-full bg-mblack"/>}
+              {selectedService==0&& <video
                 
                 src="/servicesImages/devanim.mp4"
-                width={"700px"}
-                height={"360px"}
+                width={"360px"}
+                height={"700px"}
                 className="bg-clip-content "
                 autoPlay
                 loop
                 muted
-              ></video>
+              ></video>}
+              {selectedService==1&& <video
+                
+                src="/servicesImages/designanim.mp4"
+                width={"360px"}
+                height={"700px"}
+                className="bg-clip-content "
+                autoPlay
+                loop
+                muted
+              ></video>}
+             { selectedService==2&&<video
+                
+                src="/servicesImages/seoanim.mp4"
+                width={"360px"}
+                height={"700px"}
+                className="bg-clip-content "
+                autoPlay
+                loop
+                muted
+              ></video>}
             </div>
 
             {selectedService == 0 && (
@@ -94,14 +115,14 @@ function Services({setCursorInServices}) {
           </div>
         </div>
         <motion.hr
-          animate={isInView && { scaleX: 1 }}
+          whileInView={ { scaleX: 1 }}
           transition={{
             duration: 0.8,
             ease: [0.215, 0.61, 0.315, 1],
             delay: 0.2,
           }}
-          initial={{ scaleX: 0 }}
-          className="max-lg:hidden w-full h-1 translate-y-0 origin-right"
+          initial={{ scaleX: 0.01 }}
+          className="max-lg:hidden w-full h-1 translate-y-0 origin-right "
         />
       </div>
       {/* <h1 className="absolute hidden top-[1500px] md:top-[1060px] text-[250px] text-[#008080] filter blur-[20px] font-semibold" style={hanson.style}>SERVICES</h1>

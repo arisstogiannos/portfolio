@@ -116,7 +116,7 @@ export default function CursorNew({ cursorScale }) {
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5, // Adjust as needed
+      threshold: 0.7, // Adjust as needed
     };
 
     const observer = new IntersectionObserver(handleIntersection, options);
