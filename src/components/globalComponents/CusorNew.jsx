@@ -77,8 +77,7 @@ export default function CursorNew({ cursorScale }) {
       entries.forEach((entry) => {
         if (entry.target.id === "services") {
           setServicesInView(entry.isIntersecting);
-          console.log(servicesInView);
-
+          
           const handleScroll = (e) => {
             const rect = videoPlayer.getBoundingClientRect();
             if (servicesInViewRef.current) {
@@ -138,7 +137,7 @@ export default function CursorNew({ cursorScale }) {
         cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
       } ${
         servicesInView
-          ? "scale-[0.9] blur-2xl 3xl:translate-x-32 3xl:translate-y-32 "
+          ? "scale-[0.9] blur-2xl "
           : "scale-[0.1] "
       } ${
         cursorIsHovering
