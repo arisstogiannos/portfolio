@@ -32,13 +32,13 @@ function About() {
         Building Unique <br /> digital experiences
       </h3>
 
-      <div className=" flex w-full gap-20 h-1/2 3xl:h-[45%] items-end justify-start">
+      <div className=" flex w-full gap-2 lg:gap-20 h-1/2 3xl:h-[45%] items-end justify-start">
         <div className=" w-[800px] h-[155px] rounded-3xl mr-20 relative overflow-hidden">
           <MovingBg balls={balls} />
           <div className="w-full h-full bg-mwhite/30 rounded-3xl filter backdrop-blur"></div>
         </div>
         <hr className="scaleCursor border-solid border-l-2 h-80  mt-20 border-mwhite  self-center" />
-        <p className="scaleCursor capitalize text-mwhite lg:text-5xl min-w-[500px] max-w-[510px] leading-[1.1] font-normal">
+        <p className="scaleCursor capitalize text-mwhite text-sm lg:text-5xl min-w-[150px]   max-w-[510px] leading-[1.1] font-normal">
           modern aesthetics with cutting-edge technology.
         </p>
       </div>
