@@ -27,7 +27,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .myContainer{
-    @apply  xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] mx-auto  ;
+    @apply  xsm:w-[380px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1540px] mx-auto  ;
 }
 
 
