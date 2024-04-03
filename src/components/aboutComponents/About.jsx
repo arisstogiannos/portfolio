@@ -27,7 +27,7 @@ function About() {
     { top: "15%", left: 0, scale: 1.3 },
   ];
   return (
-    <div className="about h-screen myContainer flex flex-col justify-center items-start my-20 ">
+    <section id='about' className="about h-screen myContainer flex flex-col justify-center items-start my-20 ">
       <h3 className="  scaleCursor cursor-default text-mwhite text-9xl font-normal capitalize leading-tight">
         Building Unique <br /> digital experiences
       </h3>
@@ -42,7 +42,7 @@ function About() {
           modern aesthetics with cutting-edge technology.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 

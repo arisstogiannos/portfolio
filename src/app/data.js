@@ -16,6 +16,7 @@ export const servicelist = [
 export const navLinks = [
   { title: "Home",href:'#home' },
   { title: "Services",href:'#services' },
+  { title: "About",href:'#about' },
   { title: "Projects",href:'#projects' },
   { title: "Contact",href:'#contact' },
 ];

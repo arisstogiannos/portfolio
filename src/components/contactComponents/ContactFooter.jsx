@@ -9,7 +9,7 @@ function ContactFooter() {
   return (
     <section
       id="contact"
-      className={`h-[60vh]   bg-mwhite  flex items-center -z-[1200]  `}
+      className={`h-[60vh]   bg-mwhite  flex items-center   `}
     >
       <motion.div
         // Fixing the clipPath usage
@@ -17,7 +17,7 @@ function ContactFooter() {
       >
         <motion.h3
           id="textContact"
-          className="scaleCursor   text-9xl text-mblack leading-tight z-10"
+          className="scaleCursor   text-9xl text-mblack leading-tight "
           initial={{ y: 50, opacity: 0 }}
           whileInView={{
             y: 0,

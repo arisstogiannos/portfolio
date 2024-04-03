@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from 'framer-motion';
 
-export default function MenuButton({ isOpen, setIsOpen , dropDownVisible }) {
+export default function MenuButton({ isOpen, setIsOpen  }) {
   const variants = {
     initial:{
       y:-200

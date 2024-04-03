@@ -86,7 +86,7 @@ function Service({ isInView, services, setSelectedService, selectedService }) {
             className=" h-full w-full absolute  transition-all duration-[0.35s] delay-200 ease-[cubic-bezier(0.5, 1, 0.89, 1)] "
           >
             <video
-              src="/servicesImages/Frame-1.mp4"
+              src="/servicesImages/devanim.mp4"
               width={"100%"}
               height={"100%"}
               className="bg-clip-content rounded-xl "

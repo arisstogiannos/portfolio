@@ -101,7 +101,7 @@ function Dropdown({ isOpen, setIsOpen, loco }) {
                       setIsOpen(false);
                       loco.scrollTo(link.href, { duration: 2 });
                     }}
-                    className={`cursor-pointer pointer-events-auto lg:text-6xl 3xl:text-8xl font-medium z-50 text-mblack transition pt-12   duration-300  ease-in-out ${
+                    className={`cursor-pointer pointer-events-auto lg:text-5xl 3xl:text-7xl font-medium z-50 text-mblack transition pt-12   duration-300  ease-in-out ${
                       selectedLink == i
                         ? " translate-x-10  scale-105  text-mwhite "
                         : "translate-x-1"

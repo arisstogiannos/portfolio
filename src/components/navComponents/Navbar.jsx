@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { useScroll, motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import {  AnimatePresence } from "framer-motion";
 import MenuButton from "./MenuButton";
 import DropDownFull from "./DropDownFull";
-import NavLinks from "./NavLinks";
+
 import { Montserrat } from "next/font/google";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const montserat = Montserrat({
   subsets:['latin'],
@@ -14,11 +16,10 @@ const montserat = Montserrat({
 function Navbar({loco}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState(0);
-  const [dropDownVisible, setDropDownVisible] = useState(false);
-  const [navlinksVisible, setNavLinksVisible] = useState(false);
+
   const nav = useRef(null);
   
-
+  
   
   // useLayoutEffect(()=>{
 
@@ -44,8 +45,8 @@ function Navbar({loco}) {
       ref={nav}
       className={` myContainer pointer-events-none h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}
     >
-      <h1 className={`hidden cursor-pointer text-lg md:text-2xl absolute mt-9 md:mt-0 md:top-1/2 md:-translate-y-1/2 left-0 max-lg:block ${false ? "hidden" : ""}`}>
-        Orbital Designs
+      <h1 id="logo" className={` cursor-pointer text-lg md:text-2xl mr-auto max-lg:block ${false ? "hidden" : ""}`}>
+        Aris Stogiannos
       </h1>
       
         {/* <AnimatePresence>
@@ -56,7 +57,7 @@ function Navbar({loco}) {
         </AnimatePresence>
         
       <AnimatePresence>
-        <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} dropDownVisible={dropDownVisible} />
+        <MenuButton isOpen={isOpen} setIsOpen={setIsOpen}  />
       </AnimatePresence>
     </nav>
   );
