@@ -1,4 +1,4 @@
-import React, {    useRef } from "react";
+import React, {    useRef, useState } from "react";
 import localfont from "next/font/local";
 
 import { useScroll, useTransform, motion, useMotionValueEvent, useMotionTemplate, useInView } from "framer-motion";
@@ -7,6 +7,7 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function TechStack({loco}) {
   const container = useRef(null);
+  const isinview = useInView(container,{amount:0.35})
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -287,7 +288,6 @@ function TechStack({loco}) {
       ),
     },
   ];
-
   return (
     <>
     <div ref={container}  className={` h-[200vh]  relative my-40  `}>
@@ -296,6 +296,8 @@ function TechStack({loco}) {
           return (
             <motion.div
             key={index}
+            initial={{y:100,opacity:0}}
+            animate={isinview&&{y:0,opacity:1,transition:{duration:0.5,delay:index*0.07,ease:"easeOut"}}}
             
               style={{ scale: item.scale}}
               className="   w-full h-full  absolute top-0 flex items-center justify-center"
