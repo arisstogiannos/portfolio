@@ -8,8 +8,8 @@ import gsap from 'gsap'
 
 const scaleAnimation ={
   initial:{scale:0, x:"-50%", y:"-50%"},
-  open:{scale:1, x:"-50%", y:"-50%",transition:{duration:0.4, ease: [0.76, 0, 0.24, 1]}},
-  closed:{scale:0, x:"-50%", y:"-50%",transition:{duration:0.4, ease: [0.32, 0, 0.67, 0]}},
+  open:{scale:1, x:"-50%", y:"-50%",transition:{duration:0.4, ease: [0, 0.55, 0.45, 1]}},
+  closed:{scale:0, x:"-50%", y:"-50%",transition:{duration:0.4, ease: [0.55, 0, 1, 0.4]}},
 
 }
 
@@ -53,14 +53,14 @@ const scaleAnimation ={
       <div style={{top: index * -100 +"%", transition:"top 0.5s cubic-bezier(0.76, 0, 0.24, 1)"}} className='h-full w-full fixed rounded-lg'>
         {
           projects.map( (project,index) => {
-            const {src, color} = project;
+            const {src, color,height} = project;
           
-            return <div key={`modal_${index}`}   style={{backgroundColor:color, position:'relative',display:"flex", height:"100%", alignItems:"center", justifyContent:'center'}}>
+            return <div key={`modal_${index}`}  style={{backgroundColor:color, position:'relative',display:"flex", height:"100%", alignItems:"center", justifyContent:'center'}}>
               <Image
               loading='lazy'
               src={`/libraryImages/${src}`}
               width={350}
-              height={230}
+              height={height}
               alt='image'
               className='h-auto'
               style={{height:'auto'}}

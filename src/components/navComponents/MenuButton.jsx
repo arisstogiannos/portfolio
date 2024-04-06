@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from 'framer-motion';
 
-export default function MenuButton({ isOpen, setIsOpen  }) {
+export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
   const variants = {
     initial:{
       y:-200
@@ -29,7 +29,7 @@ export default function MenuButton({ isOpen, setIsOpen  }) {
     // animate='enter'
     // exit='exit'
   
-      onClick={()=>(setIsOpen(!isOpen))}
+      onClick={()=>{setLock(true);setIsOpen(!isOpen)}}
       className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
     >
       <motion.div

@@ -12,24 +12,31 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 function Library({ setCursorScale }) {
   const projects = [
     {
-      title: "Project 1",
-      src: "c2montreal.png",
-      color: "#00A8B7",
+      title: "chess uom",
+      src: "chess-uom.png",
+      color: "#FFA800",
+      height:216
     },
     {
       title: "Project 2",
       src: "locomotive.png",
       color: "#333333",
+      height:230
+
     },
     {
       title: "Project 3",
       src: "c2montreal.png",
       color: "#000000",
+      height:230
+
     },
     {
       title: "Project 4",
       src: "locomotive.png",
       color: "#000080",
+      height:230
+
     },
   ];
 

@@ -21,19 +21,19 @@ function Navbar({ loco }) {
 
   const nav = useRef(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(nav, {
       scrollTrigger: {
         trigger: document.documentElement,
-        start:"200px",
+        start: "200px",
 
-        onUpdate: (e) => (!lock?setNavVisible(e.direction):setNavVisible(-1)),
+        onUpdate: (e) =>
+          !lock ? setNavVisible(e.direction) : setNavVisible(-1),
       },
-
     });
-  },[lock])
+  }, [lock]);
 
   // useLayoutEffect(()=>{
 
@@ -54,11 +54,13 @@ function Navbar({ loco }) {
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
-      animate={navVisible===-1?{ y: 0, opacity: 1 }:{ y: -100, opacity: 0 }}
+      animate={
+        navVisible === -1 ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }
+      }
       transition={{ type: "spring", bounce: 0.4, duration: 1, delay: 0 }}
       style={montserat.style}
       ref={nav}
-      className={` myContainer pointer-events-none h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}
+      className={` myContainer  h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}
     >
       {/* <h1 id="logo" className={` cursor-pointer text-lg md:text-2xl mr-auto max-lg:block ${false ? "hidden" : ""}`}>
         Aris Stogiannos
@@ -167,7 +169,7 @@ function Navbar({ loco }) {
       </AnimatePresence>
 
       <AnimatePresence>
-        <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+        <MenuButton isOpen={isOpen} setLock={setLock} setIsOpen={setIsOpen} />
       </AnimatePresence>
     </motion.nav>
   );

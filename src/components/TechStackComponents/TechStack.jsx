@@ -7,7 +7,7 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function TechStack({loco}) {
   const container = useRef(null);
-  const isinview = useInView(container,{amount:0.35})
+  const isinview = useInView(container,{amount:0.35,once:false})
 
   const { scrollYProgress } = useScroll({
     target: container,

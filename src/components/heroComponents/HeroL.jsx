@@ -83,7 +83,7 @@ function HeroL({loco}) {
           className="  h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
         >
           <motion.div id="cont" initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/80 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
-          <MovingText text={"freelance. developer. designer"} />
+          <MovingText text={"freelancer. developer. designer"} />
         </div>
       </section>
     </>
