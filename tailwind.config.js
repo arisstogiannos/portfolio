@@ -27,6 +27,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        'services': 'cubic-bezier(0.37, 0, 0.63, 1)',
+        'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
+      },
       animation: {
         'spin-slow':'spin 25s linear infinite',
         'mBounce':'myBounce 1s infinite 0.3s',

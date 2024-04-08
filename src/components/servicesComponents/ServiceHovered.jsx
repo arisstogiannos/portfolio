@@ -19,9 +19,9 @@ function ServiceHovered({ services, selectedService }) {
       <div
       key={i}
         style={{
-          clipPath: selectedService == i ? "inset(0 0 0)" : "inset(0 100% 0)",
+          clipPath: selectedService == i ? "inset(0 0 0 0)" : "inset(0 50% 0 50%)",
         }}
-        className={`${selectedService == i ? "z-50" : "z-0"}  pointer-events-none w-1/4 h-full border-solid border-white bg-white grid  grid-rows-3 grid-cols-1  border-[1px] border-l-0  transition-all duration-[0.35s] ease-[cubic-bezier(0.5, 1, 0.89, 1)] relative`}
+        className={`z-50  pointer-events-none w-1/4 h-full border-solid border-white bg-white grid  grid-rows-3 grid-cols-1  border-[1px] border-l-0  transition-all duration-[0.35s] ease-services relative`}
       >
         <div className="h-full flex items-center justify-between row-start-2 row-end-3 ">
             <h3 className="w-20 ml-6 text-mblack ">{title}</h3>

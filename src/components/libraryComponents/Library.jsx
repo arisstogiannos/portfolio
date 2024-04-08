@@ -13,27 +13,27 @@ function Library({ setCursorScale }) {
   const projects = [
     {
       title: "chess uom",
-      src: "chess-uom.png",
+      src: "chess-uom.webp",
       color: "#FFA800",
       height:216
     },
     {
       title: "Project 2",
-      src: "locomotive.png",
+      src: "locomotive.webp",
       color: "#333333",
       height:230
 
     },
     {
       title: "Project 3",
-      src: "c2montreal.png",
+      src: "c2montreal.webp",
       color: "#000000",
       height:230
 
     },
     {
       title: "Project 4",
-      src: "locomotive.png",
+      src: "locomotive.webp",
       color: "#000080",
       height:230
 

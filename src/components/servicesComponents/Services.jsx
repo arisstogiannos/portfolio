@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
 import { motion, useInView, useMotionValueEvent, useScroll } from "framer-motion";
 import { Montserrat } from "next/font/google";
+import VideoContainer from "./VideoContainer.jsx";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 const montserat = Montserrat({
@@ -62,47 +63,9 @@ function Services({setCursorInServices}) {
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText />
             
-            <div
-              style={{
-                clipPath:
-                  selectedService ||selectedService==0
-                    ? "inset(0 0 0 0 )"
-                    : "inset(0 50% 0 50% )",
-              }}
-              className="h-full w-full absolute  transition-all duration-[0.35s] ease-[cubic-bezier(0.5, 1, 0.89, 1)] "
-            >
-              {selectedService==null&& <div className="w-full h-full bg-mblack"/>}
-              {selectedService==0&& <video
-                
-                src="/servicesImages/devanim.mp4"
-                width={"360px"}
-                height={"700px"}
-                className="bg-clip-content "
-                autoPlay
-                loop
-                muted
-              ></video>}
-              {selectedService==1&& <video
-                
-                src="/servicesImages/designanim.mp4"
-                width={"360px"}
-                height={"700px"}
-                className="bg-clip-content "
-                autoPlay
-                loop
-                muted
-              ></video>}
-             { selectedService==2&&<video
-                
-                src="/servicesImages/seoanim.mp4"
-                width={"360px"}
-                height={"700px"}
-                className="bg-clip-content "
-                autoPlay
-                loop
-                muted
-              ></video>}
-            </div>
+           
+              <VideoContainer selectedService={selectedService}/>
+           
 
             {selectedService == 0 && (
               <p
