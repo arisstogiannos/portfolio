@@ -1,5 +1,6 @@
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Image from "next/image";
 
 export const metadata = {
   title: "Aris Stogiannos",
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html  lang="en">
       <body  className='overflow-x-hidden   bg-mblack '>
         {children}
+        {/* <Image src={"/Frame 8.png"} width={1920} height={1080} unoptimized={true} className="fixed top-0 left-0 -z-[2000] h-screen "/> */}
       <SpeedInsights/>
         </body>
     </html>

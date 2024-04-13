@@ -29,6 +29,12 @@ function Service({ services, setSelectedService, selectedService }) {
         key={i}
        
         onMouseOver={() => {
+          var vid;
+          if(i===0){  vid = document.getElementById('dev')};
+          if(i===1){  vid = document.getElementById('des')};
+          if(i===2){  vid = document.getElementById('seo')};
+          vid.play();
+          vid.currentTime = 0;
           setSelectedService(i);
         }}
         onMouseLeave={() => {
@@ -36,7 +42,7 @@ function Service({ services, setSelectedService, selectedService }) {
         }}
         className=" w-full lg:w-1/4 h-full max-lg:py-10 max-lg:gap-14   cursor-pointer flex  lg:items-center max-lg:flex-col  border-[1px] lg:border-t-0 lg:border-b-0 lg:border-l-0 justify-between z-30"
       >
-        <div className="w-full h-fit flex justify-between lg:items-center">
+        <div className="w-full h-fit flex justify-between lg:items-center pointer-events-none">
           <h3 className="w-10 ml-6  ">{title}</h3>
           <svg
             className="mr-6"
@@ -96,7 +102,7 @@ function Service({ services, setSelectedService, selectedService }) {
             ></video>
           </div>
         </motion.div>
-        <p style={montserat.style} className="lg:hidden text-mwhite ml-6 w-2/3">
+        <p style={montserat.style} className="lg:hidden text-mwhite ml-6 w-2/3 pointer-events-none">
           {desc}
         </p>
       </motion.div>

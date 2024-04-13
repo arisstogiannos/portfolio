@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function CursorNew({ cursorScale }) {
+export default function CursorNew({ cursorScale,modal }) {
   const [servicesInView, setServicesInView] = useState(false);
   const [techStackInView, setTechStackInView] = useState(false);
   const [cursorIsHovering, setCursorIsHovering] = useState(false);
   const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const cursor = useRef(null);
   const servicesInViewRef = useRef(false); // useRef to hold the latest value
-
+  const { active, index } = modal;
   useEffect(() => {
     servicesInViewRef.current = servicesInView; // Update the ref whenever state changes
   }, [servicesInView]);
@@ -59,9 +59,9 @@ export default function CursorNew({ cursorScale }) {
       } else if (servicesInView) {
         setLastCursorPos({ x: clientX, y: clientY });
       } else if (cursorScale) {
-        moveCursorX(clientX < 900 ? clientX + 100 : clientX - 100);
+        moveCursorX(clientX);
         moveCursorY(
-          clientY < 400 || window.scrollY < 1700 ? clientY + 150 : clientY - 150
+         (index === 0 || index ===1) ? clientY + 150 : clientY - 150
         );
         setLastCursorPos({ x: clientX, y: clientY });
       } else {
@@ -128,7 +128,7 @@ export default function CursorNew({ cursorScale }) {
       observer.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [servicesInView, techStackInView, cursorScale]);
+  }, [servicesInView, techStackInView, cursorScale,index]);
 
   return (
     <div

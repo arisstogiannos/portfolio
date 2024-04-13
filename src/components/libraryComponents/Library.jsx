@@ -9,7 +9,7 @@ import ProjectMobile from "./ProjectMobile";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function Library({ setCursorScale }) {
+function Library({ setCursorScale,modal, setModal }) {
   const projects = [
     {
       title: "chess uom",
@@ -47,14 +47,14 @@ function Library({ setCursorScale }) {
   });
   const scrollProgress = useTransform(scrollYProgress, [0, 1], [-1, 4]);
 
-  const [modal, setModal] = useState({ active: false, index: -1 });
+  
   const isInView = useInView(refi, { once: true, amount: 0.5 });
 
   return (
     <section
       ref={refi}
       id="projects"
-      className="myContainer h-[100vh] bg-transparent my-72   relative   "
+      className="myContainer h-[100vh] bg-transparent my-48  relative   "
     >
       <div
         onMouseEnter={() => setCursorScale(true)}

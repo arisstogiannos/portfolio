@@ -31,6 +31,7 @@ export default function Home() {
   // const [servicesScroll,setServicesScroll] = useState(0.0)
   const [load,setLoad] = useState(true)
   const [loco, setLoco] = useState(null);
+  const [modal, setModal] = useState({ active: false, index: -1 });
 
   useLayoutEffect(()=>{
     (
@@ -50,15 +51,15 @@ export default function Home() {
     load? <Loading setLoading={setLoad} />: 
      <main   style={montserat.style} className=" flex flex-col  ">
       
+      
     <Navbar loco={loco}/>
     <HeroL loco={loco} />
       <Services />
       <About/>
-      <Library setCursorScale={setCursorScale} />
+      <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} />
       <TechStack loco={loco}/>
     <ContactFooter/>
-      <CursorNew cursorScale={cursorScale}  />
-    
+      <CursorNew cursorScale={cursorScale}  modal={modal}/>
       
    </main>
 
