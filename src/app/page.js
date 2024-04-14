@@ -25,6 +25,7 @@ export default function Home() {
  
 
   const [cursorScale, setCursorScale] = useState(false);
+  const [projectColor, setProjectColor] = useState("#00A8B7");
   // const [cursorInServices, setCursorInServices] = useState({x:-1,y:-1});
   // const [cursorInLibrary, setCursorInLibrary] = useState(-1);
   // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
@@ -58,10 +59,10 @@ export default function Home() {
       <Services />
       <About/>
       {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
-      <LIbraryV2/>
+      <LIbraryV2 setProjectColor={setProjectColor}/>
       <TechStack loco={loco}/>
     <ContactFooter/>
-      <CursorNew cursorScale={cursorScale}  modal={modal}/>
+      <CursorNew cursorScale={cursorScale} projectColor={projectColor}  modal={modal}/>
       
    </main>
 

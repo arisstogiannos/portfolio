@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function CursorNew({ cursorScale,modal }) {
+export default function CursorNew({ cursorScale,projectColor,modal }) {
   const [servicesInView, setServicesInView] = useState(false);
   const [techStackInView, setTechStackInView] = useState(false);
+  const [libraryInView, setLibraryInView] = useState(false);
   const [cursorIsHovering, setCursorIsHovering] = useState(false);
   const [lastCursorPos, setLastCursorPos] = useState({ x: 0, y: 0, pageY: 0 });
   const cursor = useRef(null);
@@ -58,11 +59,8 @@ export default function CursorNew({ cursorScale,modal }) {
         moveCursorY(window.innerHeight / 2);
       } else if (servicesInView) {
         setLastCursorPos({ x: clientX, y: clientY });
-      } else if (cursorScale) {
-        moveCursorX(clientX);
-        moveCursorY(
-         (index === 0 || index ===1) ? clientY + 150 : clientY - 150
-        );
+      } else if (libraryInView) {
+        
         setLastCursorPos({ x: clientX, y: clientY });
       } else {
         setLastCursorPos({ x: clientX, y: clientY });
@@ -83,8 +81,7 @@ export default function CursorNew({ cursorScale,modal }) {
             if (servicesInViewRef.current) {
               moveCursorX(rect.left + (rect.right - rect.left) / 2);
               moveCursorY(rect.top + (rect.bottom - rect.top) / 2);
-            } else {
-            }
+            } 
           };
           if (servicesInViewRef.current) {
             window.addEventListener("scroll", handleScroll);
@@ -97,18 +94,26 @@ export default function CursorNew({ cursorScale,modal }) {
           };
         } else if (entry.target.id === "techStack") {
           setTechStackInView(entry.isIntersecting);
+        }else if (entry.target.id === "library") {
+          setLibraryInView(entry.isIntersecting);
         }
 
-        if (!servicesInView) {
+        if (!servicesInView && !libraryInView) {
           moveCursorX(lastCursorPos.x);
           moveCursorY(lastCursorPos.y);
         }
-        if (techStackInView) {
-          moveCursorX(window.innerWidth / 2);
+
+        if(libraryInView){
+          moveCursorX(window.innerWidth * (70/100));
           moveCursorY(window.innerHeight / 2);
+          
         }else{
           moveCursorX(lastCursorPos.x);
           moveCursorY(lastCursorPos.y);
+        }
+        if (techStackInView && !libraryInView ) {
+          moveCursorX(window.innerWidth / 2);
+          moveCursorY(window.innerHeight / 2);
         }
       });
     };
@@ -123,18 +128,20 @@ export default function CursorNew({ cursorScale,modal }) {
 
     observer.observe(document.getElementById("services"));
     observer.observe(document.getElementById("techStack"));
+    observer.observe(document.getElementById("library"));
 
     return () => {
       observer.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [servicesInView, techStackInView, cursorScale,index]);
+  }, [servicesInView, techStackInView, cursorScale,index,libraryInView]);
 
   return (
     <div
       ref={cursor}
-      className={`work w-32  h-32 fixed bg-mblue/90 pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
-        cursorScale ? "scale-[3.5] blur-xl " : "scale-[0.1]"
+      style={{backgroundColor:projectColor}}
+      className={`work w-32  h-32 fixed  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
+        libraryInView ? "scale-[3.5] blur-xl  " : "scale-[0.1]"
       } ${
         servicesInView
           ? "scale-[0.9] blur-2xl "
