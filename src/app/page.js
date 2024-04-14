@@ -11,6 +11,7 @@ import About from "@/components/aboutComponents/About";
 import CursorNew from "@/components/globalComponents/CusorNew";
 import Loading from "@/components/globalComponents/Loading";
 import ContactFooter from "@/components/contactComponents/ContactFooter";
+import LIbraryV2 from "@/components/libraryComponents/LIbraryV2";
 
 
 
@@ -56,7 +57,8 @@ export default function Home() {
     <HeroL loco={loco} />
       <Services />
       <About/>
-      <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} />
+      {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
+      <LIbraryV2/>
       <TechStack loco={loco}/>
     <ContactFooter/>
       <CursorNew cursorScale={cursorScale}  modal={modal}/>

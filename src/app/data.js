@@ -22,3 +22,36 @@ export const navLinks = [
 ];
 
  
+export const projects = [
+  {
+    title: "chess uom",
+    src: "chessuomnew.png",
+    color: "#FFA800",
+    height:216,
+    services:"design & development"
+  },
+  {
+    title: "Project 2",
+    src: "chessuomnew.png",
+    color: "#333333",
+    height:230,
+    services:"design & development"
+
+  },
+  {
+    title: "Project 3",
+    src: "chessuomnew.png",
+    color: "#000000",
+    height:230,
+    services:"design & development"
+
+  },
+  {
+    title: "Project 4",
+    src: "chessuomnew.png",
+    color: "#000080",
+    height:230,
+    services:"design & development"
+
+  },
+];
