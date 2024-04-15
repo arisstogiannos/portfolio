@@ -60,7 +60,7 @@ function MovingText({ text }) {
       ref={slider}
       className="relative flex whitespace-nowrap pointer-events-none "
     >
-      <h2 ref={firstText} className=" flex items-center m-0  pl-16 ">
+      <h2 ref={firstText} className=" flex items-center m-0   ">
         {array.map((word, i) => (
           <Fragment key={i}>
             {" "}
@@ -83,7 +83,7 @@ function MovingText({ text }) {
       </h2>
       <h2
         ref={secondText}
-        className=" flex items-center  absolute left-[100%]  pl-16"
+        className=" flex items-center  absolute left-[100%]  "
       >
         {array.map((word, i) => (
           <Fragment key={i}>

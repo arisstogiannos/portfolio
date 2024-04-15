@@ -59,7 +59,7 @@ export default function Home() {
       <Services />
       <About/>
       {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
-      <LIbraryV2 setProjectColor={setProjectColor}/>
+      <LIbraryV2 setProjectColor={setProjectColor} projectColor={projectColor}/>
       <TechStack loco={loco}/>
     <ContactFooter/>
       <CursorNew cursorScale={cursorScale} projectColor={projectColor}  modal={modal}/>

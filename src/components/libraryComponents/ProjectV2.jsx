@@ -3,9 +3,10 @@ import localfont from "next/font/local";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function ProjectV2({index, title, services, year ,setCurrProject,currProject,setProjectColor,color}) {
+function ProjectV2({index, title, services, year ,setCurrProject,currProject,setProjectColor,color,prevProject}) {
+  
   return (
-    <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setCurrProject(-1);setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-50"} transition-opacity duration-200 ease-services`}>
+    <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setCurrProject(prevProject);setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services`}>
       <div  className={`flex justify-between text-mwhite relative  pointer-events-none`}>
         <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p>
         <div className={`flex flex-col gap-1 lg:pr-40 3xl:pr-60 ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>

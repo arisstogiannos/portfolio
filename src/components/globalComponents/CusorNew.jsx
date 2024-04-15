@@ -141,7 +141,7 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
       ref={cursor}
       style={{backgroundColor:projectColor}}
       className={`work w-32  h-32 fixed  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
-        libraryInView ? "scale-[3.5] blur-xl  " : "scale-[0.1]"
+        libraryInView ? "scale-[3] blur-2xl  " : "scale-[0.1]"
       } ${
         servicesInView
           ? "scale-[0.9] blur-2xl "
