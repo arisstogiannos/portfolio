@@ -12,6 +12,10 @@ html::-webkit-scrollbar{
     background-color: black;
 }
 
+.input-container input[type="email"]:invalid ~ .next{
+scale: 3;
+}
+
 .radio-buttons-container {
   display: flex;
   margin: 50px auto;

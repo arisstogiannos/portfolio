@@ -11,10 +11,11 @@ import {
 } from "framer-motion";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
+import Scene from "./Scene";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function LIbraryV2({ setProjectColor,projectColor }) {
+function LIbraryV2({ setProjectColor, projectColor }) {
   const [currProject, setCurrProject] = useState(-1);
   const [prevProject, setPrevProject] = useState(-1);
   const container = useRef(null);
@@ -43,7 +44,6 @@ function LIbraryV2({ setProjectColor,projectColor }) {
     closed: {
       clipPath: "circle(0px at 50% 50%)",
       transition: {
-        
         ease: [0.33, 1, 0.68, 1],
         duration: 0.4,
       },
@@ -56,8 +56,8 @@ function LIbraryV2({ setProjectColor,projectColor }) {
         id="library"
         className=" myContainer sticky top-0   flex items-center justify-between h-screen"
       >
-      {/* <div style={{background: "radial-gradient(53.97% 53.97% at 50% 50%, rgba(0, 168, 183, 0.20) 0%, rgba(0, 0, 0, 0) 80%)"}} className="absolute blur-xl -left-1/2 -z-50 top-0 w-[1200px] h-[500px]"></div> */}
-       {/* <div
+        {/* <div style={{background: "radial-gradient(53.97% 53.97% at 50% 50%, rgba(0, 168, 183, 0.20) 0%, rgba(0, 0, 0, 0) 80%)"}} className="absolute blur-xl -left-1/2 -z-50 top-0 w-[1200px] h-[500px]"></div> */}
+        {/* <div
           
           style={{color:projectColor}}
           className="myContainer  h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center  text-7xl md:text-[90px] xl:text-[100px] lg:text-[130px] rounded-xl  overflow-hidden absolute top-0"
@@ -69,7 +69,7 @@ function LIbraryV2({ setProjectColor,projectColor }) {
         <div className=" flex flex-col justify-center w-[40%]">
           {projects.map((project, index) => (
             <ProjectV2
-            key={index}
+              key={index}
               title={project.title}
               services={project.services}
               year={"2024"}
@@ -82,7 +82,7 @@ function LIbraryV2({ setProjectColor,projectColor }) {
             />
           ))}
         </div>
-        <div className=" relative   flex items-center justify-end w-[900px] h-[580px] mb-5">
+        <div className=" relative   flex items-center justify-end w-[780px] h-[580px] mb-5">
           {/* <div  className="bg-[#FFA800] size-[350px] blur-[120px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-20"></div> */}
           <p
             className="text-8xl text-mwhite/30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
@@ -90,7 +90,7 @@ function LIbraryV2({ setProjectColor,projectColor }) {
           >
             work
           </p>
-            {projects.map(
+          {/* {projects.map(
               (project, index) =>
                 currProject === index && (
                   <motion.div
@@ -111,10 +111,22 @@ function LIbraryV2({ setProjectColor,projectColor }) {
                    
                   </motion.div>
                 )
+            )} */}
+          
+            {projects.map(
+              (project, index) =>
+                currProject === index && (
+                  
+                    <Scene
+                      scrollYProgress={scrollYProgress}
+                      imagesrc={project.src}
+                    />
+                )
             )}
         </div>
       </section>
-    // </div>
+      //{" "}
+    </div>
   );
 }
 

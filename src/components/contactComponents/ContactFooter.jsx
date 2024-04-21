@@ -129,14 +129,14 @@ function ContactFooter() {
                 }}
                 className={`${
                   (formData.fullname === "" && stage === 1) ||
-                  (formData.email === "" && stage == 2) ||
+                  (!formData.email.includes("@"&&".com"&&".gr") && stage == 2) ||
                   (formData.message === "" && stage === 3) ||
-                  (formData.type === "" && stage === 4)
+                  (formData.type ==="" && stage === 4)
                     ? "pointer-events-none opacity-50 "
                     : " "
                 } ${
                   stage === 4 && "w-80 h-28 "
-                }   flex justify-center items-center rounded-full border bg-mblack group hover:bg-mblue transition-colors duration-500 cursor-pointer `}
+                }  next flex justify-center items-center rounded-full border bg-mblack group hover:bg-mblue transition-colors duration-500 cursor-pointer `}
               >
                 <motion.p
                   initial={{ opacity: 0 }}
