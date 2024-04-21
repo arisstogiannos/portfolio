@@ -43,11 +43,11 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
 
   useEffect(() => {
     const moveCursorX = gsap.quickTo(cursor.current, "left", {
-      duration: 0.5,
+      duration: 0.4,
       ease: "power3",
     });
     const moveCursorY = gsap.quickTo(cursor.current, "top", {
-      duration: 0.5,
+      duration: 0.4,
       ease: "power3 ",
     });
 
@@ -104,7 +104,7 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
         }
 
         if(libraryInView){
-          moveCursorX(window.innerWidth * (70/100));
+          moveCursorX(window.innerWidth * (69/100));
           moveCursorY(window.innerHeight / 2);
           
         }else{

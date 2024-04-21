@@ -1,5 +1,6 @@
 import React from "react";
 import {motion} from 'framer-motion';
+import Magnetic from "../globalComponents/Button/Magnetic";
 
 export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
   const variants = {
@@ -22,6 +23,7 @@ export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
     }
   }
   return (
+    <Magnetic distance={2}>
     <motion.div
     
     // variants={variants}
@@ -30,7 +32,7 @@ export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
     // exit='exit'
   
       onClick={()=>{setLock(true);setIsOpen(!isOpen)}}
-      className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9 bg-slate-400  rounded-full   overflow-hidden  `}
+      className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-16 h-6 md:w-24 md:h-9   rounded-full relative   overflow-hidden  `}
     >
       <motion.div
       className="relative w-full h-full"
@@ -44,7 +46,11 @@ export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
           <PerspectiveText text={'CLOSE'}/>
         </div>
       </motion.div>
+      {/* <div className="bounds border border-red-500 rounded-full"></div> */}
+
+
     </motion.div>
+    </Magnetic>
   );
 }
 

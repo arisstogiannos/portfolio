@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
         {children}
         {/* <Image src={"/Frame 8.png"} width={1920} height={1080} unoptimized={true} className="fixed top-0 left-0 -z-[2000] h-screen "/> */}
       <SpeedInsights/>
+     
         </body>
     </html>
   );

@@ -22,22 +22,41 @@ function LIbraryV2({ setProjectColor,projectColor }) {
     target: container,
     offset: ["start start", "end start"],
   });
-  const tst = useTransform(scrollYProgress, [0, 0.6], [-1, 4]);
+  const tst = useTransform(scrollYProgress, [0, 0.7], [-1, projects.length]);
 
   useMotionValueEvent(tst, "change", (latest) => {
     setPrevProject(currProject);
     setCurrProject(Math.floor(latest));
-    latest > 0 && latest < 4
+    latest > 0 && latest < projects.length
       ? setProjectColor(projects[Math.floor(latest)].color)
       : setProjectColor("#00A8B7");
   });
 
+  const variants = {
+    open: {
+      clipPath: `circle(2000px at 50% 50%)`,
+      transition: {
+        duration: 0.8,
+        ease: [0.32, 0, 0.67, 0],
+      },
+    },
+    closed: {
+      clipPath: "circle(0px at 50% 50%)",
+      transition: {
+        
+        ease: [0.33, 1, 0.68, 1],
+        duration: 0.4,
+      },
+    },
+  };
+
   return (
-    <div ref={container} className="myContainer h-[300vh] my-52">
+    <div ref={container} className="myContainer h-[300vh]  relative">
       <section
         id="library"
-        className=" myContainer sticky  top-0  flex items-center justify-between h-screen"
+        className=" myContainer sticky top-0   flex items-center justify-between h-screen"
       >
+      {/* <div style={{background: "radial-gradient(53.97% 53.97% at 50% 50%, rgba(0, 168, 183, 0.20) 0%, rgba(0, 0, 0, 0) 80%)"}} className="absolute blur-xl -left-1/2 -z-50 top-0 w-[1200px] h-[500px]"></div> */}
        {/* <div
           
           style={{color:projectColor}}
@@ -47,9 +66,10 @@ function LIbraryV2({ setProjectColor,projectColor }) {
           <MovingText text={"recent work. recent work. recent work"} />
           
         </div> */}
-        <div className=" flex flex-col justify-center w-1/2">
+        <div className=" flex flex-col justify-center w-[40%]">
           {projects.map((project, index) => (
             <ProjectV2
+            key={index}
               title={project.title}
               services={project.services}
               year={"2024"}
@@ -62,45 +82,39 @@ function LIbraryV2({ setProjectColor,projectColor }) {
             />
           ))}
         </div>
-        <div className=" relative   flex items-center justify-end w-[900px] h-[500px] mb-5">
+        <div className=" relative   flex items-center justify-end w-[900px] h-[580px] mb-5">
           {/* <div  className="bg-[#FFA800] size-[350px] blur-[120px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-20"></div> */}
           <p
-            className="text-9xl text-mblack/60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
+            className="text-8xl text-mwhite/30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
             style={medium.style}
           >
             work
           </p>
-          <AnimatePresence mode="wait">
             {projects.map(
               (project, index) =>
                 currProject === index && (
                   <motion.div
                     key={index}
-                    initial={{ y: 40, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    className={`px-10 flex h-full transition-all duration-300 ease-out  `}
+                    variants={variants}
+                    initial='closed'
+                    animate='open'
+                    className={` flex justify-end items-center h-full transition-all duration-300 ease-out w-full  `}
                   >
                     <Image
                       src={`/libraryImages/${project.src}`}
-                      width={400}
-                      height={282}
-                      className="rounded-xl mb-auto"
+                      unoptimized={true}
+                      width={800}
+                      height={478}
+                      className="rounded-xl "
                       alt="img"
                     />
-                    <Image
-                      src={`/libraryImages/plhrof.png`}
-                      width={400}
-                      height={282}
-                      className="rounded-xl mt-auto"
-                      alt="img"
-                    />
+                   
                   </motion.div>
                 )
             )}
-          </AnimatePresence>
         </div>
       </section>
-    </div>
+    // </div>
   );
 }
 

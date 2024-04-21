@@ -17,7 +17,7 @@ export const navLinks = [
   { title: "Home",href:'#home' },
   { title: "Services",href:'#services' },
   { title: "About",href:'#about' },
-  { title: "Projects",href:'#projects' },
+  { title: "Projects",href:'#library' },
   { title: "Contact",href:'#contact' },
 ];
 
@@ -25,31 +25,45 @@ export const navLinks = [
 export const projects = [
   {
     title: "chess uom",
-    src: "chess-uom.png",
+    src: "chess-uom-mockup.png",
     color: "#FFA800",
     height:216,
     services:"design & development"
   },
   {
-    title: "Project 2",
-    src: "chess-uom.png",
-    color: "#00ff00",
+    title: "Cecilia Homes",
+    src: "ceciliahomes.png",
+    color: "#9861A8",
     height:230,
     services:"design & development"
 
   },
   {
-    title: "Project 3",
-    src: "chess-uom.png",
-    color: "#ff0000",
+    title: "chess uom",
+    src: "chess-uom-mockup.png",
+    color: "#FFA800",
+    height:216,
+    services:"design & development"
+  },
+  {
+    title: "Cecilia Homes",
+    src: "ceciliahomes.png",
+    color: "#9861A8",
     height:230,
     services:"design & development"
 
   },
   {
-    title: "Project 4",
-    src: "chess-uom.png",
-    color: "#000080",
+    title: "chess uom",
+    src: "chess-uom-mockup.png",
+    color: "#FFA800",
+    height:216,
+    services:"design & development"
+  },
+  {
+    title: "Cecilia Homes",
+    src: "ceciliahomes.png",
+    color: "#9861A8",
     height:230,
     services:"design & development"
 

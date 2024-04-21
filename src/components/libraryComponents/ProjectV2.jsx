@@ -1,5 +1,6 @@
 import React from "react";
 import localfont from "next/font/local";
+import {motion} from 'framer-motion';
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -7,13 +8,13 @@ function ProjectV2({index, title, services, year ,setCurrProject,currProject,set
   
   return (
     <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setCurrProject(prevProject);setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services`}>
-      <div  className={`flex justify-between text-mwhite relative  pointer-events-none`}>
-        <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p>
-        <div className={`flex flex-col gap-1 lg:pr-40 3xl:pr-60 ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>
-          <h3 style={medium.style} className="text-2xl capitalize tracking-wide">
+      <div  className={`flex justify-between text-mwhite relative  pointer-events-none my-7`}>
+        {/* <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p> */}
+        <div className={`flex w-[500px] justify-between ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>
+          <h3 style={medium.style} className="text-xl capitalize min-w-68 tracking-wide">
             {title}
           </h3>
-          <p className="capitalize opacity-80 text-xl">{services}</p>
+          <p className="capitalize opacity-80 text-lg">{services}</p>
         </div>
         <div className="relative size-5 overflow-hidden ">
           <svg
@@ -44,7 +45,8 @@ function ProjectV2({index, title, services, year ,setCurrProject,currProject,set
           </svg>
         </div>
       </div>
-      <hr className={`border-mwhite w-full my-7 `}  />
+      <hr className={`border-mwhite w-full opacity-15 `}  />
+      <motion.hr initial={{scaleX:0}} animate={currProject===index?{scaleX:1}:{scaleX:0}} transition={{duration:0.4,ease:"easeInOut"}} className={`border-mwhite w-full origin-left  `}  />
     </div>
   );
 }
