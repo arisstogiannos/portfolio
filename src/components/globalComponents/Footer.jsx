@@ -26,14 +26,14 @@ function Footer({loco}) {
           className="flex gap-10 mt-8 mb-6 w-full z-[120]"
         >
           <Magnetic distance={2}>
-            <button className="border-solid bg-mblack hover:bg-mblue transition-colors duration-500 text-mwhite px-7  rounded-full text-base font-light tracking-wide">
+            <a href='mailto:ics22124@uom.edu.gr' className="border-solid bg-mblack hover:bg-mblue transition-colors duration-500 text-mwhite px-7 flex  items-center  rounded-full text-base font-light tracking-wide">
               info@arisstogiannos.com
-            </button>
+            </a>
           </Magnetic>
           <Magnetic distance={2}>
-            <button className="border-solid bg-mblack hover:bg-mblue transition-colors duration-500 text-mwhite px-7  rounded-full text-base font-light tracking-wide">
+            <a href="tel:+306982163367" className="border-solid bg-mblack hover:bg-mblue transition-colors duration-500 text-mwhite px-7 flex  items-center  rounded-full text-base font-light tracking-wide">
               6982163367
-            </button>
+            </a>
           </Magnetic>
          <Logo loco={loco} color={"black"} classes={" -top-[3px] "} position={"ml-auto"}/>
         </motion.div>

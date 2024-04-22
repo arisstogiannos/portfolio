@@ -9,9 +9,15 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
+import dynamic from "next/dynamic";
+
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
-import Scene from "./Scene";
+
+
+const Scene = dynamic(() => import('./Scene'), {
+  ssr: false,
+})
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -115,12 +121,13 @@ function LIbraryV2({ setProjectColor, projectColor }) {
           
             {projects.map(
               (project, index) =>
-                currProject === index && (
-                  
+                 (
+                  <div key={index} className={` ${currProject===index?'opacity-100':'opacity-0'} absolute  top-0 left-0 w-full h-full`}>
                     <Scene
                       scrollYProgress={scrollYProgress}
                       imagesrc={project.src}
                     />
+                  </div>
                 )
             )}
         </div>
