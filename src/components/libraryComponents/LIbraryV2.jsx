@@ -28,11 +28,11 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   const [currProject, setCurrProject] = useState(-1);
   const [prevProject, setPrevProject] = useState(-1);
   const container = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
-  const tst = useTransform(scrollYProgress, [0, 0.7], [0, projects.length]);
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start start", "end start"],
+  // });
+  // const tst = useTransform(scrollYProgress, [0, 0.7], [0, projects.length]);
 
   const inview = useInView(container, { amount: 0.05 });
   // useEffect(() => {
@@ -48,13 +48,13 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   //   // return clearTimeout;
   // }, [inview]);
 
-  useMotionValueEvent(tst, "change", (latest) => {
-    setPrevProject(currProject);
-    setCurrProject(Math.floor(latest));
-    latest > 0 && latest < projects.length
-      ? setProjectColor(projects[Math.floor(latest)].color)
-      : setProjectColor("#00A8B7");
-  });
+  // useMotionValueEvent(tst, "change", (latest) => {
+  //   setPrevProject(currProject);
+  //   setCurrProject(Math.floor(latest));
+  //   latest > 0 && latest < projects.length
+  //     ? setProjectColor(projects[Math.floor(latest)].color)
+  //     : setProjectColor("#00A8B7");
+  // });
 
   const variants = {
     open: {
@@ -74,11 +74,12 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   };
 
   return (
-    <div ref={container} className="myContainer  h-[300vh]  relative">
+    // <div ref={container} className="myContainer  h-[300vh]  relative">
       
       <section
+      ref={container}
         id="library"
-        className=" myContainer sticky top-0   flex items-center justify-between h-screen"
+        className=" myContainer    flex items-center justify-between h-screen"
       >
         {/* <div style={{background: "radial-gradient(53.97% 53.97% at 50% 50%, rgba(0, 168, 183, 0.20) 0%, rgba(0, 0, 0, 0) 80%)"}} className="absolute blur-xl -left-1/2 -z-50 top-0 w-[1200px] h-[500px]"></div> */}
         {/* <div
@@ -145,26 +146,27 @@ function LIbraryV2({ setProjectColor, projectColor }) {
                   imagesrc={projects.at(currProject).src}
                 />}
                */}
-          {(inview&&currProject<4) &&
+          {(inview&&currProject<projects.length) &&
             projects.map((project, index) => (
-              <div
+              <motion.div
+              initial={{y:-50,opacity:0}}
+              animate={currProject === index ? {opacity:1,y:0}  : {opacity:0,y:-50} }
+              transition={{duration:0.2,ease:"easeOut"}}
                 key={index}
-                className={` ${
-                  currProject === index ? "opacity-100" : "opacity-0"
-                } absolute  top-0 left-0 w-full h-full`}
+                className={`   absolute  top-0 left-0 w-full h-full`}
               >
                 <Scene
                 key={index}
-                  scrollYProgress={scrollYProgress}
+                  
                   imagesrc={project.src}
                 />
-               </div>
+               </motion.div>
             ))} 
           
         </div>
       </section>
       //{" "}
-    </div>
+    // </div>
   );
 }
 

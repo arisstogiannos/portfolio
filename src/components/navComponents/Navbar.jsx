@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Magnetic from "../globalComponents/Button/Magnetic";
 import Logo from "../globalComponents/Logo";
+import Menu from "./Menu";
 
 const montserat = Montserrat({
   subsets: ["latin"],
@@ -73,7 +74,7 @@ function Navbar({ loco }) {
       {navlinksVisible&& <NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} loco={loco}/>}
       </AnimatePresence> */}
       <AnimatePresence>
-        <DropDownFull
+        <Menu
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           selectedLink={selectedLink}

@@ -35,7 +35,7 @@ function Footer({loco}) {
               6982163367
             </a>
           </Magnetic>
-         <Logo loco={loco} color={"black"} classes={" -top-[3px] "} position={"ml-auto"}/>
+         <Logo loco={loco} color={"white"} classes={" -top-[3px] "} position={"ml-auto"}/>
         </motion.div>
         </div>
       </footer>

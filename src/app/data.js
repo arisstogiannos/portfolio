@@ -53,19 +53,19 @@ export const projects = [
     services:"design & development"
 
   },
-  // {
-  //   title: "chess uom",
-  //   src: "chess-uom-mockup.png",
-  //   color: "#FFA800",
-  //   height:216,
-  //   services:"design & development"
-  // },
-  // {
-  //   title: "Cecilia Homes",
-  //   src: "ceciliahomes.png",
-  //   color: "#9861A8",
-  //   height:230,
-  //   services:"design & development"
+  {
+    title: "chess uom",
+    src: "chess-uom-mockup.png",
+    color: "#FFA800",
+    height:216,
+    services:"design & development"
+  },
+  {
+    title: "Cecilia Homes",
+    src: "ceciliahomes.png",
+    color: "#9861A8",
+    height:230,
+    services:"design & development"
 
-  // },
+  },
 ];
