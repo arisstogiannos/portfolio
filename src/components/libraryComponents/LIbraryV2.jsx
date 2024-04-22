@@ -5,6 +5,7 @@ import Image from "next/image";
 import {
   AnimatePresence,
   motion,
+  useInView,
   useMotionValueEvent,
   useScroll,
   useTransform,
@@ -13,15 +14,17 @@ import dynamic from "next/dynamic";
 
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
+import LoadingLibrary from "./LoadingLibrary";
 
-
-const Scene = dynamic(() => import('./Scene'), {
+const Scene = dynamic(() => import("./Scene"), {
   ssr: false,
-})
+  // loading: () => <div className="bg-red-500">load</div>, // Loading indicator
+});
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function LIbraryV2({ setProjectColor, projectColor }) {
+  const [loading, setLoading] = useState(true);
   const [currProject, setCurrProject] = useState(-1);
   const [prevProject, setPrevProject] = useState(-1);
   const container = useRef(null);
@@ -29,7 +32,21 @@ function LIbraryV2({ setProjectColor, projectColor }) {
     target: container,
     offset: ["start start", "end start"],
   });
-  const tst = useTransform(scrollYProgress, [0, 0.7], [-1, projects.length]);
+  const tst = useTransform(scrollYProgress, [0, 0.7], [0, projects.length]);
+
+  const inview = useInView(container, { amount: 0.05 });
+  // useEffect(() => {
+  //   if (inview) {
+      
+
+  //     //   setTimeout(() => {
+  //     //   setLoading(!inview);
+  //     // }, 2200);
+  //   } else {
+  //     setLoading(!inview);
+  //   }
+  //   // return clearTimeout;
+  // }, [inview]);
 
   useMotionValueEvent(tst, "change", (latest) => {
     setPrevProject(currProject);
@@ -57,7 +74,8 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   };
 
   return (
-    <div ref={container} className="myContainer h-[300vh]  relative">
+    <div ref={container} className="myContainer  h-[300vh]  relative">
+      
       <section
         id="library"
         className=" myContainer sticky top-0   flex items-center justify-between h-screen"
@@ -118,18 +136,31 @@ function LIbraryV2({ setProjectColor, projectColor }) {
                   </motion.div>
                 )
             )} */}
+{/* <AnimatePresence>{loading && <LoadingLibrary key={'loadinflib'} />}</AnimatePresence> */}
+          {/* {(inview&&currProject<4) &&
+         
+                <Scene
+                key={projects.at(currProject).src}
+                  scrollYProgress={scrollYProgress}
+                  imagesrc={projects.at(currProject).src}
+                />}
+               */}
+          {(inview&&currProject<4) &&
+            projects.map((project, index) => (
+              <div
+                key={index}
+                className={` ${
+                  currProject === index ? "opacity-100" : "opacity-0"
+                } absolute  top-0 left-0 w-full h-full`}
+              >
+                <Scene
+                key={index}
+                  scrollYProgress={scrollYProgress}
+                  imagesrc={project.src}
+                />
+               </div>
+            ))} 
           
-            {projects.map(
-              (project, index) =>
-                 (
-                  <div key={index} className={` ${currProject===index?'opacity-100':'opacity-0'} absolute  top-0 left-0 w-full h-full`}>
-                    <Scene
-                      scrollYProgress={scrollYProgress}
-                      imagesrc={project.src}
-                    />
-                  </div>
-                )
-            )}
         </div>
       </section>
       //{" "}

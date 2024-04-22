@@ -62,7 +62,7 @@ function ContactFooter() {
   return (
     <section
       id="contact"
-      className={`h-[70vh]    w-full  flex items-center relative   `}
+      className={`h-[80vh] 3xl:h-[70vh]    w-full  flex items-center relative   `}
     >
       {submited&&<div className="absolute top-0 left-0 filter backdrop-blur-md z-[1000] w-full h-full flex items-center justify-center">
         <div className="bg-mblack w-1/3 h-1/3 rounded-3xl flex-col flex gap-8 items-center justify-center">
@@ -75,7 +75,7 @@ function ContactFooter() {
       {/* <div className="filter bg-mwhite/20 w-full h-full absolute top-0 left-0  backdrop-blur-xl z-10 "></div> */}
       <motion.div
         // Fixing the clipPath usage
-        className=" myContainer flex flex-col items-start gap-4 h-full py-32    "
+        className=" myContainer flex flex-col items-start gap-4 h-full 3xl:py-32 py-20    "
       >
         <motion.h3
           style={medium.style}

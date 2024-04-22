@@ -50,6 +50,7 @@ export default function Home() {
       <LIbraryV2
         setProjectColor={setProjectColor}
         projectColor={projectColor}
+        loco={loco}
       />
       <TechStack loco={loco} />
       <ContactFooter />

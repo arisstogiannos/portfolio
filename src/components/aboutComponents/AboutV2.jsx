@@ -3,7 +3,7 @@ import Button from "../globalComponents/Button/Button";
 
 function AboutV2({loco}) {
   return (
-    <section className="mt-10 myContainer">
+    <section id="about" className="mt-10 myContainer pt-10">
       <div className="flex justify-between w-full  ">
         <h3  className="scaleCursor  text-[70px]  text-mwhite capitalize leading-tight w-fit whitespace-nowrap h-fit">
           i am creating unique
