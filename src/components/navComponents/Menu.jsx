@@ -66,18 +66,18 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
             : { scaleY: 0, transition: { duration: 0.3 } }
         }
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="border-l-2 origin-bottom absolute left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
+        className="border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
       />
-      <div className="absolute left-80 top-[790px]">
+      <div className="absolute left-40 3x:left-80 top-[590px] 3xl:top-[790px]">
         <motion.p
-          initial={{ x: -40, opacity: 0 }}
+          initial={{ x: -100, opacity: 0 }}
           animate={
             isOpen
-              ? { x: 0, opacity: 1, transition: { duration: 0.6, delay: 0.7 } }
-              : { x: -40, opacity: 0, transition: { duration: 0.3 } }
+              ? { x: 0, opacity: 1, transition: { opacity:{duration:0.2, delay:0.8},duration: 0.6, delay: 0.7 } }
+              : { x: -100, opacity: 0, transition: { duration: 0.3 } }
           }
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-mblack capitalize font-normal ml-10 mb-2 text-4xl"
+          className="text-mblack capitalize font-medium ml-10 mb-2 text-4xl"
         >
           Where Next ?
         </motion.p>
@@ -89,16 +89,24 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
               : { scaleX: 0, transition: { duration: 0.3 } }
           }
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="border-t-2 origin-left   w-80 border-t-mblack border-solid opacity-100 z-[10000] "
+          className="border-t-[3px] origin-left   w-80 border-t-mblack border-solid opacity-100 z-[10000] "
         />
       </div>
-      <div className="myContainer  lg:pt-[100px] flex justify-end  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[0px] 2xl:pl-[80px] box-border relative">
+      <div className="myContainer  lg:pt-[100px] flex justify-end  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[20px] 3xl:pr-0 2xl:pl-[80px] box-border relative">
         <ul className={`flex flex-col items-end   z-[1000]  relative   `}>
           {navLinks.map((link, i) => {
             return (
-              <Magnetic key={i}>
-                <Link
-                  onMouseEnter={() => {
+              <Link
+                 
+                  className={`cursor-pointer group pointer-events-auto  lg:text-6xl 3xl:text-8xl font-medium z-50   pt-12 ${
+                    clickedLink == i ? "text-mblue" : "text-mblack"
+                  }   `}
+                  key={i}
+                  href={link.href}
+                >
+                  <Magnetic key={i}>
+                  <motion.div
+                   onMouseEnter={() => {
                     setSelectedLink(i);
                   }}
                   onMouseLeave={() => {
@@ -110,14 +118,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                     setIsOpen(false);
                     loco.scrollTo(link.href, { duration: 2 });
                   }}
-                  className={`cursor-pointer group pointer-events-auto hover:text-mblue transition-colors duration-300 lg:text-5xl 3xl:text-8xl font-medium z-50   pt-12 ${
-                    clickedLink == i ? "text-mblue" : "text-mblack"
-                  }   `}
-                  key={i}
-                  href={link.href}
-                >
-                  <motion.div
-                    className="flex  items-center gap-7 translate-x-12"
+                    className="flex  items-center gap-7 translate-x-12 hover:text-mblue transition-colors duration-300"
                     style={{ clipPath: "inset(0 0 0 0 round 0%)" }}
                     key={i}
                   >
@@ -142,41 +143,41 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                       }
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       exit={{ scale: 0 }}
-                      className={`size-7 rounded-full bg-mblue ${
+                      className={`size-5 3xl:size-7 rounded-full bg-mblue ${
                         selectedLink === i ? "scale-100" : "scale-0"
                       }`}
-                    />
+                      />
                     {/* <motion.hr
                   key={i}
-                    className={`mt-5 origin-right  group-hover:w-full group-hover:border-t-mblue ease-services transition-all duration-300  border-solid  border-t-2 ${clickedLink===i?'w-full border-t-mblue':'w-20 border-t-mblack'}`}
-                    initial={{ scaleX: 0 }}
-                    exit={{
-                      scaleX: 0,
-                      transition: {
-                        duration: 0.5,
-                        ease: [0, 0.55, 0.45, 1],
-                        delay: i * 0.05,
-                      },
-                    }}
-                    animate={isOpen?{
-                      scaleX: 1,
-                      transition: {
-                        duration: 0.4,
-                        ease: [0, 0.55, 0.45, 1],
-                        delay:  0.7 + i * 0.07,
-                      },
-                    }:{
-                      scaleX: 0,
-                      transition: {
-                        duration: 0.3,
-                        ease: [0, 0.55, 0.45, 1],
-                        
-                      },
-                    }}
-                  /> */}
+                  className={`mt-5 origin-right  group-hover:w-full group-hover:border-t-mblue ease-services transition-all duration-300  border-solid  border-t-2 ${clickedLink===i?'w-full border-t-mblue':'w-20 border-t-mblack'}`}
+                  initial={{ scaleX: 0 }}
+                  exit={{
+                    scaleX: 0,
+                    transition: {
+                      duration: 0.5,
+                      ease: [0, 0.55, 0.45, 1],
+                      delay: i * 0.05,
+                    },
+                  }}
+                  animate={isOpen?{
+                    scaleX: 1,
+                    transition: {
+                      duration: 0.4,
+                      ease: [0, 0.55, 0.45, 1],
+                      delay:  0.7 + i * 0.07,
+                    },
+                  }:{
+                    scaleX: 0,
+                    transition: {
+                      duration: 0.3,
+                      ease: [0, 0.55, 0.45, 1],
+                      
+                    },
+                  }}
+                /> */}
                   </motion.div>
+                </Magnetic>
                 </Link>
-              </Magnetic>
             );
           })}
         </ul>

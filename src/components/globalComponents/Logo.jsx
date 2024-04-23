@@ -33,7 +33,7 @@ function Logo({ loco, color, classes, position }) {
         onClick={() => {
           loco.scrollTo(0, { duration: 2 });
         }}
-        className={`${position}  pointer-events-auto relative group z-[1000] mix-blend-exclusion`}
+        className={`${position}  pointer-events-auto relative group z-[1000]`}
         initial={{ paddingRight: 0 }}
         animate={hovered ? { paddingRight: 195 } : { paddingRight: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}

@@ -38,9 +38,9 @@ export default function Home() {
   }, [load]);
   
   return(
-    // load ? (
-    //   <Loading setLoading={setLoad} />
-    // ) :
+    load ? (
+      <Loading setLoading={setLoad} />
+    ) :
     <main style={montserat.style} className=" flex flex-col  ">
       <Navbar loco={loco} />
       <HeroL loco={loco} />

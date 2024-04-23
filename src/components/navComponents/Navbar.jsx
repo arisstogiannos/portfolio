@@ -68,7 +68,7 @@ function Navbar({ loco }) {
       {/* <h1 id="logo" className={` cursor-pointer text-lg md:text-2xl mr-auto max-lg:block ${false ? "hidden" : ""}`}>
         Aris Stogiannos
       </h1> */}
-      <Logo loco={loco} color={"white"} classes={"top-[13px] -z-20"} position={"mr-auto "}/>
+      <Logo loco={loco} color={"white"} classes={"top-[13px] -z-20"} position={"mr-auto mix-blend-exclusion "}/>
 
       {/* <AnimatePresence>
       {navlinksVisible&& <NavLinks selectedLink={selectedLink} setSelectedLink={setSelectedLink} loco={loco}/>}
