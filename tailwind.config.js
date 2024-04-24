@@ -32,7 +32,7 @@ module.exports = {
         'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
       },
       animation: {
-        'spin-slow':'spin 25s linear infinite',
+        'spin-slow':'spin 22s linear infinite',
         'mBounce':'myBounce 1s infinite 0.3s',
         'mBounce-long':'myBounceLong 2s infinite ',
         'background':'background 9s linear infinite'
