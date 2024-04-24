@@ -22,8 +22,8 @@ const container = useRef(null)
         scrollTrigger: {
             trigger: Heading.current,
             scrub: true,
-            start: "top bottom",
-            end: "bottom+=90px bottom",
+            start: "top bottom-=100px",
+            end: "bottom+=130px bottom",
         },
         opacity: 1,
         ease: "none",

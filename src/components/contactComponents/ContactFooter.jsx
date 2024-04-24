@@ -41,6 +41,7 @@ function ContactFooter() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
+    setSubmited(true)
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -55,7 +56,6 @@ function ContactFooter() {
     const result = await response.json();
     if (result.success) {
       console.log(result);
-      setSubmited(true)
     }
   }
 
@@ -65,8 +65,8 @@ function ContactFooter() {
       className={`h-[80vh] 3xl:h-[70vh]    w-full  flex items-center relative   `}
     >
       {submited&&<div className="absolute top-0 left-0 filter backdrop-blur-md z-[1000] w-full h-full flex items-center justify-center">
-        <div className="bg-mblack w-1/3 h-1/3 rounded-3xl flex-col flex gap-8 items-center justify-center">
-          <p className="text-mwhite text-4xl capitalize">hello beautifull :)</p>
+        <div className="bg-mblack w-2/5 h-2/5 px-10 text-center rounded-3xl flex-col flex gap-8 items-center justify-center">
+          <p className="text-mwhite text-4xl capitalize">thanks for reaching out.i am busy fcking your mother right now. i will get back to you asap :)</p>
           <button onClick={()=>(setSubmited(false))} className="bg-mwhite rounded-full text-xl font-medium px-6 py-1   uppercase">close</button>
 
         </div>

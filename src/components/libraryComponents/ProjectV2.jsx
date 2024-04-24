@@ -4,7 +4,7 @@ import {motion} from 'framer-motion';
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function ProjectV2({index, title, services, year ,setCurrProject,currProject,setProjectColor,color,prevProject}) {
+function ProjectV2({index, title, services ,setCurrProject,currProject,setProjectColor,color,prevProject}) {
   
   return (
     <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setCurrProject(prevProject);setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services`}>

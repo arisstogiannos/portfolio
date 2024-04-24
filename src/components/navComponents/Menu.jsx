@@ -68,7 +68,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
       />
-      <div className="absolute left-40 3x:left-80 top-[590px] 3xl:top-[790px]">
+      <div className="absolute left-40 3xl:left-80 top-[590px] 3xl:top-[790px]">
         <motion.p
           initial={{ x: -100, opacity: 0 }}
           animate={
@@ -98,7 +98,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
             return (
               <Link
                  
-                  className={`cursor-pointer group pointer-events-auto  lg:text-6xl 3xl:text-8xl font-medium z-50   pt-12 ${
+                  className={`cursor-pointer group pointer-events-auto translate-x-12  lg:text-6xl 3xl:text-8xl font-medium z-50   pt-12 ${
                     clickedLink == i ? "text-mblue" : "text-mblack"
                   }   `}
                   key={i}
@@ -118,7 +118,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                     setIsOpen(false);
                     loco.scrollTo(link.href, { duration: 2 });
                   }}
-                    className="flex  items-center gap-7 translate-x-12 hover:text-mblue transition-colors duration-300"
+                    className="flex  items-center gap-7  hover:text-mblue transition-colors duration-300"
                     style={{ clipPath: "inset(0 0 0 0 round 0%)" }}
                     key={i}
                   >
@@ -143,9 +143,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                       }
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       exit={{ scale: 0 }}
-                      className={`size-5 3xl:size-7 rounded-full bg-mblue ${
-                        selectedLink === i ? "scale-100" : "scale-0"
-                      }`}
+                      className={`size-5 3xl:size-7 rounded-full bg-mblue `}
                       />
                     {/* <motion.hr
                   key={i}
