@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 function MovingText({ text }) {
   let xPercent = 0;
   let direction = -1;
-  let speed = 0.05;
+  let speed = 0.1;
   const slider = useRef(null);
   const firstText = useRef(null);
   const secondText = useRef(null);
@@ -35,11 +35,11 @@ function MovingText({ text }) {
     };
   }, []);
   const handleMouseOver = () => {
-    speed = 0.15; // Increase speed on mouse over
+    speed = 0.2; // Increase speed on mouse over
   };
 
   const handleMouseLeave = () => {
-    speed = 0.05; // Reset speed on mouse leave
+    speed = 0.1; // Reset speed on mouse leave
   };
 
   const animation = () => {
