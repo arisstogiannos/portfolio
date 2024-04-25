@@ -41,7 +41,7 @@ function ContactFooter() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    setSubmited(true)
+    // setSubmited(true)
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
