@@ -5,10 +5,10 @@ function Button({loco}) {
   return (
     
     <Magnetic distance={3}>
-    <div onClick={()=>(loco.scrollTo('#library', { duration: 2 }))} className="size-56 rounded-full bg-mblack border border-mblue flex items-center justify-center cursor-pointer   duration-500 ease-in-out transition-colors">
+    <div onClick={()=>(loco.scrollTo('#library', { duration: 2 }))} className="size-52 hover:size-56 absolute  rounded-full bg-mblack border-2 border-mblue flex items-center justify-center cursor-pointer   duration-300 ease-in-out transition-[width,height]">
      {/* <Magnetic distance={2}> */}
       <div className="relative size-fit pointer-events-none">
-        <p className="capitalize text-mblue text-4xl font-normal leading-snug group-hover:text-mwhite duration-500 ease-in-out transition-colors">see my<br/> work</p>
+        <p className="capitalize text-mblue text-4xl font-medium leading-snug group-hover:text-mwhite duration-500 ease-in-out transition-colors">see my<br/> work</p>
         <svg
           width="16"
           height="22"

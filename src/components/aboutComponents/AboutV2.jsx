@@ -84,7 +84,7 @@ const container = useRef(null)
         </h3>
         <div className="mt-0 relative">
 
-        <hr className="scaleCursor border-solid border-l h-[520px]   mx-28 border-mwhite  " />
+        <hr className="scaleCursor border-solid border-l h-[520px] w-0   mx-[104px] border-mwhite  " />
         <div data-scroll data-scroll-speed="0.3" className="relative bottom-64">
 
         <Button loco={loco} />
