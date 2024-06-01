@@ -68,7 +68,8 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
         transition={{ duration: 0.5, delay: 0.7 }}
         className="border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
       />
-      <div className="absolute left-40 3xl:left-80 top-[590px] 3xl:top-[790px]">
+      <div className="absolute left-40 3xl:left-80 top-[590px] 3xl:top-[790px] pointer-events-none">
+        <Magnetic>
         <motion.p
           initial={{ x: -100, opacity: 0 }}
           animate={
@@ -77,10 +78,11 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
               : { x: -100, opacity: 0, transition: { duration: 0.3 } }
           }
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-mblack capitalize font-medium ml-10 mb-2 text-4xl"
+          className="text-mblack capitalize font-medium ml-10 mb-2 text-4xl pointer-events-auto z-50"
         >
           Where Next ?
         </motion.p>
+        </Magnetic>
         <motion.hr
           initial={{ scaleX: 0 }}
           animate={
