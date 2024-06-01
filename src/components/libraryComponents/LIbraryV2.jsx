@@ -35,7 +35,7 @@ function LIbraryV2({ setProjectColor, projectColor }) {
       id="library"
       className=" myContainer    flex items-center justify-between h-screen mt-40 "
     >
-      <div className="flex flex-col w-[40%] h-[700px] py-10">
+      <div className="flex flex-col w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
         <p className="scaleCursor capitalize font-normal xl:text-[27px] 3xl:text-3xl mb-auto text-mwhite ">
           <span className="opacity-80 font-normal">
             designing & developing each website with{" "}
