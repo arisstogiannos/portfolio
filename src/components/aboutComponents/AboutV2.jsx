@@ -77,7 +77,7 @@ const container = useRef(null)
 }
   const phrase =" My goal is to showcase your brand while engaging visitors, creating meaningful interactions, and boosting your business success."
   return (
-    <section  ref={container} id="about" className="mt-10 myContainer pt-10">
+    <section  ref={container} id="about" className="mt-10 myContainer pt-10 mb-32">
       <div   className="flex justify-between w-full  ">
         <h3 ref={Heading} className="scaleCursor  text-[70px]  text-mwhite capitalize leading-tight relative min-w-[790px]  flex flex-wrap  h-fit">
           {splitWords("i am creating unique websites to help your business stand out")}

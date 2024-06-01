@@ -85,7 +85,7 @@ function HeroL({ loco }) {
             clipPath: "inset(0 0 0 0)",
             transition: { duration: 1, delay: 0.2 },
           }}
-          className="cursor-pointer   scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-100 top-[80px] sm:top-[50px]  sm:-left-8  relative size-36 bg-mblack border-2 border-mblue rounded-full z-40"
+          className="cursor-pointer   scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-100 top-[80px] sm:top-[120px]  sm:-left-4  relative size-36 bg-mblack border-2 border-mblue rounded-full z-40"
         >
           <div className=" top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute   ">
             <div className="absolute top-1/2 left-1/2   animate-mBounce-long ">
@@ -96,7 +96,7 @@ function HeroL({ loco }) {
         </Magnetic>
         <div
           style={medium.style}
-          className=" cursor-pointer h-[120px] md:h-[150px] lg:h-[200px] xl:h-[220px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[100px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
+          className=" cursor-pointer h-[120px] md:h-[150px] lg:h-[200px] xl:h-[220px] 3xl:mt-20   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[100px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-6"
         >
           <motion.div
             id="cont"
