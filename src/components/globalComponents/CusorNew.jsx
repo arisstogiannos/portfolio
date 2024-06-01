@@ -59,9 +59,9 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
         moveCursorY(window.innerHeight / 2);
       } else if (servicesInView) {
         setLastCursorPos({ x: clientX, y: clientY });
-      } else if (libraryInView) {
+      // } else if (libraryInView) {
         
-        setLastCursorPos({ x: clientX, y: clientY });
+      //   setLastCursorPos({ x: clientX, y: clientY });
       } else {
         setLastCursorPos({ x: clientX, y: clientY });
         moveCursorX(clientX);
@@ -103,14 +103,14 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
           moveCursorY(lastCursorPos.y);
         }
 
-        if(libraryInView){
-          moveCursorX(window.innerWidth * (69/100));
-          moveCursorY(window.innerHeight / 2);
+        // if(libraryInView){
+        //   moveCursorX(window.innerWidth * (69/100));
+        //   moveCursorY(window.innerHeight / 2);
           
-        }else{
-          moveCursorX(lastCursorPos.x);
-          moveCursorY(lastCursorPos.y);
-        }
+        // }else{
+        //   moveCursorX(lastCursorPos.x);
+        //   moveCursorY(lastCursorPos.y);
+        // }
         if (techStackInView && !libraryInView ) {
           moveCursorX(window.innerWidth / 2);
           moveCursorY(window.innerHeight / 2);
@@ -141,8 +141,6 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
       ref={cursor}
       style={{backgroundColor:projectColor}}
       className={`work w-32  h-32 fixed  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[1000] filter transition-transform duration-300 ease-in-out ${
-        libraryInView ? "scale-[3] blur-2xl  " : "scale-[0.1]"
-      } ${
         servicesInView
           ? "scale-[0.9] blur-2xl "
           : "scale-[0.1] "

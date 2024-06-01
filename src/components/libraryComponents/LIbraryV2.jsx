@@ -1,14 +1,11 @@
-import React, {  useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { projects } from "@/app/data";
 import ProjectV2 from "./ProjectV2";
-import {
-  motion,
-  useInView,
-} from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 
 import localfont from "next/font/local";
-
+import Magnetic from "../globalComponents/Button/Magnetic";
 
 const Scene = dynamic(() => import("./Scene"), {
   ssr: false,
@@ -18,25 +15,54 @@ const Scene = dynamic(() => import("./Scene"), {
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function LIbraryV2({ setProjectColor, projectColor }) {
-  const [currProject, setCurrProject] = useState(-1);
+  const [currProject, setCurrProject] = useState(0);
   const [prevProject, setPrevProject] = useState(-1);
   const container = useRef(null);
   // const { scrollYProgress } = useScroll({
 
   const inview = useInView(container, { amount: 0.05 });
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end center"],
+  });
+  const pos = useTransform(scrollYProgress, [0, 1], [56, -100]);
 
-
-  
   return (
     // <div ref={container} className="myContainer  h-[300vh]  relative">
-      
-      <section
+
+    <section
       ref={container}
-        id="library"
-        className=" myContainer    flex items-center justify-between h-screen"
-      >
-    
-        <div className=" flex flex-col justify-center w-[40%]">
+      id="library"
+      className=" myContainer    flex items-center justify-between h-screen mt-40 "
+    >
+      <div className="flex flex-col w-[40%] h-[800px] py-10">
+        <p className="scaleCursor capitalize font-normal text-3xl mb-auto text-mwhite ">
+          <span className="opacity-80 font-normal">
+            designing & developing each website with{" "}
+          </span>
+          <span className="opacity-100 font-medium ">passion</span>{" "}
+          <span className="font-normal opacity-80">
+            looking to achieve the{" "}
+          </span>
+          <span className="opacity-100 font-medium ">greatest result</span>{" "}
+          possible
+        </p>
+
+        <div className="relative mb-48 ml-auto  h-40 w-80">
+          <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
+          <Magnetic>
+            <motion.div
+              style={{ right: pos }}
+              className="bg-mblack size-32 border-2 cursor-pointer border-mblue rounded-full absolute -bottom-16   flex justify-center items-center "
+            >
+              {" "}
+              <p className="pointer-events-none capitalize text-xl font-medium text-center text-mblue">
+                view <br /> all
+              </p>
+            </motion.div>
+          </Magnetic>
+        </div>
+        <div className=" flex flex-col justify-center   w-full">
           {projects.map((project, index) => (
             <ProjectV2
               key={index}
@@ -52,40 +78,30 @@ function LIbraryV2({ setProjectColor, projectColor }) {
             />
           ))}
         </div>
-        <div className=" relative   flex items-center justify-end w-[780px] h-[580px] overflow-hidden">
-          {/* <div  className="bg-[#FFA800] size-[350px] blur-[120px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-20"></div> */}
-          <p
-            className="text-8xl text-mwhite/30 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10"
-            style={medium.style}
-          >
-            work
-          </p>
-       
-               <motion.div style={{top:currProject*(100)+"%"}} className="relative transition-all ease-out duration-500  w-full h-full">
-
-          {(inview&&currProject<projects.length) &&
+      </div>
+      <div className=" relative  -right-5 flex items-center justify-end w-[850px] h-[800px] overflow-y-hidden">
+        <motion.div
+          style={{ top: currProject * 100 + "%" }}
+          className="relative  transition-all ease-out duration-500 w-full h-full  "
+        >
+          {((inview && currProject < projects.length && currProject > 0) ||
+            currProject === 0) &&
             projects.map((project, index) => (
               <motion.div
-              // initial={{y:-50,opacity:1}}
-              // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
-              // transition={{duration:0.2,ease:"easeOut"}}
+                // initial={{y:-50,opacity:1}}
+                // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
+                // transition={{duration:0.2,ease:"easeOut"}}
                 key={index}
-                style={{top:index*(-100)+"%"}}
-                className={`   absolute   top-0 left-0 w-full h-full`}
+                style={{ top: index * -100 + "%" }}
+                className={`   absolute   top-0 right-0  w-full h-full`}
               >
-                <Scene
-                key={index}
-                  
-                  imagesrc={project.src}
-                />
-               </motion.div>
-            ))} 
-
-               </motion.div>
-          
-        </div>
-      </section>
-      //{" "}
+                <Scene key={index} imagesrc={project.src} />
+              </motion.div>
+            ))}
+        </motion.div>
+      </div>
+    </section>
+    //{" "}
     // </div>
   );
 }

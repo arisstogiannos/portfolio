@@ -1,4 +1,4 @@
-import React, {  useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { Montserrat } from "next/font/google";
 import localfont from "next/font/local";
 import MovingText from "../globalComponents/MovingText";
@@ -6,7 +6,7 @@ import SplitType from "split-type";
 import gsap from "gsap";
 
 import { motion } from "framer-motion";
-
+import Magnetic from "../globalComponents/Button/Magnetic";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
@@ -15,11 +15,7 @@ const montserat = Montserrat({
   weight: ["300", "400", "500", "600"],
 });
 
-function HeroL({loco}) {
- 
-   
-  
-  
+function HeroL({ loco }) {
   useLayoutEffect(() => {
     const mytext1 = new SplitType("#mytext1");
     const mytext2 = new SplitType("#mytext2");
@@ -28,7 +24,7 @@ function HeroL({loco}) {
       y: 130,
       opacity: 1,
       stagger: 0.015,
-    
+
       duration: 0.8,
       ease: "circ.inOut",
     });
@@ -41,7 +37,7 @@ function HeroL({loco}) {
         className="myContainer flex flex-col    relative cursor-default"
         id="home"
       >
-        <div className="w-full h-[120px] md:h-[147px]  xl:h-[180px] 2xl:h-[234px] 3xl:h-[284px] flex mt-10 justify-between text-white font-medium text-3xl  md:text-4xl  xl:text-5xl 2xl:text-6xl 3xl:text-7xl  relative 3xl:mb-10  pb-2">
+        <div className="w-full h-[120px] md:h-[147px]  xl:h-[180px] 2xl:h-[234px] 3xl:h-[314px] flex mt-10 justify-between text-white font-medium text-3xl  md:text-4xl  xl:text-5xl 2xl:text-6xl 3xl:text-[80px]  relative 3xl:mb-10  pb-2">
           {/* <div
          
           className="w-full md:h-[147px]  xl:h-[180px] 2xl:h-[224px] flex mt-10 justify-between text-white font-semibold md:text-4xl  xl:text-5xl 2xl:text-6xl relative 3xl:mb-20 "
@@ -59,11 +55,14 @@ function HeroL({loco}) {
             initial={{ scaleX: 0, translateX: "-50%" }}
             className="absolute top-1/2 left-[62%] md:left-[56%] lg:left-[55%] 2xl:left-[57%] -translate-x-1/2 h-1 w-[45%] md:w-[60%] lg:w-[65%] origin-left "
           />
-          <h1 id="mytext2" className="scaleCursor mt-auto text-end leading-tight">
+          <h1
+            id="mytext2"
+            className="scaleCursor mt-auto text-end leading-tight"
+          >
             On <br /> Your Website
           </h1>
         </div>
-        <motion.div initial={{clipPath:'inset(100% 0 0 0)'}} animate={{clipPath:'inset(0 0 0 0)',transition:{duration:1,delay:0.2}}} className="origin-right scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-95 top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
+        {/* <motion.div initial={{clipPath:'inset(100% 0 0 0)'}} animate={{clipPath:'inset(0 0 0 0)',transition:{duration:1,delay:0.2}}} className="origin-right scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-95 top-[80px] sm:top-[70px] -left-20 sm:-left-14  relative w-60 h-60 bg-mblack rounded-full z-40">
           <div
             onClick={() => {
               loco.scrollTo('#services', { duration: 2 });
@@ -75,14 +74,36 @@ function HeroL({loco}) {
             </div>
             <div className=" animate-spin-slow"> {scrollButton()}</div>
           </div>
-        </motion.div>
-
-        <div
-          
-          style={medium.style}
-          className=" cursor-pointer h-[120px] md:h-[150px] lg:h-[200px] xl:h-[250px]   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[150px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-32"
+        </motion.div> */}
+        <Magnetic>
+        <motion.div
+          onClick={() => {
+            loco.scrollTo("#services", { duration: 2 });
+          }}
+          initial={{ clipPath: "inset(100% 0 0 0)" }}
+          animate={{
+            clipPath: "inset(0 0 0 0)",
+            transition: { duration: 1, delay: 0.2 },
+          }}
+          className="cursor-pointer   scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-100 top-[80px] sm:top-[120px]  sm:-left-4  relative size-36 bg-mblack border-2 border-mblue rounded-full z-40"
         >
-          <motion.div id="cont" initial={{scaleY:0}} animate={{scaleY:1,transition:{duration:1,delay:0.2}}} className="origin-bottom bg-mblue/80 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "></motion.div>
+          <div className=" top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute   ">
+            <div className="absolute top-1/2 left-1/2   animate-mBounce-long ">
+              {arrow()}
+            </div>
+          </div>
+        </motion.div>
+        </Magnetic>
+        <div
+          style={medium.style}
+          className=" cursor-pointer h-[120px] md:h-[150px] lg:h-[200px] xl:h-[220px] 3xl:mt-20   uppercase  font-bold  flex items-center text-mblack text-7xl md:text-[90px] xl:text-[100px] lg:text-[130px] rounded-xl  overflow-hidden relative mb-6"
+        >
+          <motion.div
+            id="cont"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1, transition: { duration: 1, delay: 0.2 } }}
+            className="origin-bottom bg-mblue/80 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "
+          ></motion.div>
           <MovingText text={"freelancer. developer. designer"} />
         </div>
       </section>
@@ -102,7 +123,7 @@ const arrow = () => {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M21.5625 34.1949L12.0563 43.7012C11.4729 44.2845 10.5271 44.2845 9.94378 43.7012L0.437564 34.1949C-0.145785 33.6116 -0.145785 32.6658 0.437564 32.0825C1.02091 31.4991 1.96671 31.4991 2.55006 32.0825L9.50627 39.0387L9.50627 0.819702L12.4938 0.819702L12.4938 39.0387L19.45 32.0825C20.0333 31.4991 20.9791 31.4991 21.5625 32.0825C22.1458 32.6658 22.1458 33.6116 21.5625 34.1949Z"
-        fill="white"
+        fill="#00A8B7"
       />
     </svg>
   );
