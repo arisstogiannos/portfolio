@@ -46,7 +46,7 @@ export default function Model({ scrollProgress, imagesrc }) {
     //animate wave based on progress of the scroll
     // const modifiedAmplitude = transform(scrollProgress.get(), [0, 1], [amplitude, 0])
 
-    image.current.material.uniforms.uTime.value += 0.04;
+    image.current.material.uniforms.uTime.value += 0.02;
     image.current.material.uniforms.uAmplitude.value = amplitude;
     image.current.material.uniforms.uWaveLength.value = waveLength;
   });

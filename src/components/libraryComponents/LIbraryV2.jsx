@@ -35,8 +35,8 @@ function LIbraryV2({ setProjectColor, projectColor }) {
       id="library"
       className=" myContainer    flex items-center justify-between h-screen mt-40 "
     >
-      <div className="flex flex-col w-[40%] h-[800px] py-10">
-        <p className="scaleCursor capitalize font-normal text-3xl mb-auto text-mwhite ">
+      <div className="flex flex-col w-[40%] h-[700px] py-10">
+        <p className="scaleCursor capitalize font-normal xl:text-[27px] 3xl:text-3xl mb-auto text-mwhite ">
           <span className="opacity-80 font-normal">
             designing & developing each website with{" "}
           </span>
@@ -48,15 +48,15 @@ function LIbraryV2({ setProjectColor, projectColor }) {
           possible
         </p>
 
-        <div className="relative mb-48 ml-auto  h-40 w-80">
+        <div className="relative xl:mb-28 3xl:mb-48 ml-auto  h-40 w-80">
           <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
             <motion.div
               style={{ right: pos }}
-              className="bg-mblack size-32 border-2 cursor-pointer border-mblue rounded-full absolute -bottom-16   flex justify-center items-center "
+              className="bg-mblack xl:size-28 3xl:size-32 border-2 cursor-pointer border-mblue rounded-full absolute xl:-bottom-14 3xl:-bottom-16   flex justify-center items-center "
             >
               {" "}
-              <p className="pointer-events-none capitalize text-xl font-medium text-center text-mblue">
+              <p className="pointer-events-none capitalize xl:text-lg 3xl:text-xl font-medium text-center text-mblue">
                 view <br /> all
               </p>
             </motion.div>
@@ -79,13 +79,12 @@ function LIbraryV2({ setProjectColor, projectColor }) {
           ))}
         </div>
       </div>
-      <div className=" relative  -right-5 flex items-center justify-end w-[850px] h-[800px] overflow-y-hidden">
+      <div className=" relative  -right-5 flex items-center justify-end 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden">
         <motion.div
           style={{ top: currProject * 100 + "%" }}
           className="relative  transition-all ease-out duration-500 w-full h-full  "
         >
-          {((inview && currProject < projects.length && currProject > 0) ||
-            currProject === 0) &&
+          {(inview && currProject < projects.length && currProject >= 0)  &&
             projects.map((project, index) => (
               <motion.div
                 // initial={{y:-50,opacity:1}}

@@ -11,10 +11,10 @@ function ProjectV2({index, title, services ,setCurrProject,currProject,setProjec
       <div  className={`flex justify-between text-mwhite relative  pointer-events-none my-7`}>
         {/* <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p> */}
         <div className={`flex w-[500px] justify-between ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>
-          <h3 style={medium.style} className="text-xl capitalize min-w-68 tracking-wide">
+          <h3 style={medium.style} className=" xl:text-lg 3xl:text-xl capitalize min-w-68 tracking-wide">
             {title}
           </h3>
-          <p className="capitalize opacity-80 text-lg">{services}</p>
+          <p className="capitalize opacity-80 xl:text-base 3xl:text-lg xl:mr-2 3xl:mr-0 ">{services}</p>
         </div>
         <div className="relative size-5 overflow-hidden ">
           <svg
