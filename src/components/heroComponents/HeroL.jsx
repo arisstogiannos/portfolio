@@ -85,7 +85,7 @@ function HeroL({ loco }) {
             clipPath: "inset(0 0 0 0)",
             transition: { duration: 1, delay: 0.2 },
           }}
-          className="cursor-pointer   scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-100 top-[40px] 3xl:top-[120px]  sm:-left-4  relative size-36 bg-mblack border-2 border-mblue rounded-full z-40"
+          className="cursor-pointer   scale-50 md:scale-75 lg:scale-[0.85] 2xl:scale-100 top-[40px] 3xl:top-[145px]  sm:-left-4  relative size-36 bg-mblack border-2 border-mblue rounded-full z-40"
         >
           <div className=" top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  absolute   ">
             <div className="absolute top-1/2 left-1/2   animate-mBounce-long ">
@@ -102,7 +102,7 @@ function HeroL({ loco }) {
             id="cont"
             initial={{ scaleY: 0 }}
             animate={{ scaleY: 1, transition: { duration: 1, delay: 0.2 } }}
-            className="origin-bottom bg-mblue/80 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "
+            className="origin-bottom bg-mblue/100 filter rounded-xl absolute w-full h-full backdrop-blur-[3px] "
           ></motion.div>
           <MovingText text={"freelancer. developer. designer"} />
         </div>
