@@ -7,10 +7,10 @@ const Model = dynamic(() => import('./Model'), {
     // loading: () => <div className="bg-red-500">load</div>, // Loading indicator
   });
 
-export default function Scene({scrollYProgress,imagesrc}) {
+export default function Scene({scrollYProgress,imagesrc,setLoaded}) {
     return (
         <Canvas>
-            <Model scrollProgress={scrollYProgress} imagesrc={imagesrc}/>
+            <Model scrollProgress={scrollYProgress} imagesrc={imagesrc} setLoaded={setLoaded}/>
         </Canvas>
     )
 }

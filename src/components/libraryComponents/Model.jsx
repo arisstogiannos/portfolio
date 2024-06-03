@@ -4,7 +4,7 @@ import { useFrame, useThree } from "@react-three/fiber";
 import { useTexture, useAspect } from "@react-three/drei";
 import * as THREE from "three";
 
-export default function Model({ scrollProgress, imagesrc }) {
+export default function Model({ scrollProgress, imagesrc,setLoaded }) {
   const image = useRef();
   const [img,setImg] = useState( imagesrc)
   var texture = useTexture(`/libraryImages/${img}`);
@@ -14,11 +14,11 @@ export default function Model({ scrollProgress, imagesrc }) {
 
   const amplitude = 0.2;
   const waveLength = 4;
-
+  
   useEffect(() => {
     setImg(imagesrc)
   }, [imagesrc]);
-
+  
   const uniforms = useRef({
     uTime: { value: 0 },
     uAmplitude: { value: 0.2 },
@@ -26,6 +26,12 @@ export default function Model({ scrollProgress, imagesrc }) {
     uTexture: { value: texture },
     vUvScale: { value: new THREE.Vector2(0, 0) },
   });
+  const [amplitudeState, setAmplitudeState] = useState(uniforms.current.uAmplitude.value);
+
+  useEffect(() => {
+    
+    setLoaded(amplitudeState==0.2)
+  }, [amplitudeState]);
 
   useFrame(() => {
     // scale image based on progress of the scroll
@@ -49,6 +55,8 @@ export default function Model({ scrollProgress, imagesrc }) {
     image.current.material.uniforms.uTime.value += 0.02;
     image.current.material.uniforms.uAmplitude.value = amplitude;
     image.current.material.uniforms.uWaveLength.value = waveLength;
+    setAmplitudeState(image.current.material.uniforms.uAmplitude.value);
+
   });
 
   return (

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { projects } from "@/app/data";
 import ProjectV2 from "./ProjectV2";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
@@ -15,6 +15,8 @@ const Scene = dynamic(() => import("./Scene"), {
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function LIbraryV2({ setProjectColor, projectColor }) {
+  
+  const [loaded, setLoaded] = useState(false);
   const [currProject, setCurrProject] = useState(0);
   const [prevProject, setPrevProject] = useState(-1);
   const container = useRef(null);
@@ -26,6 +28,9 @@ function LIbraryV2({ setProjectColor, projectColor }) {
     offset: ["start end", "end center"],
   });
   const pos = useTransform(scrollYProgress, [0, 1], [56, -100]);
+  useEffect(()=>{
+setLoaded(!inview)
+  },[inview])
 
   return (
     // <div ref={container} className="myContainer  h-[300vh]  relative">
@@ -94,15 +99,17 @@ function LIbraryV2({ setProjectColor, projectColor }) {
                 style={{ top: index * -100 + "%" }}
                 className={`   absolute   top-0 right-0  w-full h-full`}
               >
-                <Scene key={index} imagesrc={project.src} />
+                <Scene key={index} imagesrc={project.src} setLoaded={setLoaded} />
               </motion.div>
             ))}
         </motion.div>
+            {(!loaded) && <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center "><div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div></div>}
       </div>
     </section>
     //{" "}
     // </div>
   );
 }
+
 
 export default LIbraryV2;
