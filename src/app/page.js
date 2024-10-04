@@ -11,10 +11,11 @@ import ContactFooter from "@/components/contactComponents/ContactFooter";
 import LIbraryV2 from "@/components/libraryComponents/LIbraryV2";
 import AboutV2 from "@/components/aboutComponents/AboutV2";
 import Footer from "@/components/globalComponents/Footer";
+import HeroNew from "@/components/heroComponents/HeroNew";
 
 const montserat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600","700"],
 });
 
 export default function Home() {
@@ -43,7 +44,7 @@ export default function Home() {
     ) :
     <main style={montserat.style} className=" flex flex-col  ">
       <Navbar loco={loco} />
-      <HeroL loco={loco} />
+      <HeroNew loco={loco}/>
       <Services />
       <AboutV2 loco={loco} />{" "}
       {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}

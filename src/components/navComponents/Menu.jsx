@@ -16,20 +16,20 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
 
       left: 0,
       top: 0,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] },
     },
     closed: {
-      left: "-100vw",
+      left: "-110%",
       top: 0,
 
       transition: {
-        duration: 0.8,
+        duration: 0.9,
         ease: [0.76, 0, 0.24, 1],
         delay: 0.1,
       },
     },
     initial: {
-      left: "-100vw",
+      left: "-110%",
       top: 0,
       opacity: 0,
     },
@@ -66,7 +66,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
             : { scaleY: 0, transition: { duration: 0.3 } }
         }
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
+        className="border-l-[2px] md:border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
       />
       <div className="absolute left-40 3xl:left-80 top-[590px] 3xl:top-[790px] pointer-events-none">
         <Magnetic>
@@ -78,7 +78,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
               : { x: -100, opacity: 0, transition: { duration: 0.3 } }
           }
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="text-mblack capitalize font-medium ml-10 mb-2 text-4xl pointer-events-auto z-50"
+          className="text-mblack capitalize font-medium ml-10 mb-2 text-3xl md:text-4xl pointer-events-auto z-50"
         >
           Where Next ?
         </motion.p>
@@ -91,16 +91,16 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
               : { scaleX: 0, transition: { duration: 0.3 } }
           }
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="border-t-[3px] origin-left   w-80 border-t-mblack border-solid opacity-100 z-[10000] "
+          className="border-t-[2px] md:border-t-[3px] origin-left   w-80 border-t-mblack border-solid opacity-100 z-[10000] "
         />
       </div>
-      <div className="myContainer  lg:pt-[100px] flex justify-end  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[20px] 3xl:pr-0 2xl:pl-[80px] box-border relative">
+      <div className="myContainer pt-[130px] lg:pt-[100px] flex justify-end  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[20px] 3xl:pr-0 2xl:pl-[80px] box-border relative">
         <ul className={`flex flex-col items-end   z-[1000]  relative   `}>
           {navLinks.map((link, i) => {
             return (
               <Link
                  
-                  className={`cursor-pointer group pointer-events-auto translate-x-12  lg:text-6xl 3xl:text-8xl font-medium z-50   pt-12 ${
+                  className={`cursor-pointer group pointer-events-auto translate-x-12 text-3xl  lg:text-6xl 3xl:text-8xl font-medium z-50   pt-12 ${
                     clickedLink == i ? "text-mblue" : "text-mblack"
                   }   `}
                   key={i}
@@ -120,7 +120,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                     setIsOpen(false);
                     loco.scrollTo(link.href, { duration: 2 });
                   }}
-                    className="flex  items-center gap-7  hover:text-mblue transition-colors duration-300"
+                    className="flex  items-center gap-4 md:gap-7  hover:text-mblue transition-colors duration-300"
                     style={{ clipPath: "inset(0 0 0 0 round 0%)" }}
                     key={i}
                   >
@@ -145,7 +145,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
                       }
                       transition={{ duration: 0.3, ease: "easeOut" }}
                       exit={{ scale: 0 }}
-                      className={`size-5 3xl:size-7 rounded-full bg-mblue `}
+                      className={` size-3  md:size-5 3xl:size-7 rounded-full bg-mblue `}
                       />
                     {/* <motion.hr
                   key={i}

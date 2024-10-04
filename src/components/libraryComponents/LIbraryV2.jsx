@@ -38,22 +38,24 @@ setLoaded(!inview)
     <section
       ref={container}
       id="library"
-      className=" myContainer    flex items-center justify-between h-screen mt-40 "
+      className=" myContainer    flex items-center justify-between h-screen mt-20 "
     >
       <div className="flex flex-col w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
-        <p className="scaleCursor capitalize font-normal xl:text-[27px] 3xl:text-3xl mb-auto text-mwhite ">
+        <p className="scaleCursor  capitalize font-normal xl:text-[27px] 3xl:text-4xl mb-auto text-mwhite ">
           <span className="opacity-80 font-normal">
-            designing & developing each website with{" "}
+          Explore My {" "}
           </span>
-          <span className="opacity-100 font-medium ">passion</span>{" "}
+          <span className="opacity-100 text-mblue font-medium ">Projects</span>{" "}
           <span className="font-normal opacity-80">
-            looking to achieve the{" "}
+          - A Collection of  {" "}
           </span>
-          <span className="opacity-100 font-medium ">greatest result</span>{" "}
-          possible
+          <span className="opacity-100 font-medium text-mblue">Innovative, Modern </span>{" "}
+          <span className="font-normal opacity-80">
+         Websites
+          </span>
         </p>
 
-        <div className="relative xl:mb-28 3xl:mb-48 ml-auto  h-40 w-80">
+        <div className="relative xl:mb-28 3xl:mb-32 ml-auto mt-36  h-40 w-80">
           <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
             <motion.div

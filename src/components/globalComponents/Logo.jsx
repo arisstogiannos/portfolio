@@ -49,7 +49,7 @@ function Logo({ loco, color, classes, position }) {
                   transition: { duration: 0.5, delay: 0.9, ease: "easeOut" },
                 }
           }
-          className={` ${classes} pointer-events-none absolute left-[18px]    whitespace-nowrap cursor-pointer text-[40px] font-light`}
+          className={` ${classes} pointer-events-none absolute left-[21px] md:left-[18px]    whitespace-nowrap cursor-pointer text-[30px] md:text-[40px] font-light`}
         >
           A
         </motion.span>
@@ -73,7 +73,7 @@ function Logo({ loco, color, classes, position }) {
                     transition: { duration: 0.7, ease: "easeOut" },
                   }
             }
-            className="    pointer-events-none absolute left-[0px] top-[13px] text-3xl font-light  whitespace-nowrap cursor-pointer"
+            className="    pointer-events-none absolute left-[0px] top-[18px] md:top-[13px] text-xl md:text-3xl font-light  whitespace-nowrap cursor-pointer"
           >
             ris Stogiannos
           </motion.p>
@@ -81,7 +81,7 @@ function Logo({ loco, color, classes, position }) {
 
         <svg
         
-          className=" "
+          className=" scale-75 md:scale-100"
           width="62"
           height="59"
           viewBox="0 0 62 59"

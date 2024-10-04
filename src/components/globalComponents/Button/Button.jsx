@@ -5,17 +5,17 @@ function Button({loco}) {
   return (
     
     <Magnetic distance={3}>
-    <div onClick={()=>(loco.scrollTo('#library', { duration: 2 }))} className="size-52 hover:size-56 absolute  rounded-full bg-mblack border-2 border-mblue flex items-center justify-center cursor-pointer   duration-300 ease-in-out transition-[width,height]">
+    <div onClick={()=>(loco.scrollTo('#library', { duration: 2 }))} className="size-36 md:size-52 hover:size-56 absolute  rounded-full bg-mblack border-2 border-mblue flex items-center justify-center cursor-pointer   duration-300 ease-in-out transition-[width,height]">
      {/* <Magnetic distance={2}> */}
       <div className="relative size-fit pointer-events-none">
-        <p className="capitalize text-mblue text-4xl font-medium leading-snug group-hover:text-mwhite duration-500 ease-in-out transition-colors">see my<br/> work</p>
+        <p className="capitalize text-mblue text-xl md:text-4xl font-medium leading-snug group-hover:text-mwhite duration-500 ease-in-out transition-colors">see my<br/> work</p>
         <svg
           width="16"
           height="22"
           viewBox="0 0 16 22"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute bottom-3 right-0 fill-mblue group-hover:fill-mwhite duration-500 ease-in-out transition-colors"
+          className="absolute bottom-0 md:bottom-3 -right-1 md:right-0 fill-mblue group-hover:fill-mwhite duration-500 scale-75 ease-in-out transition-colors"
           
         >
           <path
