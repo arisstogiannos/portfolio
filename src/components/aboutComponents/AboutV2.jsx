@@ -18,6 +18,10 @@ function AboutV2({ loco }) {
   }, []);
 
   const createAnimation = () => {
+    ScrollTrigger.defaults({
+      markers: false, // Disable debug markers
+      onTouch: true,  // Ensure touch interactions are enabled
+    });
     gsap.to(refs.current, {
       scrollTrigger: {
         trigger: Heading.current,

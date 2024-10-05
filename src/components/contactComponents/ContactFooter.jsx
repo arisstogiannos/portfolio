@@ -41,7 +41,7 @@ function ContactFooter() {
   }
   async function handleSubmit(e) {
     e.preventDefault();
-    // setSubmited(true)
+    setSubmited(true)
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -62,25 +62,25 @@ function ContactFooter() {
   return (
     <section
       id="contact"
-      className={`h-[80vh] 3xl:h-[70vh]    w-full  flex items-center relative   `}
+      className={`h-[80vh] 3xl:h-[70vh]    myContainer  flex items-center relative   `}
     >
       {submited&&<div className="absolute top-0 left-0 filter backdrop-blur-md z-[1000] w-full h-full flex items-center justify-center">
         <div className="bg-mblack w-2/5 h-2/5 px-10 text-center rounded-3xl flex-col flex gap-8 items-center justify-center">
-          <p className="text-mwhite text-4xl capitalize">thanks for reaching out.i am busy fcking your mother right now. i will get back to you asap :)</p>
+          <p className="text-mwhite text-4xl capitalize">Thanks for reaching out.I will get back to you asap :)</p>
           <button onClick={()=>(setSubmited(false))} className="bg-mwhite rounded-full text-xl font-medium px-6 py-1   uppercase">close</button>
 
         </div>
       </div>}
-      <div className="bg-mwhite h-full w-full absolute top-0 left-0 -z-[2000]"></div>
+      <div className="bg-mwhite h-full w-screen absolute top-0 left-1/2 -translate-x-1/2 -z-[2000]"></div>
       {/* <div className="filter bg-mwhite/20 w-full h-full absolute top-0 left-0  backdrop-blur-xl z-10 "></div> */}
       <motion.div
         // Fixing the clipPath usage
-        className=" myContainer flex flex-col items-start gap-4 h-full 3xl:py-32 py-20    "
+        className=" myContainer flex flex-col  items-center md:items-start gap-4 h-full 3xl:py-32 py-20    "
       >
         <motion.h3
           style={medium.style}
           id="textContact"
-          className="scaleCursor   text-[80px] text-mblack mb-auto ml-auto leading-tight flex items-center gap-20  "
+          className="scaleCursor text-[50px]  lg:text-[80px] text-mblack mb-auto ml-auto leading-tight flex items-center gap-20  "
           initial={{ y: 50, opacity: 0 }}
           whileInView={{
             y: 0,
@@ -97,7 +97,7 @@ function ContactFooter() {
           >
             <path
               d="M72.8284 8.82843L75.6569 6L70 0.343146L67.1716 3.17157L72.8284 8.82843ZM-1.98727e-06 72C-9.7575e-07 74.2091 1.79086 76 4 76L40 76C42.2091 76 44 74.2091 44 72C44 69.7909 42.2091 68 40 68L8 68L8 36C8 33.7909 6.20914 32 4 32C1.79086 32 -1.32813e-07 33.7909 1.21589e-06 36L-1.98727e-06 72ZM67.1716 3.17157L1.17157 69.1716L6.82843 74.8284L72.8284 8.82843L67.1716 3.17157Z"
-              fill="black"
+              fill="#08090A"
             />
           </svg>
           Lets Talk
@@ -107,9 +107,9 @@ function ContactFooter() {
           <MovingBg balls={balls} />
           
         </div> */}
-        <form>
-          <div className="flex gap-20 items-center">
-            <motion.div className="ml-0 mr-auto mt-auto w-[800px]  ">
+        <form className="w-full md:w-auto">
+          <div className="flex flex-col md:flex-row gap-10   md:gap-20 items-center">
+            <motion.div className="ml-0 md:mr-auto mt-auto w-full  md:w-[800px]  ">
               <AnimatePresence mode="wait">
                 {form(stage, setFormData, handleChange)}
               </AnimatePresence>

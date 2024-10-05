@@ -38,10 +38,10 @@ setLoaded(!inview)
     <section
       ref={container}
       id="library"
-      className=" myContainer    flex items-center justify-between h-screen mt-20 "
+      className=" myContainer    flex flex-col md:flex-row items-center justify-between h-screen mt-20 "
     >
-      <div className="flex flex-col w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
-        <p className="scaleCursor  capitalize font-normal xl:text-[27px] 3xl:text-4xl mb-auto text-mwhite ">
+      <div className="flex flex-col w-full lg:w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
+        <p className="scaleCursor  capitalize font-normal text-[20px] md:text-[32px] text-center lg:text-left xl:text-[27px] 3xl:text-4xl mb-auto text-mwhite ">
           <span className="opacity-80 font-normal">
           Explore My {" "}
           </span>
@@ -54,8 +54,28 @@ setLoaded(!inview)
          Websites
           </span>
         </p>
-
-        <div className="relative xl:mb-28 3xl:mb-32 ml-auto mt-36  h-40 w-80">
+        <div className=" relative mt-5 mb-2 lg:-right-5 flex items-center justify-end w-full h-[400px] md:h-[500px] 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden lg:hidden">
+        <motion.div
+          style={{ top: currProject * 100 + "%" }}
+          className="relative  transition-all ease-out duration-500 w-full h-full  "
+        >
+          {(inview && currProject < projects.length && currProject >= 0)  &&
+            projects.map((project, index) => (
+              <motion.div
+                // initial={{y:-50,opacity:1}}
+                // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
+                // transition={{duration:0.2,ease:"easeOut"}}
+                key={index}
+                style={{ top: index * -100 + "%" }}
+                className={`   absolute   top-0 right-0  w-full h-full`}
+              >
+                <Scene key={index} imagesrc={project.src} setLoaded={setLoaded} />
+              </motion.div>
+            ))}
+        </motion.div>
+            {(!loaded) && <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center "><div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div></div>}
+      </div>
+        <div className="relative xl:mb-28 3xl:mb-32 ml-auto mt-36  h-40 w-80 lg:block hidden ">
           <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
             <motion.div
@@ -86,7 +106,7 @@ setLoaded(!inview)
           ))}
         </div>
       </div>
-      <div className=" relative  -right-5 flex items-center justify-end 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden">
+      <div className="  relative  md:-right-5  items-center justify-end w-full h-[400px] 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden hidden lg:flex">
         <motion.div
           style={{ top: currProject * 100 + "%" }}
           className="relative  transition-all ease-out duration-500 w-full h-full  "

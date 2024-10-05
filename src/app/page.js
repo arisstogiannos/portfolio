@@ -15,7 +15,7 @@ import HeroNew from "@/components/heroComponents/HeroNew";
 
 const montserat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600","700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export default function Home() {
@@ -33,18 +33,29 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll();
+      const locomotiveScroll = new LocomotiveScroll({
+        smooth: true,
+        tablet: {
+          breakpoint: 0,
+          smooth: true,
+          getDirection: true, // <---- Fixes The Issue 🎉
+        },
+        mobile: {
+          breakpoint: 0,
+          smooth: true,
+          getDirection: true, // <---- Fixes The Issue 🎉
+        },
+      });
       setLoco(locomotiveScroll);
     })();
   }, [load]);
-  
-  return(
-    load ? (
-      <Loading setLoading={setLoad} />
-    ) :
-    <main style={montserat.style} className=" flex flex-col  ">
+
+  return load ? (
+    <Loading setLoading={setLoad} />
+  ) : (
+    <main style={montserat.style} className=" flex flex-col overflow-x-hidden  ">
       <Navbar loco={loco} />
-      <HeroNew loco={loco}/>
+      <HeroNew loco={loco} />
       <Services />
       <AboutV2 loco={loco} />{" "}
       {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
@@ -60,7 +71,7 @@ export default function Home() {
         projectColor={projectColor}
         modal={modal}
       />
-      <Footer loco={loco}/>
+      <Footer loco={loco} />
     </main>
   );
 }

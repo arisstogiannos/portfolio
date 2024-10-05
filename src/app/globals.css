@@ -79,6 +79,10 @@ scale: 3;
   background: rgb(0,168,183);
 background: radial-gradient(circle, rgba(0,168,183,1) 0%,rgba(0,168,183,0.6) 50%, rgba(8,9,10,0) 80%, rgba(8,9,10,0) 100%);
 }
+.gradient2{
+  background: #fff;
+background: radial-gradient(circle, rgb(255, 255, 255) 0%,rgba(255,255,255,0.6) 50%, rgba(8,9,10,0) 80%, rgba(8,9,10,0) 100%);
+}
 
 .radio-button__label:hover .radio-button__custom {
   transform: translateY(-50%) scale(1.2);
@@ -118,11 +122,17 @@ background: radial-gradient(circle, rgba(0,168,183,1) 0%,rgba(0,168,183,0.6) 50%
     pointer-events: none;
     font-size: 50px;
   }
+  @media (max-width: 768px) {
+    .input-container .label {
+      font-size: 30px; 
+    }
+    }
+
   
   .input-container input:focus ~ .label ,
   .input-container input:valid ~ .label{
     bottom: 120%;
-    font-size: 30px;
+    font-size: 20px;
     color: #000;
     opacity: 1;
   }
@@ -177,6 +187,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .klkl{
   mask:url(#mask);
+  -webkit-mask:url(#mask) ;
 }
 
 

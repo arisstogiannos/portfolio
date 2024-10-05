@@ -140,7 +140,7 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
     <div
       ref={cursor}
       style={{backgroundColor:projectColor}}
-      className={`work w-32 md:block  hidden h-32 fixed  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[900] filter transition-transform duration-300 ease-in-out ${
+      className={`work w-32  h-32 fixed  pointer-events-none rounded-full -translate-x-1/2 -translate-y-1/2 -z-[900] filter transition-transform duration-300 ease-in-out ${
         servicesInView
           ? "scale-[0.9] blur-2xl "
           : "scale-[0.1] "
