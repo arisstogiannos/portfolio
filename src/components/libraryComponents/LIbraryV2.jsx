@@ -54,7 +54,7 @@ setLoaded(!inview)
          Websites
           </span>
         </p>
-        <div className=" relative mt-5 mb-2 lg:-right-5 flex items-center justify-end w-full h-[360px] md:h-[500px] 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden lg:hidden">
+        <div className=" relative mt-5 mb-2 lg:-right-5 flex items-center justify-end w-full h-[340px] md:h-[500px] 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden lg:hidden">
         <motion.div
           style={{ top: currProject * 100 + "%" }}
           className="relative  transition-all ease-out duration-500 w-full h-full  "

@@ -159,7 +159,7 @@ function HeroNew({ loco }) {
         </h1>
       </motion.div>
       <div className="flex flex-col lg:flex-row gap-10  justify-between items-center mt-20 md:mt-28 lg:mt-20 xl:mt-28">
-        <p className=" text-[16px] text-center lg:text-left md:text-[21px] xl:text-[25px] text-mwhite font-normal scaleCursor max-w-[500px] lg:max-w-[600px] xl:max-w-[800px]">
+        <p className=" text-[15px] text-center lg:text-left md:text-[21px] xl:text-[25px] text-mwhite font-normal scaleCursor max-w-[500px] lg:max-w-[600px] xl:max-w-[800px]">
           {phrase.split(" ").map((word, index) => {
             return (
               <span
@@ -191,7 +191,7 @@ function HeroNew({ loco }) {
               variants={slideUpButton2}
               initial={"closed"}
               animate={"open"}
-              className="bg-transparent w-44 h-14 md:w-56 md:h-20 lg:size-36 3xl:size-40 border-2 cursor-pointer border-mwhite rounded-full  absolute top-0 lg:right-0 max-lg:left-0  flex justify-center items-center "
+              className="bg-transparent w-40 h-14 md:w-56 md:h-20 lg:size-36 3xl:size-40 border-2 cursor-pointer border-mwhite rounded-full  absolute top-0 lg:right-0 max-lg:left-0  flex justify-center items-center "
             >
               {" "}
               <p className="pointer-events-none capitalize text-lg md:text-xl xl:text-lg 3xl:text-xl font-medium text-center text-mwhite">
@@ -207,7 +207,7 @@ function HeroNew({ loco }) {
               variants={slideUpButton}
               initial={"closed"}
               animate={"open"}
-              className="bg-transparent w-44 h-14 md:w-56 md:h-20 lg:size-36 3xl:size-40 border-2 cursor-pointer border-mblue rounded-full  absolute top-0 lg:left-0 max-lg:right-0 flex justify-center items-center "
+              className="bg-transparent w-40 h-14 md:w-56 md:h-20 lg:size-36 3xl:size-40 border-2 cursor-pointer border-mblue rounded-full  absolute top-0 lg:left-0 max-lg:right-0 flex justify-center items-center "
             >
               {" "}
               <p className="pointer-events-none capitalize text-lg md:text-xl xl:text-lg 3xl:text-xl font-medium text-center text-mblue">
