@@ -92,7 +92,7 @@ function HeroNew({ loco }) {
           height={"100%"}
           width={"100%"}
           style={montserat.style}
-          className="font-bold md:font-semibold text-[100px] md:text-[190px] lg:text-[250px] xl:text-[320px] 2xl:text-[430px] w-full h-full relative top-0 left-0 tracking-wider -z-[1000] "
+          className="font-bold md:font-semibold text-[90px] md:text-[190px] lg:text-[250px] xl:text-[320px] 2xl:text-[430px] w-full h-full relative top-0 left-0 tracking-wider -z-[1000] "
         >
           <defs>
             <mask id="mask" x="0" y="0" width={"100%"} height={"100%"}>

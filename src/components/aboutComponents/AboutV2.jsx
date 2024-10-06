@@ -27,7 +27,7 @@ function AboutV2({ loco }) {
         trigger: Heading.current,
         scrub: true,
         start: "top bottom-=100px",
-        end: "bottom+=130px bottom",
+        end: "bottom+=230px bottom",
       },
       opacity: 1,
       ease: "none",
@@ -111,7 +111,7 @@ function AboutV2({ loco }) {
           {splitWords("Your digital presence starts with an impactful website")}
         </h3>
         <div className="w-full flex">
-          <div className="mt-20 md:mt-0 relative">
+          <div className="mt-10 md:mt-0 relative">
             <hr className="scaleCursor border-solid border-l h-[300px] md:h-[420px] w-0  mx-[70px] md:mx-[104px] border-mwhite  " />
             <div
               data-scroll
