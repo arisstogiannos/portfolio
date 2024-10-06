@@ -183,7 +183,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 .myContainer{
-    @apply  w-[95vw] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] 3xl:w-[1640px] mx-auto  ;
+    @apply  w-[350px] sm:w-[620px] md:w-[740px] lg:w-[980px] xl:w-[1240px]  2xl:w-[1440px] 3xl:w-[1640px] mx-auto  ;
 }
 .klkl{
   mask:url(#mask);
