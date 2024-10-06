@@ -8,7 +8,7 @@ function ProjectV2({index, title, services ,setCurrProject,currProject,setProjec
   
   return (
     <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services`}>
-      <div  className={`flex justify-between text-mwhite relative  pointer-events-none my-4 md:my-7`}>
+      <div  className={`flex justify-between text-mwhite relative   pointer-events-none my-4 md:my-7`}>
         {/* <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p> */}
         <div className={`flex w-[500px] md:w-[600px] lg:w-[500px]  justify-between items-center ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>
           <h3 style={medium.style} className=" text-[14px] xl:text-lg 3xl:text-xl capitalize min-w-68 tracking-wide">
@@ -16,7 +16,7 @@ function ProjectV2({index, title, services ,setCurrProject,currProject,setProjec
           </h3>
           <p className="capitalize opacity-80 text-[12px] md:text-[18px] xl:text-base 3xl:text-lg mr-16 md:mr-0 xl:mr-2 3xl:mr-0  w-[70px] md:w-fit ">{services}</p>
         </div>
-        <div className="relative size-5 overflow-hidden ">
+        <div className="relative size-7 overflow-hidden  ">
           <svg
             width="20"
             height="12"
