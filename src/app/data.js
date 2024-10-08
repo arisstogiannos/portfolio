@@ -2,14 +2,17 @@ export const servicelist = [
   {
     title: "Development",
     desc: "Developing modern websites with handwritten code.",
+    src:"/servicesImages/devanim2.mp4"
   },
   {
     title: "Design",
     desc: "Creating visually stunning and strategically optimized user interfaces.",
+    src:"/servicesImages/designanim2.mp4"
   },
   {
     title: "SEO",
     desc: "Rank high on search engines, and drive organic traffic to your website.",
+    src:"/servicesImages/seoanim.mp4"
   },
 ];
 
@@ -40,14 +43,14 @@ export const projects = [
   // },
   {
     title: "chess uom",
-    src: "chess-uom-mockup.png",
+    src: "MacBook.png",
     color: "#FFA800",
     height:216,
     services:"design & development"
   },
   {
     title: "Cecilia Homes",
-    src: "ceciliahomes.png",
+    src: "iPhone.png",
     color: "#9861A8",
     height:230,
     services:"design & development"

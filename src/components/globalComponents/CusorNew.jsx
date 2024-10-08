@@ -127,7 +127,7 @@ export default function CursorNew({ cursorScale,projectColor,modal }) {
     const observer = new IntersectionObserver(handleIntersection, options);
 
     observer.observe(document.getElementById("services"));
-    observer.observe(document.getElementById("techStack"));
+    // observer.observe(document.getElementById("techStack"));
     observer.observe(document.getElementById("library"));
 
     return () => {

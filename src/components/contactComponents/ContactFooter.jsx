@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useState,useRef } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import localfont from "next/font/local";
 import MovingBg from "../globalComponents/MovingBg";
 import Magnetic from "../globalComponents/Button/Magnetic";
@@ -11,7 +11,15 @@ const medium = localfont({ src: "../../../fonts/medium.otf" }); // import Moving
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function ContactFooter() {
+  const container = useRef(null);
+
   const [stage, setStage] = useState(1);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end end"]
+
+  });
+  const height = useTransform(scrollYProgress,[0,1],[50,0])
   const [submited,setSubmited] = useState(false);
   const [formData, setFormData] = useState({
     fullname: "",
@@ -60,7 +68,12 @@ function ContactFooter() {
   }
 
   return (
+    <>
+      <motion.div style={{height:height}} className="relative w-full ">
+        <div className="shadow-[0_38px_58px_rgba(0,0,0,0.7)] absolute h-[750%] w-[120%] -left-[10%] bg-mblack rounded-b-[50%] z-50  "></div>
+      </motion.div>
     <section
+    ref={container}
       id="contact"
       className={`h-[80vh] 3xl:h-[70vh]    myContainer  flex items-center relative   `}
     >
@@ -168,6 +181,7 @@ function ContactFooter() {
         </form>
       </motion.div>
     </section>
+    </>
   );
 }
 

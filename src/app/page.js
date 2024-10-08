@@ -12,6 +12,7 @@ import LIbraryV2 from "@/components/libraryComponents/LIbraryV2";
 import AboutV2 from "@/components/aboutComponents/AboutV2";
 import Footer from "@/components/globalComponents/Footer";
 import HeroNew from "@/components/heroComponents/HeroNew";
+import ServicesMobile from "@/components/servicesComponents/ServicesMobile";
 
 const montserat = Montserrat({
   subsets: ["latin"],
@@ -53,10 +54,11 @@ export default function Home() {
   return load ? (
     <Loading setLoading={setLoad} />
   ) : (
-    <main style={montserat.style} className=" flex flex-col overflow-x-hidden  ">
+    <main style={montserat.style} className=" flex flex-col  overflow-x-hidden ">
       <Navbar loco={loco} />
       <HeroNew loco={loco} />
       <Services />
+      <ServicesMobile/>
       <AboutV2 loco={loco} />{" "}
       {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
       <LIbraryV2
@@ -64,7 +66,7 @@ export default function Home() {
         projectColor={projectColor}
         loco={loco}
       />
-      <TechStack loco={loco} />
+      {/* <TechStack loco={loco} /> */}
       <ContactFooter />
       <CursorNew
         cursorScale={cursorScale}

@@ -23,7 +23,7 @@ function TechStack({loco}) {
   const scale6 = useTransform(scrollYProgress, [0, 0.7], [1,  6]);
   const scale10 = useTransform(scrollYProgress, [0, 0.7], [1,  10]);
   const scaletext = useTransform(scrollYProgress, [0.7,1], [0,1]);
-  const height = useTransform(scrollYProgress,[0.8,1],[50,0])
+  const height = useTransform(scrollYProgress,[0.8,0.95],[40,0])
   
   
   // useLayoutEffect(() => {
@@ -290,8 +290,8 @@ function TechStack({loco}) {
   ];
   return (
     <>
-    <div ref={container}  className={` h-[200vh]  relative my-40  `}>
-      <div id='techStack' className={`sticky top-0 h-screen overflow-hidden `}>
+    <div ref={container}  className={` h-[250vh]    relative       `}>
+      <div id='techStack' className={`sticky top-0  h-screen overflow-hidden   `}>
         {svgs.map((item, index) => {
           return (
             <motion.div
@@ -300,7 +300,7 @@ function TechStack({loco}) {
             animate={isinview&&{y:0,opacity:1,transition:{duration:0.5,delay:index*0.07,ease:"easeOut"}}}
             
               style={{ scale: item.scale}}
-              className="   w-full h-full  absolute top-0 flex items-center justify-center"
+              className="   w-full h-full  absolute  flex items-center justify-center"
             >
               <div
                 key={index}
@@ -316,13 +316,13 @@ function TechStack({loco}) {
         
         <motion.div
           style={{ scale: scale1}}
-          className={`scl w-full h-full absolute top-0 flex  items-center justify-center `}
+          className={`scl w-full h-full absolute top-0 flex   items-center justify-center `}
         >
           <div className=" w-[550px] relative">
             <h2
               id="txt"
               style={medium.style}
-              className={`text-8xl  text-center  text-mblack uppercase pointer-events-none z-50 `}
+              className={`text-8xl  text-center   text-mblack uppercase pointer-events-none z-50 `}
             >
               Tech Stack
             </h2>
@@ -332,7 +332,7 @@ function TechStack({loco}) {
       </div>
     </div>
       <motion.div style={{height:height}} className="relative mt-0 ">
-        <div className="shadow-[0_68px_58px_rgba(0,0,0,0.7)] absolute h-[750%] w-[120%] -left-[10%] bg-mblack rounded-b-[50%] "></div>
+        <div className="shadow-[0_68px_58px_rgba(0,0,0,0.7)] absolute h-[750%] w-[120%] -left-[10%] bg-mblack rounded-b-[50%]  "></div>
       </motion.div>
       </>
   );

@@ -33,7 +33,7 @@ function Services({setCursorInServices}) {
       ref={section}
       id="services"
       style={medium.style}
-      className=" myContainer flex items-center h-[200vh] lg:h-screen overflow-hidden bg-transparent my-52"
+      className=" myContainer  items-center h-[200vh] lg:h-screen overflow-hidden bg-transparent my-52 hidden lg:flex"
     >
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
