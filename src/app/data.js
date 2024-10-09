@@ -7,7 +7,7 @@ export const servicelist = [
   {
     title: "Development",
     desc: "Developing modern websites with handwritten code.",
-    src:"/servicesImages/devanimM.webm"
+    src:"/servicesImages/D evanimM.webm"
   },
   {
     title: "SEO",

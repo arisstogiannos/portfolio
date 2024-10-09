@@ -101,7 +101,7 @@ function AboutV2({ loco }) {
     <section
       ref={container}
       id="about"
-      className="mt-10 myContainer pt-10 mb-10"
+      className="mt-32 myContainer pt-10 mb-10"
     >
       <div className="flex justify-between w-full flex-col md:flex-row  ">
         <h3

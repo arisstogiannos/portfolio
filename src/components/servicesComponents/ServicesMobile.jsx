@@ -68,7 +68,7 @@ function ServicesMobile() {
             return (
               <div
                 key={index}
-                className="border border-mwhite  w-[80vw] snap-center  bg-mblack"
+                className="border border-mwhite  w-[80vw] snap-center rounded-xl  bg-mblack"
               >
                 <h3
                   style={medium.style}
