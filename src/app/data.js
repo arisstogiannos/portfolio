@@ -1,18 +1,18 @@
 export const servicelist = [
   {
-    title: "Development",
-    desc: "Developing modern websites with handwritten code.",
-    src:"/servicesImages/devanim2.mp4"
-  },
-  {
     title: "Design",
     desc: "Creating visually stunning and strategically optimized user interfaces.",
-    src:"/servicesImages/designanim2.mp4"
+    src:"/servicesImages/desanimM.webm"
+  },
+  {
+    title: "Development",
+    desc: "Developing modern websites with handwritten code.",
+    src:"/servicesImages/devanimM.webm"
   },
   {
     title: "SEO",
     desc: "Rank high on search engines, and drive organic traffic to your website.",
-    src:"/servicesImages/seoanim.mp4"
+    src:"/servicesImages/seoanimM.webm"
   },
 ];
 
