@@ -36,7 +36,7 @@ export default function Home() {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll({
         smooth: true,
-        lenisOptions:{duration:1.7,smoothWheel:true,smoothTouch:true},
+        lenisOptions:{smoothWheel:true,smoothTouch:true,},
         
       });
       setLoco(locomotiveScroll);
