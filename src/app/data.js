@@ -1,17 +1,17 @@
 export const servicelist = [
   {
     title: "Design",
-    desc: "Creating visually stunning and strategically optimized user interfaces.",
+    desc: "I begin by collaborating with you to understand your brand, audience, and vision. Then, I create prototypes that are both intuitive and visually aligned with your goals.",
     src:"/servicesImages/desanimM.webm"
   },
   {
     title: "Development",
-    desc: "Developing modern websites with handwritten code.",
+    desc: "Once the design is approved, I start coding with modern technologies, building a responsive, high-performing site that works seamlessly across all platforms.",
     src:"/servicesImages/DevanimM.webm"
   },
   {
     title: "SEO",
-    desc: "Rank high on search engines, and drive organic traffic to your website.",
+    desc: "During development, I apply SEO best practices to optimize site speed, content, and mobile performance, ensuring your site ranks well and attracts organic traffic from launch.",
     src:"/servicesImages/seoanimM.webm"
   },
 ];

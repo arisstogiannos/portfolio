@@ -88,12 +88,12 @@ function ContactFooter() {
       {/* <div className="filter bg-mwhite/20 w-full h-full absolute top-0 left-0  backdrop-blur-xl z-10 "></div> */}
       <motion.div
         // Fixing the clipPath usage
-        className=" myContainer flex flex-col  items-center md:items-start gap-4 h-full 3xl:py-32 py-20    "
+        className=" myContainer flex flex-col  items-center md:items-start gap-4 h-full 3xl:py-32 lg:py-20 pb-32 pt-24    "
       >
         <motion.h3
           style={medium.style}
           id="textContact"
-          className="scaleCursor text-[50px]  lg:text-[80px] text-mblack mb-auto ml-auto leading-tight flex items-center gap-20  "
+          className="scaleCursor text-[50px]  lg:text-[80px] text-mblack mb-auto ml-auto leading-tight flex shrin text-end lg:items-center max-mdw-[70vw] lg:gap-20  "
           initial={{ y: 50, opacity: 0 }}
           whileInView={{
             y: 0,
@@ -101,18 +101,10 @@ function ContactFooter() {
             transition: { delay: 0.2, duration: 0.5, ease: "easeOut" },
           }}
         >
-          <svg
-            width="76"
-            height="76"
-            viewBox="0 0 76 76"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M72.8284 8.82843L75.6569 6L70 0.343146L67.1716 3.17157L72.8284 8.82843ZM-1.98727e-06 72C-9.7575e-07 74.2091 1.79086 76 4 76L40 76C42.2091 76 44 74.2091 44 72C44 69.7909 42.2091 68 40 68L8 68L8 36C8 33.7909 6.20914 32 4 32C1.79086 32 -1.32813e-07 33.7909 1.21589e-06 36L-1.98727e-06 72ZM67.1716 3.17157L1.17157 69.1716L6.82843 74.8284L72.8284 8.82843L67.1716 3.17157Z"
-              fill="#08090A"
-            />
-          </svg>
+        <svg className="max-lg:-rotate-45" width="71" height="71" viewBox="0 0 71 71" fill="black" xmlns="http://www.w3.org/2000/svg">
+<path d="M43.5234 67.4707L43.5245 64.3249L9.3012 64.3222L65.5837 8.03973L63.3576 5.81362L7.07217 62.099L7.07538 27.8757L3.92658 27.8739L3.92658 67.4697L43.5234 67.4707Z" fill="black" stroke="black" stroke-width="7"/>
+</svg>
+
           Lets Talk
         </motion.h3>
 
@@ -121,14 +113,14 @@ function ContactFooter() {
           
         </div> */}
         <form className="w-full md:w-auto">
-          <div className="flex flex-col md:flex-row gap-10   md:gap-20 items-center">
+          <div className="flex flex-col md:flex-row gap-0   md:gap-20 items-center">
             <motion.div className="ml-0 md:mr-auto mt-auto w-full  md:w-[800px]  ">
               <AnimatePresence mode="wait">
                 {form(stage, setFormData, handleChange)}
               </AnimatePresence>
             </motion.div>
             <Magnetic>
-              <motion.button
+            <motion.button
                 initial={{ width: 144, height: 144 }}
                 animate={
                   stage === 4
@@ -150,7 +142,7 @@ function ContactFooter() {
                 }
                 } ${
                   stage === 4 && "w-80 h-28 "
-                }  next flex justify-center items-center rounded-full border bg-mblack group hover:bg-mblue transition-colors duration-500 cursor-pointer `}
+                }  next md:flex justify-center hidden items-center rounded-full border bg-mblack group hover:bg-mblue transition-colors duration-500 cursor-pointer `}
               >
                 <motion.p
                   initial={{ opacity: 0 }}
@@ -175,6 +167,59 @@ function ContactFooter() {
                     fill="white"
                   />
                 </svg>
+              </motion.button>
+            </Magnetic>
+            <Magnetic>
+             
+              <motion.button
+                initial={{ width: 144, height: 70 }}
+                animate={
+                  stage === 4
+                    ? { width: 184, height: 80 }
+                    : { width: 144, height: 70 }
+                }
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                onClick={(e) => {
+                  if (stage === 4) handleSubmit(e);
+                  else handleNext(e);
+                }}
+                className={`${
+                  (stage === 1 && formData.fullname === "") ||
+                  (stage === 2 && (!formData.email.includes(".gr") && !formData.email.includes(".com") || !formData.email.includes("@"))) ||
+                  (stage === 3 && formData.message === "") ||
+                  (stage === 4 && formData.type === "")
+                    ? "pointer-events-none opacity-50"
+                    : ""
+                }
+                } ${
+                  stage === 4 && "w-60 h-28 "
+                }  next flex md:hidden justify-center items-center rounded-full border bg-mblack group hover:bg-mblue transition-colors duration-500 cursor-pointer `}
+              >
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={stage === 4 ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3, ease: "easeInOut" }}
+                  className={`${
+                    stage === 4 ? "block " : "hidden"
+                  } text-mwhite text-2xl pointer-events-none   mr-7  `}
+                >
+                  Submit
+                </motion.p>
+                <svg
+          width="26"
+          height="16"
+          viewBox="0 0 71 71"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="rotate-[225deg]"
+        >
+          <path
+            d="M43.5234 67.4707L43.5245 64.3249L9.3012 64.3222L65.5837 8.03973L63.3576 5.81362L7.07217 62.099L7.07538 27.8757L3.92658 27.8739L3.92658 67.4697L43.5234 67.4707Z"
+            fill="white"
+            stroke="white"
+            stroke-width="7"
+          />
+        </svg>
               </motion.button>
             </Magnetic>
           </div>
@@ -270,8 +315,8 @@ function form(stage, setFormData, handleChange) {
               className="radio-button__input"
               type="radio"
             />
-            <label for="NewWebsite" className="radio-button__label">
-              <span className="radio-button__custom"></span>
+            <label for="NewWebsite" className="radio-button__label text-xl font-medium xl:text-[40px]">
+              <span className="radio-button__custom size-[20px] md:size-[30px]"></span>
               New Website
             </label>
           </div>
@@ -283,8 +328,8 @@ function form(stage, setFormData, handleChange) {
               className="radio-button__input"
               type="radio"
             />
-            <label for="RemakeWebsite" className="radio-button__label">
-              <span className="radio-button__custom"></span>
+            <label for="RemakeWebsite" className="radio-button__label text-xl font-medium xl:text-[40px]">
+              <span className="radio-button__custom size-[20px] md:size-[30px]"></span>
               Remake Website
             </label>
           </div>

@@ -43,7 +43,7 @@ scale: 3;
   padding-left: 40px;
   margin-bottom: 10px;
   position: relative;
-  font-size: 40px;
+  
   color: #000;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
@@ -54,8 +54,7 @@ scale: 3;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
+  
   border-radius: 50%;
   border: 2px solid #000;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
@@ -183,6 +182,50 @@ background: radial-gradient(circle, rgb(255, 255, 255) 0%,rgba(255,255,255,0.6) 
 .scrollbar-hidden {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+ 
+
+
+  
+  outline: none;
+  overflow: hidden;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+
+.buttons p {
+  margin: 10px;
+  transition: color 0.6s ease-out;
+}
+
+.buttons::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  text-align: center;
+  transition: box-shadow 0.6s ease-out;
+  z-index: -1;
+}
+
+.buttons:hover {
+  color: #fff;
+  border: 1px solid #00A8B7;
+}
+
+.buttons:hover::before {
+  box-shadow: inset 0 0 0 10em #00A8B7;
 }
 @layer components {
 

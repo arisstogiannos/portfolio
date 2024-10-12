@@ -45,9 +45,9 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const VideoContainer = ({ selectedService }) => {
   const videos = [
-   { src:"/servicesImages/devanim.mp4",idN:'dev'},
-   { src:"/servicesImages/designanim.mp4",idN:'des'},
-    {src:"/servicesImages/seoanim.mp4",idN:'seo'},
+    { src:"/servicesImages/desanimM.webm",idN:'des'},
+   { src:"/servicesImages/DevanimM.webm",idN:'dev'},
+    {src:"/servicesImages/seoanimM.webm",idN:'seo'},
   ];
 
   return videos.map((video, index) => (
@@ -70,8 +70,8 @@ const VideoContainer = ({ selectedService }) => {
           loop
           src={video.src}
           
-          width={"360px"}
-          height={"700px"}
+          width={"430px"}
+          height={"537px"}
           className={`bg-clip-content  video`}
           
           

@@ -40,10 +40,11 @@ function Service({ services, setSelectedService, selectedService }) {
         onMouseLeave={() => {
           setSelectedService(null);
         }}
-        className=" w-full lg:w-1/4 h-full max-lg:py-10 max-lg:gap-14   cursor-pointer flex  lg:items-center max-lg:flex-col  border-[1px] lg:border-t-0 lg:border-b-0 lg:border-l-0 justify-between z-30"
+        className="  w-1/4 h-full    cursor-pointer flex  items-center   border-[1px] border-t-0 border-b-0 border-l-0 justify-between z-30 relative "
       >
+        <span className="absolute bottom-0 left-0 text-[200px] mb-20 text-white opacity-[3%]"><span className="font-bold" style={montserat.style}>#</span>{i+1}</span>
         <div className="w-full h-fit flex justify-between lg:items-center pointer-events-none">
-          <h3 className="w-10 ml-6  ">{title}</h3>
+        <h3 className="w-20 ml-6 text-white flex gap-4">{title}</h3>
           <svg
             className="mr-6"
             xmlns="http://www.w3.org/2000/svg"

@@ -66,9 +66,9 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
             : { scaleY: 0, transition: { duration: 0.3 } }
         }
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="border-l-[2px] md:border-l-[3px] origin-bottom absolute left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
+        className="border-l-[2px] md:border-l-[3px] origin-bottom absolute left-8 md:left-40 3xl:left-80 top-0  h-screen border-l-mblack border-solid opacity-100 z-[10000] "
       />
-      <div className="absolute left-40 3xl:left-80 top-[590px] 3xl:top-[790px] pointer-events-none">
+      <div className="absolute left-8 md:left-40 3xl:left-80 top-[650px] md:top-[590px] 3xl:top-[790px] pointer-events-none">
         <Magnetic>
         <motion.p
           initial={{ x: -100, opacity: 0 }}
@@ -94,7 +94,7 @@ function Menu({ isOpen, setIsOpen, loco, setLock }) {
           className="border-t-[2px] md:border-t-[3px] origin-left   w-80 border-t-mblack border-solid opacity-100 z-[10000] "
         />
       </div>
-      <div className="myContainer pt-[130px] lg:pt-[100px] flex justify-end  lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[20px] 3xl:pr-0 2xl:pl-[80px] box-border relative">
+      <div className="myContainer pt-[130px] lg:pt-[100px] flex justify-end pr-[30px] lg:pr-[40px] lg:pl-[40px] 2xl:pt-[90px] 3xl:pt-[120px]  2xl:pr-[20px] 3xl:pr-0 2xl:pl-[80px] box-border relative">
         <ul className={`flex flex-col items-end   z-[1000]  relative   `}>
           {navLinks.map((link, i) => {
             return (
