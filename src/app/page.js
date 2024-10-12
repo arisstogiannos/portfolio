@@ -32,15 +32,29 @@ export default function Home() {
   const [modal, setModal] = useState({ active: false, index: -1 });
 
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-      const locomotiveScroll = new LocomotiveScroll({
-        smooth: true,
-        lenisOptions:{smoothWheel:true,smoothTouch:true,},
-        
-      });
-      setLoco(locomotiveScroll);
-    })();
+    if(window.innerWidth<1000){
+
+      (async () => {
+        const LocomotiveScroll = (await import("locomotive-scroll")).default;
+        const locomotiveScroll = new LocomotiveScroll({
+          smooth: true,
+          lenisOptions:{smoothWheel:true,smoothTouch:false,},
+          
+        });
+        setLoco(locomotiveScroll);
+      })();
+    }else{
+
+      (async () => {
+        const LocomotiveScroll = (await import("locomotive-scroll")).default;
+        const locomotiveScroll = new LocomotiveScroll({
+          smooth: true,
+          lenisOptions:{smoothWheel:true,smoothTouch:true,duration:1.7},
+          
+        });
+        setLoco(locomotiveScroll);
+      })();
+    }
   }, [load]);
 
   return load ? (
