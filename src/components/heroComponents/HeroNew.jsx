@@ -202,7 +202,7 @@ function HeroNew({ loco }) {
           <Magnetic>
             <motion.div
               onClick={() => {
-                loco.scrollTo("#services", { duration: 2 });
+                loco.scrollTo(".servicesSection", { duration: 2 });
               }}
               variants={slideUpButton}
               initial={"closed"}

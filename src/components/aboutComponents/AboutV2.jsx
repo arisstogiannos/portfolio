@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Button from "../globalComponents/Button/Button";
 import { motion, useInView } from "framer-motion";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,15 +9,23 @@ function AboutV2({ loco }) {
   const text2 = useRef(null);
   const inView = useInView(container, { amount: 0.3 });
   const inView2 = useInView(text2, { amount: 0.9 });
+
   let refs = useRef([]);
   const Heading = useRef(null);
 
   useEffect(() => {
+    
     gsap.registerPlugin(ScrollTrigger);
-    createAnimation();
+    if(window.innerWidth<1024){
+      createAnimationMobile();
+    }else{
+
+      createAnimation();
+    }
   }, []);
 
   const createAnimation = () => {
+   
     ScrollTrigger.defaults({
       markers: false, // Disable debug markers
       onTouch: true,  // Ensure touch interactions are enabled
@@ -26,8 +34,26 @@ function AboutV2({ loco }) {
       scrollTrigger: {
         trigger: Heading.current,
         scrub: true,
-        start: "top bottom-=100px",
-        end: "bottom+=230px bottom",
+        start: "top-=50px bottom-=150px",
+        end: "bottom bottom-=150px",
+      },
+      opacity: 1,
+      ease: "none",
+      stagger: 0.1,
+    });
+  };
+  const createAnimationMobile = () => {
+   
+    ScrollTrigger.defaults({
+      markers: false, // Disable debug markers
+      onTouch: true,  // Ensure touch interactions are enabled
+    });
+    gsap.to(refs.current, {
+      scrollTrigger: {
+        trigger: Heading.current,
+        scrub: true,
+        start: "top-=80px center",
+        end: "bottom+=120px center",
       },
       opacity: 1,
       ease: "none",
@@ -101,7 +127,7 @@ function AboutV2({ loco }) {
     <section
       ref={container}
       id="about"
-      className="mt-32 lg:mt-10 myContainer pt-10 mb-10"
+      className="mt-20 lg:mt-10 myContainer pt-10 mb-10"
     >
       <div className="flex justify-between w-full flex-col md:flex-row  ">
         <h3

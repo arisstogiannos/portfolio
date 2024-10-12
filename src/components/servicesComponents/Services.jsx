@@ -36,7 +36,7 @@ function Services({ setCursorInServices }) {
       ref={section}
       id="services"
       style={medium.style}
-      className=" myContainer  items-center pt-20 overflow-hidden bg-transparent my-52 hidden lg:flex flex-col"
+      className=" myContainer  items-center pt-20 overflow-hidden bg-transparent my-52 hidden lg:flex flex-col servicesSection"
     >
       <h1 className="text-6xl text-white mb-24 ml-auto flex gap-14 scaleCursor">
         <svg

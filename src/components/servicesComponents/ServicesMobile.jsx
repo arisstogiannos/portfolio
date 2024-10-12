@@ -70,11 +70,11 @@ function ServicesMobile() {
       <section
       id="services"
         ref={container}
-        className=" lg:hidden w-screen overflow-x-scroll snap-x snap-mandatory snap-normal scrollbar-hidden    "
+        className=" lg:hidden w-screen overflow-x-scroll snap-x snap-mandatory snap-normal scrollbar-hidden     "
       >
       
          
-        <div ref={target} className="flex gap-10 ml-9   w-[270vw]">
+        <div ref={target} className="flex gap-10 ml-9   w-[270vw] servicesSection">
           {servicelist.map((service, index) => {
             const { title, desc, src } = service;
             return (
