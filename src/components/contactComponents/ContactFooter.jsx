@@ -102,7 +102,7 @@ function ContactFooter() {
           }}
         >
         <svg className="max-lg:-rotate-45" width="71" height="71" viewBox="0 0 71 71" fill="black" xmlns="http://www.w3.org/2000/svg">
-<path d="M43.5234 67.4707L43.5245 64.3249L9.3012 64.3222L65.5837 8.03973L63.3576 5.81362L7.07217 62.099L7.07538 27.8757L3.92658 27.8739L3.92658 67.4697L43.5234 67.4707Z" fill="black" stroke="black" stroke-width="7"/>
+<path d="M43.5234 67.4707L43.5245 64.3249L9.3012 64.3222L65.5837 8.03973L63.3576 5.81362L7.07217 62.099L7.07538 27.8757L3.92658 27.8739L3.92658 67.4697L43.5234 67.4707Z" fill="black" stroke="black" strokeWidth="7"/>
 </svg>
 
           Lets Talk
@@ -217,7 +217,7 @@ function ContactFooter() {
             d="M43.5234 67.4707L43.5245 64.3249L9.3012 64.3222L65.5837 8.03973L63.3576 5.81362L7.07217 62.099L7.07538 27.8757L3.92658 27.8739L3.92658 67.4697L43.5234 67.4707Z"
             fill="white"
             stroke="white"
-            stroke-width="7"
+            strokeWidth="7"
           />
         </svg>
               </motion.button>

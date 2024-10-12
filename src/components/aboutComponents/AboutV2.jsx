@@ -51,7 +51,7 @@ function AboutV2({ loco }) {
     gsap.to(refs.current, {
       scrollTrigger: {
         trigger: Heading.current,
-        scrub: true,
+        scrub: 1.2,
         start: "top-=80px center",
         end: "bottom+=120px center",
       },
@@ -141,7 +141,7 @@ function AboutV2({ loco }) {
             <hr className="scaleCursor border-solid border-l h-[300px] md:h-[420px] w-0  mx-[70px] md:mx-[104px] border-mwhite  " />
             <div
               data-scroll
-              data-scroll-speed="0.3"
+              data-scroll-speed="0.2"
               className="relative bottom-64"
             >
               <Button loco={loco} />
