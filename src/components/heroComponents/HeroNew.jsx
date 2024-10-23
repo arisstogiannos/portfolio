@@ -74,7 +74,7 @@ function HeroNew({ loco }) {
   const phrase =
     "I am a creative web developer with passion in making interactive eye-catching websites that will make your bussiness stand out in the digital world";
   return (
-    <section className="myContainer  pt-16  relative">
+    <section className="myContainer  3xl:pt-16 pt-0  relative">
       <motion.div
         animate={{ opacity: 1, transition: { duration: 2 } }}
         initial={{ opacity: 0 }}
@@ -92,7 +92,7 @@ function HeroNew({ loco }) {
           height={"100%"}
           width={"100%"}
           style={montserat.style}
-          className="font-bold  text-[90px] md:text-[190px] lg:text-[250px] xl:text-[320px] 3xl:text-[420px] w-full h-full relative top-0 left-0 tracking-wider -z-[1000] "
+          className="font-bold  text-[90px] md:text-[190px] lg:text-[250px] xl:text-[360px] 3xl:text-[420px] w-full h-full relative top-0 left-0 tracking-wider -z-[1000] "
         >
           <defs>
             <mask id="mask" x="0" y="0" width={"100%"} height={"100%"}>
@@ -126,7 +126,7 @@ function HeroNew({ loco }) {
           />
         </svg>
 
-        <h1 className="text-center lg:text-left  text-mwhite text-[30px] md:text-[50px] lg:text-[50px] xl:text-[70px] 2xl:text-[100px] -z-[900] leading-tight capitalize font-medium absolute top-full -translate-y-2/3 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-0  w-full bg-gradient-to-t via-mblack via-60%  from-mblack to-mblack/0">
+        <h1 className="text-center lg:text-left  text-mwhite text-[30px] md:text-[50px] lg:text-[50px] xl:text-[80px] 3xl:text-[100px] -z-[900] leading-tight capitalize font-medium absolute top-full -translate-y-2/3 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-0  w-full bg-gradient-to-t via-mblack via-60%  from-mblack to-mblack/0">
           {heading.split(" ").map((word, wordIndex) => (
             <span
               key={wordIndex}
@@ -158,7 +158,7 @@ function HeroNew({ loco }) {
           ))}
         </h1>
       </motion.div>
-      <div className="flex flex-col lg:flex-row gap-10  justify-between items-center mt-20 md:mt-28 lg:mt-20 xl:mt-28">
+      <div className="flex flex-col lg:flex-row gap-10  justify-between items-center mt-20 md:mt-28 lg:mt-20 3xl:mt-28">
         <p className=" text-[15px] text-center lg:text-left md:text-[21px] xl:text-[25px] text-mwhite font-normal scaleCursor max-w-[500px] lg:max-w-[600px] xl:max-w-[800px]">
           {phrase.split(" ").map((word, index) => {
             return (

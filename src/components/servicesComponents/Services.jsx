@@ -66,8 +66,8 @@ function Services({ setCursorInServices }) {
           initial={{ scaleX: 0, translateY: 2 }}
           className="w-full h-1  origin-left max-lg:hidden"
         />
-        <div className="flex  lg:text-[16px] 2xl:text-[20px] h-[500px] relative tracking-wide w-full">
-          <Service
+<div className="flex  lg:text-[16px] 2xl:text-[20px] h-[450px] 3xl:h-[500px] relative tracking-wide w-full">   
+         <Service
             services={servicelist}
             setSelectedService={setSelectedService}
             selectedService={selectedService}
