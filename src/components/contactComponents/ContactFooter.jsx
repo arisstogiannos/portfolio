@@ -205,6 +205,14 @@ function ContactFooter() {
                 >
                   Submit
                 </motion.p>
+                <motion.p
+                  
+                  className={`${
+                    stage === 4 ? "hidden " : "block"
+                  } text-mwhite text-2xl pointer-events-none capitalize  mr-7  `}
+                >
+                  next
+                </motion.p>
                 <svg
           width="26"
           height="16"

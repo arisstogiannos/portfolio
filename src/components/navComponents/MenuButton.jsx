@@ -32,7 +32,7 @@ export default function MenuButton({ isOpen, setIsOpen,setLock  }) {
     // exit='exit'
   
       onClick={()=>{setLock(true);setIsOpen(!isOpen)}}
-      className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-20 h-7 md:w-24 md:h-9   rounded-full relative   overflow-hidden  `}
+      className={` pointer-events-auto cursor-pointer z-[2000] text-sm md:text-base w-20 h-8 md:w-24 md:h-9   rounded-full relative   overflow-hidden  `}
     >
       <motion.div
       className="relative w-full h-full"

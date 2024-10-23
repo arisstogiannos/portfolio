@@ -39,7 +39,7 @@ setLoaded(!inview)
       ref={container}
       id="library"
       
-      className=" myContainer    flex flex-col md:flex-row items-center justify-between h-screen mt-28  mb-20"
+      className=" myContainer    flex flex-col md:flex-row items-center justify-between h-screen mt-28  mb-28"
     >
       <div className="flex flex-col w-full lg:w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
         <p className="scaleCursor  capitalize font-normal text-[20px] md:text-[32px] text-center lg:text-left xl:text-[27px] 3xl:text-4xl mb-auto text-mwhite ">

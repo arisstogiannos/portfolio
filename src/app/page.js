@@ -60,8 +60,10 @@ export default function Home() {
   return load ? (
     <Loading setLoading={setLoad} />
   ) : (
-    <main style={montserat.style} className=" flex flex-col  overflow-x-hidden ">
+    <main style={montserat.style} className=" flex flex-col   ">
       <Navbar loco={loco} />
+      <div className=" overflow-x-hidden">
+
       <HeroNew loco={loco} />
       <Services />
       <ServicesMobile/>
@@ -71,9 +73,10 @@ export default function Home() {
         setProjectColor={setProjectColor}
         projectColor={projectColor}
         loco={loco}
-      />
+        />
       {/* <TechStack loco={loco} /> */}
       <ContactFooter />
+      </div>
       <CursorNew
         cursorScale={cursorScale}
         projectColor={projectColor}

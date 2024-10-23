@@ -67,42 +67,7 @@ function Service({ services, setSelectedService, selectedService }) {
             />
           </svg>
         </div>
-        <motion.div
-          initial={{ height: 0 }}
-          animate={
-            selectedService == i
-              ? {
-                  height: 600,
-                  transition: { duration: 0.8, ease:[0.5, 1, 0.89, 1] },
-                }
-              : {
-                  height: 0,
-                  transition: { duration: 0.8, ease:[0.5, 1, 0.89, 1] },
-                }
-          }
-          className="w-4/5 mx-auto relative lg:hidden"
-        >
-          {" "}
-          <div
-            style={{
-              clipPath:
-                selectedService || selectedService === 0
-                  ? "inset(0 0 0 0 )"
-                  : "inset( 0 50% 0  50%  )",
-            }}
-            className=" h-full w-full absolute  transition-all duration-[0.35s] delay-200 ease-[cubic-bezier(0.5, 1, 0.89, 1)] "
-          >
-            <video
-              src="/servicesImages/devanim.mp4"
-              width={"100%"}
-              height={"100%"}
-              className="bg-clip-content rounded-xl "
-              autoPlay
-              loop
-              muted
-            ></video>
-          </div>
-        </motion.div>
+       
         <p style={montserat.style} className="lg:hidden text-mwhite ml-6 w-2/3 pointer-events-none">
           {desc}
         </p>

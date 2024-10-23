@@ -40,26 +40,29 @@ function ServicesMobile() {
     var dev;
     var des;
     var seo;
-    if (latest > 0.9) {
-      seo = document.getElementById("SEO");
-      seo.play();
-      seo.currentTime = 0;
-      setCurrService("-top-12");
-      setCurrServiceTime(10);
-    } else if (latest > 0.45) {
-      dev = document.getElementById("Development");
-      dev.play();
-      dev.currentTime = 0;
-      setCurrService("-top-6");
-      setCurrServiceTime(17);
-    } else if (latest >= 0) {
-      des = document.getElementById("Design");
-      des.play();
-      des.currentTime = 0;
-      setCurrService("top-0");
-      setCurrServiceTime(13);
+    if(inview){
+
+      if (latest > 0.9) {
+        seo = document.getElementById("SEO");
+        seo.play();
+        seo.currentTime = 0;
+        setCurrService("-top-12");
+        setCurrServiceTime(10);
+      } else if (latest > 0.45) {
+        dev = document.getElementById("Development");
+        dev.play();
+        dev.currentTime = 0;
+        setCurrService("-top-6");
+        setCurrServiceTime(17);
+      } else if (latest >= 0) {
+        des = document.getElementById("Design");
+        des.play();
+        des.currentTime = 0;
+        setCurrService("top-0");
+        setCurrServiceTime(13);
+      }
     }
-  });
+    });
 
   return (
     <>
@@ -109,7 +112,7 @@ function ServicesMobile() {
         </div>
       </section>
       <div className=" relative left-[80vw] -translate-x-full   ml-9 mt-10  h-7 w-36 overflow-hidden lg:hidden">
-        {currServiceTime === 17 && (
+        {inview&&(currServiceTime === 17) && (
           <motion.div
             initial={{ left: "-100%" }}
             animate={{ left: 0 }}
@@ -123,7 +126,7 @@ function ServicesMobile() {
             className=" absolute -left-full h-[2px] w-36 bottom-0 bg-white"
           ></motion.div>
         )}
-        {currServiceTime === 13 && (
+        {inview&&(currServiceTime === 13) && (
           <motion.div
             initial={{ left: "-100%" }}
             animate={{ left: 0 }}
@@ -137,7 +140,7 @@ function ServicesMobile() {
             className=" absolute -left-full h-[2px] w-36 bottom-0 bg-white"
           ></motion.div>
         )}
-        {currServiceTime === 10 && (
+        {inview&&(currServiceTime === 10) && (
           <motion.div
             initial={{ left: "-100%" }}
             animate={{ left: 0 }}
