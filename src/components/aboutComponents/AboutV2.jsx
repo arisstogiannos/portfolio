@@ -149,8 +149,7 @@ function AboutV2({ loco }) {
           </div>
           <p
             ref={text2}
-            className="scaleCursor text-[15px] md:text-[26px] ml-8 md:ml-16 text-mwhite/95  font-light  leading-snug tracking-wide  h-fit relative mt-auto  "
-          >
+            className="scaleCursor text-[15px] lg:text-[22px] 3xl:text-[26px] ml-8 md:ml-16 text-mwhite/95  font-light  leading-snug tracking-wide  h-fit relative mt-auto  "          >
             {phrase.split(" ").map((word, index) => {
               return (
                 <span
