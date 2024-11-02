@@ -1,12 +1,12 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { circInOut, motion, useInView } from "framer-motion";
 import { Montserrat } from "next/font/google";
 
 const montserat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-function Service({ services, setSelectedService, selectedService }) {
+function Service({ services, setSelectedService, selectedService , inview}) {
   // const enterViewVariants = {
   //   initial: {
   //     x: -1400,
@@ -20,14 +20,29 @@ function Service({ services, setSelectedService, selectedService }) {
   //     },
   //   }),
   // };
+  const ref = useRef(null)
 
   return services.map((s, i) => {
     const { title, desc } = s;
 
     return (
       <motion.div
-        key={i}
-       
+      key={i}
+      initial={{
+        x: (i + 1) * -100 + "%",
+        clipPath: "inset(0  0 0 95% )" // Start hidden with clip-path
+      }}
+      animate={
+        inview && {
+          x: 0,
+          clipPath: "inset(0 0 0 0)", // Reveal on animation
+          transition: {
+            x: { duration: 1.2, delay: 0.8, ease: "circOut" },
+            clipPath: { duration: 0.8, delay: 1.5, ease: "linear" } // Add transition for clipPath
+          }
+        }
+      }
+       ref={ref}
         onMouseOver={() => {
           var vid;
           if(i===0){  vid = document.getElementById('dev')};
@@ -40,7 +55,7 @@ function Service({ services, setSelectedService, selectedService }) {
         onMouseLeave={() => {
           setSelectedService(null);
         }}
-        className="  w-1/4 h-full    cursor-pointer flex  items-center   border-[1px] border-t-0 border-b-0 border-l-0 justify-between z-30 relative "
+        className="  w-1/4 h-full     cursor-pointer flex  items-center   border-[1px] border-t-0 border-b-0 border-l-0 justify-between z-30 relative "
       >
         <span className="absolute bottom-0 left-0 text-[200px] mb-20 text-white opacity-[3%]"><span className="font-bold" style={montserat.style}>#</span>{i+1}</span>
         <div className="w-full h-fit flex justify-between lg:items-center pointer-events-none">

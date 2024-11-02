@@ -76,6 +76,7 @@ setLoaded(!inview)
         </motion.div>
             {(!loaded) && <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center "><div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div></div>}
       </div>
+      <a className=" border-mblue border-2 lg:hidden text-mblue uppercase text-center py-2 rounded-full my-4" href={projects.at(currProject).url} target="_blank" >visit website</a>
         <div className="relative xl:mb-28 3xl:mb-32 ml-auto mt-36  h-40 w-80 lg:block hidden ">
           <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
@@ -93,6 +94,7 @@ setLoaded(!inview)
         <div className=" flex flex-col justify-center   w-full">
           {projects.map((project, index) => (
             <ProjectV2
+            url={project.url}
               key={index}
               title={project.title}
               services={project.services}
@@ -102,6 +104,7 @@ setLoaded(!inview)
               index={index}
               setProjectColor={setProjectColor}
               color={project.color}
+              inprogress={project.inprogress}
               prevProject={prevProject}
             />
           ))}

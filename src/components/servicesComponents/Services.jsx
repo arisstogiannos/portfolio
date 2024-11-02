@@ -5,12 +5,7 @@ import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
 import { useEffect, useRef, useState } from "react";
 import localfont from "next/font/local";
-import {
-  motion,
-  useInView,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import VideoContainer from "./VideoContainer.jsx";
 
@@ -23,6 +18,7 @@ const montserat = Montserrat({
 function Services({ setCursorInServices }) {
   const [selectedService, setSelectedService] = useState(null);
   const section = useRef(null);
+  const inview = useInView(section, { amount: 0.5 });
 
   //  const { scrollYProgress } = useScroll({
   //   target: section,
@@ -38,8 +34,11 @@ function Services({ setCursorInServices }) {
       style={medium.style}
       className=" myContainer  items-center pt-20 overflow-hidden bg-transparent my-52 hidden lg:flex flex-col servicesSection"
     >
-      <h1 className="text-6xl text-white mb-24 ml-auto flex gap-14 scaleCursor">
-        <svg
+      <h1 className="text-6xl text-white mb-24 ml-auto overflow-hidden gap-14 scaleCursor inline-flex">
+        <motion.svg
+          initial={{ y: -100, x: 100 }}
+          animate={inview && { y: 0, x: 0 }}
+          transition={{ duration: 1.2, ease: "circOut" }}
           width="71"
           height="71"
           viewBox="0 0 71 71"
@@ -52,22 +51,30 @@ function Services({ setCursorInServices }) {
             stroke="white"
             strokeWidth="7"
           />
-        </svg>
-        the process
+        </motion.svg>
+        <motion.span
+          initial={{ y: 100 }}
+          animate={inview && { y: 0 }}
+          transition={{ duration: 1.2, ease: "circOut" }}
+          className="translate-y-[100]"
+        >
+          the process
+        </motion.span>
       </h1>
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
-          whileInView={{ scaleX: 1, translateY: 3 }}
+          animate={inview && { scaleX: 1, translateY: 3 }}
           transition={{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.315, 1],
-            delay: 0.2,
+            duration: 1.4,
+            ease: "circInOut",
+            delay: 1,
           }}
           initial={{ scaleX: 0, translateY: 2 }}
           className="w-full h-1  origin-left max-lg:hidden"
         />
         <div className="flex  lg:text-[16px] 2xl:text-[20px] h-[500px] relative tracking-wide w-full">
           <Service
+            inview={inview}
             services={servicelist}
             setSelectedService={setSelectedService}
             selectedService={selectedService}
@@ -78,12 +85,13 @@ function Services({ setCursorInServices }) {
           />
 
           <div
+            
             id="videoPlayer"
-            className="w-1/4 h-full  hidden lg:flex items-center   justify-center z-10 relative "
+            className={`w-1/4 h-full transition-opacity delay-1000 duration-[3s] ${inview?'opacity-100':'opacity-0'}  hidden lg:flex items-center   justify-center z-10 relative `}
           >
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
-            <CircleText />
+            <CircleText inview={inview} />
 
             <VideoContainer selectedService={selectedService} />
 
@@ -98,11 +106,11 @@ function Services({ setCursorInServices }) {
           </div>
         </div>
         <motion.hr
-          whileInView={{ scaleX: 1 }}
+          animate={inview && { scaleX: 1, translateY: 3 }}
           transition={{
-            duration: 0.8,
-            ease: [0.215, 0.61, 0.315, 1],
-            delay: 0.2,
+            duration: 1.4,
+            ease: "circInOut",
+            delay: 1,
           }}
           initial={{ scaleX: 0.01 }}
           className="max-lg:hidden w-full h-1 translate-y-0 origin-right "

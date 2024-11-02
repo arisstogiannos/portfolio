@@ -66,18 +66,18 @@ function ServicesMobile() {
 
   return (
     <>
-      <h1  style={medium.style} className="text-4xl text-white  mr-auto flex gap-14 scaleCursor mb-16 mt-24 ml-9 lg:hidden">
+      <h1  style={medium.style} className="servicesSection text-4xl text-white  mr-auto flex gap-14 scaleCursor mb-16 mt-24 ml-9 lg:hidden">
         
         the <br/> process
       </h1>
       <section
       id="services"
         ref={container}
-        className=" lg:hidden w-screen overflow-x-scroll snap-x snap-mandatory snap-normal scrollbar-hidden     "
+        className="  lg:hidden w-screen overflow-x-scroll snap-x snap-mandatory snap-normal scrollbar-hidden     "
       >
       
          
-        <div ref={target} className="flex gap-10 ml-9   w-[270vw] servicesSection">
+        <div ref={target} className="flex gap-10 ml-9   w-[270vw] ">
           {servicelist.map((service, index) => {
             const { title, desc, src } = service;
             return (
@@ -96,6 +96,7 @@ function ServicesMobile() {
                   height={"305px"}
                   className={` mx-auto mt-2  `}
                   muted
+                  playsInline
                 />{" "}
                 {/* <hr className="w-full border-t border-t-mwhite" /> */}
                 <h3

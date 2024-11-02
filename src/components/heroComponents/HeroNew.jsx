@@ -1,5 +1,6 @@
+'use client'
 import { Montserrat } from "next/font/google";
-import React from "react";
+import React, { useEffect } from "react";
 import Magnetic from "../globalComponents/Button/Magnetic";
 import { delay, easeInOut, motion } from "framer-motion";
 
@@ -7,7 +8,9 @@ const montserat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
-function HeroNew({ loco }) {
+function HeroNew({ loco, load, animStart }) {
+
+
   const slideUpButton = {
     open: {
       x: "0%",
@@ -15,8 +18,8 @@ function HeroNew({ loco }) {
       transition: {
         type: "spring",
         bounce: 0.5,
-        duration: 1.2,
-        delay: 0.8,
+        duration: 1.6,
+        delay: 1.4,
       },
       // transition: {duration: 0.8, delay: 1,ease: [0, 0.55, 0.45, 1]}
     },
@@ -32,8 +35,8 @@ function HeroNew({ loco }) {
       transition: {
         type: "spring",
         bounce: 0.5,
-        duration: 1.3,
-        delay: 1,
+        duration: 1.6,
+        delay: 1.6,
       },
       // transition: {duration: 0.8, delay: 1,ease: [0, 0.55, 0.45, 1]}
     },
@@ -47,8 +50,8 @@ function HeroNew({ loco }) {
     open: (i) => ({
       y: "0%",
       transition: {
-        duration: 0.5,
-        delay: 0.6 + 0.02 * i,
+        duration: 1,
+        delay: 1.4 + 0.02 * i,
         ease: [0, 0.55, 0.45, 1],
       },
     }),
@@ -62,7 +65,11 @@ function HeroNew({ loco }) {
       y: "0%",
       opacity: 1,
 
-      transition: { duration: 0.6, delay: 0.015 * i, ease: [0, 0.55, 0.45, 1] },
+      transition: {
+        duration: 1,
+        delay: 1.2 + 0.01 * i,
+        ease: [0, 0.55, 0.45, 1],
+      },
     }),
     closed: {
       y: "100%",
@@ -76,19 +83,19 @@ function HeroNew({ loco }) {
   return (
     <section className="myContainer  pt-16  relative">
       <motion.div
-        animate={{ opacity: 1, transition: { duration: 2 } }}
+        animate={animStart && { opacity: 1, transition: { duration: 0.1 } }}
         initial={{ opacity: 0 }}
         className=" w-full h-[180px] md:h-[250px] lg:h-[300px] xl:h-[400px] relative"
       >
-        <video
+        <motion.video
           src="Mountains (1).mp4"
           loop
           autoPlay
           muted
           playsInline
           className="overflow-hidden  object-fill w-full h-full absolute -z-[1000] "
-        ></video>
-        <svg
+        ></motion.video>
+        <motion.svg
           height={"100%"}
           width={"100%"}
           style={montserat.style}
@@ -99,32 +106,40 @@ function HeroNew({ loco }) {
               <rect
                 x="0"
                 y="0"
-                width="100%"
+                width="101%"
                 height="100%"
                 className="fill-white klkl -z-[1000] "
               />
 
-              <text
+              <motion.text
+                animate={
+                  !load && {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 1.7, ease: "circInOut" },
+                  }
+                }
+                initial={{ opacity: 0, scale: 0.5 }}
                 fill="red"
                 textAnchor={"middle"}
                 x="52%"
                 y="80%"
-                width="100%"
+                width="101%"
                 height="100%"
                 className=""
               >
                 VISION
-              </text>
+              </motion.text>
             </mask>
           </defs>
           <rect
             x="0"
             y="0"
-            width="100%"
+            width="135%"
             height="100%"
             className="fill-mblack klkl -z-[2000] "
           />
-        </svg>
+        </motion.svg>
 
         <h1 className="text-center lg:text-left  text-mwhite text-[30px] md:text-[50px] lg:text-[50px] xl:text-[70px] 2xl:text-[100px] -z-[900] leading-tight capitalize font-medium absolute top-full -translate-y-2/3 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-0  w-full bg-gradient-to-t via-mblack via-60%  from-mblack to-mblack/0">
           {heading.split(" ").map((word, wordIndex) => (
@@ -141,7 +156,7 @@ function HeroNew({ loco }) {
                     variants={slideUpHeading}
                     custom={word.length * wordIndex + letterIndex}
                     initial="closed"
-                    animate="open"
+                    animate={!load && "open"}
                     key={wordIndex + letterIndex}
                     className=" lowercase first-of-type:uppercase scaleCursor"
                   >
@@ -172,7 +187,7 @@ function HeroNew({ loco }) {
                   variants={slideUp}
                   custom={index}
                   initial={"closed"}
-                  animate={"open"}
+                  animate={!load && "open"}
                   key={index}
                 >
                   {" "}
@@ -186,11 +201,12 @@ function HeroNew({ loco }) {
           <Magnetic>
             <motion.div
               onClick={() => {
+               
                 loco.scrollTo("#contact", { duration: 2 });
               }}
               variants={slideUpButton2}
               initial={"closed"}
-              animate={"open"}
+              animate={!load && "open"}
               className="bg-transparent buttons w-40 h-14  md:w-56 md:h-20 lg:size-36 3xl:size-40 border-2 cursor-pointer border-mwhite rounded-full  absolute top-0 lg:right-0 max-lg:left-0  flex justify-center items-center "
             >
               {" "}
@@ -202,11 +218,12 @@ function HeroNew({ loco }) {
           <Magnetic>
             <motion.div
               onClick={() => {
-                loco.scrollTo(".servicesSection", { duration: 2 });
+                const serviceSection = document.querySelectorAll('.servicesSection')
+                loco.scrollTo(serviceSection[window.innerWidth>1024?0:1], { duration: 2 });
               }}
               variants={slideUpButton}
               initial={"closed"}
-              animate={"open"}
+              animate={!load && "open"}
               className="bg-transparent w-40 h-14 md:w-56 group md:h-20 buttons lg:size-36 3xl:size-40 border-2 cursor-pointer border-mblue rounded-full  absolute top-0 lg:left-0 max-lg:right-0 flex justify-center items-center "
             >
               {" "}
@@ -223,8 +240,37 @@ function HeroNew({ loco }) {
       </div>
 
       {/* <div className="absolute top-full left-0 h-[500px] w-[700px] -translate-y-1/2 -translate-x-1/2 filter blur-3xl  bg-[radial-gradient(rgba(0,168,183,1)_0%,rgba(8,9,10,0.00)_60%)]"></div> */}
-      <div className=" size-[270px] absolute lg:hidden top-2/3 left-0 gradient blur-3xl rounded-full -z-50 -translate-y-1/3 -translate-x-2/3"></div>
-      <div className=" size-[270px] lg:hidden absolute top-[80%] left-[110%] gradient2 blur-3xl rounded-full -z-50 -translate-x-1/2"></div>
+      <motion.div
+        initial={{
+          scale: 0.3,
+          opacity: 0,
+          x: "-66%", // Equivalent to -translate-x-2/3
+          y: "-33%", // Equivalent to -translate-y-1/3
+        }}
+        animate={
+          !load && {
+            scale: 1,
+            opacity: 1,
+            transition: {delay:0.3, duration: 4, ease: "circInOut" },
+          }
+        }
+        className=" size-[270px] absolute lg:hidden top-2/3 left-0 gradient blur-3xl rounded-full -z-[900] -translate-y-1/3 -translate-x-2/3"
+      ></motion.div>
+      <motion.div
+        initial={{
+          scale: 0.3,
+          opacity: 0,
+          x: "-50%", // Equivalent to -translate-x-1/2
+        }}
+        animate={
+          !load && {
+            scale: 1,
+            opacity: 1,
+            transition: {delay:0.3, duration: 4, ease: "circInOut" },
+          }
+        }
+        className=" size-[270px] lg:hidden absolute top-[80%] left-[110%] gradient2 blur-3xl rounded-full -z-[900] -translate-x-1/2"
+      ></motion.div>
     </section>
   );
 }

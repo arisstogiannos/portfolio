@@ -28,10 +28,12 @@ export default function Home() {
   // const [screenWidth,setScreenwidth]= useState(0)
   // const [servicesScroll,setServicesScroll] = useState(0.0)
   const [load, setLoad] = useState(true);
+  const [animStart, setAnimStart] = useState(false);
   const [loco, setLoco] = useState(null);
   const [modal, setModal] = useState({ active: false, index: -1 });
 
   useEffect(() => {
+    // window.scrollTo(0,0)
     if(window.innerWidth<1000){
 
       (async () => {
@@ -55,16 +57,17 @@ export default function Home() {
         setLoco(locomotiveScroll);
       })();
     }
-  }, [load]);
+  }, []);
 
-  return load ? (
-    <Loading setLoading={setLoad} />
-  ) : (
-    <main style={montserat.style} className=" flex flex-col   ">
-      <Navbar loco={loco} />
+  return  (
+  
+  <main style={montserat.style} className=" flex flex-col   ">
+      
+      <Loading setLoading={setLoad} load={load} setAnimStart={setAnimStart} />
+      <Navbar loco={loco} load={load} />
       <div className=" overflow-x-hidden">
 
-      <HeroNew loco={loco} />
+      <HeroNew loco={loco} load={load} animStart={animStart} />
       <Services />
       <ServicesMobile/>
       <AboutV2 loco={loco} />{" "}

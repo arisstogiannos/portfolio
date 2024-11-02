@@ -42,33 +42,43 @@ export const projects = [
 
   // },
   {
-    title: "chess uom",
+    title: "Helenas Rooms",
     src: "MacBook.png",
     color: "#FFA800",
     height:216,
-    services:"design & development"
-  },
-  {
-    title: "Cecilia Homes",
-    src: "iPhone.png",
-    color: "#9861A8",
-    height:230,
-    services:"design & development"
-
+    services:"design & development",
+    inprogress:"",
+    url:'https://heleanas-rooms.vercel.app/'
   },
   {
     title: "chess uom",
-    src: "chess-uom-mockup.png",
-    color: "#FFA800",
-    height:216,
-    services:"design & development"
-  },
-  {
-    title: "Cecilia Homes",
-    src: "ceciliahomes.png",
+    src: "iPhone.png",
     color: "#9861A8",
     height:230,
-    services:"design & development"
+    services:"design & development",
+    inprogress:"",
+    url:'https://chess.uom.gr/'
 
   },
+  {
+    title: "in progress...",
+    src: "MacBook.png",
+    color: "#FFA800",
+    height:216,
+    services:"design & development",
+    inprogress:"pointer-events-none",
+    url:''
+  },
+  {
+    title: "in progress...",
+    src: "iPhone.png",
+    color: "#9861A8",
+    height:230,
+    services:"design & development",
+    inprogress:"pointer-events-none",
+    url:''
+
+  },
+  
+
 ];

@@ -16,11 +16,12 @@ const montserat = Montserrat({
   weight: ["400", "500", "600", "700"],
 });
 
-function Navbar({ loco }) {
+function Navbar({ loco,load }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLink, setSelectedLink] = useState(0);
   const [navVisible, setNavVisible] = useState(-1);
   const [lock, setLock] = useState(false);
+  const [initial, setInitial] = useState(true);
 
   const nav = useRef(null);
 
@@ -37,6 +38,15 @@ function Navbar({ loco }) {
       },
     });
   }, [lock]);
+
+  useEffect(()=>{
+    if(!load){
+
+      setTimeout(() => {
+        setInitial(false)
+      }, 1500);
+    }
+  },[load])
 
   // useLayoutEffect(()=>{
 
@@ -58,9 +68,9 @@ function Navbar({ loco }) {
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
       animate={
-        navVisible === -1 ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }
+        (navVisible === -1 && !load) ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }
       }
-      transition={{ type: "spring", bounce: 0.4, duration: 1, delay: 0 }}
+      transition={{ type: "spring", bounce: 0.4, duration: initial?1.5:1, delay: initial?1.2:0 }}
       style={montserat.style}
       ref={nav}
       className={` myContainer  h-28 bg-transparent sticky top-0 z-50 text-white   text-xl font-medium flex justify-end items-center`}

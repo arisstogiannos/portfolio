@@ -24,7 +24,7 @@ function ServiceHovered({ services, selectedService }) {
         className={`z-50  pointer-events-none w-1/4 h-full border-solid border-white bg-white grid  grid-rows-3 grid-cols-1  border-[1px] border-l-0  transition-all duration-[0.35s] ease-services relative`}
       >
         <div className="h-full flex items-center justify-between row-start-2 row-end-3 ">
-            <h3 className="w-20 ml-6 text-mblack flex gap-4"><span><span className="font-bold" style={montserat.style}>#</span>{i+1}</span>{title}</h3>
+            <h3 className="w-20 ml-6 text-mblack flex gap-4">{title}</h3>
             <svg
             className={`mr-6 ${selectedService == i ? " animate-mBounce " : ""}  duration-1000`}
             xmlns="http://www.w3.org/2000/svg"

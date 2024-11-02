@@ -4,17 +4,17 @@ import {motion} from 'framer-motion';
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-function ProjectV2({index, title, services ,setCurrProject,currProject,setProjectColor,color,prevProject}) {
+function ProjectV2({index, title, services ,setCurrProject,currProject,setProjectColor,color,prevProject,inprogress,url}) {
   
   return (
-    <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setProjectColor("#00A8B7")}} className={`flex flex-col cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services`}>
+    <div onMouseEnter={()=>{setCurrProject(index);setProjectColor(color)}} onMouseLeave={()=>{setProjectColor("#00A8B7")}} className={`flex flex-col ${inprogress} cursor-pointer ${currProject==index?"opacity-100 ":"opacity-15"} transition-opacity duration-200 ease-services relative`}>
       <div  className={`flex justify-between text-mwhite relative   pointer-events-none my-4 md:my-7`}>
         {/* <p className={`text-sm ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>{year}</p> */}
         <div className={`flex w-[500px] md:w-[600px] lg:w-[500px]  justify-between items-center ${currProject===index?"translate-x-4":"translate-x-0"} transition-transform duration-200 ease-services`}>
           <h3 style={medium.style} className=" text-[14px] xl:text-lg 3xl:text-xl capitalize min-w-68 tracking-wide">
             {title}
           </h3>
-          <p className="capitalize opacity-80 text-[12px] md:text-[18px] xl:text-base 3xl:text-lg mr-16 md:mr-0 xl:mr-2 3xl:mr-0  w-[70px] md:w-fit ">{services}</p>
+          {/* <p className="capitalize opacity-80 text-[12px] md:text-[18px] xl:text-base 3xl:text-lg mr-16 md:mr-0 xl:mr-2 3xl:mr-0  w-[70px] md:w-fit ">{services}</p> */}
         </div>
         <div className="relative size-7 overflow-hidden  ">
           <svg
@@ -47,7 +47,9 @@ function ProjectV2({index, title, services ,setCurrProject,currProject,setProjec
       </div>
       <hr className={`border-mwhite w-full opacity-15 `}  />
       <motion.hr initial={{scaleX:0}} animate={currProject===index?{scaleX:1}:{scaleX:0}} transition={{duration:0.4,ease:"easeInOut"}} className={`border-mwhite w-full origin-left  `}  />
+    <a href={url} target="_blank" className="absolute top-0 left-0 w-full h-full max-xl:hidden"></a>
     </div>
+
   );
 }
 
