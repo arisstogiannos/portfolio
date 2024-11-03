@@ -62,6 +62,7 @@ setLoaded(!inview)
         >
           {(inview && currProject < projects.length && currProject >= 0)  &&
             projects.map((project, index) => (
+              project.src !=="" &&
               <motion.div
                 // initial={{y:-50,opacity:1}}
                 // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
@@ -117,6 +118,8 @@ setLoaded(!inview)
         >
           {(inview && currProject < projects.length && currProject >= 0)  &&
             projects.map((project, index) => (
+
+              project.src !=="" &&
               <motion.div
                 // initial={{y:-50,opacity:1}}
                 // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }

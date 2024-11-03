@@ -2,12 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import MenuButton from "./MenuButton";
-import DropDownFull from "./DropDownFull";
-import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Magnetic from "../globalComponents/Button/Magnetic";
 import Logo from "../globalComponents/Logo";
 import Menu from "./Menu";
 

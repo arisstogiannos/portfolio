@@ -1,10 +1,8 @@
 "use client";
-import TechStack from "@/components/TechStackComponents/TechStack";
 import Navbar from "@/components/navComponents/Navbar";
 import Services from "@/components/servicesComponents/Services";
 import { Montserrat } from "next/font/google";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import HeroL from "@/components/heroComponents/HeroL";
+import { useEffect, useState } from "react";
 import CursorNew from "@/components/globalComponents/CusorNew";
 import Loading from "@/components/globalComponents/Loading";
 import ContactFooter from "@/components/contactComponents/ContactFooter";
@@ -31,6 +29,25 @@ export default function Home() {
   const [animStart, setAnimStart] = useState(false);
   const [loco, setLoco] = useState(null);
   const [modal, setModal] = useState({ active: false, index: -1 });
+
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Check screen width and set isDesktop accordingly
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1280); // 1024px is a common breakpoint for desktop
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
 
   useEffect(() => {
     // window.scrollTo(0,0)
@@ -71,20 +88,18 @@ export default function Home() {
       <Services />
       <ServicesMobile/>
       <AboutV2 loco={loco} />{" "}
-      {/* <Library setCursorScale={setCursorScale} modal={modal} setModal={setModal} /> */}
       <LIbraryV2
         setProjectColor={setProjectColor}
         projectColor={projectColor}
         loco={loco}
         />
-      {/* <TechStack loco={loco} /> */}
       <ContactFooter />
       </div>
-      <CursorNew
+      {isDesktop&&<CursorNew
         cursorScale={cursorScale}
         projectColor={projectColor}
         modal={modal}
-      />
+      />}
       <Footer loco={loco} />
     </main>
   );

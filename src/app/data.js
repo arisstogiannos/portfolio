@@ -43,7 +43,7 @@ export const projects = [
   // },
   {
     title: "Helenas Rooms",
-    src: "MacBook.png",
+    src: "heleanasrooms3.png",
     color: "#FFA800",
     height:216,
     services:"design & development",
@@ -52,7 +52,7 @@ export const projects = [
   },
   {
     title: "chess uom",
-    src: "iPhone.png",
+    src: "iPhone2.png",
     color: "#9861A8",
     height:230,
     services:"design & development",
@@ -62,7 +62,7 @@ export const projects = [
   },
   {
     title: "in progress...",
-    src: "MacBook.png",
+    src: "",
     color: "#FFA800",
     height:216,
     services:"design & development",
@@ -71,7 +71,7 @@ export const projects = [
   },
   {
     title: "in progress...",
-    src: "iPhone.png",
+    src: "",
     color: "#9861A8",
     height:230,
     services:"design & development",
