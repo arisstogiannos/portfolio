@@ -36,7 +36,6 @@ function ServicesMobile() {
   }, [inview]);
 
   useMotionValueEvent(scrollXProgress, "change", (latest) => {
-    console.log("Page scroll: ", latest);
     var dev;
     var des;
     var seo;

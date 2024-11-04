@@ -24,36 +24,37 @@ function Loading({ setLoading, load, setAnimStart }) {
       ).to(".loaderText", {
         y: 0,
 
-        duration: 1, // Adjust the duration for each word's entrance
+        duration: 0.8, // Adjust the duration for each word's entrance
         ease: "circ.out",
-        stagger: 0.1, // Adjust the delay between each word's appearance
 
-      },"-=0.5")
+      },"-=0.4").
+      to(
+        "#welcome",
+        {
+          scale:1,
+          opacity:1,
+          duration: 1, // Adjust the duration for each word's entrance
+        ease: "circ.out",
+        },
+        "<"
+      )
         .to(".loaderText", {
           y: -100,
           delay: 0.5,
-          duration: 1, // Adjust the duration for each word's entrance
+          duration: 0.8, // Adjust the duration for each word's entrance
           ease: "circ.in",
-          // stagger: 0.13, // Adjust the delay between each word's appearance
-        })
-        // to(
-        //   cont.current,
-        //   {
+        }).to(
+          "#welcome",
+          {
+            scale:1.7,
+            opacity:0,
+            delay: 0.5,
+            duration: 1, // Adjust the duration for each word's entrance
+            ease: "circ.inOut",
 
-        //        duration: 0.001, // Adjust the duration for each word's entrance
-        //        zIndex:-1200
-        //      }
-        // ).
-        // .to(
-        //   cont.current,
-        //   {
-
-        //        backgroundColor:'#08090a' ,
-        //        duration: 0.3, // Adjust the duration for each word's entrance
-        //        ease: "none",
-        //        display:'none'
-        //      }
-        // ).
+          },
+          "<"
+        )
         .to(
           ".containerLoader",
           {
@@ -63,34 +64,20 @@ function Loading({ setLoading, load, setAnimStart }) {
 
             duration: 1, // Adjust the duration for each word's entrance
           },
-          "-=0.5"
+          ">-0.7"
         )
         .to(cont.current, {
           display: "none",
         });
-      // .eventCallback("onStart",()=>(setLoading(false)))
-
-      // .then(()=>setLoading(false))
-
-      //   const tl2 = gsap.timeline()
-      // tl2.to(
-      //     ".textcont",
-      //     {
-      //       x: 0,
-      //       ease:'none',
-
-      //       duration: 9, // Adjust the duration for each word's entrance
-
-      //     }
-      //   )
+     
     }, cont);
 
     return () => ctx.revert();
   }, []);
 
   useEffect(() => {
-    setTimeout(() => setAnimStart(true), 3100);
-    setTimeout(() => setLoading(false), 2850);
+    setTimeout(() => setAnimStart(true), 3400);
+    setTimeout(() => setLoading(false), 3250);
     window.scrollTo(0, 0);
   }, []);
   return (
@@ -112,12 +99,12 @@ function Loading({ setLoading, load, setAnimStart }) {
           style={medium.style}
           className="  overflow-hidden inline-flex  mb-auto xl:mr-auto  "
         >
-          <motion.h1 className="text-xl xl:text-2xl text-white loaderText translate-y-[100px] ">
+          <motion.h1 className="text-xl xl:text-4xl text-white loaderText translate-y-[100px] ">
             aris{" "}
           </motion.h1>
         </div>
-        <div style={medium.style} className="  overflow-hidden inline-flex    ">
-          <motion.h1 className="text-3xl xl:text-6xl text-white loaderText translate-y-[100px] ">
+        <div style={medium.style} className="   inline-flex    ">
+          <motion.h1 id="welcome" className="text-3xl xl:text-7xl text-white  scale-50 opacity-0 ">
             welcome{" "}
           </motion.h1>
         </div>
@@ -125,7 +112,7 @@ function Loading({ setLoading, load, setAnimStart }) {
           style={medium.style}
           className="  overflow-hidden inline-flex xl:ml-auto mt-auto "
         >
-          <motion.h1 className="text-xl xl:text-2xl  text-white loaderText translate-y-[100px] ">
+          <motion.h1 className="text-xl xl:text-4xl  text-white loaderText translate-y-[100px] ">
             stogiannos
           </motion.h1>
         </div>

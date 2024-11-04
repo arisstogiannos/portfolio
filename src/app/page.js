@@ -11,6 +11,7 @@ import AboutV2 from "@/components/aboutComponents/AboutV2";
 import Footer from "@/components/globalComponents/Footer";
 import HeroNew from "@/components/heroComponents/HeroNew";
 import ServicesMobile from "@/components/servicesComponents/ServicesMobile";
+import Loader2 from "@/components/globalComponents/Loader2";
 
 const montserat = Montserrat({
   subsets: ["latin"],
@@ -80,7 +81,7 @@ export default function Home() {
   
   <main style={montserat.style} className=" flex flex-col   ">
       
-      <Loading setLoading={setLoad} load={load} setAnimStart={setAnimStart} />
+      <Loader2 setLoading={setLoad} load={load} setAnimStart={setAnimStart} />
       <Navbar loco={loco} load={load} />
       <div className=" overflow-x-hidden">
 
