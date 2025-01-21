@@ -26,8 +26,8 @@ export default function Home() {
   // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
   // const [screenWidth,setScreenwidth]= useState(0)
   // const [servicesScroll,setServicesScroll] = useState(0.0)
-  const [load, setLoad] = useState(true);
-  const [animStart, setAnimStart] = useState(false);
+  const [load, setLoad] = useState(()=> true);
+  const [animStart, setAnimStart] = useState(()=>false);
   const [loco, setLoco] = useState(null);
   const [modal, setModal] = useState({ active: false, index: -1 });
 
@@ -52,6 +52,9 @@ export default function Home() {
 
   useEffect(() => {
     // window.scrollTo(0,0)
+    if(!load){
+
+    
     if(window.innerWidth<1000){
 
       (async () => {
@@ -75,7 +78,8 @@ export default function Home() {
         setLoco(locomotiveScroll);
       })();
     }
-  }, []);
+  }
+  }, [load]);
 
   return  (
   

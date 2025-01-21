@@ -44,7 +44,7 @@ export const projects = [
   {
     title: "Helenas Rooms",
     src: "heleanasrooms3.png",
-    color: "#FFA800",
+    color: "#1AC986",
     height:216,
     services:"design & development",
     inprogress:"",
@@ -53,7 +53,7 @@ export const projects = [
   {
     title: "chess uom",
     src: "iPhone2.png",
-    color: "#9861A8",
+    color: "#FFA800",
     height:230,
     services:"design & development",
     inprogress:"",

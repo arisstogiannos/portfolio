@@ -95,25 +95,18 @@ function Services({ setCursorInServices }) {
 
             <VideoContainer selectedService={selectedService} />
 
-            {selectedService == 0 && (
-              <p
-                style={montserat.style}
-                className="absolute z-[70] right-0 bottom-0 text-lg w-36 h-14 flex items-center justify-center bg-mblack"
-              >
-                Made by me
-              </p>
-            )}
+           
           </div>
         </div>
         <motion.hr
-          animate={inview && { scaleX: 1, translateY: 3 }}
+          animate={inview && { scaleX: 1 }}
           transition={{
             duration: 1.4,
             ease: "circInOut",
             delay: 1,
           }}
-          initial={{ scaleX: 0.01 }}
-          className="max-lg:hidden w-full h-1 translate-y-0 origin-right "
+          initial={{ scaleX: 0.0 }}
+          className="max-lg:hidden w-full h-1  origin-right "
         />
       </div>
       {/* <h1 className="absolute hidden top-[1500px] md:top-[1060px] text-[250px] text-[#008080] filter blur-[20px] font-semibold" style={hanson.style}>SERVICES</h1>
