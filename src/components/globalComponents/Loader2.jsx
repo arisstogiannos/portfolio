@@ -8,23 +8,22 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 function Loader2({ setLoading, load, setAnimStart }) {
   const cont = useRef(null);
   const lettersRef = useRef([]);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.scrollTo(0, 0);
-      console.log("success!")
-       // Disable scrolling
-    document.body.style.overflowY = "hidden";
-    }
-  }, []);
   useLayoutEffect(() => {
+    setTimeout(() => window.scrollTo(0, 0), 200);
+    console.log("hello")
+  }, []);
+  useEffect(() => {
    
 
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
           // Re-enable scrolling after animation finishes
-          document.body.style.overflow = "auto";
+          document.body.style.overflowY = "auto";
         },
+        onStart:()=>{
+          document.body.style.overflowY = "hidden";
+        }
       });
 
       // Ensure loader is visible only when animation starts
