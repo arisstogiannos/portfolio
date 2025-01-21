@@ -8,10 +8,16 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 function Loader2({ setLoading, load, setAnimStart }) {
   const cont = useRef(null);
   const lettersRef = useRef([]);
-
-  useLayoutEffect(() => {
-    // Disable scrolling
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+      console.log("success!")
+       // Disable scrolling
     document.body.style.overflowY = "hidden";
+    }
+  }, []);
+  useLayoutEffect(() => {
+   
 
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -25,7 +31,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
       // gsap.set(cont.current, { visibility: "visible" });
 
       // Loader background animation sequence
-      tl.add(() => window.scrollTo(0, 0)) // Scroll to top immediately
+      tl // Scroll to top immediately
         .to(".containerLoader", {
           width: "100vw",
           duration: 0.4,
