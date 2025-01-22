@@ -3,19 +3,14 @@ import { projects } from "@/app/data";
 import ProjectV2 from "./ProjectV2";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-
-import localfont from "next/font/local";
 import Magnetic from "../globalComponents/Button/Magnetic";
 
 const Scene = dynamic(() => import("./Scene"), {
   ssr: false,
-  // loading: () => <div className="bg-red-500">load</div>, // Loading indicator
 });
 
-const medium = localfont({ src: "../../../fonts/medium.otf" });
 
 function LIbraryV2({ setProjectColor, projectColor }) {
-  
   const [loaded, setLoaded] = useState(false);
   const [currProject, setCurrProject] = useState(0);
   const [prevProject, setPrevProject] = useState(-1);
@@ -28,58 +23,69 @@ function LIbraryV2({ setProjectColor, projectColor }) {
     offset: ["start end", "end center"],
   });
   const pos = useTransform(scrollYProgress, [0, 1], [56, -100]);
-  useEffect(()=>{
-setLoaded(!inview)
-  },[inview])
+  useEffect(() => {
+    setLoaded(!inview);
+  }, [inview]);
 
   return (
-    // <div ref={container} className="myContainer  h-[300vh]  relative">
 
     <section
       ref={container}
       id="library"
-      
       className=" myContainer    flex flex-col md:flex-row items-center justify-between h-screen mt-28  mb-28"
     >
       <div className="flex flex-col w-full lg:w-[40%] 3xl:h-[800px] xl:h-[700px] py-10">
         <p className="scaleCursor  capitalize font-normal text-[20px] md:text-[32px] text-center lg:text-left xl:text-[27px] 3xl:text-4xl mb-auto text-mwhite ">
-          <span className="opacity-80 font-normal">
-          Explore My {" "}
-          </span>
-          <span className="opacity-100 text-mblue font-medium ">Projects</span>{" "}
-          <span className="font-normal opacity-80">
-          - A Collection of  {" "}
-          </span>
-          <span className="opacity-100 font-medium text-mblue">Innovative, Modern </span>{" "}
-          <span className="font-normal opacity-80">
-         Websites
-          </span>
+          <span className="opacity-80 font-normal">Explore My </span>
+          <span className="opacity-100 text-mblue font-medium ">
+            Projects
+          </span>{" "}
+          <span className="font-normal opacity-80">- A Collection of </span>
+          <span className="opacity-100 font-medium text-mblue">
+            Innovative, Modern{" "}
+          </span>{" "}
+          <span className="font-normal opacity-80">Websites</span>
         </p>
         <div className=" relative mt-5 mb-2 lg:-right-5 flex items-center justify-end w-full h-[340px] md:h-[500px] 3xl:w-[850px] 3xl:h-[800px] xl:h-[700px] xl:w-[750px] overflow-y-hidden lg:hidden">
-        <motion.div
-          style={{ top: currProject * 100 + "%" }}
-          className="relative  transition-all ease-out duration-500 w-full h-full  "
+          <motion.div
+            style={{ top: currProject * 100 + "%" }}
+            className="relative  transition-all ease-out duration-500 w-full h-full  "
+          >
+            {inview &&
+              currProject < projects.length &&
+              currProject >= 0 &&
+              projects.map(
+                (project, index) =>
+                  project.src !== "" && (
+                    <motion.div
+                      key={index}
+                      style={{ top: index * -100 + "%" }}
+                      className={`   absolute   top-0 right-0  w-full h-full`}
+                    >
+                      <Scene
+                        key={index}
+                        imagesrc={project.src}
+                        setLoaded={setLoaded}
+                      />
+                    </motion.div>
+                  )
+              )}
+          </motion.div>
+          {!loaded && (
+            <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center ">
+              <div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div>
+            </div>
+          )}
+        </div>
+        <a
+          className=" border-mblue border-2 lg:hidden text-mblue uppercase text-center py-2 rounded-full my-4"
+          href={projects.at(currProject).url}
+          target="_blank"
         >
-          {(inview && currProject < projects.length && currProject >= 0)  &&
-            projects.map((project, index) => (
-              project.src !=="" &&
-              <motion.div
-                // initial={{y:-50,opacity:1}}
-                // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
-                // transition={{duration:0.2,ease:"easeOut"}}
-                key={index}
-                style={{ top: index * -100 + "%" }}
-                className={`   absolute   top-0 right-0  w-full h-full`}
-              >
-                <Scene key={index} imagesrc={project.src} setLoaded={setLoaded} />
-              </motion.div>
-            ))}
-        </motion.div>
-            {(!loaded) && <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center "><div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div></div>}
-      </div>
-      <a className=" border-mblue border-2 lg:hidden text-mblue uppercase text-center py-2 rounded-full my-4" href={projects.at(currProject).url} target="_blank" >visit website</a>
-      <div className="relative xl:mb-28 3xl:mb-32 ml-auto 3xl:mt-36 mt-20  h-40 w-80 lg:block hidden ">
-      <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
+          visit website
+        </a>
+        <div className="relative xl:mb-28 3xl:mb-32 ml-auto 3xl:mt-36 mt-20  h-40 w-80 lg:block hidden ">
+          <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
             <motion.div
               style={{ right: pos }}
@@ -95,7 +101,7 @@ setLoaded(!inview)
         <div className=" flex flex-col justify-center   w-full">
           {projects.map((project, index) => (
             <ProjectV2
-            url={project.url}
+              url={project.url}
               key={index}
               title={project.title}
               services={project.services}
@@ -116,29 +122,35 @@ setLoaded(!inview)
           style={{ top: currProject * 100 + "%" }}
           className="relative  transition-all ease-out duration-500 w-full h-full  "
         >
-          {(inview && currProject < projects.length && currProject >= 0)  &&
-            projects.map((project, index) => (
-
-              project.src !=="" &&
-              <motion.div
-                // initial={{y:-50,opacity:1}}
-                // animate={currProject === index ? {opacity:1,y:0}  : {opacity:1,y:-50} }
-                // transition={{duration:0.2,ease:"easeOut"}}
-                key={index}
-                style={{ top: index * -100 + "%" }}
-                className={`   absolute   top-0 right-0  w-full h-full`}
-              >
-                <Scene key={index} imagesrc={project.src} setLoaded={setLoaded} />
-              </motion.div>
-            ))}
+          {inview &&
+            currProject < projects.length &&
+            currProject >= 0 &&
+            projects.map(
+              (project, index) =>
+                project.src !== "" && (
+                  <motion.div
+                    key={index}
+                    style={{ top: index * -100 + "%" }}
+                    className={`   absolute   top-0 right-0  w-full h-full`}
+                  >
+                    <Scene
+                      key={index}
+                      imagesrc={project.src}
+                      setLoaded={setLoaded}
+                    />
+                  </motion.div>
+                )
+            )}
         </motion.div>
-            {(!loaded) && <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center "><div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div></div>}
+        {!loaded && (
+          <div className="bg-mblack h-full w-full absolute top-0 left-0 text-mwhite text-lg flex justify-center items-center ">
+            <div className=" rounded-full  size-28 animate-spin  border-t-4 border-mblue"></div>
+          </div>
+        )}
       </div>
     </section>
-    //{" "}
-    // </div>
+
   );
 }
-
 
 export default LIbraryV2;

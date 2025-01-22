@@ -3,29 +3,22 @@ import CircleText from "@/components/servicesComponents/CircleText";
 import { servicelist } from "../../../src/app/data.js";
 import Service from "@/components/servicesComponents/Service";
 import ServiceHovered from "@/components/servicesComponents/ServiceHovered";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import localfont from "next/font/local";
 import { motion, useInView } from "framer-motion";
-import { Montserrat } from "next/font/google";
 import VideoContainer from "./VideoContainer.jsx";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
-const montserat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
-function Services({ setCursorInServices }) {
+
+function Services() {
   const [selectedService, setSelectedService] = useState(null);
+  
   const section = useRef(null);
+
   const inview = useInView(section, { amount: 0.5 });
+  const startVideoLoading = useInView(section, { amount: 0.2, once:true });
 
-  //  const { scrollYProgress } = useScroll({
-  //   target: section,
-  //   offset: ["center end", "end end"],
-
-  // });
-  //useMotionValueEvent(scrollYProgress,'change',(latest)=>(setServicesScrollProgress(latest)))
 
   return (
     <section
@@ -93,7 +86,7 @@ function Services({ setCursorInServices }) {
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText inview={inview} />
               {(selectedService>-1 && selectedService !==null) && <div className="bg-mblack w-full h-full absolute"></div>}
-            {inview && <VideoContainer selectedService={selectedService} />}
+            {startVideoLoading && <VideoContainer selectedService={selectedService} />}
 
            
           </div>

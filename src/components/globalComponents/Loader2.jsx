@@ -8,10 +8,10 @@ const medium = localfont({ src: "../../../fonts/medium.otf" });
 function Loader2({ setLoading, load, setAnimStart }) {
   const cont = useRef(null);
   const lettersRef = useRef([]);
-  useLayoutEffect(() => {
-    setTimeout(() => window.scrollTo(0, 0), 200);
-    console.log("hello")
-  }, []);
+  // useLayoutEffect(() => {
+    
+  //   console.log("hello")
+  // }, []);
   useEffect(() => {
    
 
@@ -23,6 +23,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
         },
         onStart:()=>{
           document.body.style.overflowY = "hidden";
+          setTimeout(() => window.scrollTo(0, 0), 1200);
         }
       });
 
@@ -36,7 +37,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
           duration: 0.4,
           ease: "circ.inOut",
           transformOrigin: "right"
-        }).set(cont.current, { zIndex: -1100 })
+        })
         .to(".containerLoader", {
           height: "30vh",
           duration: 0.4,
@@ -59,7 +60,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
           duration: 0.3,
           ease: "circ.out",
           delay: 0,
-        })
+        }).set(cont.current, { zIndex: -1100 })
         .to(".containerLoader", {
           height: "100vh",
           duration: 0.8,

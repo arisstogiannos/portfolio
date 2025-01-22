@@ -9,7 +9,6 @@ export default function Model({ scrollProgress, imagesrc,setLoaded }) {
   const [img,setImg] = useState( imagesrc)
   var texture = useTexture(`/libraryImages/${img}`);
   const { width, height } = texture.image;
-  const { viewport } = useThree();
   const scale = useAspect(width, height, 0.3);
 
   const amplitude = 0.2;
@@ -49,8 +48,7 @@ export default function Model({ scrollProgress, imagesrc,setLoaded }) {
       aspectRatio / scaleRatio
     );
 
-    //animate wave based on progress of the scroll
-    // const modifiedAmplitude = transform(scrollProgress.get(), [0, 1], [amplitude, 0])
+ 
 
     image.current.material.uniforms.uTime.value += 0.02;
     image.current.material.uniforms.uAmplitude.value = amplitude;
