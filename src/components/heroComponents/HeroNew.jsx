@@ -88,7 +88,7 @@ function HeroNew({ loco, load, animStart }) {
         className=" w-full h-[180px] md:h-[250px] lg:h-[300px] xl:h-[400px] relative"
       >
         <motion.video
-          src="Mountains (1).mp4"
+          src="Mountains.webm"
           loop
           autoPlay
           muted

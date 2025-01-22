@@ -92,8 +92,8 @@ function Services({ setCursorInServices }) {
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText inview={inview} />
-
-            <VideoContainer selectedService={selectedService} />
+              {(selectedService>-1 && selectedService !==null) && <div className="bg-mblack w-full h-full absolute"></div>}
+            {inview && <VideoContainer selectedService={selectedService} />}
 
            
           </div>
