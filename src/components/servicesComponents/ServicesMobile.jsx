@@ -109,7 +109,7 @@ function ServicesMobile() {
                   playsInline
                   onCanPlay={() => handleVideoLoaded(index)}
                 />
-                {!videoLoaded[index] && <div className="w-[340px] h-[424px] mx-auto mt-2 flex justify-center items-center"><div className=" rounded-full  size-20 animate-spin  border-t-4 border-mblue"></div></div>}
+                {!videoLoaded[index] && <div className="w-[75vw] h-[93.3vw] mx-auto mt-2 flex justify-center items-center"><div className=" rounded-full  size-20 animate-spin  border-t-4 border-mblue"></div></div>}
 
                 {/* <hr className="w-full border-t border-t-mwhite" /> */}
                 <h3
