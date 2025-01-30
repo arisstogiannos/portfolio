@@ -29,7 +29,8 @@ function Loader2({ setLoading, load, setAnimStart }) {
       // gsap.set(cont.current, { visibility: "visible" });
 
       // Loader background animation sequence
-      tl.to(".containerLoader", { // Scroll to top immediately
+      tl.to(".containerLoader", {
+        // Scroll to top immediately
         width: "100vw",
         duration: 0.4,
         ease: "circ.inOut",
@@ -94,7 +95,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
         style={medium.style}
         className="containerLoader flex flex-col justify-center items-center w-0 h-[1vh] bg-mblack"
       >
-        <h1
+        <p
           id="name"
           className="text-3xl xsm:text-4xl md:text-6xl xl:text-7xl text-mwhite flex flex-col items-center sm:flex-row"
         >
@@ -120,7 +121,7 @@ function Loader2({ setLoading, load, setAnimStart }) {
               </span>
             ))}
           </span>
-        </h1>
+        </p>
       </div>
     </div>
   );

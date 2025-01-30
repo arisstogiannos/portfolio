@@ -29,7 +29,7 @@ function ServicesMobile() {
   const inview = useInView(container, { amount: 0.5 });
 
   useEffect(() => {
-    if (inview ) {
+    if (inview) {
       var des = document.getElementById("Design");
       des.play();
       des.currentTime = 0;
@@ -41,19 +41,19 @@ function ServicesMobile() {
     var des;
     var seo;
     if (inview) {
-      if (latest > 0.9 ) {
+      if (latest > 0.9) {
         seo = document.getElementById("SEO");
         seo.play();
         seo.currentTime = 0;
         setCurrService("-top-12");
         setCurrServiceTime(10);
-      } else if (latest > 0.45 ) {
+      } else if (latest > 0.45) {
         dev = document.getElementById("Development");
         dev.play();
         dev.currentTime = 0;
         setCurrService("-top-6");
         setCurrServiceTime(17);
-      } else if (latest >= 0 ) {
+      } else if (latest >= 0) {
         des = document.getElementById("Design");
         des.play();
         des.currentTime = 0;
@@ -76,12 +76,12 @@ function ServicesMobile() {
 
   return (
     <>
-      <h1
+      <h2
         style={medium.style}
         className="servicesSection text-4xl text-white  mr-auto flex gap-14 scaleCursor mb-16 mt-24 ml-9 lg:hidden"
       >
         the <br /> process
-      </h1>
+      </h2>
       <section
         id="services"
         ref={container}
@@ -104,12 +104,18 @@ function ServicesMobile() {
                   src={src}
                   width={"340px"}
                   height={"424px"}
-                  className={` mx-auto mt-2 ${!videoLoaded[index] && 'hidden'}  `}
+                  className={` mx-auto mt-2 ${
+                    !videoLoaded[index] && "hidden"
+                  }  `}
                   muted
                   playsInline
                   onCanPlay={() => handleVideoLoaded(index)}
                 />
-                {!videoLoaded[index] && <div className="w-[75vw] h-[93.3vw] mx-auto mt-2 flex justify-center items-center"><div className=" rounded-full  size-20 animate-spin  border-t-4 border-mblue"></div></div>}
+                {!videoLoaded[index] && (
+                  <div className="w-[75vw] h-[93.3vw] mx-auto mt-2 flex justify-center items-center">
+                    <div className=" rounded-full  size-20 animate-spin  border-t-4 border-mblue"></div>
+                  </div>
+                )}
 
                 {/* <hr className="w-full border-t border-t-mwhite" /> */}
                 <h3

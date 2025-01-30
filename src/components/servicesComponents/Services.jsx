@@ -10,15 +10,13 @@ import VideoContainer from "./VideoContainer.jsx";
 
 const medium = localfont({ src: "../../../fonts/medium.otf" });
 
-
 function Services() {
   const [selectedService, setSelectedService] = useState(null);
-  
+
   const section = useRef(null);
 
   const inview = useInView(section, { amount: 0.5 });
-  const startVideoLoading = useInView(section, { amount: 0.2, once:true });
-
+  const startVideoLoading = useInView(section, { amount: 0.2, once: true });
 
   return (
     <section
@@ -27,7 +25,7 @@ function Services() {
       style={medium.style}
       className=" myContainer  items-center pt-20 overflow-hidden bg-transparent my-52 hidden lg:flex flex-col servicesSection"
     >
-      <h1 className="text-6xl text-white mb-24 ml-auto overflow-hidden gap-14 scaleCursor inline-flex">
+      <h2 className="text-6xl text-white mb-24 ml-auto overflow-hidden gap-14 scaleCursor inline-flex">
         <motion.svg
           initial={{ y: -100, x: 100 }}
           animate={inview && { y: 0, x: 0 }}
@@ -53,7 +51,7 @@ function Services() {
         >
           the process
         </motion.span>
-      </h1>
+      </h2>
       <div className="w-full flex flex-col items-start justify-start  text-white ">
         <motion.hr
           animate={inview && { scaleX: 1, translateY: 3 }}
@@ -78,17 +76,20 @@ function Services() {
           />
 
           <div
-            
             id="videoPlayer"
-            className={`w-1/4 h-full transition-opacity delay-1000 duration-[3s] ${inview?'opacity-100':'opacity-0'}  hidden lg:flex items-center   justify-center z-10 relative `}
+            className={`w-1/4 h-full transition-opacity delay-1000 duration-[3s] ${
+              inview ? "opacity-100" : "opacity-0"
+            }  hidden lg:flex items-center   justify-center z-10 relative `}
           >
             {/* <div className="h-10 w-10 rounded-full bg-[#008080] absolute filter blur-md"></div>
               <div className="h-20 w-20 rounded-full bg-[#008080] absolute filter blur-xl"></div> */}
             <CircleText inview={inview} />
-              {(selectedService>-1 && selectedService !==null) && <div className="bg-mblack w-full h-full absolute"></div>}
-            {startVideoLoading && <VideoContainer selectedService={selectedService} />}
-
-           
+            {selectedService > -1 && selectedService !== null && (
+              <div className="bg-mblack w-full h-full absolute"></div>
+            )}
+            {startVideoLoading && (
+              <VideoContainer selectedService={selectedService} />
+            )}
           </div>
         </div>
         <motion.hr
