@@ -9,7 +9,6 @@ const Scene = dynamic(() => import("./Scene"), {
   ssr: false,
 });
 
-
 function LIbraryV2({ setProjectColor, projectColor }) {
   const [loaded, setLoaded] = useState(false);
   const [currProject, setCurrProject] = useState(0);
@@ -28,7 +27,6 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   }, [inview]);
 
   return (
-
     <section
       ref={container}
       id="library"
@@ -84,7 +82,7 @@ function LIbraryV2({ setProjectColor, projectColor }) {
         >
           visit website
         </a>
-        <div className="relative xl:mb-28 3xl:mb-32 ml-auto 3xl:mt-36 mt-20  h-40 w-80 lg:block hidden ">
+        {/* <div className="relative xl:mb-28 3xl:mb-32 ml-auto 3xl:mt-36 mt-20  h-40 w-80 lg:block hidden ">
           <hr className="  w-80 absolute left-16 bottom-0 translate-y-1/2" />
           <Magnetic>
             <motion.div
@@ -97,7 +95,7 @@ function LIbraryV2({ setProjectColor, projectColor }) {
               </p>
             </motion.div>
           </Magnetic>
-        </div>
+        </div> */}
         <div className=" flex flex-col justify-center   w-full">
           {projects.map((project, index) => (
             <ProjectV2
@@ -149,7 +147,6 @@ function LIbraryV2({ setProjectColor, projectColor }) {
         )}
       </div>
     </section>
-
   );
 }
 

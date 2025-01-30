@@ -1,16 +1,14 @@
-'use client'
+"use client";
 import { Montserrat } from "next/font/google";
-import React, { useEffect } from "react";
+import React from "react";
 import Magnetic from "../globalComponents/Button/Magnetic";
-import { delay, easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const montserat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 function HeroNew({ loco, load, animStart }) {
-
-
   const slideUpButton = {
     open: {
       x: "0%",
@@ -201,7 +199,6 @@ function HeroNew({ loco, load, animStart }) {
           <Magnetic>
             <motion.div
               onClick={() => {
-               
                 loco.scrollTo("#contact", { duration: 2 });
               }}
               variants={slideUpButton2}
@@ -218,8 +215,12 @@ function HeroNew({ loco, load, animStart }) {
           <Magnetic>
             <motion.div
               onClick={() => {
-                const serviceSection = document.querySelectorAll('.servicesSection')
-                loco.scrollTo(serviceSection[window.innerWidth>1024?0:1], { duration: 2 });
+                const serviceSection =
+                  document.querySelectorAll(".servicesSection");
+                loco.scrollTo(
+                  serviceSection[window.innerWidth > 1024 ? 0 : 1],
+                  { duration: 2 }
+                );
               }}
               variants={slideUpButton}
               initial={"closed"}
@@ -251,7 +252,7 @@ function HeroNew({ loco, load, animStart }) {
           !load && {
             scale: 1,
             opacity: 1,
-            transition: {delay:0.3, duration: 4, ease: "circInOut" },
+            transition: { delay: 0.3, duration: 4, ease: "circInOut" },
           }
         }
         className=" size-[270px] absolute lg:hidden top-2/3 left-0 gradient blur-3xl rounded-full -z-[900] -translate-y-1/3 -translate-x-2/3"
@@ -266,7 +267,7 @@ function HeroNew({ loco, load, animStart }) {
           !load && {
             scale: 1,
             opacity: 1,
-            transition: {delay:0.3, duration: 4, ease: "circInOut" },
+            transition: { delay: 0.3, duration: 4, ease: "circInOut" },
           }
         }
         className=" size-[270px] lg:hidden absolute top-[80%] left-[110%] gradient2 blur-3xl rounded-full -z-[900] -translate-x-1/2"

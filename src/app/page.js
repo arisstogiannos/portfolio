@@ -18,6 +18,8 @@ const montserat = Montserrat({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+
+
 export default function Home() {
   const [cursorScale, setCursorScale] = useState(false);
   const [projectColor, setProjectColor] = useState("#00A8B7");
@@ -26,8 +28,8 @@ export default function Home() {
   // const [cursorInTechStack, setCursorInTechStack] = useState(-1);
   // const [screenWidth,setScreenwidth]= useState(0)
   // const [servicesScroll,setServicesScroll] = useState(0.0)
-  const [load, setLoad] = useState(()=> true);
-  const [animStart, setAnimStart] = useState(()=>false);
+  const [load, setLoad] = useState(() => true);
+  const [animStart, setAnimStart] = useState(() => false);
   const [loco, setLoco] = useState(null);
   const [modal, setModal] = useState({ active: false, index: -1 });
 
@@ -52,56 +54,56 @@ export default function Home() {
 
   useEffect(() => {
     // window.scrollTo(0,0)
-    if(!load){
+    if (!load) {
 
-    
-    if(window.innerWidth<1000){
 
-      (async () => {
-        const LocomotiveScroll = (await import("locomotive-scroll")).default;
-        const locomotiveScroll = new LocomotiveScroll({
-          smooth: true,
-          lenisOptions:{smoothWheel:true,smoothTouch:false,},
-          
-        });
-        setLoco(locomotiveScroll);
-      })();
-    }else{
+      if (window.innerWidth < 1000) {
 
-      (async () => {
-        const LocomotiveScroll = (await import("locomotive-scroll")).default;
-        const locomotiveScroll = new LocomotiveScroll({
-          smooth: true,
-          lenisOptions:{smoothWheel:true,smoothTouch:true,duration:1.7},
-          
-        });
-        setLoco(locomotiveScroll);
-      })();
+        (async () => {
+          const LocomotiveScroll = (await import("locomotive-scroll")).default;
+          const locomotiveScroll = new LocomotiveScroll({
+            smooth: true,
+            lenisOptions: { smoothWheel: true, smoothTouch: false, },
+
+          });
+          setLoco(locomotiveScroll);
+        })();
+      } else {
+
+        (async () => {
+          const LocomotiveScroll = (await import("locomotive-scroll")).default;
+          const locomotiveScroll = new LocomotiveScroll({
+            smooth: true,
+            lenisOptions: { smoothWheel: true, smoothTouch: true, duration: 1.7 },
+
+          });
+          setLoco(locomotiveScroll);
+        })();
+      }
     }
-  }
-  
+
   }, [load]);
 
-  return  (
-  
-  <main style={montserat.style} className=" flex flex-col   ">
-      
+  return (
+
+    <main style={montserat.style} className=" flex flex-col   ">
+
       <Loader2 setLoading={setLoad} load={load} setAnimStart={setAnimStart} />
       <Navbar loco={loco} load={load} />
       <div className=" overflow-x-hidden">
 
-      <HeroNew loco={loco} load={load} animStart={animStart} />
-      <Services />
-      <ServicesMobile/>
-      <AboutV2 loco={loco} />{" "}
-      <LIbraryV2
-        setProjectColor={setProjectColor}
-        projectColor={projectColor}
-        loco={loco}
+        <HeroNew loco={loco} load={load} animStart={animStart} />
+        <Services />
+        <ServicesMobile />
+        <AboutV2 loco={loco} />{" "}
+        <LIbraryV2
+          setProjectColor={setProjectColor}
+          projectColor={projectColor}
+          loco={loco}
         />
-      <ContactFooter />
+        <ContactFooter />
       </div>
-      {isDesktop&&<CursorNew
+      {isDesktop && <CursorNew
         cursorScale={cursorScale}
         projectColor={projectColor}
         modal={modal}

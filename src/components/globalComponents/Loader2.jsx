@@ -9,41 +9,42 @@ function Loader2({ setLoading, load, setAnimStart }) {
   const cont = useRef(null);
   const lettersRef = useRef([]);
   // useLayoutEffect(() => {
-    
+
   //   console.log("hello")
   // }, []);
   useEffect(() => {
-   
-
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
           // Re-enable scrolling after animation finishes
           document.body.style.overflowY = "auto";
         },
-        onStart:()=>{
+        onStart: () => {
           document.body.style.overflowY = "hidden";
           setTimeout(() => window.scrollTo(0, 0), 1200);
-        }
+        },
       });
 
       // Ensure loader is visible only when animation starts
       // gsap.set(cont.current, { visibility: "visible" });
 
       // Loader background animation sequence
-      tl // Scroll to top immediately
-        .to(".containerLoader", {
-          width: "100vw",
-          duration: 0.4,
-          ease: "circ.inOut",
-          transformOrigin: "right"
-        })
-        .to(".containerLoader", {
-          height: "30vh",
-          duration: 0.4,
-          ease: "circ.inOut",
-          transformOrigin: "center"
-        }, ">")
+      tl.to(".containerLoader", { // Scroll to top immediately
+        width: "100vw",
+        duration: 0.4,
+        ease: "circ.inOut",
+        transformOrigin: "right",
+      })
+        .to(
+          ".containerLoader",
+          {
+            height: "30vh",
+            duration: 0.4,
+            ease: "circ.inOut",
+            transformOrigin: "center",
+          },
+          ">"
+        )
         .to(
           lettersRef.current,
           {
@@ -52,7 +53,8 @@ function Loader2({ setLoading, load, setAnimStart }) {
             duration: 0.6,
             stagger: 0.07, // Stagger animation start for each letter
             ease: "circ.out",
-          }, ">"
+          },
+          ">"
         )
         .to(lettersRef.current, {
           x: -60,
@@ -60,12 +62,13 @@ function Loader2({ setLoading, load, setAnimStart }) {
           duration: 0.3,
           ease: "circ.out",
           delay: 0,
-        }).set(cont.current, { zIndex: -1100 })
+        })
+        .set(cont.current, { zIndex: -1100 })
         .to(".containerLoader", {
           height: "100vh",
           duration: 0.8,
           ease: "circ.inOut",
-          transformOrigin: "center"
+          transformOrigin: "center",
         })
         .to(cont.current, {
           display: "none",
@@ -76,7 +79,6 @@ function Loader2({ setLoading, load, setAnimStart }) {
         .add(() => {
           setLoading(false);
         }, "-=0.8");
-
     }, cont);
 
     return () => ctx.revert();
@@ -85,14 +87,17 @@ function Loader2({ setLoading, load, setAnimStart }) {
   return (
     <div
       ref={cont}
-      style={{ zIndex:1100 }} // Initially hidden to prevent flash
+      style={{ zIndex: 1100 }} // Initially hidden to prevent flash
       className="bg-mwhite w-svw h-svh fixed top-0 left-0 flex items-center justify-end overflow-hidden "
     >
       <div
         style={medium.style}
         className="containerLoader flex flex-col justify-center items-center w-0 h-[1vh] bg-mblack"
       >
-        <h1 id="name" className="text-3xl xsm:text-4xl md:text-6xl xl:text-7xl text-mwhite flex flex-col items-center sm:flex-row">
+        <h1
+          id="name"
+          className="text-3xl xsm:text-4xl md:text-6xl xl:text-7xl text-mwhite flex flex-col items-center sm:flex-row"
+        >
           <span className="inline-flex overflow-hidden">
             {"aris".split("").map((letter, letterIndex) => (
               <span
