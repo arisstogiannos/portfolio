@@ -2,7 +2,7 @@ import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
-  title: "Aris Stogiannos",
+  title: "Aris Stogiannos Development",
   description: "I design and develop high-quality websites and web apps tailored to your brand. Let's create something amazing together.",
 
 };
