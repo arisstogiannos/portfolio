@@ -1,5 +1,4 @@
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: "Aris Stogiannos | Web Design & Development",
@@ -12,7 +11,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className='overflow-x-hidden   bg-mblack '>
         {children}
-        <SpeedInsights />
 
       </body>
     </html>

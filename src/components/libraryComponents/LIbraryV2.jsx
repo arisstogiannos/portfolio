@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { projects } from "@/app/data";
 import ProjectV2 from "./ProjectV2";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll } from "framer-motion";
 import dynamic from "next/dynamic";
-import Magnetic from "../globalComponents/Button/Magnetic";
 
 const Scene = dynamic(() => import("./Scene"), {
   ssr: false,
@@ -17,11 +16,11 @@ function LIbraryV2({ setProjectColor, projectColor }) {
   // const { scrollYProgress } = useScroll({
 
   const inview = useInView(container, { amount: 0.05 });
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end center"],
-  });
-  const pos = useTransform(scrollYProgress, [0, 1], [56, -100]);
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start end", "end center"],
+  // });
+  // const pos = useTransform(scrollYProgress, [0, 1], [56, -100]);
   useEffect(() => {
     setLoaded(!inview);
   }, [inview]);
