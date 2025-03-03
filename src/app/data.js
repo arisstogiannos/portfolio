@@ -33,15 +33,7 @@ export const projects = [
   //   height:216,
   //   services:"design & development"
   // },
-  {
-    title: "Coffeeshop",
-    src: "onlineOrder.png",
-    color: "#735045",
-    height:230,
-    services:"design & development",
-    url:'https://coffeeshop-online-order.vercel.app/'
-
-  },
+ 
   {
     title: "Helenas Rooms",
     src: "heleanasrooms3.webp",
@@ -50,6 +42,15 @@ export const projects = [
     services:"design & development",
     inprogress:"",
     url:'https://heleanas-rooms.vercel.app/'
+  },
+  {
+    title: "Coffeeshop",
+    src: "onlineOrder.png",
+    color: "#735045",
+    height:230,
+    services:"design & development",
+    url:'https://coffeeshop-online-order.vercel.app/'
+
   },
   {
     title: "chess uom",
