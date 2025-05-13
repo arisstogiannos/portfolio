@@ -63,13 +63,13 @@ export const projects = [
 
   },
   {
-    title: "in progress...",
-    src: "",
-    color: "#FFA800",
+    title: "Scanby",
+    src: "scanby.png",
+    color: "#4E02E6",
     height:216,
     services:"design & development",
-    inprogress:"pointer-events-none",
-    url:''
+    inprogress:"",
+    url:'https://www.scanby.cloud/'
   },
   {
     title: "in progress...",
